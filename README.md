@@ -18,7 +18,9 @@ View:  	  	mainPageView								Require:	index.html
 Controller:	Router::routes:
 			/   :   mainPageView
 			/id:  messageDetailView(id)
-			/{bullshit-searchkey-encoded-url} :   helpSearchResultView |  askSearchResultView  |  infoSearchResultView
+			/help/*UrlEcodedSearchKey 	:   helpSearchResultView
+			/ask/*UrlEcodedSearchKey	:	askSearchResultView 
+			/info/*UrlEcodedSearchKey	:   infoSearchResultView
 			no routes for modal windows
 
 API usage:																		Request Type
