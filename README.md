@@ -16,8 +16,8 @@ View:  	  	mainPageView								Require:	index.html
 			locationPickView		[modal window]					locationPickTemplate.html 	 [can be replaced by pure js]
 
 Controller:	Router::routes:
-			/   :   mainPageView
-			/id:  messageDetailView(id)
+			""   						:   mainPageView
+			/:id 						:   messageDetailView(id)
 			/help/*UrlEcodedSearchKey 	:   helpSearchResultView
 			/ask/*UrlEcodedSearchKey	:	askSearchResultView 
 			/info/*UrlEcodedSearchKey	:   infoSearchResultView
