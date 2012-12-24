@@ -6,13 +6,14 @@ the heavy front end of the badstudent
 Model:	  	Message  &  Collection: Messages
 
 View:  	  	mainPageView								Require:	index.html
-			helpSearchResultView									resultsTemplate.html
-			askSearchResultView										same
-			infoSearchResultView									same
+			helpSearchResultView									resultsTemplate.html 		 [part of DOM can be injected into js]
+			askSearchResultView										same 						 [part of DOM can be injected into js]
+			infoSearchResultView									same 						 [part of DOM can be injected into js]
 			messageDetailView										detailTemplate.html        
 			messageEditView  	    [modal window]					editTemplate.html			 [can be replaced by pure js]
 			registerView			[modal window]					registerTemplate.html		 [can be replaced by pure js]
 			enterInfoSearchView		[modal window]					infoSearchTemplate.html		 [can be replaced by pure js]
+			locationPickView		[modal window]					locationPickTemplate.html 	 [can be replaced by pure js]
 
 Controller:	Router::routes:
 			/   :   mainPageView

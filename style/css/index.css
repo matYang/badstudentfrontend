@@ -1,39 +1,39 @@
-#full-width {
-	
-}
 
 #body {
 	
 }
 
+#main-full-width {
+	
+}
 
 /* Selection Part */
 
-#selection {
+#main-selection {
 	
 	
 }
 
 /* Left Box Selection */
 
-#left-box {
+#main-left-box {
 	
 }
 
-.left.box {
+.main-input-box {
 	
 }				
 	
 
-#city {
+#main-city {
 	
 }
 
-#university {
+#main-university {
 	
 }
 
-#date {
+#main-date {
 	
 }
 
@@ -41,79 +41,96 @@
 
 /* Right Side Box Selection				 */
 
-#right-side {
+#main-right-box {
 	
 }	
 
-.botton {
+.main-botton {
 	
 }	
 
-#help-me-word {
+#main-help-me-find {
+
+}
+
+#main-help-me-word {
 	`
 }
 
-#help-me-icon {
+#main-help-me-icon {
 	background-image: ;
 	background-repeat: no-repeat;
 	position: relative;	
-}					
+}		
 
-.subtitle {
+#main-help-others {
 	
 }
 
-.subtitle:hover {
+#main-help-others-word {
+
+}
+
+#main-help-others-icon {
+	background-image: ;
+	background-repeat: no-repeat;
+	position: relative;	
+}
+
+
+.main-subtitle {
 	
 }
 
-#help-others {
+.main-subtitle:hover {
 	
 }
 
-#find-info {
+
+#main-find-info {
 
 }
 
 
 /* end of Right Side Box Selection 			 */
 
-#left-selected {
+#main-selected {
+
+}
+
+
+#main-left-selected {
 	
 }
 
-#recent {
+#main-recent {
 	font-family: ;
 	font-size: ;
 }
 
-.info {
+.main-info {
 	
 }
 
-.info:hover {
+.main-info:hover {
 	
 }
 
 
-#info {
+#main-info {
 	
 }
-
-#more {
-	
-}	
-
-#more:hover{
-	
-}		
 
 /* End of selected of left side */
+
+#main-right-selected {
+	
+}
 
 /* right side selected */
 
 
 
-#downward {
+#main-downward {
 	
 }
