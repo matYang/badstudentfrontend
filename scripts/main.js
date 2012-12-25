@@ -17,27 +17,7 @@ var AppRouter = Backbone.Router.extend({
     },
 
     main:function(){
-
-    },
-
-    viewById:function(id){
-
-    },
-
-    helpSearch:function(encodedKey){
-
-    },
-
-    askSearch:function(encodedKey){
-
-    },
-
-    infoSearch:function(encodedKey){
-
-    },
- 
-    list:function () {
-        this.wineList = new WineCollection();
+    	this.wineList = new WineCollection();
         var self = this;
         this.wineList.fetch({
             success:function () {
@@ -47,47 +27,27 @@ var AppRouter = Backbone.Router.extend({
             }
         });
     },
- 
-    wineDetails:function (id) {
-        if (this.wineList) {
-            this.wine = this.wineList.get(id);
-            if (this.wineView) this.wineView.close();
-            this.wineView = new WineView({model:this.wine});
-            $('#content').html(this.wineView.render().el);
-        } else {
-            this.requestedId = id;
-            this.list();
-        }
+
+    viewById:function(id){
+    	//TODO message detail view here
+    },
+
+    helpSearch:function(encodedKey){
+    	//TODO, decode the encoded key and check for helpSearch
+    },
+
+    askSearch:function(encodedKey){
+    	//TODO, decode the encoded key and check for askSearch
+    },
+
+    infoSearch:function(encodedKey){
+    	//TODO, decode the encoded key and check for infoSearch
     },
  
-    newWine:function () {
-        if (app.wineView) app.wineView.close();
-        app.wineView = new WineView({model:new Wine()});
-        $('#content').html(app.wineView.render().el);
-    }
+
  
 });
 
-function main(user){
-	
+app = new AppRouter();
+Backbone.history.start();
 
-	console.log("start fetching"); 
-	messages.fetch({
-		
-		dataType:'json',
-		
-        success: function (model, response) {
-            console.log("fetch success"); 
-            console.log(response);
-            mainInit();
-        },
-        
-		error: function(model, response){
-			console.log("fetch failed");
-			console.log(response);
-			alert("failed to fetch data from server");
-		}
-    });
-
-	
-}
