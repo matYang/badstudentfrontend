@@ -1,5 +1,8 @@
-var messages = new Messages();
-window miliSecInDay =  86400000;
+
+var miliSecInDay =  86400000;
+var infoUrlOverride = "http://localhost:8015/api/badstudent/v0.9/messages";
+var recentsUrlOverride = "http://localhost:8015/api/badstudent/v0.9/recentsSearch";
+var primaryUrlOverride = "http://localhost:8015/primarySearch";
 
 
 var AppRouter = Backbone.Router.extend({
@@ -13,19 +16,29 @@ var AppRouter = Backbone.Router.extend({
     },
  
     initialize:function () {
-        $('#header').html(new HeaderView().render().el);
+
     },
 
     main:function(){
-    	this.wineList = new WineCollection();
+
+    	this.recentsResults = new Messages(recentsUrlOverride);
         var self = this;
-        this.wineList.fetch({
-            success:function () {
-                self.wineListView = new WineListView({model:self.wineList});
-                $('#sidebar').html(self.wineListView.render().el);
-                if (self.requestedId) self.wineDetails(self.requestedId);
-            }
+        this.recentsResults.fetch({
+
+        	dataType:'json',
+
+            success:function (model, response) {
+                self.mainPageView = new MainPageView(self.recentsResults);
+                console.log("recents fetch successed: " + response);
+            },
+
+            error:function (response){
+            	alert("model fetch failure, current URL:" + self.recentsResults.url);
+            	console.log("recents fetch failed: " + response);
+            },
+
         });
+
     },
 
     viewById:function(id){
