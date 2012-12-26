@@ -9,7 +9,11 @@
 
  	initialize:function(){
  		_.bindAll(this, 'getRecents','render');
+        this.date = new Date();
+        this.location = "default default default";
+
  		this.getRecents();
+        this.render();
  	},
 
  	getRecents: function(){
@@ -33,7 +37,24 @@
  	},
 
  	render:function(){
- 		
+ 		$('#datePicker').datepicker({
+            onSelect: function(dateText, inst) { 
+                this.date = new Date(dateText);
+            },
+
+            onClose: function(dateText, inst) 
+            { 
+                $(this).attr("disabled", false);
+            },
+
+            beforeShow: function(input, inst) 
+            {
+                $(this).attr("disabled", true);
+            }
+        });
+
+        $('#datePicker').datepicker("setDate", new Date());
+        $('#datePicker').datepicker( "option", "dateFormat", "D, MM, d, yy");
  	},
 
 
