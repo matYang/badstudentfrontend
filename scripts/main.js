@@ -20,24 +20,7 @@ var AppRouter = Backbone.Router.extend({
     },
 
     main:function(){
-
-    	this.recentsResults = new Messages(recentsUrlOverride);
-        var self = this;
-        this.recentsResults.fetch({
-
-        	dataType:'json',
-
-            success:function (model, response) {
-                self.mainPageView = new MainPageView(self.recentsResults);
-                console.log("recents fetch successed: " + response);
-            },
-
-            error:function (response){
-            	alert("model fetch failure, current URL:" + self.recentsResults.url);
-            	console.log("recents fetch failed: " + response);
-            },
-
-        });
+    	this.mainPageView = new MainPageView();
 
     },
 
@@ -61,6 +44,9 @@ var AppRouter = Backbone.Router.extend({
  
 });
 
-app = new AppRouter();
-Backbone.history.start();
+tpl.loadTemplates(['resultsTemplate'], function () {
+    app = new AppRouter();
+    Backbone.history.start();
+});
+
 

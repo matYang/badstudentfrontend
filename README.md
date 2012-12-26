@@ -5,10 +5,11 @@ the heavy js front end of the badstudent
 
 Model:	  	Message  &  Collection: Messages
 
-View:  	  	mainPageView								Require:	index.html
-			helpSearchResultView									resultsTemplate.html 		 [part of DOM can be injected into js]
+View:  	  	mainPageView								Require:	index.html   searchResultView
+			helpSearchResultView									searchResultView 			 [part of DOM can be injected into js]
 			askSearchResultView										same 						 [part of DOM can be injected into js]
-			infoSearchResultView									same 						
+			infoSearchResultView									same   						 [part of DOM can be injected into js]
+			searchResultView										resultsTemplate.html						
 			messageDetailView										detailTemplate.html        
 			messageEditView  	    [modal window]					editTemplate.html			 [can be replaced by pure js]
 			registerView			[modal window]					registerTemplate.html		 [can be replaced by pure js]
