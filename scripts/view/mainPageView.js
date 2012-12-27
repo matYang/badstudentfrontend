@@ -61,7 +61,6 @@
         });
 
         $('#datePicker').datepicker( "setDate", new Date());
-        $('#datePicker').datepicker( "option", "dateFormat", "D, MM, d, yy");
         $('#datePicker').datepicker( "option", "minDate", new Date());
  	},
 
