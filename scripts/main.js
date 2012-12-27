@@ -10,10 +10,10 @@ var AppRouter = Backbone.Router.extend({
  
     routes:{
         "":"main",
-        "/:id":"viewById",
-        "/help/*UrlEcodedSearchKey":"helpSearch",
-        "/ask/*UrlEcodedSearchKey":"askSearch",
-        "info/*UrlEcodedSearchKey":"infoSearch",
+        "message/:id":"viewById",
+        "help/*UrlEncodedSearchKey":"helpSearch",
+        "ask/*UrlEncodedSearchKey":"askSearch",
+        "info/*UrlEncodedSearchKey":"infoSearch",
     },
  
     initialize:function () {
