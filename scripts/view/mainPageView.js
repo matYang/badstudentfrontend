@@ -63,20 +63,21 @@
         });
 
         $('#datePicker').datepicker( "setDate", new Date());
+        $('#datePicker').datepicker( "option", "dateFormat", "D, MM, d, yy");
         $('#datePicker').datepicker( "option", "minDate", new Date());
-        $('#datePicker').datepicker($.datepicker.regional["ch-ZN"]);
  	},
 
     showLocation:function(){
-        this.locationPickView = new LocationPickView(this.locationArray);
+        this.locationPickView = new LocationPickView(this.locationArray);       
     },
 
     close:function(){
         $('#main-input-city').unbind();
         $('#main-input-university').unbind();
         this.unbind();
-        this.remove();
-        $('body').empty();
+        this.empty();
+
+        Backbone.View.prototype.remove.call(this);
     },
 
 

@@ -10,6 +10,7 @@
  	},
 
  	render:function(){
+ 		$('body').append("<div class = 'location-modal-mask' id = 'location-modal-mask'></div>");
  		$('body').append("<div class = 'location-modal-main' id = 'location-modal-main'></div>");
  		$('#location-modal-main').append("<div class = 'location-modal-titleContainer' id = 'location-modal-titleContainer'><p id = 'location-modal-title'>请选择位置</p></div>");
  		$('#location-modal-main').append("<div class = 'location-modal-provinceContainer' id = 'location-modal-provinceContainer'></div>");
@@ -17,7 +18,7 @@
  		$('#location-modal-main').append("<div class = 'location-modal-universityContainer' id = 'location-modal-universityContainer'></div>");
  		$('#location-modal-main').append("<div class = 'location-modal-closeButton' id = 'location-modal-closeButton'></div>");
 
- 		
+
  	},
 
  	provinceDOMGenerator:function(province){
@@ -33,9 +34,16 @@
  	}, 	
 
  	close:function(){
- 		this.unbind();
- 		this.remove();
+ 		$('#location-modal-mask').unbind();
+ 		$('#location-modal-closeButton').unbind();
+ 		$('.location-modal-province').unbind();
+ 		$('.location-modal-city').unbind();
+ 		$('.location-modal-university').unbind();
 
+ 		$('#location-modal-mask').remove();
+ 		$('#location-modal-main').remove();
+
+ 		Backbone.View.prototype.remove.call(this);
  	}
 
 
