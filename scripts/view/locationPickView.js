@@ -20,10 +20,10 @@
  		$('#location-modal-main').append("<div class = 'location-modal-provinceContainer' id = 'location-modal-provinceContainer'></div>");
  		$('#location-modal-main').append("<div class = 'location-modal-cityContainer' id = 'location-modal-cityContainer'></div>");
  		$('#location-modal-main').append("<div class = 'location-modal-universityContainer' id = 'location-modal-universityContainer'></div>");
- 		$('#location-modal-main').append("<div class = 'location-modal-closeButton' id = 'location-modal-closeButton'></div>");
+ 		$('#location-modal-main').append("<div class = 'location-modal-closeButton' id = 'location-modal-closeButton'>关闭</div>");
 
- 		var self = this;
- 		$('#location-modal-mask').bind('click', self.close);
+ 		$('#location-modal-mask').bind('click', this.close);
+ 		$('#location-modal-closeButton').bind('click', this.close);
  		this.getProvinces();
  		this.getCities();
  		this.getUniversities();
