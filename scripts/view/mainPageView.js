@@ -8,10 +8,11 @@
  	},
 
  	initialize:function(){
- 		_.bindAll(this, 'getRecents','render','showLocation', 'close');
+ 		_.bindAll(this, 'getRecents','render','showLocation', 'bindRoutes','close');
         this.date = new Date();
         this.locationArray = new Array("江苏省", "南京市", "南京大学");
 
+        this.bindRoutes();
  		this.getRecents();
         this.render();
  	},
@@ -42,10 +43,6 @@
         $('#main-input-university').html(this.locationArray[2]);
 
         var self = this;
-        $('#main-input-city').bind('click', this.showLocation);
-        $('#main-input-university').bind('click', this.showLocation);
-
-
 
  		$('#datePicker').datepicker({
             onSelect: function(dateText, inst) { 
@@ -71,9 +68,32 @@
     showLocation:function(){
         if (modalOpen == false){
             this.locationPickView = new LocationPickView(this.locationArray); 
-            modalOpen = true;
         }
              
+    },
+
+    bindRoutes:function(){
+        var self = this;
+
+        $('#main-input-city').bind('click', this.showLocation);
+        $('#main-input-university').bind('click', this.showLocation);
+        
+        $('#main-help-me-find').bind('click', function(){
+            var encodedSearchKey = "q-" + this.locationArray[0] + "-" + this.locationArray[1] + "-" + this.locationArray[2] +  "-" + this.date.getFullYear() + "-" + this.date.getMonth() + "-" + this.date.getDate();
+            app.navigate("help/" + encodedSearchKey,true);
+        });
+
+        $('#main-help-others').bind('click', function(){
+            var encodedSearchKey = "q-" + this.locationArray[0] + "-" + this.locationArray[1] + "-" + this.locationArray[2] +  "-" + this.date.getFullYear() + "-" + this.date.getMonth() + "-" + this.date.getDate();
+            app.navigate("ask/" + encodedSearchKey,true);
+        });
+
+        $('#main-help-me-find').bind('click', function(){
+            if (modalOpen == false){
+                self.enterInfoSearchView = new enterInfoSearchView();
+            }
+            
+        });        
     },
 
     close:function(){

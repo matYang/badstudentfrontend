@@ -8,7 +8,7 @@
  		this.provinceName = locationArray[0];
  		this.cityName = locationArray[1];
  		this.universityName = locationArray[2];
-
+ 		modalOpen = true;   //tell window that there is a modal view in place
 
  		this.render();
  	},

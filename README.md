@@ -18,10 +18,10 @@ View:  	  	mainPageView								Require:	index.html   searchResultView
 
 Controller:	Router::routes:
 			""   						:   mainPageView
-			/:id 						:   messageDetailView(id)
-			/help/*UrlEcodedSearchKey 	:   helpSearchResultView
-			/ask/*UrlEcodedSearchKey	:	askSearchResultView 
-			/info/*UrlEcodedSearchKey	:   infoSearchResultView
+			message/:id 				:   messageDetailView(id)
+			help/*UrlEncodedSearchKey 	:   helpSearchResultView
+			ask/*UrlEncodedSearchKey	:	askSearchResultView 
+			info/*UrlEncodedSearchKey	:   infoSearchResultView
 			no routes for modal windows
 
 API usage:																		Request Type
