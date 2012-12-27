@@ -36,29 +36,39 @@ header {
 
 .main-input-box {
 	position: relative;
+	display: table;
 	width: 90%;
 	height: 20%;
 	background-color: #FFFFFF;
 	margin-top: 15px;
 	border: 1px solid #808080;
+	margin-left: auto;
+	margin-right: auto;
 }
-	
+
 .location-pin {
 	margin:auto;
-	position: absolute;
-	top: 0;
-	bottom: 0;
-	float: left;
 	max-width: 8%;
-	vertical-align: middle;
+    background-position: left;
+    position: absolute;
+    top: 0;
+    bottom: 0;
 }
 
-#main-city {
-	
+.main-input-box-filter {
+	width: 90%;
+	font-size: 18px;
+    display: table-cell;
+    vertical-align: middle;
+    margin: 0px;
 }
 
-#main-university {
-	
+#main-input-city {
+
+}
+
+#main-input-university {
+
 }
 
 #main-date {
@@ -71,7 +81,6 @@ header {
 	width: 90%;
 	border: 0px;
 	font-size: 18px;
-	padding-left: 5px;
 }
 
 /* end of Left Box Selection */
