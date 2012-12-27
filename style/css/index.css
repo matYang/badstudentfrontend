@@ -111,6 +111,33 @@ header {
 	background-position: center;
 }
 
+#main-help-others {
+	width: 30%;
+	height: 25%;
+	background-color: #00FF00;
+	margin-top: 15px;
+	margin-bottom: 25px;
+	display: table;
+}
+
+#main-help-others-word {
+	width: 70%;
+	font-size: 20px;
+  	display: table-cell; 
+  	vertical-align: middle;
+  	padding-left: 10px;
+  	color: #FFFFFF;
+}
+
+#main-help-others-icon {
+	height: 100%;
+	width: 100%;
+	float: right;
+	background-image: url('../../asset/pencil.png');
+	background-size: cover;
+	background-position: center;
+}
+
 .main-subtitle {
 	text-shadow: 10px 10px 10px #000;
 	color: #D3D3D3;
@@ -151,10 +178,81 @@ header {
 #main-info {
 	position: absolute;
 	width: 100%;
-	top: 30;
+	top: 40;
 	bottom: 10;
-	background-color: #000;
 	overflow: auto;
+}
+
+.singleSearchResult {
+	position: relative;
+	height: 30%;
+	width: 100%;
+}
+
+.searchResultImgSrc {
+	max-width: 100%;
+	max-height: 100%;
+	float: left;
+}
+
+.searchResultInfoContainer {
+	float: left;
+	max-height: 100%;
+	max-width: 100%;
+}
+
+.searchResultLocation {
+	margin: 5px;
+	color: #FFFFFF;
+}
+
+.searchResultWindow {
+	margin: 5px;
+	color: #FFFFFF;
+}
+
+.searchResultType {
+	margin-top: 10px;
+	margin-left: 5px;
+	color: #FFFFFF;
+	font-size: 12px;
+}
+
+.searchResultPriceContainer {
+	float: right;
+	position: absolute;
+	top: 5;
+	right: 5;
+	bottom: 5;
+	overflow: auto;
+}
+
+.searchResultTotalPrice {
+	float: right;
+	height: 70%;
+	width: 100%;
+}
+
+.searchResultCurrency {
+	float: left;
+	margin: 0px;
+	color: #FFFFFF;
+	font-size: 40px;
+}
+
+.searchResultTotalValue {
+	float: right;
+	margin: 0px;
+	color: #FFFFFF;
+	font-size: 40px;
+}
+
+.searchResultDividedPrice {
+	text-align: right;
+	height: 30%;
+	width: 100%;
+	color: #FFFFFF;
+	font-size: 12px;
 }
 
 /* End of selected of left side */
