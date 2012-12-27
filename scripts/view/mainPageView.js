@@ -42,8 +42,9 @@
         $('#main-input-university').html(this.locationArray[2]);
 
         var self = this;
-        $('#main-input-city').bind('click', self.showLocation());
-        $('#main-input-university').bind('click', self.showLocation());
+        $('#main-input-city').bind('click', this.showLocation);
+        $('#main-input-university').bind('click', this.showLocation);
+
 
 
  		$('#datePicker').datepicker({
@@ -68,7 +69,11 @@
  	},
 
     showLocation:function(){
-        this.locationPickView = new LocationPickView(this.locationArray);       
+        if (modalOpen == false){
+            this.locationPickView = new LocationPickView(this.locationArray); 
+            modalOpen = true;
+        }
+             
     },
 
     close:function(){
