@@ -54,6 +54,13 @@ header {
 	
 }
 
+#datePicker {
+	height: 90%;
+	width: 100%;
+	border: 0px;
+	font-size: 18px;
+}
+
 /* end of Left Box Selection */
 
 /* Right Side Box Selection				 */
@@ -113,7 +120,6 @@ header {
 
 
 #main-left-selected {
-	position: relative;
 	float: left;
 	height: 100%;
 	width: 60%;
@@ -128,14 +134,11 @@ header {
 
 #main-info {
 	width: 100%;
+	height: 100%;
+	background-color: #000;
+	overflow: scroll;
 }
 
-#main-recent-readMore {
-	position: absolute;
-	color: #4169E1;
-	bottom: 5;
-	right: 0;
-}
 /* End of selected of left side */
 
 #main-right-selected {
