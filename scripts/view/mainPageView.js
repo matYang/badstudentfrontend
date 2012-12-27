@@ -8,7 +8,7 @@
  	},
 
  	initialize:function(){
- 		_.bindAll(this, 'getRecents','render');
+ 		_.bindAll(this, 'getRecents','render','showLocation', 'close');
         this.date = new Date();
         this.locationArray = new Array("江苏省", "南京市", "南京大学");
 
@@ -38,8 +38,15 @@
 
  	render:function(){
 
-        
-        
+        $('#main-input-city').html(this.locationArray[1]);
+        $('#main-input-university').html(this.locationArray[2]);
+
+        var self = this;
+        $('#main-input-city').bind('click', this.showLocation);
+        $('#main-input-university').bind('click', this.showLocation);
+
+
+
  		$('#datePicker').datepicker({
             onSelect: function(dateText, inst) { 
                 this.date = new Date(dateText);
@@ -57,11 +64,26 @@
         });
 
         $('#datePicker').datepicker( "setDate", new Date());
+        $('#datePicker').datepicker( "option", "dateFormat", "D, MM, d, yy");
         $('#datePicker').datepicker( "option", "minDate", new Date());
-        $('#datePicker').datepicker($.datepicker.regional["ch-ZN"]);
  	},
 
+    showLocation:function(){
+        if (modalOpen == false){
+            this.locationPickView = new LocationPickView(this.locationArray); 
+            modalOpen = true;
+        }
+             
+    },
 
+    close:function(){
+        $('#main-input-city').unbind();
+        $('#main-input-university').unbind();
+        this.unbind();
+        this.empty();
+
+        Backbone.View.prototype.remove.call(this);
+    },
 
 
  });

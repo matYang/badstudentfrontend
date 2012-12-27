@@ -14,7 +14,7 @@ View:  	  	mainPageView								Require:	index.html   searchResultView
 			messageEditView  	    [modal window]					editTemplate.html			 [can be replaced by pure js]
 			registerView			[modal window]					registerTemplate.html		 [can be replaced by pure js]
 			enterInfoSearchView		[modal window]					infoSearchTemplate.html		 [can be replaced by pure js]
-			locationPickView		[modal window]					locationPickTemplate.html 	 [can be replaced by pure js]
+			locationPickView		[modal window]					DOM encoded in JS string
 
 Controller:	Router::routes:
 			""   						:   mainPageView
