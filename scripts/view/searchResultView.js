@@ -18,7 +18,6 @@
             $(this.targetId).append(this.template(this.recentsResults.at(i).toJSON()));
         }
  		
-
  	},
 
 
