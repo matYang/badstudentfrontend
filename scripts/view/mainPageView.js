@@ -10,7 +10,7 @@
  	initialize:function(){
  		_.bindAll(this, 'getRecents','render');
         this.date = new Date();
-        this.location = "default default default";
+        this.locationArray = new Array("江苏省", "南京市", "南京大学");
 
  		this.getRecents();
         this.render();
@@ -37,6 +37,9 @@
  	},
 
  	render:function(){
+
+        
+        
  		$('#datePicker').datepicker({
             onSelect: function(dateText, inst) { 
                 this.date = new Date(dateText);
