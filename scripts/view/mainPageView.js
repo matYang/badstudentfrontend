@@ -8,7 +8,7 @@
  	},
 
  	initialize:function(){
- 		_.bindAll(this, 'getRecents','render');
+ 		_.bindAll(this, 'getRecents','render','showLocation', 'close');
         this.date = new Date();
         this.locationArray = new Array("江苏省", "南京市", "南京大学");
 
@@ -38,8 +38,14 @@
 
  	render:function(){
 
-        
-        
+        $('#main-input-city').html(this.locationArray[1]);
+        $('#main-input-university').html(this.locationArray[2]);
+
+        var self = this;
+        $('#main-input-city').bind('click', self.showLocation());
+        $('#main-input-university').bind('click', self.showLocation());
+
+
  		$('#datePicker').datepicker({
             onSelect: function(dateText, inst) { 
                 this.date = new Date(dateText);
@@ -61,7 +67,17 @@
         $('#datePicker').datepicker( "option", "minDate", new Date());
  	},
 
+    showLocation:function(){
+        this.locationPickView = new LocationPickView(this.locationArray);
+    },
 
+    close:function(){
+        $('#main-input-city').unbind();
+        $('#main-input-university').unbind();
+        this.unbind();
+        this.remove();
+        $('body').empty();
+    },
 
 
  });
