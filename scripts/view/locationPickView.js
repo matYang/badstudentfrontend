@@ -16,11 +16,12 @@
  	render:function(){
  		$('body').append("<div class = 'location-modal-mask' id = 'location-modal-mask'></div>");
  		$('body').append("<div class = 'location-modal-main' id = 'location-modal-main'></div>");
+ 		$('#location-modal-main').append("<div class = 'location-modal-closeButton' id = 'location-modal-closeButton'>关闭</div>");
  		$('#location-modal-main').append("<div class = 'location-modal-titleContainer' id = 'location-modal-titleContainer'><p id = 'location-modal-title'>请选择位置</p></div>");
  		$('#location-modal-main').append("<div class = 'location-modal-provinceContainer' id = 'location-modal-provinceContainer'></div>");
  		$('#location-modal-main').append("<div class = 'location-modal-cityContainer' id = 'location-modal-cityContainer'></div>");
  		$('#location-modal-main').append("<div class = 'location-modal-universityContainer' id = 'location-modal-universityContainer'></div>");
- 		$('#location-modal-main').append("<div class = 'location-modal-closeButton' id = 'location-modal-closeButton'>关闭</div>");
+ 		
 
  		$('#location-modal-mask').bind('click', this.close);
  		$('#location-modal-closeButton').bind('click', this.close);

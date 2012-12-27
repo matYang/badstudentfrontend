@@ -87,7 +87,7 @@
             app.navigate("ask/" + encodedSearchKey,true);
         });
 
-        $('#main-help-me-find').bind('click', function(){
+        $('#main-info-search').bind('click', function(){
             if (modalOpen == false){
                 self.enterInfoSearchView = new enterInfoSearchView();
             }
