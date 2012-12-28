@@ -1,19 +1,14 @@
-body {
-	background-image: url('../../asset/background.jpg');
-	background-position: center; 
-	background-repeat: no-repeat;
-	background-size: cover;
-}
-
-header {
+.headerFooterImage {
 	height: 15%;
 	padding-top: 10px;
 	padding-bottom: 10px;
 }
 
-.headerFooterImage {
-	max-width: 100%;
-	max-height: 100%;
+#main-full-width {
+	background-image: url('../../asset/background.jpg');
+	background-position: center; 
+	background-repeat: no-repeat;
+	background-size: cover;
 }
 
 /* Selection Part */
@@ -278,10 +273,3 @@ header {
 }
 
 /* right side selected */
-
-
-footer {
-	height: 15%;
-	padding-top: 10px;
-	padding-bottom: 10px;
-}

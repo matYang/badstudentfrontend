@@ -53,3 +53,19 @@ jQuery(function($){
         $.datepicker.setDefaults($.datepicker.regional['zh-CN']);
 });
 
+//Set minimum width and height
+var width = window.screen.availWidth+'px';
+var height = window.screen.availHeight+'px';
+
+function resize(){
+    $('body').css({ 
+        'min-width': width,
+        'min-height': height 
+    });   
+}
+
+$(document).ready(function(){
+    resize();
+    $(window).bind('resize',resize());
+});
+
