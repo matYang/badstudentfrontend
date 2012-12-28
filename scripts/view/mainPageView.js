@@ -78,26 +78,35 @@
         $('#main-input-university').bind('click', this.showLocation);
         
         $('#main-help-me-find').bind('click', function(){
-            var encodedSearchKey = "q-" + this.locationArray[0] + "-" + this.locationArray[1] + "-" + this.locationArray[2] +  "-" + this.date.getFullYear() + "-" + this.date.getMonth() + "-" + this.date.getDate();
+            var encodedSearchKey = this.locationArray[0] + "-" + this.locationArray[1] + "-" + this.locationArray[2] +  "-" + this.date.getFullYear() + "-" + this.date.getMonth() + "-" + this.date.getDate();
             app.navigate("help/" + encodedSearchKey,true);
         });
 
         $('#main-help-others').bind('click', function(){
-            var encodedSearchKey = "q-" + this.locationArray[0] + "-" + this.locationArray[1] + "-" + this.locationArray[2] +  "-" + this.date.getFullYear() + "-" + this.date.getMonth() + "-" + this.date.getDate();
+            var encodedSearchKey = this.locationArray[0] + "-" + this.locationArray[1] + "-" + this.locationArray[2] +  "-" + this.date.getFullYear() + "-" + this.date.getMonth() + "-" + this.date.getDate();
             app.navigate("ask/" + encodedSearchKey,true);
         });
 
         $('#main-info-search').bind('click', function(){
             if (modalOpen == false){
-                self.enterInfoSearchView = new enterInfoSearchView();
+                self.enterInfoSearchView = new EnterInfoSearchView();
             }
             
         });        
     },
 
     close:function(){
+        if (this.locationPickView){
+            this.locationPickView.close();
+        }
+        if (this.enterInfoSearchView){
+            this.enterInfoSearchView.close();
+        }
         $('#main-input-city').unbind();
         $('#main-input-university').unbind();
+        $('#main-help-me-find').unbind();
+        $('#main-help-others').unbind();
+        $('#main-info-search').unbind();
         this.unbind();
         this.empty();
 

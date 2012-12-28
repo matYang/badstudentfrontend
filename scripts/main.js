@@ -11,13 +11,14 @@ var AppRouter = Backbone.Router.extend({
     routes:{
         "":"main",
         "message/:id":"viewById",
-        "help/*UrlEncodedSearchKey":"helpSearch",
-        "ask/*UrlEncodedSearchKey":"askSearch",
-        "info/*UrlEncodedSearchKey":"infoSearch",
+        "help/*encodedSearchKey":"helpSearch",
+        "ask/*encodedSearchKey":"askSearch",
+        "info/*encodedSearchKey":"infoSearch",
     },
  
     initialize:function () {
-
+        this.keyArray = new Array();
+        this.searchResult = new Messages();
     },
 
     main:function(){
@@ -30,16 +31,56 @@ var AppRouter = Backbone.Router.extend({
     },
 
     helpSearch:function(encodedKey){
-    	//TODO, decode the encoded key and check for helpSearch
+        if (this.mainPageView){
+            this.mainPageView.close();
+        }
+        //expected key of formmat province-city-university-year-month-year
+        this.decode(encodedKey);
+
+        var self = this;
+
+        this.searchResult.fetch({
+        data: $.param({ location: locationSting, date: dateString}),
+        
+        dataType:'json',
+        
+        success: function (model, response) {
+            console.log("fetch success with encodedKey: " + encodedKey); 
+            console.log(response);
+            self.helpSearchResultView = new HelpSearchResultView(self.searchResults);
+        },
+        
+        error: function(model, response){
+            console.log("fetch failed");
+            console.log(response);
+            alert("failed to fetch data from server");
+        }
+    });
+
+    	
     },
 
     askSearch:function(encodedKey){
-    	//TODO, decode the encoded key and check for askSearch
+    	if (this.mainPageView){
+            this.mainPageView.close();
+        }
+        //expected key of formmat province-city-university-year-month-year
+
+
     },
 
     infoSearch:function(encodedKey){
-    	//TODO, decode the encoded key and check for infoSearch
+    	if (this.mainPageView){
+            this.mainPageView.close();
+        }
+        //expected key of formmat email-phone-qq-twitter-selfDefined
+
+
     },
+
+    decode:function(encodedKey){
+        this.keyArray = encodedKey.split("-");
+    }
  
 
  
