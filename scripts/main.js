@@ -40,14 +40,14 @@ var AppRouter = Backbone.Router.extend({
         var self = this;
 
         this.searchResult.fetch({
-        data: $.param({ location: locationSting, date: dateString}),
+        data: $.param({ location: locationSting, date: dateString, type: 0}),
         
         dataType:'json',
         
         success: function (model, response) {
             console.log("fetch success with encodedKey: " + encodedKey); 
             console.log(response);
-            self.helpSearchResultView = new HelpSearchResultView(self.searchResults);
+            self.helpSearchResultView = new HelpSearchResultView(self.searchResult);
         },
         
         error: function(model, response){
