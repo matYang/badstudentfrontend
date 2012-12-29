@@ -7,17 +7,22 @@
 
  	},
 
- 	initialize:function(){
+ 	initialize:function(date, locationArray){
  		_.bindAll(this, 'getRecents','render','showLocation', 'bindRoutes','close');
-        this.date = new Date();
-        this.locationArray = new Array("江苏省", "南京市", "南京大学仙林校区");
+        
+        this.template = _.template(tpl.get('indexTemplate')),
 
+        this.date = date;
+        this.locationArray = locationArray;
+
+        this.render();
         this.bindRoutes();
  		this.getRecents();
-        this.render();
+        
  	},
 
  	getRecents: function(){
+
  		this.recentsResults = new Messages(recentsUrlOverride);
         var self = this;
         this.recentsResults.fetch({
@@ -38,7 +43,7 @@
  	},
 
  	render:function(){
-
+        $(this.el).append(this.template);
         $('#main-input-city').html(this.locationArray[1]);
         $('#main-input-university').html(this.locationArray[2]);
 
@@ -46,7 +51,7 @@
 
  		$('#datePicker').datepicker({
             onSelect: function(dateText, inst) { 
-                this.date = new Date(dateText);
+                self.date = new Date(dateText);
             },
 
             onClose: function(dateText, inst) 
@@ -60,7 +65,7 @@
             }
         });
 
-        $('#datePicker').datepicker( "setDate", new Date());
+        $('#datePicker').datepicker( "setDate", this.date);
         $('#datePicker').datepicker( "option", "minDate", new Date());
  	},
 
@@ -83,7 +88,7 @@
         });
 
         $('#main-help-others').bind('click', function(){
-            var encodedSearchKey = self.locationArray[0] + "-" + self.locationArray[1] + "-" + selfs.locationArray[2] +  "-" + self.date.getFullYear() + "-" + (self.date.getMonth()+1) + "-" + self.date.getDate();
+            var encodedSearchKey = self.locationArray[0] + "-" + self.locationArray[1] + "-" + self.locationArray[2] +  "-" + self.date.getFullYear() + "-" + (self.date.getMonth()+1) + "-" + self.date.getDate();
             app.navigate("ask/" + encodedSearchKey,true);
         });
 
@@ -108,9 +113,9 @@
         $('#main-help-others').unbind();
         $('#main-info-search').unbind();
         this.unbind();
-        this.remove();
+        $(this.el).empty();
 
-        Backbone.View.prototype.remove.call(this);
+        //Backbone.View.prototype.remove.call(this);
     },
 
 

@@ -19,11 +19,13 @@ var AppRouter = Backbone.Router.extend({
     initialize:function () {
         this.keyArray = new Array();
         this.searchResult = new Messages();
+        this.date = new Date();
+        this.locationArray = new Array("江苏省", "南京市", "南京大学仙林校区");
     },
 
     main:function(){
         this.closeAhead("mainPageView");
-    	this.mainPageView = new MainPageView();
+    	this.mainPageView = new MainPageView(this.date, this.locationArray);
 
     },
 
@@ -49,7 +51,7 @@ var AppRouter = Backbone.Router.extend({
             success: function (model, response) {
                 console.log("fetch success with encodedKey: " + encodedKey); 
                 console.log(response);
-                self.helpSearchResultView = new HelpSearchResultView(self.searchResult);
+                self.helpSearchResultView = new HelpSearchResultView(self.searchResult,this.date, this.locationArray);
             },
             
             error: function(model, response){
@@ -80,7 +82,7 @@ var AppRouter = Backbone.Router.extend({
             success: function (model, response) {
                 console.log("fetch success with encodedKey: " + encodedKey); 
                 console.log(response);
-                self.askSearchResultView = new AskSearchResultView(self.searchResult);
+                self.askSearchResultView = new AskSearchResultView(self.searchResult,this.date, this.locationArray);
             },
             
             error: function(model, response){
@@ -127,18 +129,23 @@ var AppRouter = Backbone.Router.extend({
     closeAhead:function(activeView){
         if (this.helpSearchResultView && activeView != "helpSearchResultView"){
             this.helpSearchResultView.close();
+            this.helpSearchResultView = null;
         }
         if (this.askSearchResultView && activeView != "askSearchResultView"){
             this.askSearchResultView.close();
+            this.askSearchResultView = null;
         }
         if (this.infoSearchResultView && activeView != "infoSearchResultView"){
             this.infoSearchResultView.close();
+            this.infoSearchResultView = null;
         }
         if (this.messageDetailView && activeView != "messageDetailView"){
             this.messageDetailView.close();
+            this.messageDetailView = null;
         }
         if (this.mainPageView && activeView != "mainPageView"){
             this.mainPageView.close();
+            this.mainPageView = null;
         }
 
     }
@@ -147,7 +154,7 @@ var AppRouter = Backbone.Router.extend({
  
 });
 
-tpl.loadTemplates(['resultsTemplate'], function () {
+tpl.loadTemplates(['indexTemplate','resultsTemplate'], function () {
     app = new AppRouter();
     Backbone.history.start();
 });

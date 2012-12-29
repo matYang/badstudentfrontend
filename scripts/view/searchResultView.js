@@ -20,6 +20,13 @@
  		
  	},
 
+ 	close:function(){
+        $(this.targetId).empty();
+        this.unbind();
+        this.remove();
+        Backbone.View.prototype.remove.call(this);
+ 	}
+
 
 
 
