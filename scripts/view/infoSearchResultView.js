@@ -21,7 +21,7 @@
  	},
 
  	showResults:function(){
- 		this.searchResultView = new SearchResultView("#info-info", this.searchResult);
+ 		this.searchResultView = new SearchResultView("#info-info", this.searchResult, 2);
  	},
 
  	bindEvents:function(){

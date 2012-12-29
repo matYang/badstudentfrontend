@@ -16,6 +16,7 @@
         this.locationArray = locationArray;
 
         this.render();
+        this.updateLocation();
         this.bindRoutes();
  		this.getRecents();
         
@@ -30,7 +31,7 @@
         	dataType:'json',
 
             success:function (model, response) {
-                self.searchResultView = new SearchResultView("#main-info", self.recentsResults);
+                self.searchResultView = new SearchResultView("#main-info", self.recentsResults, 2);
                 console.log("recents fetch successed: " + response);
             },
 
@@ -44,8 +45,6 @@
 
  	render:function(){
         $(this.el).append(this.template);
-        $('#main-input-city').html(this.locationArray[1]);
-        $('#main-input-university').html(this.locationArray[2]);
 
         var self = this;
 
@@ -71,9 +70,14 @@
 
     showLocation:function(){
         if (modalOpen == false){
-            this.locationPickView = new LocationPickView(this.locationArray); 
+            this.locationPickView = new LocationPickView(this.locationArray, this); 
         }
              
+    },
+
+    updateLocation:function(){
+        $('#main-input-city').html(this.locationArray[1]);
+        $('#main-input-university').html(this.locationArray[2]);
     },
 
     bindRoutes:function(){

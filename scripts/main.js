@@ -34,6 +34,7 @@ var AppRouter = Backbone.Router.extend({
     	//TODO message detail view here
     },
 
+    //used to find helpers
     helpSearch:function(encodedKey){
         this.closeAhead("helpSearchResultView");
         this.decode(encodedKey);
@@ -44,14 +45,14 @@ var AppRouter = Backbone.Router.extend({
         console.log(this.keyArray);
         var self = this;
         this.searchResult.fetch({
-            data: $.param({ location: locationSting, date: dateString, type: 0}),
+            data: $.param({ location: locationSting, date: dateString, type: 1}),
             
             dataType:'json',
             
             success: function (model, response) {
                 console.log("fetch success with encodedKey: " + encodedKey); 
                 console.log(response);
-                self.helpSearchResultView = new HelpSearchResultView(self.searchResult,this.date, this.locationArray);
+                self.helpSearchResultView = new HelpSearchResultView(self.searchResult,self.date, self.locationArray);
             },
             
             error: function(model, response){
@@ -64,6 +65,7 @@ var AppRouter = Backbone.Router.extend({
     	
     },
 
+    //used to find askers
     askSearch:function(encodedKey){
     	this.closeAhead("askSearchResultView");
         this.decode(encodedKey);
@@ -75,14 +77,14 @@ var AppRouter = Backbone.Router.extend({
         console.log(this.keyArray);
         var self = this;
         this.searchResult.fetch({
-            data: $.param({ location: locationSting, date: dateString, type: 1}),
+            data: $.param({ location: locationSting, date: dateString, type: 0}),
             
             dataType:'json',
             
             success: function (model, response) {
                 console.log("fetch success with encodedKey: " + encodedKey); 
                 console.log(response);
-                self.askSearchResultView = new AskSearchResultView(self.searchResult,this.date, this.locationArray);
+                self.askSearchResultView = new AskSearchResultView(self.searchResult, self.date, self.locationArray);
             },
             
             error: function(model, response){

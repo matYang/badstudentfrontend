@@ -1,18 +1,21 @@
  var RegisterView= Backbone.View.extend({
 
 
- 	initialize:function(locationArray, startDate, endDate, content, gender, price){
+ 	initialize:function(searchResult,locationArray, startDate, endDate, content, gender, price, type){
  		_.bindAll(this,'render','bindEvents', 'complete', 'close');
  		modalOpen = true;
 
+ 		this.searchResult = searchResult;
  		this.locationArray = locationArray;
  		this.startDate = startDate;
  		this.endDate = endDate;
  		this.content = content;
  		this.gender = gender;
  		this.price = price;
+ 		this.type = type;
 
  		this.render();
+ 		this.bindEvents();
 
  	},
 
@@ -30,8 +33,8 @@
 
  		$('#register-modal-main').append("<hr>");
 
- 		$('#register-modal-main').append("<div class = 'modal-container' id = 'register-modal-passwordContainer'><div class = 'modal-container-word' id = 'register-modal-passwordWord'>电话</div><input class = 'modal-input' id = 'register-modal-password'/></div>");
- 		$('#register-modal-main').append("<div class = 'modal-container' id = 'register-modal-confirmPasswordContainer'><div class = 'modal-container-word' id = 'register-modal-confirmPasswordWord'>电话</div><input class = 'modal-input' id = 'register-modal-confirmPassword'/></div>");
+ 		$('#register-modal-main').append("<div class = 'modal-container' id = 'register-modal-passwordContainer'><div class = 'modal-container-word' id = 'register-modal-passwordWord'>密码</div><input class = 'modal-input' id = 'register-modal-password'/></div>");
+ 		$('#register-modal-main').append("<div class = 'modal-container' id = 'register-modal-confirmPasswordContainer'><div class = 'modal-container-word' id = 'register-modal-confirmPasswordWord'>确认密码</div><input class = 'modal-input' id = 'register-modal-confirmPassword'/></div>");
  		$('#register-modal-main').append("<div class = 'modal-submit' id = 'register-modal-submit'>就这样吧<img class = 'submit-icon' src = 'img/submit.png'/></div>");
 
 
@@ -46,8 +49,40 @@
  	},
 
  	complete:function(){
- 		var encodedSearchKey = $('#enterInfoSearch-modal-email').val() + "-" + $('#enterInfoSearch-modal-phone').val() + "-" + $('#enterInfoSearch-modal-qq').val() +  "-" + $('#enterInfoSearch-modal-twitter').val() + "-" + $('#enterInfoSearch-modal-selfDefined').val();
- 		app.navigate("info/" + encodedSearchKey,true);
+ 		this.courseLengthInMinutes = $('#register-modal-courseLengthInMinutes').val();
+ 		this.email = $('#register-modal-email').val();
+ 		this.phone = $('#register-modal-phone').val();
+ 		this.qq = $('#register-modal-qq').val();
+ 		this.twitter = $('#register-modal-twitter').val();
+ 		this.selfDefined = $('#register-modal-selfDefined').val();
+ 		this.password = $('#register-modal-password').val();
+
+ 		var locationString = this.locationArray[0] + " " + this.locationArray[1] + " " + this.locationArray[2];
+ 		var startDateString = this.startDate.getFullYear() + " " + (this.startDate.getMonth()+1) + " " + this.startDate.getDate();
+ 		var endDateString = this.endDate.getFullYear() + " " + (this.endDate.getMonth()+1) + " " + this.endDate.getDate();
+
+ 		var newMessage = new Message();
+
+ 		newMessage.set({'userName' : 'newUser', 'password' : this.password , 'startDate' : startDateString, 'endDate' : endDateString,
+        'location' : locationString, 'gender' : this.gender, 'content' : this.content,
+        'email' : this.email, 'phone' : this.phone, 'qq' : this.qq, 'twitter' : this.twitter, 'selfDefined' : this.selfDefined,
+        'price' : this.price, "courseLengthInMinutes" : this.courseLengthInMinutes, 'authCode':-1, 'type' : this.type});
+
+        var self = this;
+		newMessage.save({},{
+			success:function(model, response){
+				console.log("POST succeeded");
+				console.log(model.get('id'));
+				self.searchResult.add(newMessage);
+				app.navigate("message/" + newMessage.get('id'), true);
+			},
+			
+			error: function(){
+				console.log("POST failed");
+				alert("POST Error: check server configuration");
+			}
+		});
+
  	},
 
  	close:function(){

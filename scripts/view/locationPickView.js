@@ -2,12 +2,13 @@
 
  	tagName: 'div',
 
- 	initialize:function(locationArray){
+ 	initialize:function(locationArray, initiator){
  		_.bindAll(this, 'render','getProvinces','getCities', 'getUniversities','provinceDOMGenerator', 'cityDOMGenerator', 'universityDOMGenerator', 'complete','close', 'highLight');
  		this.locationArray = locationArray;
  		this.provinceName = locationArray[0];
  		this.cityName = locationArray[1];
  		this.universityName = locationArray[2];
+ 		this.initiator = initiator;
  		modalOpen = true;   //tell window that there is a modal view in place
 
  		this.render();
@@ -147,8 +148,7 @@
  		this.locationArray[1] = this.cityName;
  		this.locationArray[2] = this.universityName;
 
- 		$('#main-input-city').html(this.cityName);
- 		$('#main-input-university').html(this.universityName);
+ 		this.initiator.updateLocation();
  		this.close();
  	},
 
