@@ -2,7 +2,7 @@
 var miliSecInDay =  86400000;
 var infoUrlOverride = "http://localhost:8015/api/badstudent/v0.9/messages";
 var recentsUrlOverride = "http://localhost:8015/api/badstudent/v0.9/recentsSearch";
-var primaryUrlOverride = "http://localhost:8015/primarySearch";
+var primaryUrlOverride = "http://localhost:8015/api/badstudent/v0.9/primarySearch";
 var modalOpen = false;    //global variable used to tract if a modal window is open
 
 
@@ -22,64 +22,125 @@ var AppRouter = Backbone.Router.extend({
     },
 
     main:function(){
+        this.closeAhead("mainPageView");
     	this.mainPageView = new MainPageView();
 
     },
 
     viewById:function(id){
+        this.closeAhead("messageDetailView");
     	//TODO message detail view here
     },
 
     helpSearch:function(encodedKey){
-        if (this.mainPageView){
-            this.mainPageView.close();
-        }
-        //expected key of formmat province-city-university-year-month-year
+        this.closeAhead("helpSearchResultView");
         this.decode(encodedKey);
+        this.searchResult = new Messages(primaryUrlOverride);
+        var locationSting = this.keyArray[0] + " " + this.keyArray[1] + " " + this.keyArray[2];
+        var dateString = this.keyArray[3] + " " + this.keyArray[4] + " " + this.keyArray[5];
 
+        console.log(this.keyArray);
         var self = this;
-
         this.searchResult.fetch({
-        data: $.param({ location: locationSting, date: dateString, type: 0}),
-        
-        dataType:'json',
-        
-        success: function (model, response) {
-            console.log("fetch success with encodedKey: " + encodedKey); 
-            console.log(response);
-            self.helpSearchResultView = new HelpSearchResultView(self.searchResult);
-        },
-        
-        error: function(model, response){
-            console.log("fetch failed");
-            console.log(response);
-            alert("failed to fetch data from server");
-        }
-    });
+            data: $.param({ location: locationSting, date: dateString, type: 0}),
+            
+            dataType:'json',
+            
+            success: function (model, response) {
+                console.log("fetch success with encodedKey: " + encodedKey); 
+                console.log(response);
+                self.helpSearchResultView = new HelpSearchResultView(self.searchResult);
+            },
+            
+            error: function(model, response){
+                console.log("fetch failed");
+                console.log(response);
+                alert("failed to fetch data from server");
+            }
+        });
 
     	
     },
 
     askSearch:function(encodedKey){
-    	if (this.mainPageView){
-            this.mainPageView.close();
-        }
-        //expected key of formmat province-city-university-year-month-year
+    	this.closeAhead("askSearchResultView");
+        this.decode(encodedKey);
+        this.searchResult = new Messages(primaryUrlOverride);
+        var locationSting = this.keyArray[0] + " " + this.keyArray[1] + " " + this.keyArray[2];
+        var dateString = this.keyArray[3] + " " + this.keyArray[4] + " " + this.keyArray[5];
 
+        locationSting = encodeURI(locationSting);
+        console.log(this.keyArray);
+        var self = this;
+        this.searchResult.fetch({
+            data: $.param({ location: locationSting, date: dateString, type: 1}),
+            
+            dataType:'json',
+            
+            success: function (model, response) {
+                console.log("fetch success with encodedKey: " + encodedKey); 
+                console.log(response);
+                self.askSearchResultView = new AskSearchResultView(self.searchResult);
+            },
+            
+            error: function(model, response){
+                console.log("fetch failed");
+                console.log(response);
+                alert("failed to fetch data from server");
+            }
+        });
 
     },
 
     infoSearch:function(encodedKey){
-    	if (this.mainPageView){
-            this.mainPageView.close();
-        }
-        //expected key of formmat email-phone-qq-twitter-selfDefined
+    	this.closeAhead("infoSearchResultView");
+        this.decode(encodedKey);
+        this.searchResult = new Messages(infoUrlOverride);
+        //expected key of format email-phone-qq-twitter-selfDefined
 
+        console.log(this.keyArray);
+        var self = this;
+        this.searchResult.fetch({
+            data: $.param({ email: self.keyArray[0], phone: self.keyArray[1], qq: self.keyArray[2], twitter: self.keyArray[3], selfDefined: self.keyArray[4]}),
+            
+            dataType:'json',
+            
+            success: function (model, response) {
+                console.log("fetch success with encodedKey: " + encodedKey); 
+                console.log(response);
+                self.infoSearchResultView = new InfoSearchResultView(self.searchResult);
+            },
+            
+            error: function(model, response){
+                console.log("fetch failed");
+                console.log(response);
+                alert("failed to fetch data from server");
+            }
+        });
 
     },
 
     decode:function(encodedKey){
         this.keyArray = encodedKey.split("-");
+    },
+
+    closeAhead:function(activeView){
+        if (this.helpSearchResultView && activeView != "helpSearchResultView"){
+            this.helpSearchResultView.close();
+        }
+        if (this.askSearchResultView && activeView != "askSearchResultView"){
+            this.askSearchResultView.close();
+        }
+        if (this.infoSearchResultView && activeView != "infoSearchResultView"){
+            this.infoSearchResultView.close();
+        }
+        if (this.messageDetailView && activeView != "messageDetailView"){
+            this.messageDetailView.close();
+        }
+        if (this.mainPageView && activeView != "mainPageView"){
+            this.mainPageView.close();
+        }
+
     }
  
 

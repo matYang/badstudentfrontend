@@ -3,7 +3,7 @@
 
  	initialize:function(){
  		_.bindAll(this,'render','bindEvents', 'complete', 'close');
-
+ 		modalOpen = true;
  		this.render();
  		this.bindEvents();
 
@@ -40,7 +40,7 @@
  		$('#enterInfoSearch-modal-mask').unbind();
  		$('#enterInfoSearch-modal-closeButton').unbind();
  		$('#enterInfoSearch-modal-submit').unbind();
-
+ 		modalOpen = false;
  		this.unbind();
  		this.remove();
 

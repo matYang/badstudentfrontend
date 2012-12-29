@@ -10,7 +10,7 @@
  	initialize:function(){
  		_.bindAll(this, 'getRecents','render','showLocation', 'bindRoutes','close');
         this.date = new Date();
-        this.locationArray = new Array("江苏省", "南京市", "南京大学");
+        this.locationArray = new Array("江苏省", "南京市", "南京大学仙林校区");
 
         this.bindRoutes();
  		this.getRecents();
@@ -78,12 +78,12 @@
         $('#main-input-university').bind('click', this.showLocation);
         
         $('#main-help-me-find').bind('click', function(){
-            var encodedSearchKey = this.locationArray[0] + "-" + this.locationArray[1] + "-" + this.locationArray[2] +  "-" + this.date.getFullYear() + "-" + this.date.getMonth() + "-" + this.date.getDate();
+            var encodedSearchKey = self.locationArray[0] + "-" + self.locationArray[1] + "-" + self.locationArray[2] +  "-" + self.date.getFullYear() + "-" + (self.date.getMonth()+1) + "-" + self.date.getDate();
             app.navigate("help/" + encodedSearchKey,true);
         });
 
         $('#main-help-others').bind('click', function(){
-            var encodedSearchKey = this.locationArray[0] + "-" + this.locationArray[1] + "-" + this.locationArray[2] +  "-" + this.date.getFullYear() + "-" + this.date.getMonth() + "-" + this.date.getDate();
+            var encodedSearchKey = self.locationArray[0] + "-" + self.locationArray[1] + "-" + selfs.locationArray[2] +  "-" + self.date.getFullYear() + "-" + (self.date.getMonth()+1) + "-" + self.date.getDate();
             app.navigate("ask/" + encodedSearchKey,true);
         });
 
@@ -108,7 +108,7 @@
         $('#main-help-others').unbind();
         $('#main-info-search').unbind();
         this.unbind();
-        this.empty();
+        this.remove();
 
         Backbone.View.prototype.remove.call(this);
     },

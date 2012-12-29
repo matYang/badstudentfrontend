@@ -163,7 +163,11 @@
 		$('#location-modal-main').empty();
  		$('#location-modal-mask').remove();
  		$('#location-modal-main').remove();
- 		modalOpen = false;
+		
+		modalOpen = false;
+ 		this.unbind();
+ 		this.remove();
+ 		
 
  		Backbone.View.prototype.remove.call(this);
  	},
