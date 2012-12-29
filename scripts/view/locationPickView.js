@@ -165,7 +165,6 @@
 		modalOpen = false;
  		this.unbind();
  		this.remove();
- 		
 
  		Backbone.View.prototype.remove.call(this);
  	},
