@@ -26,8 +26,6 @@
  		$('#location-modal-mask').bind('click', this.close);
  		$('#location-modal-closeButton').bind('click', this.close);
  		this.getProvinces();
- 		this.getCities();
- 		this.getUniversities();
 
  	},
 
@@ -64,7 +62,7 @@
 
 
 
- 	getCities:function(provinceName){
+ 	getCities:function(){
  		$('.location-modal-city').unbind();
  		var cityContainer = $('#location-modal-cityContainer');
  		cityContainer.empty();
@@ -73,7 +71,7 @@
  		$.ajax({
 			type: "GET",
 			async: false,
-			data: {province : provinceName},
+			data: {province : self.provinceName},
 			url: "http://localhost:8015/api/badstudent/v0.9/location",
 			dataType: 'json',
 			success: function(data){
@@ -163,7 +161,11 @@
 		$('#location-modal-main').empty();
  		$('#location-modal-mask').remove();
  		$('#location-modal-main').remove();
- 		modalOpen = false;
+		
+		modalOpen = false;
+ 		this.unbind();
+ 		this.remove();
+ 		
 
  		Backbone.View.prototype.remove.call(this);
  	},
