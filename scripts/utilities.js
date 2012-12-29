@@ -59,13 +59,16 @@ var height = window.screen.availHeight+'px';
 
 function resize(){
     $('body').css({ 
-        'min-width': width,
-        'min-height': height 
+        'width': width,
+        'height': height 
     });   
+    $('html').css({
+        'width': width,
+        'height': height,
+    });
 }
 
 $(document).ready(function(){
     resize();
-    $(window).bind('resize',resize());
 });
 
