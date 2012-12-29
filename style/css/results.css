@@ -1,0 +1,67 @@
+.singleSearchResult {
+	height: 30%;
+	width: 100%;
+}
+
+.searchResultImgSrc {
+	float: left;
+	height: 100%;
+}
+
+.searchResultInfoContainer {
+	float: left;
+	height: 100px;
+	width: 50px;
+	background-color: #000;
+}
+
+.searchResultLocation {
+	margin: 5px;
+	color: #FFFFFF;
+}
+
+.searchResultWindow {
+	margin: 5px;
+	color: #FFFFFF;
+}
+
+.searchResultType {
+	margin-top: 10px;
+	margin-left: 5px;
+	color: #FFFFFF;
+	font-size: 12px;
+}
+
+.searchResultPriceContainer {
+	display: inline-block;
+	height: 100px;
+	width: 30px;
+}
+
+.searchResultTotalPrice {
+	float: left;
+	height: 70%;
+	width: 100%;
+}
+
+.searchResultCurrency {
+	float: left;
+	margin: 0px;
+	color: #FFFFFF;
+	font-size: 40px;
+}
+
+.searchResultTotalValue {
+	float: right;
+	margin: 0px;
+	color: #FFFFFF;
+	font-size: 40px;
+}
+
+.searchResultDividedPrice {
+	text-align: right;
+	height: 30%;
+	width: 100%;
+	color: #FFFFFF;
+	font-size: 12px;
+}
