@@ -125,7 +125,7 @@
  		if (this.registerView){
  			this.registerView.close();
  		}
-
+        var datePickerDiv = $('#ui-datepicker-div');        //reserve the datepicker div
 
  		$('#help-cat').unbind();
         $('#help-input-location').unbind();
@@ -136,6 +136,8 @@
 
         this.unbind();
         $(this.el).empty();
+
+        $(this.el).append(datePickerDiv);
 
  	}
 
