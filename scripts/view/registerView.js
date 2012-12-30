@@ -23,7 +23,9 @@
  		$('body').append("<div class = 'register-modal-mask' id = 'register-modal-mask'></div>");
  		$('body').append("<div class = 'register-modal-main' id = 'register-modal-main'></div>");
  		$('#register-modal-main').append("<div class = 'modal-close' id = 'register-modal-closeButton'>X</div>");
- 		$('#register-modal-main').append("<div class = 'modal-container' id = 'register-modal-courseLengthInMinutesContainer'><div class = 'modal-container-word' id = 'register-modal-courseLengthInMinutesWord'>课时长（分钟）</div><input class = 'modal-input' id = 'register-modal-courseLengthInMinutes'/></div>");
+ 		if (this.type == 0){
+ 			$('#register-modal-main').append("<div class = 'modal-container' id = 'register-modal-courseLengthInMinutesContainer'><div class = 'modal-container-word' id = 'register-modal-courseLengthInMinutesWord'>课时长（分钟）</div><input class = 'modal-input' id = 'register-modal-courseLengthInMinutes'/></div>");
+ 		}
  		$('#register-modal-main').append("<div class = 'modal-container' id = 'register-modal-emailContainer'><div class = 'modal-container-word' id = 'register-modal-emailWord'>邮箱</div><input class = 'modal-input' id = 'register-modal-email'/></div>");
  		$('#register-modal-main').append("<div class = 'modal-container' id = 'register-modal-phoneContainer'><div class = 'modal-container-word' id = 'register-modal-phoneWord'>电话</div><input class = 'modal-input' id = 'register-modal-phone'/></div>");
  		$('#register-modal-main').append("<div class = 'modal-container' id = 'register-modal-qqContainer'><div class = 'modal-container-word' id = 'register-modal-qqWord'>QQ</div><input class = 'modal-input' id = 'register-modal-qq'/></div>");
@@ -49,7 +51,12 @@
  	},
 
  	complete:function(){
- 		this.courseLengthInMinutes = $('#register-modal-courseLengthInMinutes').val();
+ 		if (this.type == 0){
+			this.courseLengthInMinutes = $('#register-modal-courseLengthInMinutes').val();
+ 		}
+ 		else if (this.type == 1){
+ 			this.courseLengthInMinutes = 60;
+ 		}
  		this.email = $('#register-modal-email').val();
  		this.phone = $('#register-modal-phone').val();
  		this.qq = $('#register-modal-qq').val();
