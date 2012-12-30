@@ -51,7 +51,7 @@
 				});
 
 				self.provinceName = $('.location-modal-province').first().html();
-				self.getCities(self.provinceName);
+				self.getCities();
 				self.highLight($('.location-modal-province').first(),"province");
 				self.highLightedProvince = $('.location-modal-province').first();
 			},
@@ -89,7 +89,7 @@
 				});
 
 				self.cityName = $('.location-modal-city').first().html();
-				self.getUniversities(self.cityName);
+				self.getUniversities();
 				self.highLight($('.location-modal-city').first(),"city");
 				self.highLightedCity = $('.location-modal-city').first();
 			},
