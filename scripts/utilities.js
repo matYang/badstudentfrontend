@@ -72,3 +72,16 @@ $(document).ready(function(){
     resize();
 });
 
+//Pop-up
+
+function togglePopup(box){
+    var popupPanel = $('#'+box);
+    if(popupPanel.css("display") === "block"){
+        popupPanel.css("display", "none");
+    } else {
+        popupPanel.css("display", "block");
+        popupPanel.css("width", $("#main-full-width").width());
+        popupPanel.css("height", $("#main-full-width").height());
+    }
+}
+
