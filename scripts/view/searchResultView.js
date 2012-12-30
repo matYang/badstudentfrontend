@@ -2,7 +2,7 @@
 
 
  	initialize:function(targetId, searchResults, gender){
- 		_.bindAll(this,'render'， 'fill', 'getDateString' ，'close');
+ 		_.bindAll(this,'render','fill', 'getDateString' , 'close');
 
  		this.template = _.template(tpl.get('resultsTemplate')),
 
@@ -21,7 +21,7 @@
         this.weekDayArray[5] = "周六";
         this.weekDayArray[6] = "周日";
 
-        this tempDate = new Date();
+        this.tempDate = new Date();
 
         console.log("SearchResultView opening with targetId: " + this.targetId + " and Message Collection: " + this.searchResults);
         this.render();
@@ -31,36 +31,38 @@
  		if (this.gender == 2){
  			for (var i = 0; i < this.searchResults.length; i++){
  				var curModel = this.searchResults.at(i);
+ 				curModel.set({'tpId': ('i' + tpId)});
             	$(this.targetId).append(this.template(curModel.toJSON()));
-            	this.fill(curModel);
-
+            	this.fill(curModel, ('i' + tpId));
+            	tpId++;
             }
         }
  		else if (this.gender == 0 || this.gender == 1){
  			for (var i = 0; i < this.searchResults.length; i++){
  				if (this.searchResults.at(i).get('gender') == this.gender){
  					var curModel = this.searchResults.at(i);
+ 					curModel.set({'tpId': ('i' + tpId)});
  					$(this.targetId).append(this.template(curModel.toJSON()));
- 					this.fill(curModel);
+ 					this.fill(curModel, ('i' + tpId));
+ 					tpId++;
  				}
             }
  		}
 		 		
  	},
 
- 	fill:function(curModel){
- 		var curId = '#' + curModel.get('id');
+ 	fill:function(curModel, tpId){
+ 		var curId = '#' + tpId;
 
-    	var university = curModel.get('location').split(" ")[2];
-    	$(curId +  ' .searchResultLocation').html(university);
+    	$(curId +  ' .searchResultLocation').html(curModel.get('location')['school']);
 
     	var startDateString = this.getDateString(curModel.get('startDate'));
     	if (curModel.get('type') == 0){
-    		$(curId +  ' .searchResultWindow').html(startDateString)
+    		$(curId + ' .searchResultWindow').html(startDateString)
     	}
     	else if (curModel.get('type') == 1){
     		var endDateString = this.getDateString(curModel.get('endDate'));
-    		$(curId +  ' .searchResultWindow').html(startDateString + "到" ＋ endDateString + "有空")
+    		$(curId + ' .searchResultWindow').html(startDateString + "到" + endDateString + "有空");
     	}
 
 
@@ -77,8 +79,7 @@
  	},
 
  	getDateString:function(dateString){
- 		var curDateArray = dateString.split(" ");
- 		var curDate = new Date(curDateArray[0] + " " + (curDateArray[1]-1) + " " + curDateArray[2])
+ 		var curDate = new Date(dateString);
  		var today = new Date(this.tempDate.getFullYear(), this.tempDate.getMonth(), this.tempDate.getDate());
 
 
@@ -87,10 +88,30 @@
  		if (dayDifference <= 0){
  			return "今天";
  		}
+ 		else if (dayDifference == 1){
+ 			return "明天";
+ 		}
+ 		else if (dayDifference == 2){
+ 			return "后天";
+ 		}
+
  		var curDayOfWeek = curDate.getDay();
- 		
+ 		var todayOfWeek = today.getDay();
 
+ 		if ((todayOfWeek + dayDifference) > 13){
+ 			return (curDate.getMonth()+1) + "月" + curDate.getDate() + "日";
+ 		}
 
+ 		if ((todayOfWeek + dayDifference) <= 6){
+ 			return "这" + this.weekDayArray[curDayOfWeek];
+ 		}
+
+ 		if ((todayOfWeek + dayDifference) > 6){
+ 			return "下" + this.weekDayArray[curDayOfWeek];
+ 		}
+ 		else{
+ 			return "date display error";
+ 		}
 
 
  	},
