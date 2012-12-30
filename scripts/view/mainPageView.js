@@ -111,6 +111,10 @@
         if (this.enterInfoSearchView){
             this.enterInfoSearchView.close();
         }
+        var datePickerDiv = $('#ui-datepicker-div');        //reserve the datepicker div
+
+        $("#datepicker").datepicker("destroy");
+        $('#datePicker').unbind();
         $('#main-input-city').unbind();
         $('#main-input-university').unbind();
         $('#main-help-me-find').unbind();
@@ -118,6 +122,8 @@
         $('#main-info-search').unbind();
         this.unbind();
         $(this.el).empty();
+
+        $(this.el).append(datePickerDiv);                   //inject into dom for future uses
 
         //Backbone.View.prototype.remove.call(this);
     },
