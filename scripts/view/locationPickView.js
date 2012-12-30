@@ -15,19 +15,17 @@
  	},
 
  	render:function(){
- 		$('body').append("<div class = 'location-modal-mask' id = 'location-modal-mask'></div>");
- 		$('body').append("<div class = 'location-modal-main' id = 'location-modal-main'></div>");
- 		$('#location-modal-main').append("<div class = 'location-modal-closeButton' id = 'location-modal-closeButton'>关闭</div>");
- 		$('#location-modal-main').append("<div class = 'location-modal-titleContainer' id = 'location-modal-titleContainer'><p id = 'location-modal-title'>请选择位置</p></div>");
- 		$('#location-modal-main').append("<div class = 'location-modal-provinceContainer' id = 'location-modal-provinceContainer'></div>");
- 		$('#location-modal-main').append("<div class = 'location-modal-cityContainer' id = 'location-modal-cityContainer'></div>");
- 		$('#location-modal-main').append("<div class = 'location-modal-universityContainer' id = 'location-modal-universityContainer'></div>");
+ 		$('body').append("<div class = 'popupPanel' id = 'locationSearchPanel'></div>")
+ 		$('.popupPanel').append("<div class = 'popupBox roundBox'></div>");
+ 		$('.popupBox').append("<div class = 'location-modal-closeButton' id = 'location-modal-closeButton'>X</div>");
+ 		$('.popupBox').append("<div class = 'location-modal-titleContainer' id = 'location-modal-titleContainer'><p id = 'location-modal-title'>请选择位置</p></div>");
+ 		$('.popupBox').append("<div class = 'location-modal-provinceContainer' id = 'location-modal-provinceContainer'></div>");
+ 		$('.popupBox').append("<div class = 'location-modal-cityContainer' id = 'location-modal-cityContainer'></div>");
+ 		$('.popupBox').append("<div class = 'location-modal-universityContainer' id = 'location-modal-universityContainer'></div>");
  		
-
- 		$('#location-modal-mask').bind('click', this.close);
  		$('#location-modal-closeButton').bind('click', this.close);
- 		this.getProvinces();
-
+ 		//this.getProvinces();
+ 		togglePopup("locationSearchPanel");
  	},
 
  	getProvinces:function(){
@@ -153,18 +151,20 @@
  	},
 
  	close:function(){
+ 		togglePopup("locationSearchPanel");
  		$('#location-modal-mask').unbind();
  		$('#location-modal-closeButton').unbind();
  		$('.location-modal-province').unbind();
  		$('.location-modal-city').unbind();
  		$('.location-modal-university').unbind();
-		$('#location-modal-main').empty();
+		$('#locationSearchPanel').empty();
  		$('#location-modal-mask').remove();
- 		$('#location-modal-main').remove();
+ 		$('#locationSearchPanel').remove();
 		
 		modalOpen = false;
  		this.unbind();
  		this.remove();
+ 		
 
  		Backbone.View.prototype.remove.call(this);
  	},
