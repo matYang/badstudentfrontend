@@ -13,13 +13,13 @@
         this.typeArray[0] = "求人帮忙";
         this.typeArray[1] = "帮人点名";
         this.weekDayArray = new Array();
-        this.weekDayArray[0] = "周一";
-        this.weekDayArray[1] = "周二";
-        this.weekDayArray[2] = "周三";
-        this.weekDayArray[3] = "周四";
-        this.weekDayArray[4] = "周五";
-        this.weekDayArray[5] = "周六";
-        this.weekDayArray[6] = "周日";
+        this.weekDayArray[1] = "周一";
+        this.weekDayArray[2] = "周二";
+        this.weekDayArray[3] = "周三";
+        this.weekDayArray[4] = "周四";
+        this.weekDayArray[5] = "周五";
+        this.weekDayArray[6] = "周六";
+        this.weekDayArray[0] = "周日";
 
         this.tempDate = new Date();
 

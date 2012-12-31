@@ -50,7 +50,11 @@
 
  		$('#datePicker').datepicker({
             onSelect: function(dateText, inst) { 
-                self.date = new Date(dateText);
+                //update the system's jquery datepicker date
+                var selectedDate = new Date(dateText);
+                self.date.setDate(selectedDate.getDate());
+                self.date.setMonth(selectedDate.getMonth());
+                self.date.setFullYear(selectedDate.getFullYear());
             },
 
             onClose: function(dateText, inst) 
