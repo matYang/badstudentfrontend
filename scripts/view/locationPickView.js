@@ -15,13 +15,13 @@
  	},
 
  	render:function(){
- 		$('body').append("<div class = 'popupPanel' id = 'locationSearchPanel'></div>")
- 		$('.popupPanel').append("<div class = 'popupBox roundBox'></div>");
- 		$('.popupBox').append("<div class = 'location-modal-closeButton' id = 'location-modal-closeButton'>X</div>");
- 		$('.popupBox').append("<div class = 'location-modal-titleContainer' id = 'location-modal-titleContainer'><p id = 'location-modal-title'>请选择大学</p></div>");
- 		$('.popupBox').append("<div class = 'location-modal-provinceContainer roundBox' id = 'location-modal-provinceContainer'></div>");
- 		$('.popupBox').append("<div class = 'location-modal-cityContainer roundBox' id = 'location-modal-cityContainer'></div>");
- 		$('.popupBox').append("<div class = 'location-modal-universityContainer roundBox' id = 'location-modal-universityContainer'></div>");
+ 		$('body').append("<div class='popupPanel' id='locationSearchPanel'></div>")
+ 		$('.popupPanel').append("<div class='roundBox' id='popupBoxLocation'></div>");
+ 		$('#popupBoxLocation').append("<div id='location-modal-closeButton'>X</div>");
+ 		$('#popupBoxLocation').append("<div id='location-modal-titleContainer'><p>请选择大学</p></div>");
+ 		$('#popupBoxLocation').append("<div class='roundBox' id='location-modal-provinceContainer'></div>");
+ 		$('#popupBoxLocation').append("<div class='roundBox' id='location-modal-cityContainer'></div>");
+ 		$('#popupBoxLocation').append("<div class='roundBox' id='location-modal-universityContainer'></div>");
  		
  		$('#location-modal-closeButton').bind('click', this.close);
  		this.getProvinces();
@@ -152,13 +152,11 @@
 
  	close:function(){
  		togglePopup("locationSearchPanel");
- 		$('#location-modal-mask').unbind();
  		$('#location-modal-closeButton').unbind();
  		$('.location-modal-province').unbind();
  		$('.location-modal-city').unbind();
  		$('.location-modal-university').unbind();
 		$('#locationSearchPanel').empty();
- 		$('#location-modal-mask').remove();
  		$('#locationSearchPanel').remove();
 		
 		modalOpen = false;
