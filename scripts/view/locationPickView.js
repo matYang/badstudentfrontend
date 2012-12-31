@@ -18,13 +18,13 @@
  		$('body').append("<div class = 'popupPanel' id = 'locationSearchPanel'></div>")
  		$('.popupPanel').append("<div class = 'popupBox roundBox'></div>");
  		$('.popupBox').append("<div class = 'location-modal-closeButton' id = 'location-modal-closeButton'>X</div>");
- 		$('.popupBox').append("<div class = 'location-modal-titleContainer' id = 'location-modal-titleContainer'><p id = 'location-modal-title'>请选择位置</p></div>");
- 		$('.popupBox').append("<div class = 'location-modal-provinceContainer' id = 'location-modal-provinceContainer'></div>");
- 		$('.popupBox').append("<div class = 'location-modal-cityContainer' id = 'location-modal-cityContainer'></div>");
- 		$('.popupBox').append("<div class = 'location-modal-universityContainer' id = 'location-modal-universityContainer'></div>");
+ 		$('.popupBox').append("<div class = 'location-modal-titleContainer' id = 'location-modal-titleContainer'><p id = 'location-modal-title'>请选择大学</p></div>");
+ 		$('.popupBox').append("<div class = 'location-modal-provinceContainer roundBox' id = 'location-modal-provinceContainer'></div>");
+ 		$('.popupBox').append("<div class = 'location-modal-cityContainer roundBox' id = 'location-modal-cityContainer'></div>");
+ 		$('.popupBox').append("<div class = 'location-modal-universityContainer roundBox' id = 'location-modal-universityContainer'></div>");
  		
  		$('#location-modal-closeButton').bind('click', this.close);
- 		//this.getProvinces();
+ 		this.getProvinces();
  		togglePopup("locationSearchPanel");
  	},
 
