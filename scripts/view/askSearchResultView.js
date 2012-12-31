@@ -37,9 +37,16 @@
         $('#ask-lower-container').append("<div id = 'ask-info' class = 'secondaryContainer'></div>");
 
 
+        var self = this;
         $('#ask-input-startDatePicker').datepicker({
             onSelect: function(dateText, inst) { 
                 self.startDate = new Date(dateText);
+
+                //update the system's jquery datepicker date
+                var selectedDate = new Date(dateText);
+                self.date.setDate(selectedDate.getDate());
+                self.date.setMonth(selectedDate.getMonth());
+                self.date.setFullYear(selectedDate.getFullYear());
             },
 
             onClose: function(dateText, inst) 
