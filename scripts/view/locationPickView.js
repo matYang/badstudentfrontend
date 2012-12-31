@@ -15,9 +15,9 @@
  	},
 
  	render:function(){
- 		$('body').append("<div class='popupPanel' id='locationSearchPanel'></div>")
- 		$('.popupPanel').append("<div class='roundBox' id='popupBoxLocation'></div>");
- 		$('#popupBoxLocation').append("<div id='location-modal-closeButton'>X</div>");
+ 		$('body').append("<div class='popupPanel' id='locationSearchPanel'></div>");
+ 		$('#locationSearchPanel').append("<div class='roundBox' id='popupBoxLocation'></div>");
+ 		$('#popupBoxLocation').append("<div class='popUpCloseButton' id='location-modal-closeButton'>X</div>");
  		$('#popupBoxLocation').append("<div id='location-modal-titleContainer'><p>请选择大学</p></div>");
  		$('#popupBoxLocation').append("<div class='roundBox' id='location-modal-provinceContainer'></div>");
  		$('#popupBoxLocation').append("<div class='roundBox' id='location-modal-cityContainer'></div>");
