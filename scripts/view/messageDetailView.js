@@ -29,7 +29,7 @@
         }
 
         if (this.type == 1){
-            $('#detail-totalPrice').html(this.message.get('price') + "/时");
+            $('#detail-totalPrice').html("&yen;" + this.message.get('price') + "/时");
         }
         if (this.type == 0){
             var hour = this.messahe.get('courseLengthInMinutes')/60;

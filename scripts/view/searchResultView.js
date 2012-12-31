@@ -69,7 +69,7 @@
 		$(curId +  ' .searchResultType').html(this.typeArray[curModel.get('type')]);
 
 		if (curModel.get('type') == 1){
-			$(curId +  ' .searchResultTotalValue').html(curModel.get('price') + "/时");
+			$(curId +  ' .searchResultTotalValue').html("&yen;" + curModel.get('price') + "/时");
 		}
 		if (curModel.get('type') == 0){
 			var hour = curModel.get('courseLengthInMinutes')/60;

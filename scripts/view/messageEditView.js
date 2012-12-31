@@ -5,105 +5,115 @@
  		_.bindAll(this,'render','getDateString','bindEvents','close');
  		this.message = message;
 
+        this.startDate = new Date(this.message.get('startDate'));
+        this.endDate = new Date(this.message.get('endDate'));
+        this.locationArray = new Array();
+        this.locationArray[0] = this.message.get('location')[0];
+        this.locationArray[1] = this.message.get('location')[1];
+        this.locationArray[2] = this.message.get('location')[2];
+
         this.template = _.template(tpl.get('editTemplate')),
 
         this.render();
         this.bindEvents();
-
  	},
 
     render: function(){
         $(this.targetId).append(this.template(this.message.toJSON()));
         this.type = this.message.get('type');
 
+        var self = this;
+        $('#detail-modal-datePickerContainer').datepicker({
+            onSelect: function(dateText, inst) { 
+                self.startDate = new Date(dateText);
+            },
 
-        $('#detail-location').html(this.message.get('location')[2]);
-        var startDate = this.message.get('startDate');
-        if (this.type == 0){
-            $('#detail-date').html(this.getDateString(startDate))
-        }
-        else if (this.type == 1){
-            var endDate = this.message.get('endDate');
-            $('#detail-date').html(this.getDateString(startDate) + " 到 " + this.getDateString(endDate));
-        }
+            onClose: function(dateText, inst) 
+            { 
+                $(this).attr("disabled", false);
+            },
 
-        if (this.type == 1){
-            $('#detail-totalPrice').html(this.message.get('price') + "/时");
+            beforeShow: function(input, inst) 
+            {
+                $(this).attr("disabled", true);
+            }
+        });
+        $('#detail-modal-datePickerContainer').datepicker( "setDate", this.startDate);
+        $('#detail-modal-datePickerContainer').datepicker( "option", "minDate", new Date());
+
+
+
+        if (type == 0){
+            $('#detail-modal-courseLengthInMinutesContainer').css({'display':'block'});
         }
-        if (this.type == 0){
-            var hour = this.messahe.get('courseLengthInMinutes')/60;
-            var hourPrice = this.message.get('price')/hour
-            $("#detail-dividedPrice").html(hour + "小时 / 单价" + hourPrice);
+        if (type == 1){
+            $('#detail-modal-endDatePickerContainer').css({'display':'block'});
+            $('#detail-modal-endDatePickerContainer').datepicker({
+            onSelect: function(dateText, inst) { 
+                self.endDate = new Date(dateText);
+            },
+
+            onClose: function(dateText, inst) 
+            { 
+                $(this).attr("disabled", false);
+            },
+
+            beforeShow: function(input, inst) 
+            {
+                $(this).attr("disabled", true);
+            }
+        });
+        $('#detail-modal-endDatePickerContainer').datepicker( "setDate", this.endDate);
+        $('#detail-modal-endDatePickerContainer').datepicker( "option", "minDate", new Date());
         }
+        
+        $('#detail-modal-city').html(this.locationArray[1]);
+        $('#detail-modal-university').html(this.locationArray[2]);
+
         
 
     },
 
-    getDateString:function(date){
-        return date.getFullYear() + "年" ＋ （date.getMonth()+1） + "月" + date.getDate() + "日";
-    },
-
     bindEvents:function(){
-        $('#detail-cat').bind('click',function(){
-            app.navigate("",true);
-        });
 
-        $('#detail-submit-button').bind('click', function(){
-            $('#detail-submit-passwordContainer').css({'display':'block'});
-            $('#detail-full-width:not(detail-submitContainer)').bind('click',function(){
-
-                $('#detail-submit-passwordContainer').css({'display':'none'});
-                $('#detail-submit-errorContainer').css({'display':'none'});
-
-                $('#detail-full-width:not(detail-submitContainer)').unbind();
-            });
-        });
-
-        $('#detail-submit-password-button').bind('click', this.authSubmit);
-
+        $('#detail-modal-deleteButton').bind('click'， this.deleteMessage);
+        $('#detail-modal-submitButton').bind('click'， this.updateMessage);
 
     },
 
-    authSubmit:function(){
-        var password = $('#detail-submit-password').val();
+    deleteMessage:function(){
         var self = this;
-        $.ajax({
-            type: "GET",
-            async: false,
-            url: "http://localhost:8015/api/badstudent/v0.9/auth",
-            dataType: 'json',
-            data: {id : self.message.get('id'), password: password},
-
-            success: function(data){
-                var password = date;
-                self.message.set({'password': password});
-                this.messageEditView = new MessageEditView(self.message);
-                
+        this.message.destroy({
+            success:function(){
+                var encodedSearchKey = self.message.get('email') + "-" + self.message.get('phone') + "-" + self.message.get('qq') +  "-" + self.message.get('twitter') + "-" + self.message.get('selfDefined');
+                app.navigate('info/*encodedSearchKey', true);
             },
-            error: function (data, textStatus, jqXHR){
-                $('#detail-submit-errorContainer').css({'display':'block'});
-                $('#detail-submit-error').html(textStatus);
-            },
+            
+            error: function(){
+                console.log("delete failed");
+                alert("deleteFailed");
+            }
+        
         });
+
     },
 
-    close:function(){
-        if (this.messageEditView){
-            this.messageEditView.close();
-        }
+    updateMessage:function(){
+        var self = this;
+        thisMessage.save({},{
+            success:function(model, response){
+                console.log("PUT succeeded");
+                console.log(model.get('id'));
+                alert("PUT Success: congradualations");
+            },
+            
+            error: function(){
+                console.log("PUT failed");
+                alert("PUT Error: check server configuration");
+            }
+        });
 
-        var datePickerDiv = $('#ui-datepicker-div');        //reserve the datepicker div
-
-        $('#detail-cat').unbind();
-        $('#detail-submit-button').unbind();
-        $('#detail-full-width:not(detail-submitContainer)').unbind();
-        $('#detail-submit-password-button').unbind();
-
-        this.unbind();
-        $(this.el).empty();
-
-        $(this.el).append(datePickerDiv);
-    }
+    },
 
 
 
