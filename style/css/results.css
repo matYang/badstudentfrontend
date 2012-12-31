@@ -1,6 +1,7 @@
 .singleSearchResult {
 	height: 30%;
-	width: 100%;
+	margin: 0px;
+	padding: 0px;
 }
 
 .searchResultImgSrc {
@@ -10,9 +11,7 @@
 
 .searchResultInfoContainer {
 	float: left;
-	height: 100px;
-	width: 50px;
-	background-color: #000;
+	height: 100%;
 }
 
 .searchResultLocation {
@@ -33,35 +32,24 @@
 }
 
 .searchResultPriceContainer {
-	display: inline-block;
-	height: 100px;
-	width: 30px;
-}
-
-.searchResultTotalPrice {
-	float: left;
-	height: 70%;
-	width: 100%;
-}
-
-.searchResultCurrency {
-	float: left;
-	margin: 0px;
-	color: #FFFFFF;
-	font-size: 40px;
+	float: right;
+	height: 100%;
 }
 
 .searchResultTotalValue {
-	float: right;
-	margin: 0px;
+	height: 50%;
+	width: 100%;
+	text-align: right;
 	color: #FFFFFF;
 	font-size: 40px;
+	padding-top: 10%;
 }
 
 .searchResultDividedPrice {
 	text-align: right;
-	height: 30%;
+	height: 40%;
 	width: 100%;
 	color: #FFFFFF;
 	font-size: 12px;
+	margin: 0px;
 }
