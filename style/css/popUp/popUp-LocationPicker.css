@@ -1,15 +1,4 @@
-.popupPanel {
-	display: none;
-	position:absolute;
-	top: 0;
-	bottom: 0;
-	left: 0;
-	right: 0;
-	z-index: 2000;
-	background-color: rgba(0,0,0,0.7);
-}
-
-.popupBox {
+#popupBoxLocation {
 	position: absolute;
 	top: 25%;
 	left: 25%;
@@ -21,7 +10,7 @@
 	box-shadow: 0 0 30px 5px #111;
 }
 
-.location-modal-closeButton {
+#location-modal-closeButton {
     float: right;
     width: 20px;
     height: 22px;
@@ -36,7 +25,7 @@
     padding-left: 5px;
 }
 
-.location-modal-titleContainer {
+#location-modal-titleContainer {
 	margin-top: -10px;
 	height: 10%;
 	width: 100%;
@@ -44,7 +33,7 @@
 	padding-left: 10px;
 }
 
-.location-modal-provinceContainer {
+#location-modal-provinceContainer {
 	background-color: #FFFFFF;
 	margin-left: 5%;
 	height: 20%;
@@ -54,19 +43,19 @@
 	border-width:1px;
 }
 
-.location-modal-provinceContainer div {
+#location-modal-provinceContainer div {
     display: inline-block;
     margin-left: 5px;
    	margin-top: 5px;
 	text-align: center;
 }
 
-.location-modal-provinceContainer div:hover {
+#location-modal-provinceContainer div:hover {
 	background-color: #000;
 	cursor: pointer;
 }
 
-.location-modal-cityContainer {
+#location-modal-cityContainer {
 	background-color: #FFFFFF;
 	margin-left: 5%;
 	margin-top: 1%;
@@ -77,19 +66,19 @@
 	border-width:1px;
 }
 
-.location-modal-cityContainer div {
+#location-modal-cityContainer div {
     display: inline-block;
     margin-left: 5px;
    	margin-top: 5px;
 	text-align: center;
 }
 
-.location-modal-cityContainer div:hover {
+#location-modal-cityContainer div:hover {
 	background-color: #000;
 	cursor: pointer;
 }
 
-.location-modal-universityContainer {
+#location-modal-universityContainer {
 	background-color: #FFFFFF;
 	margin-left: 5%;
 	margin-top: 1%;
@@ -101,19 +90,18 @@
 	border-width:1px;
 }
 
-.location-modal-universityContainer div {
+#location-modal-universityContainer div {
     display: inline-block;
     margin-left: 5px;
    	margin-top: 5px;
 	width: 32%;
 }
 
-.location-modal-universityContainer div:hover {
+#location-modal-universityContainer div:hover {
 	background-color: #000;
 	cursor: pointer;
 }
 
-.location-modal-universityContainer div:before {
+#location-modal-universityContainer div:before {
     content: '- ';
 }
-
