@@ -11,9 +11,9 @@ View:  	  	mainPageView								Require:	index.html   searchResultView
 			infoSearchResultView									same   						 [part of DOM can be injected into js]
 			searchResultView										resultsTemplate.html						
 			messageDetailView										detailTemplate.html        
-			messageEditView  	    [modal window]					editTemplate.html			 [can be replaced by pure js]
-			registerView			[modal window]					registerTemplate.html		 [can be replaced by pure js]
-			enterInfoSearchView		[modal window]					infoSearchTemplate.html		 [can be replaced by pure js]
+			messageEditView  	    [modal window]					editTemplate.html
+			registerView			[modal window]					DOM encoded in JS string
+			enterInfoSearchView		[modal window]					DOM encoded in JS string
 			locationPickView		[modal window]					DOM encoded in JS string
 
 Controller:	Router::routes:

@@ -33,6 +33,25 @@ var AppRouter = Backbone.Router.extend({
     viewById:function(id){
         this.closeAhead("messageDetailView");
     	//TODO message detail view here
+        var message = new Message();
+        var self = this;
+
+        message.set({'id': id});
+        message.fetch({
+            dataType:'json',
+
+            success:function(model, response){
+                console.log("viewById::fetch success with id: " + id);
+                console.log("response");
+                self.messageDetailView = new MessageDetailView(message);
+            },
+
+            error: function(model, response){
+                console.log("viewById::fetch failed");
+                console.log(response);
+                alert("viewById::failed to fetch data from server");
+            }
+        });
     },
 
     //used to find helpers
@@ -51,15 +70,15 @@ var AppRouter = Backbone.Router.extend({
             dataType:'json',
             
             success: function (model, response) {
-                console.log("fetch success with encodedKey: " + encodedKey); 
+                console.log("helpSearch::fetch success with encodedKey: " + encodedKey); 
                 console.log(response);
                 self.helpSearchResultView = new HelpSearchResultView(self.searchResult,self.date, self.locationArray);
             },
             
             error: function(model, response){
-                console.log("fetch failed");
+                console.log("helpSearch::fetch failed");
                 console.log(response);
-                alert("failed to fetch data from server");
+                alert("helpSearch::failed to fetch data from server");
             }
         });
 
@@ -83,15 +102,15 @@ var AppRouter = Backbone.Router.extend({
             dataType:'json',
             
             success: function (model, response) {
-                console.log("fetch success with encodedKey: " + encodedKey); 
+                console.log("askSearch::fetch success with encodedKey: " + encodedKey); 
                 console.log(response);
                 self.askSearchResultView = new AskSearchResultView(self.searchResult, self.date, self.locationArray);
             },
             
             error: function(model, response){
-                console.log("fetch failed");
+                console.log("askSearch::fetch failed");
                 console.log(response);
-                alert("failed to fetch data from server");
+                alert("askSearch::failed to fetch data from server");
             }
         });
 
@@ -111,15 +130,15 @@ var AppRouter = Backbone.Router.extend({
             dataType:'json',
             
             success: function (model, response) {
-                console.log("fetch success with encodedKey: " + encodedKey); 
+                console.log("infoSearch::fetch success with encodedKey: " + encodedKey); 
                 console.log(response);
                 self.infoSearchResultView = new InfoSearchResultView(self.searchResult);
             },
             
             error: function(model, response){
-                console.log("fetch failed");
+                console.log("infoSearch::fetch failed");
                 console.log(response);
-                alert("failed to fetch data from server");
+                alert("infoSearch::failed to fetch data from server");
             }
         });
 
@@ -157,7 +176,7 @@ var AppRouter = Backbone.Router.extend({
  
 });
 
-tpl.loadTemplates(['indexTemplate','resultsTemplate'], function () {
+tpl.loadTemplates(['indexTemplate','resultsTemplate','detailTemplate','editTemplate'], function () {
     app = new AppRouter();
     Backbone.history.start();
 });
