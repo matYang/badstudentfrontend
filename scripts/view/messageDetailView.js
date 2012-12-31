@@ -32,7 +32,7 @@
             $('#detail-totalPrice').html("&yen;" + this.message.get('price') + "/时");
         }
         if (this.type == 0){
-            var hour = this.messahe.get('courseLengthInMinutes')/60;
+            var hour = this.message.get('courseLengthInMinutes')/60;
             var hourPrice = this.message.get('price')/hour
             $("#detail-dividedPrice").html(hour + "小时 / 单价" + hourPrice);
         }
@@ -76,7 +76,7 @@
             data: {id : self.message.get('id'), password: password},
 
             success: function(data){
-                var password = date;
+                self.message  = data;
                 self.message.set({'password': password});
                 this.messageEditView = new MessageEditView(self.message);
                 

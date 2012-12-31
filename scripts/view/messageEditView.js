@@ -11,16 +11,19 @@
         this.locationArray[0] = this.message.get('location')[0];
         this.locationArray[1] = this.message.get('location')[1];
         this.locationArray[2] = this.message.get('location')[2];
+        this.type = this.message.get('type');
+
+        modalOpen = true;
 
         this.template = _.template(tpl.get('editTemplate')),
 
         this.render();
         this.bindEvents();
+        this.updateLocation();
  	},
 
     render: function(){
         $(this.targetId).append(this.template(this.message.toJSON()));
-        this.type = this.message.get('type');
 
         var self = this;
         $('#detail-modal-datePickerContainer').datepicker({
@@ -66,16 +69,26 @@
         $('#detail-modal-endDatePickerContainer').datepicker( "setDate", this.endDate);
         $('#detail-modal-endDatePickerContainer').datepicker( "option", "minDate", new Date());
         }
-        
-        $('#detail-modal-city').html(this.locationArray[1]);
-        $('#detail-modal-university').html(this.locationArray[2]);
-
-        
 
     },
+    
+    showLocation:function(){
+        if (modalOpen == false ){
+            this.locationPickView = new LocationPickView(this.locationArray, this);
+        }
+    },
 
-    bindEvents:function(){
+    updateLocation:function(){
+        $('#detail-modal-city').html(this.locationArray[1]);
+        $('#detail-modal-university').html(this.locationArray[2]);
+    },
 
+
+    bindEvents:function(){ 
+        $('#detail-modal-city').bind('click', this.showLocation);
+        $('#detail-modal-university').bind('click', this.showLocation);
+
+        $('#detail-modal-mask').bind('click',this.close);
         $('#detail-modal-deleteButton').bind('click'， this.deleteMessage);
         $('#detail-modal-submitButton').bind('click'， this.updateMessage);
 
@@ -100,11 +113,37 @@
 
     updateMessage:function(){
         var self = this;
-        thisMessage.save({},{
+
+        this.email = $('#detail-modal-email').val();
+        this.phone = $('#detail-modal-phone').val();
+        this.qq = $('#detail-modal-qq').val();
+        this.twitter = $('#detail-modal-twitter').val();
+        this.selfDefined = $('#detail-modal-selfDefined').val();
+        this.content = $('#detail-modal-content').val();
+        this.price = $('#detail-modal-price').val();
+
+        if (this.type == 0){
+            this.courseLengthInMinutes = $('#detail-modal-courseLengthInMinutesContainer').val();
+            this.endDate = this.startDate;
+        }
+        else if (this.type == 1){
+            this.courseLengthInMinutes = this.message.get('courseLengthInMinutes');
+        }
+
+        var locationString = this.locationArray[0] + " " + this.locationArray[1] + " " + this.locationArray[2];
+        var startDateString = this.startDate.getFullYear() + " " + (this.startDate.getMonth()+1) + " " + this.startDate.getDate();
+        var endDateString = this.endDate.getFullYear() + " " + (this.endDate.getMonth()+1) + " " + this.endDate.getDate();
+
+        this.message.set({'startDate' : startDateString, 'endDate' : endDateString,
+        'location' : locationString, 'content' : this.content,
+        'email' : this.email, 'phone' : this.phone, 'qq' : this.qq, 'twitter' : this.twitter, 'selfDefined' : this.selfDefined,
+        'price' : this.price, "courseLengthInMinutes" : this.courseLengthInMinutes});
+
+        this.message.save({},{
             success:function(model, response){
                 console.log("PUT succeeded");
                 console.log(model.get('id'));
-                alert("PUT Success: congradualations");
+                app.navigate("message/" + this.message.get('id'), true);
             },
             
             error: function(){
@@ -115,7 +154,21 @@
 
     },
 
+    close:function(){
 
+        $('#detail-modal-city').unbind();
+        $('#detail-modal-university').unbind();
+        $('#detail-modal-closeButton').unbind();
+        $('#detail-modal-deleteButton').unbind();
+        $('#detail-modal-submitButton').unbind();
+        $('#detail-modal-main').remove();
+        this.unbind();
+
+        modalOpen = false;
+
+        Backbone.View.prototype.remove.call(this);
+
+    }
 
 
 
