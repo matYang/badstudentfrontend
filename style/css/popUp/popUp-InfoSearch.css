@@ -11,6 +11,7 @@
 }
 
 .modal-container {
+	display: table;
 	width: 85%;
 	padding-left: 10%;
 	height: 8%;
@@ -26,6 +27,8 @@
 }
 
 .modal-input {
+	display: table-cell;
+	vertical-align: middle;
 	float: right;
 	width: 80%;
 	height: 100%;
@@ -45,6 +48,7 @@
 	float: right;
 	width: 100%;
 	height: 9%;
+	cursor: pointer;
 }
 
 #enterInfoSearch-modal-submit {
