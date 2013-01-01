@@ -3,6 +3,7 @@ var miliSecInDay =  86400000;
 var infoUrlOverride = "http://localhost:8015/api/badstudent/v0.9/messages";
 var recentsUrlOverride = "http://localhost:8015/api/badstudent/v0.9/recentsSearch";
 var primaryUrlOverride = "http://localhost:8015/api/badstudent/v0.9/primarySearch";
+var authUrlOverride = "http://localhost:8015/api/badstudent/v0.9/auth";
 var modalOpen = false;    //global variable used to tract if a modal window is open
 var tpId = 1000;
 
@@ -42,7 +43,7 @@ var AppRouter = Backbone.Router.extend({
 
             success:function(model, response){
                 console.log("viewById::fetch success with id: " + id);
-                console.log("response");
+                console.log(response);
                 self.messageDetailView = new MessageDetailView(message);
             },
 

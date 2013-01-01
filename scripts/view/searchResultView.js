@@ -23,6 +23,8 @@
 
         this.tempDate = new Date();
 
+        this.idArray = new Array();
+
         console.log("SearchResultView opening with targetId: " + this.targetId + " and Message Collection: " + this.searchResults);
         this.render();
  	},
@@ -32,6 +34,7 @@
  			for (var i = 0; i < this.searchResults.length; i++){
  				var curModel = this.searchResults.at(i);
  				curModel.set({'tpId': ('i' + tpId)});
+                this.idArray.push('i' + tpId);
             	$(this.targetId).append(this.template(curModel.toJSON()));
             	this.fill(curModel, ('i' + tpId));
             	tpId++;
@@ -42,6 +45,7 @@
  				if (this.searchResults.at(i).get('gender') == this.gender){
  					var curModel = this.searchResults.at(i);
  					curModel.set({'tpId': ('i' + tpId)});
+                    this.idArray.push('i' + tpId);
  					$(this.targetId).append(this.template(curModel.toJSON()));
  					this.fill(curModel, ('i' + tpId));
  					tpId++;
@@ -54,15 +58,25 @@
  	fill:function(curModel, tpId){
  		var curId = '#' + tpId;
 
+        $(curId).bind('click', function(){
+            app.navigate("message/" + curModel.get('id'), true);
+        });
+
     	$(curId +  ' .searchResultLocation').html(curModel.get('location')['school']);
 
     	var startDateString = this.getDateString(curModel.get('startDate'));
     	if (curModel.get('type') == 0){
-    		$(curId + ' .searchResultWindow').html(startDateString)
+    		$(curId + ' .searchResultWindow').html(startDateString + "有空")
     	}
     	else if (curModel.get('type') == 1){
-    		var endDateString = this.getDateString(curModel.get('endDate'));
-    		$(curId + ' .searchResultWindow').html(startDateString + "到" + endDateString + "有空");
+            if (curModel.get('startDate') == curModel.get('endDate')){
+                $(curId + ' .searchResultWindow').html(startDateString + "有空");
+            }
+            else{
+                var endDateString = this.getDateString(curModel.get('endDate'));
+                $(curId + ' .searchResultWindow').html(startDateString + "到" + endDateString + "有空");
+            }
+    		
     	}
 
 
@@ -117,6 +131,10 @@
  	},
 
  	close:function(){
+        for (var i = 0; i < this.idArray.length; i ++){
+            $('#' + this.idArray[i]).unbind();
+        }
+
         $(this.targetId).empty();
         this.unbind();
         this.remove();
