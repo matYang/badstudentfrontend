@@ -16,14 +16,18 @@
  	},
 
  	render:function(){
- 		$(this.el).append("<div id='help-full-width' class = 'full-width'>");
- 		$('#help-full-width').append("<div id = 'help-upper-container' class = 'upper-container'></div>");
- 		$('#help-upper-container').append("<div id = 'help-title'>创建您的点名需求</div>");
- 		$('#help-upper-container').append("<div id = 'help-catContainer' class = 'catContainer'><img id = 'help-cat' class = 'cat' src = 'img/cat.png'/></div>");
- 		$('#help-upper-container').append("<div id = 'help-createContainer' class = 'createContainer'></div>");
- 		$('#help-upper-container').append("<div id = 'help-submit'>我勒个去<img id = 'help-submit-icon' src = 'img/submit.png'></div>");	
+ 		$(this.el).append("<div id='help-full-width' class='full-width'>");
+ 		$('#help-full-width').append("<div id='help-upper-container'></div>");
+        $('#help-upper-container').append("<div id='header'></div>");
+ 		$('#header').append("<div id='help-title'>创建您的点名需求</div>");
+ 		$('#header').append("<div id='help-catContainer'><img src='img/cat.png' alt='cat.png'/></div>");
+ 		$('#help-upper-container').append("<div id='help-createContainer' class='roundBox shadowBox'></div>");
+ 		$('#help-upper-container').append("<div id='help-submit' class='roundBox shadowBox'><div>我勒个去</div><img src='asset/submit.png' alt='submit.png'></div>");	
 
- 		$('#help-createContainer').append("<p>我在 <div id = 'help-input-location' class = 'help-input-box'></div> 附近 求 <input id = 'help-input-content' class = 'help-input-box'/> ，这节课在 <input id = 'help-input-datePicker' class = 'help-input-box'/> 。我需要一个 <input id = 'help-input-gender' class = 'help-input-box' /> 这节课我愿意付 <input id = 'help-input-price' class = 'help-input-box' /> 元！</p>");
+ 		$('#help-createContainer').append("<div class='help-row'><p>我在</p><div id='help-input-location'></div>附近求</div>");
+        $('#help-createContainer').append("<div class='help-row'><input id='help-input-content'/>，这</div>");
+        $('#help-createContainer').append("<div class='help-row'>节课在 <input id='help-input-datePicker'/> 。我需要一个</div>");
+        $('#help-createContainer').append("<div class='help-row'><select id='help-input-gender'><option value='2'>男生或女生</option><option value='0'>男生</option><option value='1'>女生</option></select>。 这节课我愿意付 <input id='help-input-price' type='number'/> 元!</div>");
 
  		$('#help-full-width').append("<div id = 'help-lower-container' class = 'lower-container'></div>");
  		$('#help-lower-container').append("<div id = 'help-alternative-title' class = 'alternative-title'>或者看这里</div>");
