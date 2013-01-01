@@ -2,7 +2,7 @@
 
 
  	initialize:function(message){
- 		_.bindAll(this,'render','getDateString','bindEvents','close');
+ 		_.bindAll(this,'render','showLocation','updateLocation','bindEvents','updateMessage','close');
  		this.message = message;
 
         this.startDate = new Date(this.message.get('startDate'));
@@ -23,7 +23,7 @@
  	},
 
     render: function(){
-        $(this.targetId).append(this.template(this.message.toJSON()));
+        $('body').append(this.template(this.message.toJSON()));
 
         var self = this;
         $('#detail-modal-datePickerContainer').datepicker({
@@ -46,10 +46,10 @@
 
 
 
-        if (type == 0){
+        if (this.type == 0){
             $('#detail-modal-courseLengthInMinutesContainer').css({'display':'block'});
         }
-        if (type == 1){
+        if (this.type == 1){
             $('#detail-modal-endDatePickerContainer').css({'display':'block'});
             $('#detail-modal-endDatePickerContainer').datepicker({
             onSelect: function(dateText, inst) { 
@@ -71,7 +71,7 @@
         }
 
     },
-    
+
     showLocation:function(){
         if (modalOpen == false ){
             this.locationPickView = new LocationPickView(this.locationArray, this);
@@ -89,8 +89,8 @@
         $('#detail-modal-university').bind('click', this.showLocation);
 
         $('#detail-modal-mask').bind('click',this.close);
-        $('#detail-modal-deleteButton').bind('click'， this.deleteMessage);
-        $('#detail-modal-submitButton').bind('click'， this.updateMessage);
+        $('#detail-modal-deleteButton').bind('click',this.deleteMessage);
+        $('#detail-modal-submitButton').bind('click',this.updateMessage);
 
     },
 

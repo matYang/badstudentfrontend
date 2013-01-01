@@ -31,6 +31,12 @@ var Message = Backbone.Model.extend({
 		}
 	},
 
+	overrideUrl:function(urlRootOverride){
+		if (urlRootOverride != null){
+			this.urlRoot = urlRootOverride;
+		}
+	},
+
 	preSave:function(){
 
 	},
