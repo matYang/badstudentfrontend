@@ -8,9 +8,9 @@
         this.startDate = new Date(this.message.get('startDate'));
         this.endDate = new Date(this.message.get('endDate'));
         this.locationArray = new Array();
-        this.locationArray[0] = this.message.get('location')[0];
-        this.locationArray[1] = this.message.get('location')[1];
-        this.locationArray[2] = this.message.get('location')[2];
+        this.locationArray[0] = this.message.get('location').province;
+        this.locationArray[1] = this.message.get('location').city;
+        this.locationArray[2] = this.message.get('location').school;
         this.type = this.message.get('type');
 
         modalOpen = true;
@@ -73,7 +73,7 @@
     },
 
     showLocation:function(){
-        if (modalOpen == false ){
+        if (doubleModalOpen == false ){
             this.locationPickView = new LocationPickView(this.locationArray, this);
         }
     },
@@ -88,7 +88,7 @@
         $('#detail-modal-city').bind('click', this.showLocation);
         $('#detail-modal-university').bind('click', this.showLocation);
 
-        $('#detail-modal-mask').bind('click',this.close);
+        $('#detail-modal-closeButton').bind('click',this.close);
         $('#detail-modal-deleteButton').bind('click',this.deleteMessage);
         $('#detail-modal-submitButton').bind('click',this.updateMessage);
 

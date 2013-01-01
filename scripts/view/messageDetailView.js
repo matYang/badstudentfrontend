@@ -18,7 +18,7 @@
         this.type = this.message.get('type');
 
 
-        $('#detail-location').html(this.message.get('location')[2]);
+        $('#detail-location').html(this.message.get('location').school);
         var startDate = new Date(this.message.get('startDate'));
         if (this.type == 0){
             $('#detail-date').html(this.getDateString(startDate))
@@ -55,7 +55,8 @@
             
         });
 
-        $('div').not('#detail-submitContainer, #detail-submit-button, #detail-submit-passwordContainer').bind('click',function(){
+
+        $('#detail-upper-container, #detail-contactInfoContainer, #detail-content, #detail-sumbit-clickAble').bind('click',function(){
 
             $('#detail-submit-passwordContainer').css({'display':'none'});
             $('#detail-submit-errorContainer').css({'display':'none'});
@@ -79,6 +80,8 @@
 
             success:function(model, response){
                 self.message.overrideUrl(infoUrlOverride);
+                $('#detail-submit-passwordContainer').css({'display':'none'});
+                $('#detail-submit-errorContainer').css({'display':'none'});
                 self.messageEditView = new MessageEditView(self.message);
             },
 
@@ -86,7 +89,7 @@
                 console.log("viewById::fetch failed");
                 console.log(response);
                 $('#detail-submit-errorContainer').css({'display':'block'});
-                $('#detail-submit-error').html(textStatus);
+                $('#detail-submit-error').html("密码验证失败");
             }
         });
 

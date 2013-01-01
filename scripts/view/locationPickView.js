@@ -10,6 +10,7 @@
  		this.universityName = locationArray[2];
  		this.initiator = initiator;
  		modalOpen = true;   //tell window that there is a modal view in place
+ 		doubleModalOpen = true;
 
  		this.render();
  	},
@@ -160,6 +161,7 @@
  		$('#locationSearchPanel').remove();
 		
 		modalOpen = false;
+		doubleModalOpen = false;
  		this.unbind();
  		this.remove();
  		

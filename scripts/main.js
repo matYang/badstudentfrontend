@@ -5,6 +5,7 @@ var recentsUrlOverride = "http://localhost:8015/api/badstudent/v0.9/recentsSearc
 var primaryUrlOverride = "http://localhost:8015/api/badstudent/v0.9/primarySearch";
 var authUrlOverride = "http://localhost:8015/api/badstudent/v0.9/auth";
 var modalOpen = false;    //global variable used to tract if a modal window is open
+var doubleModalOpen = false;
 var tpId = 1000;
 
 
