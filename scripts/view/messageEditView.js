@@ -15,6 +15,7 @@
 
         modalOpen = true;
 
+
         this.template = _.template(tpl.get('editTemplate')),
 
         this.render();
@@ -88,15 +89,25 @@
         $('#detail-modal-city').bind('click', this.showLocation);
         $('#detail-modal-university').bind('click', this.showLocation);
 
+        var self = this;
         $('#detail-modal-closeButton').bind('click',this.close);
-        $('#detail-modal-deleteButton').bind('click',this.deleteMessage);
+        $('#detail-modal-deleteButton').bind('click',function(){
+            self.deleteMessage();
+        });
         $('#detail-modal-submitButton').bind('click',this.updateMessage);
 
     },
 
     deleteMessage:function(){
         var self = this;
-        this.message.destroy({
+        this.message.destroy({  
+
+            dataType:'json',
+
+            headers: {
+                'authCode':self.message.get('authCode'),
+            },
+
             success:function(){
                 var encodedSearchKey = self.message.get('email') + "-" + self.message.get('phone') + "-" + self.message.get('qq') +  "-" + self.message.get('twitter') + "-" + self.message.get('selfDefined');
                 app.navigate('info/*encodedSearchKey', true);
@@ -123,7 +134,7 @@
         this.price = $('#detail-modal-price').val();
 
         if (this.type == 0){
-            this.courseLengthInMinutes = $('#detail-modal-courseLengthInMinutesContainer').val();
+            this.courseLengthInMinutes = $('#detail-modal-courseLengthInMinutes').val();
             this.endDate = this.startDate;
         }
         else if (this.type == 1){
@@ -143,7 +154,7 @@
             success:function(model, response){
                 console.log("PUT succeeded");
                 console.log(model.get('id'));
-                app.navigate("message/" + this.message.get('id'), true);
+                app.navigate("message/" + self.message.get('id'), true);
             },
             
             error: function(){
