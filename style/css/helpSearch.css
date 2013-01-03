@@ -5,14 +5,6 @@
 	margin-left: 10%;
 }
 
-.lower-container {
-	float: left;
-	height: 60%;
-	width: 80%;
-	margin-left: 10%;
-	background-color: #CCCC66;
-}
-
 #header {
 	width: 100%;
 	height: 15%;
@@ -32,6 +24,7 @@
 
 #help-catContainer img {
 	height: 100%;
+	cursor: pointer;
 }
 
 #help-createContainer {
@@ -105,4 +98,42 @@
 #help-submit img {
 	float: right;
 	height: 100%;
+}
+
+#help-lower-container {
+	float: left;
+	height: 60%;
+	width: 80%;
+	margin-left: 10%;
+	background-color: #CCCC66;
+}
+
+#help-lower-title {
+	width: 100%;
+	height: 20%;
+	background-color: #FFFFFF;
+}
+
+#help-alternative-title {
+	float: left;
+	height: 100%;
+	width: 20%;
+	color: #0099CC;
+	font-size: 40px;
+	margin-top: 10px;
+	margin-left: 10px;
+}
+
+#help-genderContainer {
+	float: left;
+	height: 100%;
+	width: 70%;
+}
+
+#help-genderContainer div {
+	float: left;
+	height: 100%;
+	width: 20%;	
+	color: #0099CC;
+	cursor: pointer;
 }

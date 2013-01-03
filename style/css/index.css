@@ -120,6 +120,7 @@ body {
 	margin-top: 15px;
 	margin-bottom: 25px;
 	display: table;
+	cursor: pointer;
 }
 
 #main-help-me-word {
@@ -147,6 +148,7 @@ body {
 	margin-top: 15px;
 	margin-bottom: 25px;
 	display: table;
+	cursor: pointer;
 }
 
 #main-help-others-word {
