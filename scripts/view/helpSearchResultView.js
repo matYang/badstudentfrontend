@@ -20,7 +20,7 @@
  		$('#help-full-width').append("<div id='help-upper-container'></div>");
         $('#help-upper-container').append("<div id='header'></div>");
  		$('#header').append("<div id='help-title'>创建您的点名需求</div>");
- 		$('#header').append("<div id='help-catContainer'><img src='img/cat.png' alt='cat.png'/></div>");
+ 		$('#header').append("<div id='help-catContainer'><img id='help-cat' src='img/cat.png' alt='cat.png'/></div>");
  		$('#help-upper-container').append("<div id='help-createContainer' class='roundBox shadowBox'></div>");
  		$('#help-upper-container').append("<div id='help-submit' class='roundBox shadowBox'><div>我勒个去</div><img src='asset/submit.png' alt='submit.png'></div>");	
 
@@ -29,12 +29,13 @@
         $('#help-createContainer').append("<div class='help-row'>节课在 <input id='help-input-datePicker'/> 。我需要一个</div>");
         $('#help-createContainer').append("<div class='help-row'><select id='help-input-gender'><option value='2'>男生或女生</option><option value='0'>男生</option><option value='1'>女生</option></select>。 这节课我愿意付 <input id='help-input-price' type='number'/> 元!</div>");
 
- 		$('#help-full-width').append("<div id = 'help-lower-container' class = 'lower-container'></div>");
- 		$('#help-lower-container').append("<div id = 'help-alternative-title' class = 'alternative-title'>或者看这里</div>");
- 		$('#help-lower-container').append("<div id = 'help-genderContainer' class = 'genderContainer'></div>");
- 		$('#help-genderContainer').append("<div id = 'help-gender-female' class = 'gender-selection'>只看女生</div>");
- 		$('#help-genderContainer').append("<div id = 'help-gender-male' class = 'gender-selection'>只看男生</div>");
- 		$('#help-genderContainer').append("<div id = 'help-gender-dontCare' class = 'gender-selection'>无所谓</div>");
+ 		$('#help-full-width').append("<div id='help-lower-container' class = 'lower-container'></div>");
+        $('#help-lower-container').append("<div id='help-lower-title'></div>");
+ 		$('#help-lower-title').append("<div id='help-alternative-title'>或者看这里</div>");
+ 		$('#help-lower-title').append("<div id='help-genderContainer'></div>");
+ 		$('#help-genderContainer').append("<div id='help-gender-female'>只看女生</div>");
+ 		$('#help-genderContainer').append("<div id='help-gender-male'>只看男生</div>");
+ 		$('#help-genderContainer').append("<div id='help-gender-dontCare'>无所谓</div>");
 
  		$('#help-lower-container').append("<div id = 'help-info' class = 'secondaryContainer'></div>");
 
@@ -79,8 +80,8 @@
         }
         this.searchResultView = new SearchResultView("#help-info", this.searchResult, 1);
 
-        $('#help-genderContainer .gender-selection').css({'background-color' : ''});
-        $('#help-gender-female').css({'background-color' : '#A0A0A0'});
+        $('#help-genderContainer div').css({'color' : ''});
+        $('#help-gender-female').css({'color' : '#A0A0A0'});
     },
 
     showMale:function(){
@@ -89,8 +90,8 @@
         }
         this.searchResultView = new SearchResultView("#help-info", this.searchResult, 0);
 
-        $('#help-genderContainer .gender-selection').css({'background-color' : ''});
-        $('#help-gender-male').css({'background-color' : '#A0A0A0'});
+        $('#help-genderContainer div').css({'color' : ''});
+        $('#help-gender-male').css({'color' : '#A0A0A0'});
     },
 
 
@@ -100,8 +101,8 @@
         }
  		this.searchResultView = new SearchResultView("#help-info", this.searchResult, 2);
 
-        $('#help-genderContainer .gender-selection').css({'background-color' : ''});
-        $('#help-gender-dontCare').css({'background-color' : '#A0A0A0'});
+        $('#help-genderContainer div').css({'color' : ''});
+        $('#help-gender-dontCare').css({'color' : '#A0A0A0'});
  	},
 
  	bindEvents:function(){
