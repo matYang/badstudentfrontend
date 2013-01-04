@@ -76,12 +76,12 @@ $(document).ready(function(){
 
 function togglePopup(box){
     var popupPanel = $('#'+box);
-    if(popupPanel.css("display") === "block"){
-        popupPanel.css("display", "none");
+    if(popupPanel.css("visibility") === "visible"){
+        popupPanel.css("visibility", "hidden");
     } else {
-        popupPanel.css("display", "block");
-        popupPanel.css("width", $("#main-full-width").width());
-        popupPanel.css("height", $("#main-full-width").height());
+        popupPanel.css("visibility", "visible");
+        popupPanel.css("width", $(".full-width").width());
+        popupPanel.css("height", $(".full-width").height());
     }
 }
 
