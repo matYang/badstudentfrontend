@@ -111,29 +111,44 @@
 #help-lower-title {
 	width: 100%;
 	height: 20%;
-	background-color: #FFFFFF;
 }
 
 #help-alternative-title {
-	float: left;
-	height: 100%;
 	width: 20%;
 	color: #0099CC;
 	font-size: 40px;
 	margin-top: 10px;
 	margin-left: 10px;
+	vertical-align: bottom;
+    display: inline-block;
 }
 
-#help-genderContainer {
-	float: left;
-	height: 100%;
-	width: 70%;
-}
-
-#help-genderContainer div {
-	float: left;
-	height: 100%;
+#help-gender-female {
 	width: 20%;	
 	color: #0099CC;
 	cursor: pointer;
+	vertical-align: bottom;
+    display: inline-block;
+}
+
+#help-gender-male {
+	width: 20%;	
+	color: #0099CC;
+	cursor: pointer;
+	vertical-align: bottom;
+    display: inline-block;	
+}
+
+#help-gender-dontCare {
+	width: 20%;	
+	color: #0099CC;
+	cursor: pointer;
+	vertical-align: bottom;
+    display: inline-block;	
+}
+
+#help-info {
+	height: 80%;
+	width: 100%;
+	background-color: #000;
 }
