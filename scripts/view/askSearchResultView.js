@@ -136,8 +136,9 @@
             var content = "我要帮人点名";
             var gender = $('#ask-input-gender').val();
             var price = $('#ask-input-price').val();
-
-            self.registerView = new RegisterView(self.searchResult, self.locationArray, self.startDate, self.endDate, content, gender, price, 1);
+            if (modalOpen == false){
+                self.registerView = new RegisterView(self.searchResult, self.locationArray, self.startDate, self.endDate, content, gender, price, 1);
+            }
         });
 
         $('#ask-gender-female').bind('click', this.showFemale);
