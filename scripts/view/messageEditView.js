@@ -110,7 +110,7 @@
 
             success:function(){
                 var encodedSearchKey = self.message.get('email') + "-" + self.message.get('phone') + "-" + self.message.get('qq') +  "-" + self.message.get('twitter') + "-" + self.message.get('selfDefined');
-                app.navigate('info/*encodedSearchKey', true);
+                app.navigate("info/" + encodedSearchKey, true);
             },
             
             error: function(){
@@ -154,6 +154,8 @@
             success:function(model, response){
                 console.log("PUT succeeded");
                 console.log(model.get('id'));
+                app.navigate("", false);
+                app.messageDetailView.close();
                 app.navigate("message/" + self.message.get('id'), true);
             },
             
