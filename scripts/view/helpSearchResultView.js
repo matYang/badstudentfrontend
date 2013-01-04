@@ -119,7 +119,6 @@
 			var price = $('#help-input-price').val();
             if (modalOpen == false){
                 self.registerView = new RegisterView(self.searchResult, self.locationArray, self.date, self.date, content, gender, price, 0);
-
             }
  		});
 
