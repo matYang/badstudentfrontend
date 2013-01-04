@@ -32,10 +32,9 @@
  		$('#help-full-width').append("<div id='help-lower-container' class = 'lower-container'></div>");
         $('#help-lower-container').append("<div id='help-lower-title'></div>");
  		$('#help-lower-title').append("<div id='help-alternative-title'>或者看这里</div>");
- 		$('#help-lower-title').append("<div id='help-genderContainer'></div>");
- 		$('#help-genderContainer').append("<div id='help-gender-female'>只看女生</div>");
- 		$('#help-genderContainer').append("<div id='help-gender-male'>只看男生</div>");
- 		$('#help-genderContainer').append("<div id='help-gender-dontCare'>无所谓</div>");
+ 		$('#help-lower-title').append("<div id='help-gender-female'>只看女生</div>");
+ 		$('#help-lower-title').append("<div id='help-gender-male'>只看男生</div>");
+ 		$('#help-lower-title').append("<div id='help-gender-dontCare'>无所谓</div>");
 
  		$('#help-lower-container').append("<div id = 'help-info' class = 'secondaryContainer'></div>");
 
@@ -80,7 +79,7 @@
         }
         this.searchResultView = new SearchResultView("#help-info", this.searchResult, 1);
 
-        $('#help-genderContainer div').css({'color' : ''});
+        $('#help-lower-title div').css({'color' : ''});
         $('#help-gender-female').css({'color' : '#A0A0A0'});
     },
 
@@ -90,7 +89,7 @@
         }
         this.searchResultView = new SearchResultView("#help-info", this.searchResult, 0);
 
-        $('#help-genderContainer div').css({'color' : ''});
+        $('#help-lower-title div').css({'color' : ''});
         $('#help-gender-male').css({'color' : '#A0A0A0'});
     },
 
@@ -101,7 +100,7 @@
         }
  		this.searchResultView = new SearchResultView("#help-info", this.searchResult, 2);
 
-        $('#help-genderContainer div').css({'color' : ''});
+        $('#help-lower-title div').css({'color' : ''});
         $('#help-gender-dontCare').css({'color' : '#A0A0A0'});
  	},
 
