@@ -50,8 +50,7 @@
 
 
         if (this.type == 0){
-            $('#detail-modal-upperRightContainer').append("<div id = 'detail-modal-courseLengthInMinutesContainer' class = 'modal-container'><div id = 'detail-modal-courseLengthInMinutesWord' >课时</div><input id = 'detail-modal-courseLengthInMinutes' value = ''/></div>");
-            $('#detail-modal-courseLengthInMinutes').html(this.message.get('courseLengthInMinutes'));
+            $('#detail-modal-upperRightContainer').append("<div id = 'detail-modal-courseLengthInMinutesContainer' class = 'modal-container'><div id = 'detail-modal-courseLengthInMinutesWord' >课时</div><input id = 'detail-modal-courseLengthInMinutes' value = '" + this.message.get('courseLengthInMinutes') + "'/></div>");
         }
         if (this.type == 1){
             $('#detail-modal-upperRightContainer').append("<div id = 'detail-modal-endDatePickerContainer'><div id = 'detail-modal-endDatePickerWord' >到</div><input id = 'detail-modal-endDatePicker'/></div>");

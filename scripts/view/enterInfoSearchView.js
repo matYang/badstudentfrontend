@@ -29,7 +29,7 @@
  	bindEvents:function(){
  		$('#enterInfoSearch-modal-closeButton').bind('click',this.close);
 
-		$('#modal-submit').bind('click',this.complete); 		
+		$('#enterInfoSearch-modal-submit').bind('click',this.complete); 		
  	},
 
  	complete:function(){
