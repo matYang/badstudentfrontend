@@ -33,7 +33,7 @@
  	},
 
  	complete:function(){
- 		var encodedSearchKey = $('#enterInfoSearch-modal-email').val() + "-" + $('#enterInfoSearch-modal-phone').val() + "-" + $('#enterInfoSearch-modal-qq').val() +  "-" + $('#enterInfoSearch-modal-twitter').val() + "-" + $('#enterInfoSearch-modal-selfDefined').val();
+ 		var encodedSearchKey = encodeURI($('#enterInfoSearch-modal-email').val()) + "-" + encodeURI($('#enterInfoSearch-modal-phone').val()) + "-" + encodeURI($('#enterInfoSearch-modal-qq').val()) +  "-" + encodeURI($('#enterInfoSearch-modal-twitter').val()) + "-" + encodeURI($('#enterInfoSearch-modal-selfDefined').val());
  		app.navigate("info/" + encodedSearchKey,true);
  	},
 
