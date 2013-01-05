@@ -27,7 +27,7 @@
         $('body').append(this.template(this.message.toJSON()));
 
         var self = this;
-        $('#detail-modal-datePickerContainer').datepicker({
+        $('#detail-modal-datePicker').datepicker({
             onSelect: function(dateText, inst) { 
                 self.startDate = new Date(dateText);
             },
@@ -42,8 +42,10 @@
                 $(this).attr("disabled", true);
             }
         });
-        $('#detail-modal-datePickerContainer').datepicker( "setDate", this.startDate);
-        $('#detail-modal-datePickerContainer').datepicker( "option", "minDate", new Date());
+        $('#detail-modal-datePicker').datepicker( "setDate", this.startDate);
+        $('#detail-modal-datePicker').datepicker( "option", "minDate", new Date());
+
+
 
 
 
@@ -51,8 +53,8 @@
             $('#detail-modal-courseLengthInMinutesContainer').css({'display':'block'});
         }
         if (this.type == 1){
-            $('#detail-modal-endDatePickerContainer').css({'display':'block'});
-            $('#detail-modal-endDatePickerContainer').datepicker({
+            $('#detail-modal-endDatePicker').css({'display':'block'});
+            $('#detail-modal-endDatePicker').datepicker({
             onSelect: function(dateText, inst) { 
                 self.endDate = new Date(dateText);
             },
@@ -67,8 +69,8 @@
                 $(this).attr("disabled", true);
             }
         });
-        $('#detail-modal-endDatePickerContainer').datepicker( "setDate", this.endDate);
-        $('#detail-modal-endDatePickerContainer').datepicker( "option", "minDate", new Date());
+        $('#detail-modal-endDatePicker').datepicker( "setDate", this.endDate);
+        $('#detail-modal-endDatePicker').datepicker( "option", "minDate", new Date());
         }
 
     },
@@ -168,6 +170,10 @@
     },
 
     close:function(){
+        $("#detail-modal-datePicker").datepicker("destroy");
+        $('#detail-modal-datePicker').unbind();
+        $("#detail-modal-endDatePicker").datepicker("destroy");
+        $('#detail-modal-endDatePicker').unbind();
 
         $('#detail-modal-city').unbind();
         $('#detail-modal-university').unbind();

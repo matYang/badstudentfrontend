@@ -9,6 +9,26 @@ var doubleModalOpen = false;
 var tpId = 1000;
 
 
+var browserInfo = {'opera' : false, 'chrome' : false, 'safari' : false, 'firefox' : false, 'msie' : false};
+var browserName = navigator.sayswho[0];
+if (browserName == 'Msie'){
+    browserInfo.msie = true;
+}
+else if (browserName == 'Chrome'){
+    browserInfo.chrome = true;
+}
+else if (browserName == 'Safari'){
+    browserInfo.safari = true;
+}
+else if (browserName == 'Firefox'){
+    browserInfo.firefox = true;
+}
+else if (browserName == 'Opera'){
+    browserInfo.opera = true;
+}
+
+
+
 var AppRouter = Backbone.Router.extend({
  
     routes:{
@@ -17,6 +37,7 @@ var AppRouter = Backbone.Router.extend({
         "help/*encodedSearchKey":"helpSearch",
         "ask/*encodedSearchKey":"askSearch",
         "info/*encodedSearchKey":"infoSearch",
+        "tempSession" : "tempSession"
     },
  
     initialize:function () {
@@ -144,6 +165,10 @@ var AppRouter = Backbone.Router.extend({
             }
         });
 
+    },
+
+    tempSession:function(){
+        this.this.closeAhead("infoSearchResultView");
     },
 
     decode:function(encodedKey){
