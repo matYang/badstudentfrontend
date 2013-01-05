@@ -1,0 +1,10 @@
+#detail-upper-container {
+	width: 100%;
+	height: 40%;
+}
+
+#detail-lower-container {
+	width: 100%;
+	height: 60%;
+	/*background-color: #FFFF33;*/
+}
