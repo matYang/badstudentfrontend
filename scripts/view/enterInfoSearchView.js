@@ -19,7 +19,7 @@
  		$('#enterInfoSearch-modal-main').append("<div class='infoSearch-modal-container'       id='enterInfoSearch-modal-twitterContainer'>    <div class='infoSearch-modal-container-word'>微博</div>  <input class='infoSearch-modal-input' id='enterInfoSearch-modal-twitter'/></div>");
  		$('#enterInfoSearch-modal-main').append("<div class='infoSearch-modal-container'       id='enterInfoSearch-modal-selfDefinedContainer'><div class='infoSearch-modal-container-word'>自定义</div><input class='infoSearch-modal-input' id='enterInfoSearch-modal-selfDefined'/></div>");
  		$('#enterInfoSearch-modal-main').append("<div id='modal-noticeContainer'>请至少填写一项</div>");
- 		$('#enterInfoSearch-modal-main').append("<div class='enterInfoSearch-modal-submit'><div class='roundBox shadowBox' id='modal-submit'>完成啦<img src='asset/submit.png' alt='Finished!'/></div></div>");
+ 		$('#enterInfoSearch-modal-main').append("<div class='roundBox shadowBox' id='enterInfoSearch-modal-submit'><p>完成啦</p><img src='asset/submit.png' alt='Finished!'/></div>");
 
  		$('#enterInfoSearch-modal-closeButton').bind('click', this.close);
 
