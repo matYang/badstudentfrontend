@@ -1,33 +1,33 @@
-#help-upper-container {
+.help-ask-upper-container {
 	float: left;
 	width: 80%;
 	height: 40%;
 	margin-left: 10%;
 }
 
-#header {
+.help-ask-header {
 	width: 100%;
 	height: 15%;
 }
 
-#help-title {
+.help-ask-title {
 	float: left;
 	color: #FFFFFF;
 	height: 100%;
 	font-size: 40px;
 }
 
-#help-catContainer {
+.help-ask-catContainer {
 	margin-right: 10px;
 	float: right;
 }
 
-#help-catContainer img {
+.help-ask-catContainer img {
 	height: 100%;
 	cursor: pointer;
 }
 
-#help-createContainer {
+.help-ask-createContainer {
 	height: 50%;
 	width: 40%;
 	margin-left: 8%;
@@ -38,18 +38,18 @@
     padding: 10px;
 }
 
-.help-row {
+.help-ask-row {
 	width: 100%;
 	height: 20%;
 	margin-bottom: 2%;
 }
 
-.help-row p {
+.help-ask-row p {
 	float: left;
 	margin: 0;
 }
 
-#help-input-location {
+.help-ask-input-location {
 	float: left;
 	border: 1px solid #A6A6A6;
 	margin-left: 10px;
@@ -64,19 +64,19 @@
 	margin-right: 10px;
 }
 
-#help-input-datePicker {
+.help-ask-input-datePicker {
 	width: 40%;
 }
 
-#help-input-gender {
+.help-ask-input-gender {
 	width: 20%;
 }
 
-#help-input-price {
+.help-ask-input-price {
 	width: 10%;
 }
 
-#help-submit {
+.help-ask-submit {
 	background-color: #00FF00;
 	cursor: pointer;
 	height: 12%;
@@ -87,7 +87,7 @@
     padding: 5px;
 }
 
-#help-submit div {
+.help-ask-submit div {
 	float: left;
 	height: 100%;
 	color: #FFFFFF;
@@ -95,12 +95,12 @@
 	padding-left: 10px;
 }
 
-#help-submit img {
+.help-ask-submit img {
 	float: right;
 	height: 100%;
 }
 
-#help-lower-container {
+.help-ask-lower-container {
 	position: relative;
 	float: left;
 	height: 60%;
@@ -109,12 +109,12 @@
 	background-color: #CCCC66;
 }
 
-#help-lower-title {
+.help-ask-lower-title {
 	width: 100%;
 	height: 20%;
 }
 
-#help-alternative-title {
+.help-ask-alternative-title {
 	width: 20%;
 	color: #0099CC;
 	font-size: 40px;
@@ -124,7 +124,7 @@
     display: inline-block;
 }
 
-#help-gender-female {
+.help-ask-gender {
 	width: 20%;	
 	color: #0099CC;
 	cursor: pointer;
@@ -132,23 +132,7 @@
     display: inline-block;
 }
 
-#help-gender-male {
-	width: 20%;	
-	color: #0099CC;
-	cursor: pointer;
-	vertical-align: bottom;
-    display: inline-block;	
-}
-
-#help-gender-dontCare {
-	width: 20%;	
-	color: #0099CC;
-	cursor: pointer;
-	vertical-align: bottom;
-    display: inline-block;	
-}
-
-#help-info {
+.help-ask-secondaryContainer {
 	position: absolute;
 	top: 20%;
 	bottom: 0;
@@ -157,7 +141,7 @@
 	overflow: auto;
 }
 
-#help-info > div {
+.help-ask-secondaryContainer > div {
 	float: left;
 	width: 45%;
 	margin-left: 2.5%;

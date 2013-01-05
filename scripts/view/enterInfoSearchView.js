@@ -29,7 +29,7 @@
  	bindEvents:function(){
  		$('#enterInfoSearch-modal-closeButton').bind('click',this.close);
 
-		$('#modal-submit').bind('click',this.complete); 		
+		$('#enterInfoSearch-modal-submit').bind('click',this.complete); 		
  	},
 
  	complete:function(){
@@ -40,7 +40,7 @@
  	close:function(){
  		togglePopup("infoSearchPanel");
  		$('#enterInfoSearch-modal-closeButton').unbind();
- 		$('#modal-submit').unbind();
+ 		$('#enterInfoSearch-modal-submit').unbind();
  		$('#infoSearchPanel').remove();
  		modalOpen = false;
  		this.unbind();

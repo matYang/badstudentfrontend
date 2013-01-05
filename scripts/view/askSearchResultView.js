@@ -18,23 +18,27 @@
     },
 
     render:function(){
-        $(this.el).append("<div id='ask-full-width' class = 'full-width'>");
-        $('#ask-full-width').append("<div id = 'ask-upper-container' class = 'upper-container'></div>");
-        $('#ask-upper-container').append("<div id = 'ask-title'>创建您的点名需求</div>");
-        $('#ask-upper-container').append("<div id = 'ask-catContainer' class = 'catContainer'><img id = 'ask-cat' class = 'cat' src = 'img/cat.png'/></div>");
-        $('#ask-upper-container').append("<div id = 'ask-createContainer' class = 'createContainer'></div>");
-        $('#ask-upper-container').append("<div id = 'ask-submit'>我勒个去<img id = 'ask-submit-icon' src = 'img/submit.png'></div>");   
+        $(this.el).append("<div id='ask-full-width' class='full-width'>");
+        $('#ask-full-width').append("<div id='ask-upper-container' class='help-ask-upper-container'></div>");
+        $('#ask-upper-container').append("<div id='help-header' class='help-ask-header'></div>");
+        $('#help-header').append("<div id='ask-title' class='help-ask-title'>创建您的点名需求</div>");
+        $('#help-header').append("<div id='ask-catContainer' class='help-ask-catContainer'><img id='ask-cat' src='img/cat.png'/></div>");
+        $('#ask-upper-container').append("<div id='ask-createContainer' class='roundBox shadowBox help-ask-createContainer'></div>");
+        $('#ask-upper-container').append("<div id='ask-submit' class='roundBox shadowBox help-ask-submit'><div>我勒个去</div><img src='asset/submit.png'></div>");   
 
-        $('#ask-createContainer').append("<p>我在 <div id = 'ask-input-location' class = 'ask-input-box'></div> 附近 求 <input id = 'ask-input-startDatePicker' class = 'ask-input-box'/> ，这节课在 <input id = 'ask-input-endDatePicker' class = 'ask-input-box'/> 。我是一个 <input id = 'ask-input-gender' class = 'ask-input-box' /> 我希望收取 <input id = 'ask-input-price' class = 'ask-input-box' /> 元每小时！</p>");
+        $('#ask-createContainer').append("<div class='help-ask-row'><p>我能在</p><div id='ask-input-location' class='help-ask-input-location'></div>附近帮</div>");
+        $('#ask-createContainer').append("<div class='help-ask-row'>点名，我从<input id='ask-input-startDatePicker' class='help-ask-input-datePicker'/>到</div>");
+        $('#ask-createContainer').append("<div class='help-ask-row'><input id='ask-input-endDatePicker' class='help-ask-input-datePicker'/> 。我是一个<select id='ask-input-gender' class='help-ask-input-gender'><option value='0'>男生</option><option value='1'>女生</option></select></div>");
+        $('#ask-createContainer').append("<div class='help-ask-row'>我希望收取<input id='ask-input-price' class='help-ask-input-price' type='number'/>元每小时!</div>");
 
-        $('#ask-full-width').append("<div id = 'ask-lower-container' class = 'lower-container'></div>");
-        $('#ask-lower-container').append("<div id = 'ask-alternative-title' class = 'alternative-title'>或者看这里</div>");
-        $('#ask-lower-container').append("<div id = 'ask-genderContainer' class = 'genderContainer'></div>");
-        $('#ask-genderContainer').append("<div id = 'ask-gender-female' class = 'gender-selection'>只看女生</div>");
-        $('#ask-genderContainer').append("<div id = 'ask-gender-male' class = 'gender-selection'>只看男生</div>");
-        $('#ask-genderContainer').append("<div id = 'ask-gender-dontCare' class = 'gender-selection'>无所谓</div>");
+        $('#ask-full-width').append("<div id='ask-lower-container' class='help-ask-lower-container'></div>");
+        $('#ask-lower-container').append("<div id='ask-lower-title' class='help-ask-lower-title'></div>");
+        $('#ask-lower-title').append("<div id='ask-alternative-title' class='help-ask-alternative-title'>或者看这里</div>");
+        $('#ask-lower-title').append("<div id='ask-gender-female' class='help-ask-gender'>只看女生</div>");
+        $('#ask-lower-title').append("<div id='ask-gender-male' class='help-ask-gender'>只看男生</div>");
+        $('#ask-lower-title').append("<div id='ask-gender-dontCare' class='help-ask-gender'>无所谓</div>");
 
-        $('#ask-lower-container').append("<div id = 'ask-info' class = 'secondaryContainer'></div>");
+        $('#ask-lower-container').append("<div id='ask-info' class = 'help-ask-secondaryContainer'></div>");
 
 
         var self = this;
@@ -98,8 +102,8 @@
         }
         this.searchResultView = new SearchResultView("#ask-info", this.searchResult, 1);
 
-        $('#ask-genderContainer .gender-selection').css({'background-color': ''});
-        $('#ask-gender-female').css({'background-color' : '#A0A0A0'});
+        $('.help-ask-gender').css({'color' : ''});
+        $('#ask-gender-female').css({'color' : '#A0A0A0'});
     },
 
     showMale:function(){
@@ -108,8 +112,8 @@
         }
         this.searchResultView = new SearchResultView("#ask-info", this.searchResult, 0);
 
-        $('#ask-genderContainer .gender-selection').css({'background-color': ''});
-        $('#ask-gender-male').css({'background-color' : '#A0A0A0'});
+        $('.help-ask-gender').css({'color' : ''});
+        $('#ask-gender-male').css({'color' : '#A0A0A0'});
     },
 
 
@@ -119,8 +123,8 @@
         }
         this.searchResultView = new SearchResultView("#ask-info", this.searchResult, 2);
 
-        $('#ask-genderContainer .gender-selection').css({'background-color': ''});
-        $('#ask-gender-dontCare').css({'background-color' : '#A0A0A0'});
+        $('.help-ask-gender').css({'color' : ''});
+        $('#ask-gender-dontCare').css({'color' : '#A0A0A0'});
     },
 
     bindEvents:function(){
