@@ -8,7 +8,7 @@
  	},
 
  	initialize:function(date, locationArray){
- 		_.bindAll(this, 'getRecents','render','showLocation', 'bindRoutes','close');
+ 		_.bindAll(this, 'getRecents','render','showLocation', 'updateLocation' ,'bindRoutes', 'getTrigger','close');
         
         this.template = _.template(tpl.get('indexTemplate')),
 
@@ -92,12 +92,14 @@
         
         $('#main-help-me-find').bind('click', function(){
             var encodedSearchKey = self.locationArray[0] + "-" + self.locationArray[1] + "-" + self.locationArray[2] +  "-" + self.date.getFullYear() + "-" + (self.date.getMonth()+1) + "-" + self.date.getDate();
-            app.navigate("help/" + encodedSearchKey,true);
+            var trigger = self.getTrigger();
+            app.navigate("help/" + encodedSearchKey,trigger);
         });
 
         $('#main-help-others').bind('click', function(){
             var encodedSearchKey = self.locationArray[0] + "-" + self.locationArray[1] + "-" + self.locationArray[2] +  "-" + self.date.getFullYear() + "-" + (self.date.getMonth()+1) + "-" + self.date.getDate();
-            app.navigate("ask/" + encodedSearchKey,true);
+            var trigger = self.getTrigger();
+            app.navigate("ask/" + encodedSearchKey,trigger);
         });
 
         $('#main-info-search').bind('click', function(){
@@ -106,6 +108,15 @@
             }
             
         });        
+    },
+
+    getTrigger:function(){
+        if (browserInfo.safari == true){
+            return false;
+        }
+        else{
+            return true;
+        }
     },
 
     close:function(){
