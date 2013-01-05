@@ -17,6 +17,13 @@
         $(this.el).append(this.template(this.message.toJSON()));
         this.type = this.message.get('type');
 
+        if (this.type == 0){
+            $('#detail-type').html("求点名");
+        }
+        else if (this.type == 1){
+            $('#detail-type').html("帮点名");
+        }
+
 
         $('#detail-location').html(this.message.get('location').school);
         var startDate = new Date(this.message.get('startDate'));
