@@ -21,8 +21,8 @@
 
  	render:function(){
  		$('body').append("<div class='popupPanel' id='registerViewPanel'></div>");
- 		$('#registerViewPanel').append("<div id = 'register-modal-main'></div>");
- 		$('#register-modal-main').append("<div class = 'popUpCloseButton' id = 'register-modal-closeButton'>X</div>");
+ 		$('#registerViewPanel').append("<div class='roundBox shadowBox' id='register-modal-main'></div>");
+ 		$('#register-modal-main').append("<div class='popUpCloseButton' id='register-modal-closeButton'>X</div>");
  		if (this.type == 0){
  			$('#register-modal-main').append("<div class = 'modal-container' id = 'register-modal-courseLengthInMinutesContainer'><div class = 'modal-container-word' id = 'register-modal-courseLengthInMinutesWord'>课时长（分钟）</div><input class = 'modal-input' id = 'register-modal-courseLengthInMinutes'/></div>");
  		}
