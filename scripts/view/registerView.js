@@ -20,9 +20,9 @@
  	},
 
  	render:function(){
- 		$('body').append("<div class = 'register-modal-mask' id = 'register-modal-mask'></div>");
- 		$('body').append("<div class = 'register-modal-main' id = 'register-modal-main'></div>");
- 		$('#register-modal-main').append("<div class = 'modal-close' id = 'register-modal-closeButton'>X</div>");
+ 		$('body').append("<div class='popupPanel' id='registerViewPanel'></div>");
+ 		$('#registerViewPanel').append("<div class='roundBox shadowBox' id='register-modal-main'></div>");
+ 		$('#register-modal-main').append("<div class='popUpCloseButton' id='register-modal-closeButton'>X</div>");
  		if (this.type == 0){
  			$('#register-modal-main').append("<div class = 'modal-container' id = 'register-modal-courseLengthInMinutesContainer'><div class = 'modal-container-word' id = 'register-modal-courseLengthInMinutesWord'>课时长（分钟）</div><input class = 'modal-input' id = 'register-modal-courseLengthInMinutes'/></div>");
  		}
@@ -37,14 +37,13 @@
 
  		$('#register-modal-main').append("<div class = 'modal-container' id = 'register-modal-passwordContainer'><div class = 'modal-container-word' id = 'register-modal-passwordWord'>密码</div><input class = 'modal-input' id = 'register-modal-password'/></div>");
  		$('#register-modal-main').append("<div class = 'modal-container' id = 'register-modal-confirmPasswordContainer'><div class = 'modal-container-word' id = 'register-modal-confirmPasswordWord'>确认密码</div><input class = 'modal-input' id = 'register-modal-confirmPassword'/></div>");
- 		$('#register-modal-main').append("<div class = 'modal-submit' id = 'register-modal-submit'>就这样吧<img class = 'submit-icon' src = 'img/submit.png'/></div>");
+ 		$('#register-modal-main').append("<div class = 'modal-submit' id = 'register-modal-submit'>就这样吧<img class = 'submit-icon' src = 'asset/submit.png'/></div>");
 
-
+ 		togglePopup("registerViewPanel");
 
  	},
 
  	bindEvents:function(){
- 		$('#register-modal-mask').bind('click',this.close);
  		$('#register-modal-closeButton').bind('click',this.close);
 
 		$('#register-modal-submit').bind('click',this.complete); 		
@@ -93,11 +92,10 @@
  	},
 
  	close:function(){
- 		$('#register-modal-mask').unbind();
+ 		togglePopup("registerViewPanel");
  		$('#register-modal-closeButton').unbind();
  		$('#register-modal-submit').unbind();
- 		$('#register-modal-mask').remove();
- 		$('#register-modal-main').remove();
+ 		$('#registerViewPanel').remove();
  		modalOpen = false;
  		this.unbind();
  		this.remove();

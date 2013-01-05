@@ -84,11 +84,11 @@ body {
 }
 
 #main-input-city {
-
+	cursor: pointer;
 }
 
 #main-input-university {
-
+	cursor: pointer;
 }
 
 #main-date {
