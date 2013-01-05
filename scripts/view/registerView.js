@@ -20,25 +20,31 @@
  	},
 
  	render:function(){
+ 		var paddingDiv;
  		$('body').append("<div class='popupPanel' id='registerViewPanel'></div>");
  		$('#registerViewPanel').append("<div class='roundBox shadowBox' id='register-modal-main'></div>");
  		$('#register-modal-main').append("<div class='popUpCloseButton' id='register-modal-closeButton'>X</div>");
  		if (this.type == 0){
- 			$('#register-modal-main').append("<div class = 'modal-container' id = 'register-modal-courseLengthInMinutesContainer'><div class = 'modal-container-word' id = 'register-modal-courseLengthInMinutesWord'>课时长（分钟）</div><input class = 'modal-input' id = 'register-modal-courseLengthInMinutes'/></div>");
+ 			$('#register-modal-main').append("<div class = 'register-modal-container' id = 'register-modal-courseLengthInMinutesContainer'><div class = 'register-modal-container-word' id = 'register-modal-courseLengthInMinutesWord'>课时长</div><input class = 'register-modal-input' id = 'register-modal-courseLengthInMinutes'/></div>");
+ 			paddingDiv = $("#register-modal-courseLengthInMinutesContainer");
  		}
- 		$('#register-modal-main').append("<div class = 'modal-container' id = 'register-modal-emailContainer'><div class = 'modal-container-word' id = 'register-modal-emailWord'>邮箱</div><input class = 'modal-input' id = 'register-modal-email'/></div>");
- 		$('#register-modal-main').append("<div class = 'modal-container' id = 'register-modal-phoneContainer'><div class = 'modal-container-word' id = 'register-modal-phoneWord'>电话</div><input class = 'modal-input' id = 'register-modal-phone'/></div>");
- 		$('#register-modal-main').append("<div class = 'modal-container' id = 'register-modal-qqContainer'><div class = 'modal-container-word' id = 'register-modal-qqWord'>QQ</div><input class = 'modal-input' id = 'register-modal-qq'/></div>");
- 		$('#register-modal-main').append("<div class = 'modal-container' id = 'register-modal-twitterContainer'><div class = 'modal-container-word' id = 'register-modal-twitterWord'>微博</div><input class = 'modal-input' id = 'register-modal-twitter'/></div>");
- 		$('#register-modal-main').append("<div class = 'modal-container' id = 'register-modal-selfDefinedContainer'><div class = 'modal-container-word' id = 'register-modal-selfDefinedWord'>自定义</div><input class = 'modal-input' id = 'register-modal-selfDefined'/></div>");
- 		$('#register-modal-main').append("<div class = 'modal-noticeContainer' id = 'register-modal-noticeContainer'><p class = 'modal-notice' id = 'register-modal-notice'>请至少填写一项</p></div>");
+ 		$('#register-modal-main').append("<div class = 'register-modal-container' id = 'register-modal-emailContainer'><div class = 'register-modal-container-word' id = 'register-modal-emailWord'>邮箱</div><input class = 'register-modal-input' id = 'register-modal-email'/></div>");
+ 		$('#register-modal-main').append("<div class = 'register-modal-container' id = 'register-modal-phoneContainer'><div class = 'register-modal-container-word' id = 'register-modal-phoneWord'>电话</div><input class = 'register-modal-input' id = 'register-modal-phone'/></div>");
+ 		$('#register-modal-main').append("<div class = 'register-modal-container' id = 'register-modal-qqContainer'><div class = 'register-modal-container-word' id = 'register-modal-qqWord'>QQ</div><input class = 'register-modal-input' id = 'register-modal-qq'/></div>");
+ 		$('#register-modal-main').append("<div class = 'register-modal-container' id = 'register-modal-twitterContainer'><div class = 'register-modal-container-word' id = 'register-modal-twitterWord'>微博</div><input class = 'register-modal-input' id = 'register-modal-twitter'/></div>");
+ 		$('#register-modal-main').append("<div class = 'register-modal-container' id = 'register-modal-selfDefinedContainer'><div class = 'register-modal-container-word' id = 'register-modal-selfDefinedWord'>自定义</div><input class = 'register-modal-input' id = 'register-modal-selfDefined'/></div>");
+ 		$('#register-modal-main').append("<div id='register-modal-noticeContainer'>请至少填写一项</div>");
 
  		$('#register-modal-main').append("<hr>");
 
- 		$('#register-modal-main').append("<div class = 'modal-container' id = 'register-modal-passwordContainer'><div class = 'modal-container-word' id = 'register-modal-passwordWord'>密码</div><input class = 'modal-input' id = 'register-modal-password'/></div>");
- 		$('#register-modal-main').append("<div class = 'modal-container' id = 'register-modal-confirmPasswordContainer'><div class = 'modal-container-word' id = 'register-modal-confirmPasswordWord'>确认密码</div><input class = 'modal-input' id = 'register-modal-confirmPassword'/></div>");
- 		$('#register-modal-main').append("<div class = 'modal-submit' id = 'register-modal-submit'>就这样吧<img class = 'submit-icon' src = 'asset/submit.png'/></div>");
+ 		$('#register-modal-main').append("<div class = 'register-modal-container' id = 'register-modal-passwordContainer'><div class = 'register-modal-container-word' id = 'register-modal-passwordWord'>密码</div><input class = 'register-modal-input' id = 'register-modal-password'/></div>");
+ 		$('#register-modal-main').append("<div class = 'register-modal-container' id = 'register-modal-confirmPasswordContainer'><div class = 'register-modal-container-word' id = 'register-modal-confirmPasswordWord'>确认密码</div><input class = 'register-modal-input' id = 'register-modal-confirmPassword'/></div>");
+ 		$('#register-modal-main').append("<div class='roundBox shadowBox' id = 'register-modal-submit'><p>就这样吧</p><img class = 'submit-icon' src = 'asset/submit.png'/></div>");
 
+ 		if(paddingDiv==null){
+ 			paddingDiv = $("#register-modal-emailContainer");
+ 		}
+ 		paddingDiv.css('padding-top','10px');
  		togglePopup("registerViewPanel");
 
  	},

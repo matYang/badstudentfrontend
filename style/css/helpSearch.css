@@ -101,6 +101,7 @@
 }
 
 #help-lower-container {
+	position: relative;
 	float: left;
 	height: 60%;
 	width: 80%;
@@ -148,7 +149,18 @@
 }
 
 #help-info {
+	position: absolute;
+	top: 20%;
+	bottom: 0;
 	height: 80%;
 	width: 100%;
-	background-color: #000;
+	overflow: auto;
+}
+
+#help-info > div {
+	float: left;
+	width: 45%;
+	margin-left: 2.5%;
+	margin-right: 2.5%;
+	height: 20%;
 }
