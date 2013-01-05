@@ -49,6 +49,9 @@ var AppRouter = Backbone.Router.extend({
 
     main:function(){
         this.closeAhead("mainPageView");
+        if (this.mainPageView){
+            this.mainPageView.close();
+        }
     	this.mainPageView = new MainPageView(this.date, this.locationArray);
 
     },
@@ -66,6 +69,9 @@ var AppRouter = Backbone.Router.extend({
             success:function(model, response){
                 console.log("viewById::fetch success with id: " + id);
                 console.log(response);
+                if (self.messageDetailView){
+                    self.messageDetailView.close();
+                }
                 self.messageDetailView = new MessageDetailView(message);
             },
 
@@ -95,6 +101,9 @@ var AppRouter = Backbone.Router.extend({
             success: function (model, response) {
                 console.log("helpSearch::fetch success with encodedKey: " + encodedKey); 
                 console.log(response);
+                if (self.helpSearchResultView){
+                    self.helpSearchResultView.close();
+                }
                 self.helpSearchResultView = new HelpSearchResultView(self.searchResult,self.date, self.locationArray);
             },
             
@@ -127,6 +136,9 @@ var AppRouter = Backbone.Router.extend({
             success: function (model, response) {
                 console.log("askSearch::fetch success with encodedKey: " + encodedKey); 
                 console.log(response);
+                if (self.askSearchResultView){
+                    self.askSearchResultView.close();
+                }
                 self.askSearchResultView = new AskSearchResultView(self.searchResult, self.date, self.locationArray);
             },
             
@@ -155,6 +167,9 @@ var AppRouter = Backbone.Router.extend({
             success: function (model, response) {
                 console.log("infoSearch::fetch success with encodedKey: " + encodedKey); 
                 console.log(response);
+                if (self.infoSearchResultView){
+                    self.infoSearchResultView.close();
+                }
                 self.infoSearchResultView = new InfoSearchResultView(self.searchResult);
             },
             
