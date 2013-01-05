@@ -50,10 +50,10 @@
 
 
         if (this.type == 0){
-            $('#detail-modal-courseLengthInMinutesContainer').css({'display':'block'});
+            $('#detail-modal-upperRightContainer').append("<div id = 'detail-modal-courseLengthInMinutesContainer' class = 'modal-container'><div id = 'detail-modal-courseLengthInMinutesWord' >课时</div><input id = 'detail-modal-courseLengthInMinutes' value = '" + this.message.get('courseLengthInMinutes') + "'/></div>");
         }
         if (this.type == 1){
-            $('#detail-modal-endDatePicker').css({'display':'block'});
+            $('#detail-modal-upperRightContainer').append("<div id = 'detail-modal-endDatePickerContainer'><div id = 'detail-modal-endDatePickerWord' >到</div><input id = 'detail-modal-endDatePicker'/></div>");
             $('#detail-modal-endDatePicker').datepicker({
             onSelect: function(dateText, inst) { 
                 self.endDate = new Date(dateText);
