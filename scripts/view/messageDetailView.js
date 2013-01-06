@@ -28,11 +28,13 @@
         $('#detail-location').html(this.message.get('location').school);
         var startDate = new Date(this.message.get('startDate'));
         if (this.type == 0){
-            $('#detail-date').html(this.getDateString(startDate))
+            $('#detail-date').html(this.getDateString(startDate));
+            calander(startDate);
         }
         else if (this.type == 1){
             var endDate = new Date(this.message.get('endDate'));
             $('#detail-date').html(this.getDateString(startDate) + " 到 " + this.getDateString(endDate));
+            calander(startDate,endDate);
         }
 
         if (this.type == 1){
@@ -43,7 +45,6 @@
             var hourPrice = this.message.get('price')/hour
             $("#detail-dividedPrice").html(hour + "小时 / 单价" + hourPrice);
         }
-        
 
     },
 
@@ -57,16 +58,23 @@
             app.navigate("",true);
         });
 
+        var isSubmitClicked = false;
         $('#detail-submit-button').bind('click', function(){
             $('#detail-submit-passwordContainer').css({'display':'block'});
-            
+            isSubmitClicked = true;
         });
 
+        $('#detail-submitContainer').bind('click', function(){
+            isSubmitClicked = true;
+        });
 
-        $('#detail-upper-container, #detail-contactInfoContainer, #detail-content, #detail-sumbit-clickAble').bind('click',function(){
-
-            $('#detail-submit-passwordContainer').css({'display':'none'});
-            $('#detail-submit-errorContainer').css({'display':'none'});
+        $('body').bind('click',function(){
+            if(isSubmitClicked){ 
+                isSubmitClicked = false;
+            }else{
+                $('#detail-submit-passwordContainer').css({'display':'none'});
+                $('#detail-submit-errorContainer').css({'display':'none'});
+            }
         });
 
         $('#detail-submit-password-button').bind('click',function(){
@@ -130,8 +138,8 @@
 
         $('#detail-cat').unbind();
         $('#detail-submit-button').unbind();
-        $('#detail-full-width:not(detail-submitContainer)').unbind();
-        $('#detail-submit-password-button').unbind();
+        $('#detail-submitContainer').unbind();
+        $('#body').unbind();
 
         this.unbind();
         $(this.el).empty();
