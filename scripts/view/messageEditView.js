@@ -29,7 +29,9 @@
         var self = this;
         $('#detail-modal-datePicker').datepicker({
             onSelect: function(dateText, inst) { 
-                self.startDate = new Date(dateText);
+                //because IE and Safari does not support "yyyy mm dd"
+                var dateTextArray = dateText.split(" ");
+                self.startDate = new Date(dateTextArray[0], dateTextArray[1]-1, dateTextArray[2]);
             },
 
             onClose: function(dateText, inst) 
@@ -56,7 +58,8 @@
             $('#detail-modal-upperRightContainer').append("<div id = 'detail-modal-endDatePickerContainer'><div id = 'detail-modal-endDatePickerWord' >到</div><input id = 'detail-modal-endDatePicker'/></div>");
             $('#detail-modal-endDatePicker').datepicker({
             onSelect: function(dateText, inst) { 
-                self.endDate = new Date(dateText);
+                var dateTextArray = dateText.split(" ");
+                self.endDate = new Date(dateTextArray[0], dateTextArray[1]-1, dateTextArray[2]);
             },
 
             onClose: function(dateText, inst) 
@@ -111,7 +114,7 @@
             },
 
             success:function(){
-                var encodedSearchKey = self.message.get('email') + "-" + self.message.get('phone') + "-" + self.message.get('qq') +  "-" + self.message.get('twitter') + "-" + self.message.get('selfDefined');
+                var encodedSearchKey = encodeURI(self.message.get('email') + "-" + self.message.get('phone') + "-" + self.message.get('qq') +  "-" + self.message.get('twitter') + "-" + self.message.get('selfDefined'));
                 app.navigate("info/" + encodedSearchKey, true);
             },
             
@@ -156,9 +159,7 @@
             success:function(model, response){
                 console.log("PUT succeeded");
                 console.log(model.get('id'));
-                app.navigate("", false);
-                app.messageDetailView.close();
-                app.navigate("message/" + self.message.get('id'), true);
+                app.navigate("tempSession/" + encodeURI(self.message.get('id')), true);
             },
             
             error: function(){

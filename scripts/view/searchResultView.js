@@ -59,7 +59,7 @@
  		var curId = '#' + tpId;
 
         $(curId).bind('click', function(){
-            app.navigate("message/" + curModel.get('id'), true);
+            app.navigate("message/" + encodeURI(curModel.get('id')), true);
         });
 
     	$(curId +  ' .searchResultLocation').html(curModel.get('location')['school']);

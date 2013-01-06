@@ -86,7 +86,7 @@
 				console.log("POST succeeded");
 				console.log(model.get('id'));
 				self.searchResult.add(newMessage);
-				app.navigate("message/" + newMessage.get('id'), true);
+				app.navigate("message/" + encodeURI(newMessage.get('id')), true);
 			},
 			
 			error: function(){

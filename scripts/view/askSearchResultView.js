@@ -44,13 +44,14 @@
         var self = this;
         $('#ask-input-startDatePicker').datepicker({
             onSelect: function(dateText, inst) { 
-                self.startDate = new Date(dateText);
-
+                //because IE and Safari does not support "yyyy mm dd"
+                var dateTextArray = dateText.split(" ");
                 //update the system's jquery datepicker date
-                var selectedDate = new Date(dateText);
-                self.date.setDate(selectedDate.getDate());
-                self.date.setMonth(selectedDate.getMonth());
-                self.date.setFullYear(selectedDate.getFullYear());
+                self.date.setFullYear(dateTextArray[0]);
+                self.date.setMonth(dateTextArray[1]-1);
+                self.date.setDate(dateTextArray[2]);
+
+                self.startDate = new Date(dateTextArray[0], dateTextArray[1]-1, dateTextArray[2]);
             },
 
             onClose: function(dateText, inst) 
@@ -69,7 +70,9 @@
 
         $('#ask-input-endDatePicker').datepicker({
             onSelect: function(dateText, inst) { 
-                self.endDate = new Date(dateText);
+                //because IE and Safari does not support "yyyy mm dd"
+                var dateTextArray = dateText.split(" ");
+                self.endDate = new Date(dateTextArray[0], dateTextArray[1]-1, dateTextArray[2]);
             },
 
             onClose: function(dateText, inst) 

@@ -19,10 +19,11 @@ View:  	  	mainPageView								Require:	index.html   searchResultView
 Controller:	Router::routes:
 			""   						:   mainPageView
 			message/:id 				:   messageDetailView(id)
-			help/*encodedSearchKey 	:   helpSearchResultView
-			ask/*encodedSearchKey	:	askSearchResultView 
-			info/*encodedSearchKey	:   infoSearchResultView
+			help/*encodedSearchKey 		:   helpSearchResultView
+			ask/*encodedSearchKey		:	askSearchResultView 
+			info/*encodedSearchKey		:   infoSearchResultView
 			no routes for modal windows
+			tempSession					:	intermediate session URL used to refresh mesage detail view after success update
 
 API usage:																		Request Type
 ~/api/badstudent/v0.9/location      	mainPageView							GET
@@ -39,3 +40,12 @@ API usage:																		Request Type
 ~/api/badstudent/v0.9/messages/{id}		Model Message & Collection Messages		GET | PUT | DELETE
 
 ~/api/badstudent/v0.9/recentsSearch		mainPageView							GET
+
+URL encoding direcetions:
+mainPageView -> helpSearchResultView
+mainPageView -> askSearchResultView
+enterInfoSearchView -> infoSearchResultView
+searchResultView -> messageDetalView
+regiterView -> messageDetailView
+messageEditView -> messageDetailView
+messageEditView -> infoSearchResultView

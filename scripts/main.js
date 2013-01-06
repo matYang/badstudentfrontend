@@ -8,7 +8,7 @@ var modalOpen = false;    //global variable used to tract if a modal window is o
 var doubleModalOpen = false;
 var tpId = 1000;
 
-
+/*
 var browserInfo = {'opera' : false, 'chrome' : false, 'safari' : false, 'firefox' : false, 'msie' : false};
 var browserName = navigator.sayswho[0];
 if (browserName == 'Msie'){
@@ -25,7 +25,7 @@ else if (browserName == 'Firefox'){
 }
 else if (browserName == 'Opera'){
     browserInfo.opera = true;
-}
+}*/
 
 
 
@@ -37,7 +37,7 @@ var AppRouter = Backbone.Router.extend({
         "help/*encodedSearchKey":"helpSearch",
         "ask/*encodedSearchKey":"askSearch",
         "info/*encodedSearchKey":"infoSearch",
-        "tempSession" : "tempSession"
+        "tempSession/:id" : "tempSession"
     },
  
     initialize:function () {
@@ -58,6 +58,7 @@ var AppRouter = Backbone.Router.extend({
 
     viewById:function(id){
         this.closeAhead("messageDetailView");
+        id = decodeURI(id);
     	//TODO message detail view here
         var message = new Message();
         var self = this;
@@ -86,11 +87,13 @@ var AppRouter = Backbone.Router.extend({
     //used to find helpers
     helpSearch:function(encodedKey){
         this.closeAhead("helpSearchResultView");
+        encodedKey = decodeURI(encodedKey);
         this.decode(encodedKey);
         this.searchResult = new Messages(primaryUrlOverride);
         var locationSting = this.keyArray[0] + " " + this.keyArray[1] + " " + this.keyArray[2];
         var dateString = this.keyArray[3] + " " + this.keyArray[4] + " " + this.keyArray[5];
 
+        locationSting = encodeURI(locationSting);
         console.log(this.keyArray);
         var self = this;
         this.searchResult.fetch({
@@ -120,6 +123,7 @@ var AppRouter = Backbone.Router.extend({
     //used to find askers
     askSearch:function(encodedKey){
     	this.closeAhead("askSearchResultView");
+        encodedKey = decodeURI(encodedKey);
         this.decode(encodedKey);
         this.searchResult = new Messages(primaryUrlOverride);
         var locationSting = this.keyArray[0] + " " + this.keyArray[1] + " " + this.keyArray[2];
@@ -153,6 +157,7 @@ var AppRouter = Backbone.Router.extend({
 
     infoSearch:function(encodedKey){
     	this.closeAhead("infoSearchResultView");
+        encodedKey = decodeURI(encodedKey);
         this.decode(encodedKey);
         this.searchResult = new Messages(infoUrlOverride);
         //expected key of format email-phone-qq-twitter-selfDefined
@@ -160,7 +165,7 @@ var AppRouter = Backbone.Router.extend({
         console.log(this.keyArray);
         var self = this;
         this.searchResult.fetch({
-            data: $.param({ email: self.keyArray[0], phone: self.keyArray[1], qq: self.keyArray[2], twitter: self.keyArray[3], selfDefined: self.keyArray[4]}),
+            data: $.param({ email: decodeURI(self.keyArray[0]), phone: decodeURI(self.keyArray[1]), qq: decodeURI(self.keyArray[2]), twitter: decodeURI(self.keyArray[3]), selfDefined: decodeURI(self.keyArray[4])}),
             
             dataType:'json',
             
@@ -182,8 +187,9 @@ var AppRouter = Backbone.Router.extend({
 
     },
 
-    tempSession:function(){
-        this.this.closeAhead("infoSearchResultView");
+    tempSession:function(id){
+        this.closeAhead("tempSession");
+        this.navigate("message/" + id, true);
     },
 
     decode:function(encodedKey){

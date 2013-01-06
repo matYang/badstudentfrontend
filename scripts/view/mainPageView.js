@@ -50,11 +50,12 @@
 
  		$('#datePicker').datepicker({
             onSelect: function(dateText, inst) { 
+                //because IE and Safari does not support "yyyy mm dd"
+                var dateTextArray = dateText.split(" ");
                 //update the system's jquery datepicker date
-                var selectedDate = new Date(dateText);
-                self.date.setDate(selectedDate.getDate());
-                self.date.setMonth(selectedDate.getMonth());
-                self.date.setFullYear(selectedDate.getFullYear());
+                self.date.setFullYear(dateTextArray[0]);
+                self.date.setMonth(dateTextArray[1]-1);
+                self.date.setDate(dateTextArray[2]);
             },
 
             onClose: function(dateText, inst) 
@@ -91,15 +92,15 @@
         $('#main-input-university').bind('click', this.showLocation);
         
         $('#main-help-me-find').bind('click', function(){
-            var encodedSearchKey = self.locationArray[0] + "-" + self.locationArray[1] + "-" + self.locationArray[2] +  "-" + self.date.getFullYear() + "-" + (self.date.getMonth()+1) + "-" + self.date.getDate();
-            var trigger = self.getTrigger();
-            app.navigate("help/" + encodedSearchKey,trigger);
+            var encodedSearchKey = encodeURI(self.locationArray[0] + "-" + self.locationArray[1] + "-" + self.locationArray[2] +  "-" + self.date.getFullYear() + "-" + (self.date.getMonth()+1) + "-" + self.date.getDate());
+            //var trigger = self.getTrigger();
+            app.navigate("help/" + encodedSearchKey,true);
         });
 
         $('#main-help-others').bind('click', function(){
-            var encodedSearchKey = self.locationArray[0] + "-" + self.locationArray[1] + "-" + self.locationArray[2] +  "-" + self.date.getFullYear() + "-" + (self.date.getMonth()+1) + "-" + self.date.getDate();
-            var trigger = self.getTrigger();
-            app.navigate("ask/" + encodedSearchKey,trigger);
+            var encodedSearchKey = encodeURI(self.locationArray[0] + "-" + self.locationArray[1] + "-" + self.locationArray[2] +  "-" + self.date.getFullYear() + "-" + (self.date.getMonth()+1) + "-" + self.date.getDate());
+            //var trigger = self.getTrigger();
+            app.navigate("ask/" + encodedSearchKey,true);
         });
 
         $('#main-info-search').bind('click', function(){
