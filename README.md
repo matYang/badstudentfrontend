@@ -49,3 +49,9 @@ searchResultView -> messageDetalView
 regiterView -> messageDetailView
 messageEditView -> messageDetailView
 messageEditView -> infoSearchResultView
+
+
+URL modifications:
+main URL constants
+Message default URLs
+LocationPickView location urls for provinces/cities/univerties
