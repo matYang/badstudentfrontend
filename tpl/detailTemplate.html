@@ -2,96 +2,62 @@
 
 	<div id = "detail-upper-container" class = "upper-container">
 
-		<div id = "detail-locationContainer">
-			<p id = "detail-location"></p>
+		<div id = "detail-title">
+			<div><p id = "detail-date"></p><p>在</p><p id = "detail-location"></p><p id = "detail-type"></p></div>
+			<img id = "detail-cat" src = "img/cat.png" alt="cat.png"/>
 		</div>
 
-		<div id = "detail-dateContainer">
-			<p id = "detail-date"></p>
-		</div>
+		<div id = "detail-upper-content">
 
-		<div id = "detail-typeContainer">
-			<p id = "detail-type"></p>
-		</div>
-
-		<!--the cat logo used to go back to main page-->
-		<div id = "detail-catContainer" class = "catContainer">
-			<img id = "detail-cat" class = "cat" src = "img/cat.png"/>
-		</div>
-
-		<!--school logo on the upper left side-->
-		<div id = "detail-schoolLogoContainer">
 			<img id = "detail-schoolLogo" src= "img/school.png"/>
-		</div>
+			<div id = "calendar-holder"><div id = "calendar"></div></div>
 
+			<div id = "detail-price-sex">
 
-		<!--calendar layout view in the middle-->
-		<div id = "detail-calendarContainer">
-			
-		</div>
+				<div id = "detail-priceContainer">
+					<p id = "detail-totalPrice">&yen;<%= price %></p>
+					<p id = "detail-dividedPrice"></p>
+        		</div>
+        		<img id = "detail-sex" src = "img/sex<%= gender %>.png"/>
 
-		<!--price information-->
-		<div id = "detail-priceContainer">
-			<div id = "detail-totalPriceContainer">
-				<p id = "detail-currency"></p>
-				<p id = "detail-totalPrice"><%= price %></p>
-			</div>
-			<p id = "detail-dividedPrice"></p>
-        </div>
+        	</div>
 
-        <!--sex logo on the upper right side-->
-        <div id = "detail-sexContainer">
-        	<img id = "detail-sex" src = "img/sex<%= gender %>.png"/>
-        </div>
+   		</div>
 
 	</div>
-
 
 	<div id = "detail-lower-container" class = "lower-container">
 
-		<div id = "detail-contactInfoContainer">
-			<p id = "detail-contactInfo-title">详细信息</p>
-
-			<div id = "detail-contactInfo-emailContainer">
-				<div id = "detail-contactInfo-emailWord">Email</div>
-				<p id = "detail-contactInfo-email"><%= email %></p>
+		<div id = "detail-lower-title">
+			<p>详细信息</p>
+			<div id = "detail-submit-button" class="shadowBox roundBox">
+				<p>编辑信息</P><img src="asset/submit.png"/>
 			</div>
-
-			<div id = "detail-contactInfo-phoneContainer">
-				<div id = "detail-contactInfo-phoneWord">电话</div>
-				<p id = "detail-contactInfo-phone"><%= phone %></p>
-			</div>
-
-			<div id = "detail-contactInfo-qqContainer">
-				<div id = "detail-contactInfo-qqWord">QQ</div>
-				<p id = "detail-contactInfo-qq"><%= qq %></p>
-			</div>
-
-			<div id = "detail-contactInfo-twitterContainer">
-				<div id = "detail-contactInfo-twitterWord">微博</div>
-				<p id = "detail-contactInfo-twitter"><%= twitter %></p>
-			</div>
-
-			<div id = "detail-contactInfo-selfDefinedContainer">
-				<div id = "detail-contactInfo-selfDefinedWord">自定义</div>
-				<p id = "detail-contactInfo-selfDefined"><%= selfDefined %></p>
+			<div id = "detail-submitContainer">
+				<div id = "detail-submit-passwordContainer" style="display:none;">
+					<input id = "detail-submit-password" placeholder="在此输入密码"/>
+					<div id = "detail-submit-password-button">提交</div>
+				</div>
+				<div id = "detail-submit-errorContainer" style="display:none";>
+					<p id = "detail-submit-error"></p>
+				</div>
+				<div id = "detail-sumbit-clickAble"></div>
 			</div>
 		</div>
 
-		<div id = "detail-content">
-			<!--content-->
-			<%= content %>
-
-		</div>
-
-		<div id = "detail-submitContainer">
-			<div id = "detail-submit-button">编辑信息<img id = "detail-submit-icon"/></div>
-			<div id = "detail-submit-passwordContainer" style="display:none;"><input id = "detail-submit-password" placeholder = "在此输入密码"/><div id = "detail-submit-password-button">提交</div></div>
-			<div id = "detail-submit-errorContainer" style="display:none";><p id = "detail-submit-error"></p></div>
-			<div id = "detail-sumbit-clickAble"></div>
+		<div id = "detail-lower-content">
+			<div id = "detail-contactInfoContainer">
+				<p id = "detail-contactInfo-email">Email: <%= email %></p>
+				<p id = "detail-contactInfo-phone">电话: <%= phone %></p>
+				<p id = "detail-contactInfo-qq">QQ: <%= qq %></p>
+				<p id = "detail-contactInfo-twitter">微博: <%= twitter %></p>
+				<p id = "detail-contactInfo-selfDefined">自定义: <%= selfDefined %></p>
+			</div>
+			<div id = "detail-content">
+				<%= content %>
+			</div>
 		</div>
 
 	</div>
-
 
 </div>

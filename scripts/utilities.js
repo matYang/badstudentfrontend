@@ -89,8 +89,8 @@ function resize(){
 }
 
 $(document).ready(function(){
-    //resize();
-    //$(window).resize(resize());
+    resize();
+    $(window).resize(resize());
 });
 
 //Pop-up
@@ -114,3 +114,21 @@ navigator.sayswho= (function(){
 
     return M;
 })();
+
+// Calander
+function calander(startDate,endDate){
+    var height = $('#calendar-holder').height();
+    $('#calendar').fullCalendar({
+        theme: true,
+        header: false,
+        weekMode: 'liquid',
+        height: height,
+        firstDay: 1,
+        editable: false,
+    });
+    if(endDate){
+    }else{
+        endDate = startDate;
+    }
+    $('#calendar').fullCalendar('select',startDate,endDate,'allDay');
+}

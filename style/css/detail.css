@@ -1,10 +1,154 @@
 #detail-upper-container {
 	width: 100%;
-	height: 40%;
+	height: 38%;
+	margin-bottom: 2%;
+}
+
+#detail-full-width p {
+	margin: 0;
+}
+
+#detail-title {
+	width: 100%;
+	height: 20%;
+	display: table;
+}
+
+#detail-title div {
+	display: table-cell;
+	vertical-align: middle;
+	height: 100%;
+}
+
+#detail-title div p {
+	float: left;
+	font-size: 25px;
+	margin-left: 10px;
+	color: #FFFFFF;
+}
+
+#detail-title img {
+	float: right;
+	height: 100%;
+	cursor: pointer;
+}
+
+#detail-upper-content {
+	width: 100%;
+	height: 80%;
+}
+
+#detail-schoolLogo {
+	float: left;
+	height: 100%;
+	width: 20%;
+}
+#calendar-holder {
+	float: left;
+	height: 100%;
+	width: 50%;
+}
+
+#calendar {
+	height: 100%;
+	width: 100%;
+}
+
+#detail-calendarContainer table {
+	height: 100%;
+	width: 100%;
+}
+
+#detail-price-sex {
+	float: right;
+	height: 100%;
+	width: 29%;
+	padding-right: 10px;	
+}
+
+#detail-priceContainer {
+	height: 60%;
+	width: 100%;
+}
+
+#detail-totalPrice {
+	width: 100%;
+	font-size: 100px;
+	color: #FFFFFF;
+	text-align: center;
+}
+
+#detail-dividedPrice {
+	width: 100%;
+	color: #FFFFFF;
+	text-align: center;
+}
+
+#detail-price-sex img {
+	height: 30%;
+	display: block;   
+	margin-left: auto;   
+	margin-right: auto;
 }
 
 #detail-lower-container {
 	width: 100%;
 	height: 60%;
-	/*background-color: #FFFF33;*/
+	background-color: #FFFF33;
+	-moz-box-shadow:    0px -5px 15px 1px #222;
+	-webkit-box-shadow: 0px -5px 15px 1px #222;
+	box-shadow:         0px -5px 15px 1px #222;
+}
+
+#detail-lower-title {
+	width: 100%;
+	height: 20%;
+	display: table;
+}
+
+#detail-lower-title p {
+	height: 100%;
+	display: table-cell;
+	vertical-align: middle;
+	font-size: 40px;
+	padding-left: 20px;
+}
+
+#detail-submit-button {
+	margin-top: 15px;
+	margin-right: 15px;
+	float: right;
+	background-color: #00FF00;
+	width: 30%;
+	cursor: pointer;
+	display: table;
+}
+
+#detail-submit-button p {
+	margin: 0;
+	display: table-cell;
+	vertical-align: middle;
+	font-size: 100%;
+}
+
+#detail-lower-title img {
+	float: right;
+	height: 100%;
+}
+
+#detail-lower-content {
+	width: 100%;
+	height: 80%;
+}
+
+#detail-contactInfoContainer {
+	float: left;
+	height: 100%;
+	width: 20%;
+	padding-left: 20px;
+}
+
+#detail-content {
+	height: 100%;
+	width: 80%;
 }
