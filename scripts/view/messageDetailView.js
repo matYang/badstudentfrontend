@@ -139,7 +139,7 @@
         $('#detail-cat').unbind();
         $('#detail-submit-button').unbind();
         $('#detail-submitContainer').unbind();
-        $('#body').unbind();
+        $('body').unbind();
 
         this.unbind();
         $(this.el).empty();

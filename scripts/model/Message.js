@@ -21,7 +21,7 @@ var Message = Backbone.Model.extend({
         "authCode" : -1,
 	},
 
-	urlRoot: "http://192.168.0.25:8015/api/badstudent/v0.9/messages",
+	urlRoot: "http://localhost:8015/api/badstudent/v0.9/messages",
 
 	initialize:function(urlRootOverride){
 		_.bindAll(this, 'preSave', 'postSave');
@@ -51,7 +51,7 @@ var Message = Backbone.Model.extend({
 var Messages = Backbone.Collection.extend({
 	model: Message,
 
-	url: "http://192.168.0.25:8015/api/badstudent/v0.9/messages",
+	url: "http://localhost:8015/api/badstudent/v0.9/messages",
 
 	initialize:function(urlOverride){
 		_.bindAll(this);
