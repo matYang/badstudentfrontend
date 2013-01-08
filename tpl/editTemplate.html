@@ -1,5 +1,7 @@
-<div id = "detail-modal-main">
-	<div id = "detail-modal-closeButton" class = "modal-close">X</div>
+<div class='popupPanel' id='editPanel'>
+
+<div id="detail-modal-main" class='roundBox shadowBox'>
+	<div id = "detail-modal-closeButton" class = "popUpCloseButton">X</div>
 
 	<div id = "detail-modal-upperContainer">
 
@@ -26,14 +28,13 @@
 				<input id = "detail-modal-twitter"  value = "<%= twitter %>"/>
 			</div>
 
-
 			<div id = "detail-modal-selfDefinedContainer" >
 				<div id = "detail-modal-selfDefinedWord" >自定义</div>
 				<input id = "detail-modal-selfDefined"  value = "<%= selfDefined %>"/>
 			</div>
 
 			<div  id = 'detail-modal-noticeContainer'>
-				<p  id = 'detail-modal-notice'>请至少填写一项</p>
+				<div  id = 'detail-modal-notice'>请至少填写一项</div>
 			</div>
 
 		</div>
@@ -46,13 +47,13 @@
 
 			<div id = "detail-modal-cityContainer" >
 				<div id = "detail-modal-cityWord" >城市</div>
-				<p id = "detail-modal-city" ></p>
+				<div id = "detail-modal-city" ></div>
 			</div>
 
 
 			<div id = "detail-modal-universityContainer" >
 				<div id = "detail-modal-universityWord" >大学</div>
-				<p id = "detail-modal-university" ></p>
+				<div id = "detail-modal-university" ></div>
 			</div>
 
 
@@ -77,19 +78,15 @@
 
 	</div>
 
-	<hr>
-
 	<div id = "detail-modal-lowerContainer">
-		<div id = 'detail-modal-contentTitleContainer'>
-			<p id = 'detail-modal-contentTitle'>详细信息</p>
-		</div>
+		<hr>
+		<div id = 'detail-modal-contentTitle'>详细信息</div>
+		<input id = "detail-modal-content" value = "<%= content %>"/>
 
-		<div id = "detail-modal-contentContainer">
-			<input id = "detail-modal-content" value = "<%= content %>"/>
+		<div id="edit-bottom-button">
+			<div id = "detail-modal-deleteButton">删除</div>
+			<div id = "detail-modal-submitButton">完成啦<img src = "asset/submit.png"/></div>
 		</div>
-
-		<div id = "detail-modal-deleteButton">删除</div>
-		<div id = "detail-modal-submitButton">完成啦<img src = "asset/submit.png"/></div>
 
 
 
@@ -98,5 +95,5 @@
 
 
 
-
+</div>
 </div>

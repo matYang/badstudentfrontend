@@ -76,6 +76,8 @@
         $('#detail-modal-endDatePicker').datepicker( "option", "minDate", new Date());
         }
 
+        togglePopup('editPanel');
+
     },
 
     showLocation:function(){
@@ -171,6 +173,7 @@
     },
 
     close:function(){
+        togglePopup('editPanel');
         $("#detail-modal-datePicker").datepicker("destroy");
         $('#detail-modal-datePicker').unbind();
         $("#detail-modal-endDatePicker").datepicker("destroy");
@@ -181,7 +184,7 @@
         $('#detail-modal-closeButton').unbind();
         $('#detail-modal-deleteButton').unbind();
         $('#detail-modal-submitButton').unbind();
-        $('#detail-modal-main').remove();
+        $('#editPanel').remove();
         this.unbind();
 
         modalOpen = false;

@@ -1,7 +1,6 @@
 #detail-upper-container {
 	width: 100%;
 	height: 38%;
-	margin-bottom: 2%;
 }
 
 #detail-full-width p {
@@ -86,6 +85,11 @@
 	margin-right: auto;
 }
 
+#detail-middle-container {
+	height: 2%;
+	width: 100%;
+}
+
 #detail-lower-container {
 	width: 100%;
 	height: 60%;
@@ -155,7 +159,6 @@
 	top: 0px;
 	width: 25%;
 	height: 30%;
-	background-color: #FFFFFF;
 }
 
 #detail-submit-passwordContainer {
