@@ -45,6 +45,8 @@
             var hourPrice = this.message.get('price')/hour
             $("#detail-dividedPrice").html(hour + "小时 / 单价" + hourPrice);
         }
+        $('#detail-submit-passwordContainer').css({'visibility':'hidden'});
+        $('#detail-submit-errorContainer').css({'visibility':'hidden'});
 
     },
 
@@ -60,8 +62,8 @@
 
         var isSubmitClicked = false;
         $('#detail-submit-button').bind('click', function(){
-            $('#detail-submit-passwordContainer').css({'display':'block'});
             isSubmitClicked = true;
+            $('#detail-submit-passwordContainer').css({'visibility':'visible'});
         });
 
         $('#detail-submitContainer').bind('click', function(){
@@ -72,8 +74,8 @@
             if(isSubmitClicked){ 
                 isSubmitClicked = false;
             }else{
-                $('#detail-submit-passwordContainer').css({'display':'none'});
-                $('#detail-submit-errorContainer').css({'display':'none'});
+                $('#detail-submit-passwordContainer').css({'visibility':'hidden'});
+                $('#detail-submit-errorContainer').css({'visibility':'hidden'});
             }
         });
 
@@ -95,15 +97,15 @@
 
             success:function(model, response){
                 self.message.overrideUrl(infoUrlOverride);
-                $('#detail-submit-passwordContainer').css({'display':'none'});
-                $('#detail-submit-errorContainer').css({'display':'none'});
+                $('#detail-submit-passwordContainer').css({'visibility':'hidden'});
+                $('#detail-submit-errorContainer').css({'visibility':'hidden'});
                 self.messageEditView = new MessageEditView(self.message);
             },
 
             error: function(model, response){
                 console.log("viewById::fetch failed");
                 console.log(response);
-                $('#detail-submit-errorContainer').css({'display':'block'});
+                $('#detail-submit-errorContainer').css({'visibility':'visible'});
                 $('#detail-submit-error').html("密码验证失败");
             }
         });
@@ -123,7 +125,7 @@
                 
             },
             error: function (data, textStatus, jqXHR){
-                $('#detail-submit-errorContainer').css({'display':'block'});
+                $('#detail-submit-errorContainer').css({'visibility':'block'});
                 $('#detail-submit-error').html(textStatus);
             },
         });*/
@@ -140,6 +142,7 @@
         $('#detail-submit-button').unbind();
         $('#detail-submitContainer').unbind();
         $('body').unbind();
+        $('#detail-submit-password-button').unbind();
 
         this.unbind();
         $(this.el).empty();

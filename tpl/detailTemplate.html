@@ -33,16 +33,6 @@
 			<div id = "detail-submit-button" class="shadowBox roundBox">
 				<p>编辑信息</P><img src="asset/submit.png"/>
 			</div>
-			<div id = "detail-submitContainer">
-				<div id = "detail-submit-passwordContainer" style="display:none;">
-					<input id = "detail-submit-password" placeholder="在此输入密码"/>
-					<div id = "detail-submit-password-button">提交</div>
-				</div>
-				<div id = "detail-submit-errorContainer" style="display:none";>
-					<p id = "detail-submit-error"></p>
-				</div>
-				<div id = "detail-sumbit-clickAble"></div>
-			</div>
 		</div>
 
 		<div id = "detail-lower-content">
@@ -55,6 +45,15 @@
 			</div>
 			<div id = "detail-content">
 				<%= content %>
+			</div>
+			<div id = "detail-submitContainer">
+				<div id = "detail-submit-passwordContainer" class="shadowBox roundBox">
+					<input id = "detail-submit-password" placeholder="在此输入密码"/>
+					<div id = "detail-submit-password-button">提交</div>
+				</div>
+				<div id = "detail-submit-errorContainer" class="shadowBox roundBox">
+					<p id = "detail-submit-error"></p>
+				</div>
 			</div>
 		</div>
 
