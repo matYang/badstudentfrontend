@@ -105,7 +105,7 @@
 	display: table;
 }
 
-#detail-lower-title p {
+#detail-lower-title > p {
 	height: 100%;
 	display: table-cell;
 	vertical-align: middle;
@@ -119,6 +119,7 @@
 	float: right;
 	background-color: #00FF00;
 	width: 30%;
+	height: 50%;
 	cursor: pointer;
 	display: table;
 }
@@ -199,11 +200,11 @@
 	height: 40%;
 	margin-top: 10px;
 	display: table;
+	background-color: #CC0000;
 }
 
 #detail-submit-errorContainer p{
 	display: table-cell;
 	vertical-align: middle;
 	text-align: center;
-	background-color: #CC0000;
 } 
