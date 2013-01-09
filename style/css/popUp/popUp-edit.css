@@ -15,18 +15,48 @@
 	width: 100%;
 }
 
+.edit-line {
+	width: 100%;
+	margin-bottom: 10px;
+	padding-left: 10%;
+	display: table;
+	position: relative;
+}
+
+.edit-line-label {
+	display: table-cell;
+	vertical-align: middle;
+	width: 20%;
+}
+
+.edit-line input {
+	width: 60%;
+}
+
 #detail-modal-upperLeftContainer {
 	float: left;
 	height: 100%;
 	width: 50%;
-	background-color: #123455;
+}
+
+#detail-modal-notice {
+	width: 70%;
+	text-align: right;
+	font-size: 10px;
+}
+
+#detail-modal-emailContainer {
+	margin-top: 5%;
 }
 
 #detail-modal-upperRightContainer {
 	float: left;
 	height: 100%;
 	width: 45%;
-	background-color: #FFFFFF;
+}
+
+#detail-modal-priceContainer {
+	margin-top: 5%;
 }
 
 #detail-modal-lowerContainer {
@@ -37,12 +67,14 @@
 #detail-modal-contentTitle {
 	width: 100%;
 	height: 10%;
+	margin-left: 10%;
 }
 
 #detail-modal-content {
 	width: 80%;
 	height: 60%;
 	margin-left: 10%;
+	resize: none;
 }
 
 #edit-bottom-button {
@@ -53,9 +85,43 @@
 
 #detail-modal-deleteButton {
 	float: left;
-
+	height: 50%;
+	width: 30%;
+	margin-left: 10px;
+	background-color: red;
+	display: table;
+	cursor: pointer;
 }
+
+#detail-modal-deleteButton div {
+	display: table-cell;
+	vertical-align: middle;
+	color: white;
+	font-size: 40px;
+	text-align: right;
+	padding-right: 10px;
+} 
 
 #detail-modal-submitButton {
 	float: right;
+	height: 50%;
+	width: 30%;
+	margin-right: 10px;
+	background-color: green;
+	display: table;
+	cursor: pointer;
+}
+
+#detail-modal-submitButton div {
+	display: table-cell;
+	vertical-align: middle;
+	color: white;
+	font-size: 40px;
+	text-align: left;
+	padding-left: 10px;
+}
+
+#detail-modal-submitButton img {
+	float: right;
+	height: 100%;
 }
