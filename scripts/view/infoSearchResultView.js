@@ -13,10 +13,8 @@
 
  	render:function(){
  		$(this.el).append("<div id='info-full-width' class = 'full-width'>");
- 		$('#info-full-width').append("<div id = 'info-title'>根据联系信息找到的结果：</div>");
- 		$('#info-full-width').append("<div id = 'info-catContainer' class = 'catContainer'><img id = 'info-cat' class = 'cat' src = 'img/cat.png'/></div>");
- 		$('#info-full-width').append("<div><hr></div>");
- 		$('#info-full-width').append("<div id = 'info-info' class = 'secondaryInfoContainer'></div>");
+ 		$('#info-full-width').append("<div id='infoSearchHeader'><div>根据联系信息找到的结果：</div><img id = 'info-cat' src = 'img/cat.png'/></div>");
+ 		$('#info-full-width').append("<div id = 'info-info'></div>");
  		
  	},
 

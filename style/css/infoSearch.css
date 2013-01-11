@@ -1,0 +1,40 @@
+#info-full-width {
+	position: relative;
+}
+
+#infoSearchHeader {
+	width: 100%;
+	height: 10%;
+	display: table;
+}
+
+#infoSearchHeader > div {
+	display: table-cell;
+	vertical-align: middle;
+	font-size: 40px;
+}
+
+#infoSearchHeader img {
+	height: 100%;
+	float: right;
+	cursor: pointer;
+}
+
+
+#info-info {
+	position: absolute;
+	top: 10%;
+	bottom: 0;
+	height: 90%;
+	width: 100%;
+	background-color: #FFCC33;
+	overflow: auto;
+}
+
+#info-info > div {
+	float: left;
+	width: 45%;
+	margin-left: 2.5%;
+	margin-right: 2.5%;
+	height: 20%;
+}
