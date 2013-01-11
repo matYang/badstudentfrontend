@@ -34,7 +34,11 @@
  	close:function(){
  		$('#info-cat').unbind();
         this.unbind();
+
+        var datePickerDiv = $('#ui-datepicker-div');        //reserve the datepicker div
         $(this.el).empty();
+        
+        $(this.el).append(datePickerDiv);                   //inject into dom for future uses
 
  	}
 
