@@ -5,8 +5,8 @@
  		_.bindAll(this,'render','showLocation','updateLocation','bindEvents','updateMessage','close');
  		this.message = message;
 
-        this.startDate = new Date(this.message.get('startDate'));
-        this.endDate = new Date(this.message.get('endDate'));
+        this.startDate = parseDate(this.message.get('startDate'));
+        this.endDate = parseDate(this.message.get('endDate'));
         this.locationArray = new Array();
         this.locationArray[0] = this.message.get('location').province;
         this.locationArray[1] = this.message.get('location').city;
