@@ -1,7 +1,5 @@
 .singleSearchResult {
 	height: 30%;
-	margin: 0px;
-	padding: 0px;
 	cursor: pointer;
 }
 
@@ -13,23 +11,30 @@
 .searchResultInfoContainer {
 	float: left;
 	height: 100%;
+	width: auto;
 }
 
 .searchResultLocation {
-	margin: 5px;
+	padding-top: 5%;
+	padding-left: 5%;
+	height: 30%;
 	color: #FFFFFF;
+	width: 100%;
 }
 
 .searchResultWindow {
-	margin: 5px;
+	padding-left: 5%;
+	height: 30%;
 	color: #FFFFFF;
+	width: 100%;
 }
 
 .searchResultType {
-	margin-top: 10px;
-	margin-left: 5px;
+	margin-top: 5%;
+	padding-left: 5%;
+	height: 30%;
 	color: #FFFFFF;
-	font-size: 12px;
+	font-size: 50%;
 }
 
 .searchResultPriceContainer {
@@ -38,21 +43,20 @@
 }
 
 .searchResultTotalValue {
-	height: 50%;
-	width: 100%;
 	text-align: right;
+	height: 60%;
+	width: 100%;
 	color: #FFFFFF;
-	font-size: 40px;
-	padding-top: 10%;
+	font-size: 250%;
+	padding-top: 5%;
 }
 
 .searchResultDividedPrice {
 	text-align: right;
-	height: 40%;
+	height: 30%;
 	width: 100%;
 	color: #FFFFFF;
-	font-size: 12px;
-	margin: 0px;
+	font-size: 50%;
 }
 
 hr {
