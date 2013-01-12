@@ -53,46 +53,6 @@ jQuery(function($){
         $.datepicker.setDefaults($.datepicker.regional['zh-CN']);
 });
 
-//Set minimum width and height
-var initWidth = window.screen.availWidth;
-var initHeight = window.screen.availHeight;
-
-function resize(){
-    var newWidth = window.screen.availWidth;
-    var newHeight = window.screen.availHeight;
-    var width;
-    var height;
-    if(initWidth>newWidth){
-        width = initWidth;
-    }else{
-        width = newWidth;
-    }
-    if(initHeight>newHeight){
-        height = initHeight;
-    }else{
-        height = newHeight;
-    }
-    width = width + 'px';
-    height = height + 'px';
-    $('body').css({ 
-        'width': width,
-        'height': height 
-    });   
-    $('html').css({
-        'width': width,
-        'height': height,
-    });
-    $('.full-width').css({
-        'width': width,
-        'height': height,
-    });
-}
-
-$(document).ready(function(){
-    resize();
-    $(window).resize(resize());
-});
-
 //Pop-up
 
 function togglePopup(box){
