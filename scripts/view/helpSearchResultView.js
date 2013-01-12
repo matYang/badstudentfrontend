@@ -22,7 +22,7 @@
  		$('#ask-header').append("<div id='help-title' class='help-ask-title'>创建您的点名需求</div>");
  		$('#ask-header').append("<div id='help-catContainer' class='help-ask-catContainer'><img id='help-cat' src='img/cat.png' alt='cat.png'/></div>");
  		$('#help-upper-container').append("<div id='help-createContainer' class='roundBox shadowBox help-ask-createContainer'></div>");
- 		$('#help-upper-container').append("<div id='help-submit' class='roundBox shadowBox help-ask-submit'><div>我勒个去</div><img src='asset/submit.png' alt='submit.png'></div>");	
+ 		$('#help-upper-container').append("<div id='help-submit' class='roundBox shadowBox help-ask-submit'><div>我勒个去</div><img src='asset/铅笔.png' alt='铅笔.png'></div>");	
 
  		$('#help-createContainer').append("<div class='help-ask-row'><p>我在</p><div id='help-input-location' class='help-ask-input-location'></div>附近求</div>");
         $('#help-createContainer').append("<div class='help-ask-row'><input id='help-input-content'/>，这</div>");

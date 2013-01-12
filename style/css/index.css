@@ -14,17 +14,24 @@ body {
 
 .headerFooterImage {
 	height: 14%;
+	width: 30%;
 	padding-top: 10px;
 	padding-bottom: 10px;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
 }
 
-#headerImage {
-	background: url('../../asset/header.png');
-	background-position: center;
-	background-repeat: no-repeat;
-	height: 100%;
-	width: 100%;
-	background-size: contain;
+#headerCatImage {
+	float: left;
+	height: 50%;
+	width: 15%;
+}
+
+#headerWordImage {
+	padding-top: 5%;
+	height: 70%;
+	width: 60%;
 }
 
 #footerImage {
@@ -134,11 +141,7 @@ body {
 
 #main-help-me-icon {
 	height: 100%;
-	width: 100%;
 	float: right;
-	background-image: url('../../asset/submit.png');
-	background-size: cover;
-	background-position: center;
 }
 
 #main-help-others {
@@ -162,11 +165,7 @@ body {
 
 #main-help-others-icon {
 	height: 100%;
-	width: 100%;
 	float: right;
-	background-image: url('../../asset/submit.png');
-	background-size: cover;
-	background-position: center;
 }
 
 #main-info-search {

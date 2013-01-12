@@ -87,6 +87,7 @@
 
     authSubmit:function(){
         var password = $('#detail-submit-password').val();
+        $('#detail-submit-password').val("");
         var self = this;
         self.message.overrideUrl(authUrlOverride);
 
