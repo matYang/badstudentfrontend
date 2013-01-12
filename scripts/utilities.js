@@ -92,3 +92,14 @@ function calander(startDate,endDate){
     }
     $('#calendar').fullCalendar('select',startDate,endDate,'allDay');
 }
+
+var monthArray = {'Jan': 0, 'Feb':1, 'Mar':2, 'Apr':3, 'May':4, 'Jun':5, 'Jul':6, 'Aug':7, 'Sep':8, 'Oct':9, 'Nov': 10, 'Dec': 11};
+function parseDate(dateString){
+        
+        var dateArray = dateString.split(" ");
+        var date = new Date();
+        date.setFullYear(dateArray[5]);
+        date.setMonth(monthArray[dateArray[1]]);
+        date.setDate(dateArray[2]);
+        return date;
+}

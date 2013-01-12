@@ -6,8 +6,8 @@
         _.bindAll(this,'render','showLocation', 'updateLocation','showFemale', 'showMale', 'showDontCare','bindEvents','close');
 
         this.date = date;
-        this.startDate = new Date();
-        this.endDate = new Date();
+        this.startDate = new Date(date.getFullYear(), date.getMonth(), date.getDate());
+        this.endDate = new Date(date.getFullYear(), date.getMonth(), date.getDate());
         this.locationArray = locationArray;
 
         this.searchResult = searchResult;

@@ -26,13 +26,13 @@
 
 
         $('#detail-location').html(this.message.get('location').school);
-        var startDate = new Date(this.message.get('startDate'));
+        var startDate = parseDate(this.message.get('startDate'));
         if (this.type == 0){
             $('#detail-date').html(this.getDateString(startDate));
             calander(startDate);
         }
         else if (this.type == 1){
-            var endDate = new Date(this.message.get('endDate'));
+            var endDate = parseDate(this.message.get('endDate'));
             $('#detail-date').html(this.getDateString(startDate) + " 到 " + this.getDateString(endDate));
             calander(startDate,endDate);
         }
@@ -131,6 +131,7 @@
             },
         });*/
     },
+
 
     close:function(){
         if (this.messageEditView){
