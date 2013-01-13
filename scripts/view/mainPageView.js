@@ -142,7 +142,7 @@
         $(this.el).append(datePickerDiv);                   //inject into dom for future uses
 
         //Backbone.View.prototype.remove.call(this);
-    },
+    }
 
 
  });
