@@ -24,7 +24,7 @@
         $('#help-header').append("<div id='ask-title' class='help-ask-title'>创建您的点名需求</div>");
         $('#help-header').append("<div id='ask-catContainer' class='help-ask-catContainer'><img id='ask-cat' src='img/cat.png'/></div>");
         $('#ask-upper-container').append("<div id='ask-createContainer' class='roundBox shadowBox help-ask-createContainer'></div>");
-        $('#ask-upper-container').append("<div id='ask-submit' class='roundBox shadowBox help-ask-submit'><div>我勒个去</div><img src='asset/submit.png'></div>");   
+        $('#ask-upper-container').append("<div id='ask-submit' class='roundBox shadowBox help-ask-submit'><div>我勒个去</div><img src='asset/铅笔.png' alt='铅笔.png'></div>");   
 
         $('#ask-createContainer').append("<div class='help-ask-row'><p>我能在</p><div id='ask-input-location' class='help-ask-input-location'></div>附近帮</div>");
         $('#ask-createContainer').append("<div class='help-ask-row'>点名，我从<input id='ask-input-startDatePicker' class='help-ask-input-datePicker'/>到</div>");
