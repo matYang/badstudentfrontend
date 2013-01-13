@@ -93,7 +93,7 @@
  	},
 
  	getDateString:function(dateString){
- 		var curDate = new Date(dateString);
+ 		var curDate = parseDate(dateString);
  		var today = new Date(this.tempDate.getFullYear(), this.tempDate.getMonth(), this.tempDate.getDate());
 
 
