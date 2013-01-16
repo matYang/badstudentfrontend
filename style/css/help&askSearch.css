@@ -1,8 +1,6 @@
 .help-ask-upper-container {
-	float: left;
-	width: 80%;
-	height: 40%;
-	margin-left: 10%;
+	width: 1000px;
+	height: 400px;
 }
 
 .help-ask-header {
@@ -101,10 +99,8 @@
 
 .help-ask-lower-container {
 	position: relative;
-	float: left;
-	height: 60%;
-	width: 80%;
-	margin-left: 10%;
+	height: 400px;
+	width: 1000px;
 	background-color: #CCCC66;
 }
 
