@@ -1,4 +1,3 @@
-
 var miliSecInDay =  86400000;
 var infoUrlOverride = "http://23.23.86.187:8015/api/badstudent/v0.9/messages";
 var recentsUrlOverride = "http://23.23.86.187:8015/api/badstudent/v0.9/recentsSearch";

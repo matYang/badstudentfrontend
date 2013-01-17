@@ -2,7 +2,7 @@
 
 
  	initialize:function(message){
- 		_.bindAll(this,'render','showLocation','updateLocation','bindEvents','updateMessage','close');
+ 		_.bindAll(this,'render','showLocation','validation','updateLocation','bindEvents','updateMessage','close');
  		this.message = message;
 
         this.startDate = parseDate(this.message.get('startDate'));
@@ -32,6 +32,11 @@
                 //because IE and Safari does not support "yyyy mm dd"
                 var dateTextArray = dateText.split(" ");
                 self.startDate = new Date(dateTextArray[0], dateTextArray[1]-1, dateTextArray[2]);
+
+                if (true){    //if start date is greate than end date
+                    $('#detail-modal-endDatePicker').datepicker( "setDate", self.startDate);
+                }
+                $('#detail-modal-endDatePicker').datepicker( "option", "minDate", self.startDate;
             },
 
             onClose: function(dateText, inst) 
@@ -101,7 +106,7 @@
         $('#detail-modal-deleteButton').bind('click',function(){
             self.deleteMessage();
         });
-        $('#detail-modal-submitButton').bind('click',this.updateMessage);
+        $('#detail-modal-submitButton').bind('click',this.validation);
 
     },
 
@@ -127,6 +132,29 @@
         
         });
 
+    },
+
+    validation:function(){
+        var proceed = true;
+
+        this.email = $('#detail-modal-email').val();
+        this.phone = $('#detail-modal-phone').val();
+        this.qq = $('#detail-modal-qq').val();
+        this.twitter = $('#detail-modal-twitter').val();
+        this.selfDefined = $('#detail-modal-selfDefined').val();
+        this.content = $('#detail-modal-content').val();
+        this.price = $('#detail-modal-price').val();
+
+        if (!(this.email || this.phone || this.qq || this.twitter || this.selfDefined)){
+            proceed = false;
+            alert("please enter at least one entry of contact info");
+        }
+        /*target*/
+        if ((this.price)){
+
+        }
+
+        this.updateMessage();
     },
 
     updateMessage:function(){

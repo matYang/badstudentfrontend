@@ -2,7 +2,7 @@
 
 
  	initialize:function(searchResult,locationArray, startDate, endDate, content, gender, price, type){
- 		_.bindAll(this,'render','bindEvents', 'complete', 'close');
+ 		_.bindAll(this,'render','bindEvents','validation' ,'complete', 'close');
  		modalOpen = true;
 
  		this.searchResult = searchResult;
@@ -52,7 +52,32 @@
  	bindEvents:function(){
  		$('#register-modal-closeButton').bind('click',this.close);
 
-		$('#register-modal-submit').bind('click',this.complete); 		
+		$('#register-modal-submit').bind('click',this.validation); 		
+ 	},
+
+ 	validation:function(){
+ 		var proceed = true;
+
+ 		this.email = $('#register-modal-email').val();
+ 		this.phone = $('#register-modal-phone').val();
+ 		this.qq = $('#register-modal-qq').val();
+ 		this.twitter = $('#register-modal-twitter').val();
+ 		this.selfDefined = $('#register-modal-selfDefined').val();
+ 		this.password = $('#register-modal-password').val();
+		/*target*/
+ 		if (!(this.email || this.phone || this.qq || this.twitter || this.selfDefined)){
+ 			proceed = false;
+ 			alert("please enter at least one entry of contact info");
+ 		}
+
+ 		if (!(this.password)){
+ 			proceed = false;
+ 			alert("please enter password");
+ 		}
+
+ 		if (proceed){
+ 			this.complete();
+ 		}
  	},
 
  	complete:function(){
@@ -62,12 +87,6 @@
  		else if (this.type == 1){
  			this.courseLengthInMinutes = 60;
  		}
- 		this.email = $('#register-modal-email').val();
- 		this.phone = $('#register-modal-phone').val();
- 		this.qq = $('#register-modal-qq').val();
- 		this.twitter = $('#register-modal-twitter').val();
- 		this.selfDefined = $('#register-modal-selfDefined').val();
- 		this.password = $('#register-modal-password').val();
 
  		var locationString = this.locationArray[0] + " " + this.locationArray[1] + " " + this.locationArray[2];
  		var startDateString = this.startDate.getFullYear() + " " + (this.startDate.getMonth()+1) + " " + this.startDate.getDate();
@@ -108,11 +127,6 @@
 
  		Backbone.View.prototype.remove.call(this);
  	}
-
-
-
-
-
 
 
  });
