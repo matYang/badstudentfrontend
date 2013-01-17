@@ -1,8 +1,8 @@
 var miliSecInDay =  86400000;
-var infoUrlOverride = "../api/badstudent/v0.9/messages";
-var recentsUrlOverride = "../api/badstudent/v0.9/recentsSearch";
-var primaryUrlOverride = "../api/badstudent/v0.9/primarySearch";
-var authUrlOverride = "../api/badstudent/v0.9/auth";
+var infoUrlOverride = "http://23.23.86.187/api/badstudent/v0.9/messages";
+var recentsUrlOverride = "http://23.23.86.187/api/badstudent/v0.9/recentsSearch";
+var primaryUrlOverride = "http://23.23.86.187/api/badstudent/v0.9/primarySearch";
+var authUrlOverride = "http://23.23.86.187/api/badstudent/v0.9/auth";
 var modalOpen = false;    //global variable used to track if a modal window is open
 var doubleModalOpen = false;
 var tpId = 1000;
