@@ -104,8 +104,7 @@
             },
 
             error: function(model, response){
-                console.log("viewById::fetch failed");
-                console.log(response);
+
                 $('#detail-submit-errorContainer').css({'visibility':'visible'});
                 $('#detail-submit-error').html("密码验证失败");
                 /*target*/

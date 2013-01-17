@@ -36,7 +36,7 @@
                 if (true){    //if start date is greate than end date
                     $('#detail-modal-endDatePicker').datepicker( "setDate", self.startDate);
                 }
-                $('#detail-modal-endDatePicker').datepicker( "option", "minDate", self.startDate;
+                $('#detail-modal-endDatePicker').datepicker( "option", "minDate", self.startDate);
             },
 
             onClose: function(dateText, inst) 
@@ -126,7 +126,7 @@
             },
             
             error: function(){
-                console.log("delete failed");
+
                 alert("deleteFailed");
             }
         
@@ -187,13 +187,12 @@
 
         this.message.save({},{
             success:function(model, response){
-                console.log("PUT succeeded");
-                console.log(model.get('id'));
+
                 app.navigate("tempSession/" + encodeURI(self.message.get('id')), true);
             },
             
             error: function(){
-                console.log("PUT failed");
+
                 alert("PUT Error: check server configuration");
             }
         });

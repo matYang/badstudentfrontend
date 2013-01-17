@@ -1,8 +1,8 @@
 var miliSecInDay =  86400000;
-var infoUrlOverride = "http://23.23.86.187:8015/api/badstudent/v0.9/messages";
-var recentsUrlOverride = "http://23.23.86.187:8015/api/badstudent/v0.9/recentsSearch";
-var primaryUrlOverride = "http://23.23.86.187:8015/api/badstudent/v0.9/primarySearch";
-var authUrlOverride = "http://23.23.86.187:8015/api/badstudent/v0.9/auth";
+var infoUrlOverride = "../api/badstudent/v0.9/messages";
+var recentsUrlOverride = "../api/badstudent/v0.9/recentsSearch";
+var primaryUrlOverride = "../api/badstudent/v0.9/primarySearch";
+var authUrlOverride = "../api/badstudent/v0.9/auth";
 var modalOpen = false;    //global variable used to track if a modal window is open
 var doubleModalOpen = false;
 var tpId = 1000;
@@ -67,8 +67,7 @@ var AppRouter = Backbone.Router.extend({
             dataType:'json',
 
             success:function(model, response){
-                console.log("viewById::fetch success with id: " + id);
-                console.log(response);
+
                 if (self.messageDetailView){
                     self.messageDetailView.close();
                 }
@@ -76,8 +75,7 @@ var AppRouter = Backbone.Router.extend({
             },
 
             error: function(model, response){
-                console.log("viewById::fetch failed");
-                console.log(response);
+
                 alert("viewById::failed to fetch data from server");
             }
         });
@@ -93,7 +91,7 @@ var AppRouter = Backbone.Router.extend({
         var dateString = this.keyArray[3] + " " + this.keyArray[4] + " " + this.keyArray[5];
 
         locationSting = encodeURI(locationSting);
-        console.log(this.keyArray);
+
         var self = this;
         this.searchResult.fetch({
             data: $.param({ location: locationSting, date: dateString, type: 1}),
@@ -101,8 +99,7 @@ var AppRouter = Backbone.Router.extend({
             dataType:'json',
             
             success: function (model, response) {
-                console.log("helpSearch::fetch success with encodedKey: " + encodedKey); 
-                console.log(response);
+
                 if (self.helpSearchResultView){
                     self.helpSearchResultView.close();
                 }
@@ -110,8 +107,7 @@ var AppRouter = Backbone.Router.extend({
             },
             
             error: function(model, response){
-                console.log("helpSearch::fetch failed");
-                console.log(response);
+                
                 alert("helpSearch::failed to fetch data from server");
             }
         });
@@ -129,7 +125,7 @@ var AppRouter = Backbone.Router.extend({
         var dateString = this.keyArray[3] + " " + this.keyArray[4] + " " + this.keyArray[5];
 
         locationSting = encodeURI(locationSting);
-        console.log(this.keyArray);
+        
         var self = this;
         this.searchResult.fetch({
             data: $.param({ location: locationSting, date: dateString, type: 0}),
@@ -137,8 +133,7 @@ var AppRouter = Backbone.Router.extend({
             dataType:'json',
             
             success: function (model, response) {
-                console.log("askSearch::fetch success with encodedKey: " + encodedKey); 
-                console.log(response);
+
                 if (self.askSearchResultView){
                     self.askSearchResultView.close();
                 }
@@ -146,8 +141,7 @@ var AppRouter = Backbone.Router.extend({
             },
             
             error: function(model, response){
-                console.log("askSearch::fetch failed");
-                console.log(response);
+
                 alert("askSearch::failed to fetch data from server");
             }
         });
@@ -161,7 +155,6 @@ var AppRouter = Backbone.Router.extend({
         this.searchResult = new Messages(infoUrlOverride);
         //expected key of format email-phone-qq-twitter-selfDefined
 
-        console.log(this.keyArray);
         var self = this;
         this.searchResult.fetch({
             data: $.param({ email: decodeURI(self.keyArray[0]), phone: decodeURI(self.keyArray[1]), qq: decodeURI(self.keyArray[2]), twitter: decodeURI(self.keyArray[3]), selfDefined: decodeURI(self.keyArray[4])}),
@@ -169,8 +162,7 @@ var AppRouter = Backbone.Router.extend({
             dataType:'json',
             
             success: function (model, response) {
-                console.log("infoSearch::fetch success with encodedKey: " + encodedKey); 
-                console.log(response);
+
                 if (self.infoSearchResultView){
                     self.infoSearchResultView.close();
                 }
@@ -178,8 +170,7 @@ var AppRouter = Backbone.Router.extend({
             },
             
             error: function(model, response){
-                console.log("infoSearch::fetch failed");
-                console.log(response);
+
                 alert("infoSearch::failed to fetch data from server");
             }
         });

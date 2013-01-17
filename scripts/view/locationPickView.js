@@ -35,7 +35,7 @@
  		$.ajax({
 			type: "GET",
 			async: false,
-			url: "http://23.23.86.187:8015/api/badstudent/v0.9/location",
+			url: "../api/badstudent/v0.9/location",
 			dataType: 'json',
 			success: function(data){
 				for(eachIndex in data){
@@ -72,11 +72,11 @@
 			type: "GET",
 			async: false,
 			data: {province : self.provinceName},
-			url: "http://23.23.86.187:8015/api/badstudent/v0.9/location",
+			url: "../api/badstudent/v0.9/location",
 			dataType: 'json',
 			success: function(data){
 				for(each in data){
-					console.log(data[each]);
+
 					cityContainer.append(self.cityDOMGenerator(data[each]));
 				}
 				$('.location-modal-city').bind('click', function(){
@@ -108,7 +108,7 @@
 				type: "GET",
 				async: false,
 				data: { province: self.provinceName, city: self.cityName },
-				url: "http://23.23.86.187:8015/api/badstudent/v0.9/location",
+				url: "../api/badstudent/v0.9/location",
 				dataType: 'json',
 				success: function(data){
 					for(each in data){

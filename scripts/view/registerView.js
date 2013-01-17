@@ -102,14 +102,13 @@
         var self = this;
 		newMessage.save({},{
 			success:function(model, response){
-				console.log("POST succeeded");
-				console.log(model.get('id'));
+
 				self.searchResult.add(newMessage);
 				app.navigate("message/" + encodeURI(newMessage.get('id')), true);
 			},
 			
 			error: function(){
-				console.log("POST failed");
+
 				alert("POST Error: check server configuration");
 			}
 		});
