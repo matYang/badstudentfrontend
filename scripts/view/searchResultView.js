@@ -34,6 +34,7 @@
  				var curModel = this.searchResults.at(i);
  				curModel.set({'tpId': ('i' + tpId)});
                 this.idArray.push('i' + tpId);
+                $(this.targetId).append("<hr><hr>");
             	$(this.targetId).append(this.template(curModel.toJSON()));
             	this.fill(curModel, ('i' + tpId));
             	tpId++;
@@ -45,6 +46,7 @@
  					var curModel = this.searchResults.at(i);
  					curModel.set({'tpId': ('i' + tpId)});
                     this.idArray.push('i' + tpId);
+                    $(this.targetId).append("<hr><hr>");
  					$(this.targetId).append(this.template(curModel.toJSON()));
  					this.fill(curModel, ('i' + tpId));
  					tpId++;
