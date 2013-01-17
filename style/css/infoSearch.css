@@ -36,3 +36,12 @@
 	margin-right: 25px;
 	height: 100px;
 }
+
+#info-info > hr {
+	float: left;
+	width: 450px;
+	margin-left: 25px;
+	margin-right: 25px;
+	margin-top: 5px;
+	margin-bottom: 0;
+}
