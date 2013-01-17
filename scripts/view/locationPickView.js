@@ -76,7 +76,9 @@
 			dataType: 'json',
 			success: function(data){
 				for(each in data){
-					console.log(data[each]);
+					if (console){
+						console.log(data[each]);
+					}
 					cityContainer.append(self.cityDOMGenerator(data[each]));
 				}
 				$('.location-modal-city').bind('click', function(){

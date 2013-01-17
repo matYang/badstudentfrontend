@@ -12,7 +12,9 @@ tpl = {
 
         var loadTemplate = function (index) {
             var name = names[index];
-            console.log('Loading template: ' + name);
+            if (console){
+                console.log('Loading template: ' + name);
+            }
             $.get('tpl/' + name + '.html', function (data) {
                 that.templates[name] = data;
                 index++;

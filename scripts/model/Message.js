@@ -25,7 +25,9 @@ var Message = Backbone.Model.extend({
 
 	initialize:function(urlRootOverride){
 		_.bindAll(this, 'preSave', 'postSave');
-		console.log("creating message: "+ this.toJSON + " id: " + this.id);
+		if (console){
+			console.log("creating message: "+ this.toJSON + " id: " + this.id);
+		}
 		if (urlRootOverride != null){
 			this.urlRoot = urlRootOverride;
 		}
