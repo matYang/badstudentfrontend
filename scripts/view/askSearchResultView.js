@@ -39,7 +39,7 @@
         $('#ask-lower-title').append("<div id='ask-gender-male' class='help-ask-gender'>只看男生</div>");
         $('#ask-lower-title').append("<div id='ask-gender-dontCare' class='help-ask-gender'>无所谓</div>");
 
-        $('#ask-lower-container').append("<div id='ask-info' class = 'help-ask-secondaryContainer'></div>");
+        $('#ask-lower-container').append("<div id='ask-info' class = 'help-ask-secondaryContainer'><hr><hr></div>");
 
 
         var self = this;
