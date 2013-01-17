@@ -21,7 +21,8 @@
     position: absolute;
     top: 50px;
     left: 50px;
-    opacity: 0.2;    
+    opacity: 0.2; 
+    z-index: -1;   
 }
 
 hr {

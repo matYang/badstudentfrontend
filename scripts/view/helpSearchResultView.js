@@ -17,6 +17,7 @@
 
  	render:function(){
  		$(this.el).append("<div id='help-full-width' class='full-width'>");
+        $('#help-full-width').append("<img class='backgroundImage' src='asset/chinamap.png' alt='chinamap.png'>");
  		$('#help-full-width').append("<div id='help-upper-container' class='help-ask-upper-container'></div>");
         $('#help-upper-container').append("<div id='ask-header' class='help-ask-header'></div>");
  		$('#ask-header').append("<div id='help-title' class='help-ask-title'>创建您的点名需求</div>");

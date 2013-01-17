@@ -1,9 +1,9 @@
 #register-modal-main {
-	position: absolute;
-	top: 20%;
-	left: 35%;
-	height: 42%;
-	width: 30%;
+	margin-top: 150px;
+	height: 400px;
+	width: 500px;
+	margin-right: auto;
+	margin-left: auto;
 	background-color: #CCCCCC;
 	-moz-box-shadow: 0 0 30px 5px #111;
 	-webkit-box-shadow: 0 0 30px 5px #111;

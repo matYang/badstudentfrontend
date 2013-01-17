@@ -182,6 +182,10 @@ body {
 	margin-bottom: 10px;
 }
 
+#main-info hr {
+	margin: 0;
+}
+
 /* End of selected of left side */
 
 /* right side selected */

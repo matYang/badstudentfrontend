@@ -1,6 +1,6 @@
 .help-ask-upper-container {
 	width: 1000px;
-	height: 400px;
+	height: 300px;
 }
 
 .help-ask-header {
@@ -99,7 +99,7 @@
 
 .help-ask-lower-container {
 	position: relative;
-	height: 400px;
+	height: 450px;
 	width: 1000px;
 	background-color: #CCCC66;
 }
@@ -115,6 +115,7 @@
 	font-size: 40px;
 	margin-top: 10px;
 	margin-left: 10px;
+	margin-right: 10px;
 	vertical-align: bottom;
     display: inline-block;
 }
@@ -136,10 +137,19 @@
 	overflow: auto;
 }
 
+.help-ask-secondaryContainer > hr {
+	float: left;
+	width: 450px;
+	margin-left: 25px;
+	margin-right: 25px;
+	margin-top: 0;
+	margin-bottom: 0;
+}
+
 .help-ask-secondaryContainer > div {
 	float: left;
-	width: 45%;
-	margin-left: 2.5%;
-	margin-right: 2.5%;
-	height: 20%;
+	width: 450px;
+	margin-left: 25px;
+	margin-right: 25px;
+	height: 70px;
 }
