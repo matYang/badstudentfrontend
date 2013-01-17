@@ -25,9 +25,6 @@
 
         this.idArray = new Array();
 
-        if (console){
-            console.log("SearchResultView opening with targetId: " + this.targetId + " and Message Collection: " + this.searchResults);
-        }
         this.render();
  	},
 

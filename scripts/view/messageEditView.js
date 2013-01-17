@@ -126,9 +126,7 @@
             },
             
             error: function(){
-                if (console){
-                    console.log("delete failed");
-                }
+
                 alert("deleteFailed");
             }
         
@@ -189,17 +187,12 @@
 
         this.message.save({},{
             success:function(model, response){
-                if (console){
-                    console.log("PUT succeeded");
-                    console.log(model.get('id'));
-                }
+
                 app.navigate("tempSession/" + encodeURI(self.message.get('id')), true);
             },
             
             error: function(){
-                if (console){
-                    console.log("PUT failed");
-                }
+
                 alert("PUT Error: check server configuration");
             }
         });

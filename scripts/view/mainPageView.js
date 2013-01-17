@@ -32,16 +32,12 @@
 
             success:function (model, response) {
                 self.searchResultView = new SearchResultView("#main-info", self.recentsResults, 2);
-                if (console){
-                    console.log("recents fetch successed: " + response);
-                }
+
             },
 
             error:function (response){
             	alert("model fetch failure, current URL:" + self.recentsResults.url);
-                if (console){
-                    console.log("recents fetch failed: " + response);
-                }
+
             },
 
         });
