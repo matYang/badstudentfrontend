@@ -64,7 +64,7 @@
  		this.twitter = $('#register-modal-twitter').val();
  		this.selfDefined = $('#register-modal-selfDefined').val();
  		this.password = $('#register-modal-password').val();
-		/*target*/
+		/*targeted, add more friendly alert instead of js alert*/
  		if (!(this.email || this.phone || this.qq || this.twitter || this.selfDefined)){
  			proceed = false;
  			alert("please enter at least one entry of contact info");
@@ -74,6 +74,12 @@
  			proceed = false;
  			alert("please enter password");
  		}
+
+ 		if (!(this.password === $('#register-modal-confirmPassword').val())){
+ 			proceed = false;
+ 			alert("password not confirmed");
+ 		}
+
 
  		if (proceed){
  			this.complete();

@@ -54,6 +54,7 @@
                 self.startDate = new Date(dateTextArray[0], dateTextArray[1]-1, dateTextArray[2]);
                 if (true){   //if start date is greate than end date
                     $('#ask-input-endDatePicker').datepicker( "setDate", self.date);
+                    //TODO: also update the end date
                 }
                 $('#ask-input-endDatePicker').datepicker( "option", "minDate", self.date);
             },

@@ -35,7 +35,7 @@
  		$.ajax({
 			type: "GET",
 			async: false,
-			url: "http://23.23.86.187/api/badstudent/v0.9/location",
+			url: origin + "/api/badstudent/v0.9/location",
 			dataType: 'json',
 			success: function(data){
 				for(eachIndex in data){
@@ -72,7 +72,7 @@
 			type: "GET",
 			async: false,
 			data: {province : self.provinceName},
-			url: "http://23.23.86.187/api/badstudent/v0.9/location",
+			url: origin + "/api/badstudent/v0.9/location",
 			dataType: 'json',
 			success: function(data){
 				for(each in data){
@@ -108,7 +108,7 @@
 				type: "GET",
 				async: false,
 				data: { province: self.provinceName, city: self.cityName },
-				url: "http://23.23.86.187/api/badstudent/v0.9/location",
+				url: origin + "/api/badstudent/v0.9/location",
 				dataType: 'json',
 				success: function(data){
 					for(each in data){

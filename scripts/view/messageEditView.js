@@ -35,6 +35,7 @@
 
                 if (true){    //if start date is greate than end date
                     $('#detail-modal-endDatePicker').datepicker( "setDate", self.startDate);
+                    //TODO: also update the end date
                 }
                 $('#detail-modal-endDatePicker').datepicker( "option", "minDate", self.startDate);
             },
