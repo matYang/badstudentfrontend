@@ -67,7 +67,7 @@
 
     	var startDateString = this.getDateString(curModel.get('startDate'));
     	if (curModel.get('type') == 0){
-    		$(curId + ' .searchResultWindow').html(startDateString + "有空")
+    		$(curId + ' .searchResultWindow').html(startDateString)
     	}
     	else if (curModel.get('type') == 1){
             if (curModel.get('startDate') == curModel.get('endDate')){
@@ -87,8 +87,15 @@
 			$(curId +  ' .searchResultTotalValue').html("&yen;" + curModel.get('price') + "<span class = '.searchResultTotalValueSpan'>/时</span>");
 		}
 		if (curModel.get('type') == 0){
-			var hour = curModel.get('courseLengthInMinutes')/60;
+			var hour = (curModel.get('courseLengthInMinutes')/60);
+
 			var hourPrice = curModel.get('price')/hour
+            if (!(hour % 1 === 0)){
+                hour = hour.toFixed(2)
+            }
+            if (!(hourPrice % 1 === 0)){
+                hour = hour.toFixed(1)
+            }
 			$(curId +  ' .searchResultDividedPrice').html(hour + "小时 / 单价" + hourPrice);
 		}
  	},
@@ -98,7 +105,7 @@
  		var today = new Date(this.tempDate.getFullYear(), this.tempDate.getMonth(), this.tempDate.getDate());
 
 
- 		var dayDifference = Math.ceil((curDate.getTime() - today.getTime())/miliSecInDay);
+ 		var dayDifference = Math.floor((curDate.getTime() - today.getTime())/miliSecInDay);
 
  		if (dayDifference <= 0){
  			return "今天";

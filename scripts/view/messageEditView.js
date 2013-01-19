@@ -30,8 +30,12 @@
         $('#detail-modal-datePicker').datepicker({
             onSelect: function(dateText, inst) { 
                 //because IE and Safari does not support "yyyy mm dd"
-                var dateTextArray = dateText.split(" ");
-                self.startDate = new Date(dateTextArray[0], dateTextArray[1]-1, dateTextArray[2]);
+                var dateTextArray = dateText.split("年");
+                //update the system's jquery datepicker date
+                var secondaryDateTextArray = dateTextArray[1].split("月");
+                var thirdDateTextArray = secondaryDateTextArray[1].split("日");
+
+                self.startDate = new Date(dateTextArray[0], secondaryDateTextArray[0]-1, thirdDateTextArray[0]);
 
                 if (true){    //if start date is greate than end date
                     $('#detail-modal-endDatePicker').datepicker( "setDate", self.startDate);
@@ -52,7 +56,7 @@
         });
         $('#detail-modal-datePicker').datepicker( "setDate", this.startDate);
         $('#detail-modal-datePicker').datepicker( "option", "minDate", new Date());
-
+        $('#detail-modal-datePicker').datepicker( "option", "dateFormat", "yy年m月d日" );
 
 
 
@@ -64,8 +68,13 @@
             $('#detail-modal-upperRightContainer').append("<div id = 'detail-modal-endDatePickerContainer' class='edit-line'><div class='edit-line-label'>到</div><input id = 'detail-modal-endDatePicker'/></div>");
             $('#detail-modal-endDatePicker').datepicker({
             onSelect: function(dateText, inst) { 
-                var dateTextArray = dateText.split(" ");
-                self.endDate = new Date(dateTextArray[0], dateTextArray[1]-1, dateTextArray[2]);
+                //because IE and Safari does not support "yyyy mm dd"
+                var dateTextArray = dateText.split("年");
+                //update the system's jquery datepicker date
+                var secondaryDateTextArray = dateTextArray[1].split("月");
+                var thirdDateTextArray = secondaryDateTextArray[1].split("日");
+
+                self.endDate = new Date(dateTextArray[0], secondaryDateTextArray[0]-1, thirdDateTextArray[0]);
             },
 
             onClose: function(dateText, inst) 
@@ -80,6 +89,7 @@
         });
         $('#detail-modal-endDatePicker').datepicker( "setDate", this.endDate);
         $('#detail-modal-endDatePicker').datepicker( "option", "minDate", new Date());
+        $('#detail-modal-endDatePicker').datepicker( "option", "dateFormat", "yy年m月d日" );
         }
 
         togglePopup('editPanel');

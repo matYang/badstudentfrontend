@@ -37,8 +37,8 @@
 
  		$('#register-modal-main').append("<hr>");
 
- 		$('#register-modal-main').append("<div class = 'register-modal-container' id = 'register-modal-passwordContainer'><div class = 'register-modal-container-word' id = 'register-modal-passwordWord'>密码</div><input class = 'register-modal-input' id = 'register-modal-password'/></div>");
- 		$('#register-modal-main').append("<div class = 'register-modal-container' id = 'register-modal-confirmPasswordContainer'><div class = 'register-modal-container-word' id = 'register-modal-confirmPasswordWord'>确认密码</div><input class = 'register-modal-input' id = 'register-modal-confirmPassword'/></div>");
+ 		$('#register-modal-main').append("<div class = 'register-modal-container' id = 'register-modal-passwordContainer'><div class = 'register-modal-container-word' id = 'register-modal-passwordWord'>密码</div><input class = 'register-modal-input' type = 'password' id = 'register-modal-password'/></div>");
+ 		$('#register-modal-main').append("<div class = 'register-modal-container' id = 'register-modal-confirmPasswordContainer'><div class = 'register-modal-container-word' id = 'register-modal-confirmPasswordWord'>确认密码</div><input class = 'register-modal-input' type = 'password' id = 'register-modal-confirmPassword'/></div>");
  		$('#register-modal-main').append("<div class='roundBox shadowBox' id = 'register-modal-submit'><p>就这样吧</p><img class = 'submit-icon' src='asset/铅笔.png' alt='铅笔.png'/></div>");
 
  		if(paddingDiv==null){

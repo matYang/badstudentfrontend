@@ -43,6 +43,12 @@
         if (this.type == 0){
             var hour = this.message.get('courseLengthInMinutes')/60;
             var hourPrice = this.message.get('price')/hour
+            if (!(hour % 1 === 0)){
+                hour = hour.toFixed(2)
+            }
+            if (!(hourPrice % 1 === 0)){
+                hour = hour.toFixed(1)
+            }
             $("#detail-dividedPrice").html(hour + "小时 / 单价" + hourPrice);
         }
         $('#detail-submit-passwordContainer').css({'visibility':'hidden'});

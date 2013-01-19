@@ -44,14 +44,19 @@
         var self = this;
         $('#ask-input-startDatePicker').datepicker({
             onSelect: function(dateText, inst) { 
-                //because IE and Safari does not support "yyyy mm dd"
-                var dateTextArray = dateText.split(" ");
+                                //because IE and Safari does not support "yyyy mm dd"
+                var dateTextArray = dateText.split("年");
                 //update the system's jquery datepicker date
                 self.date.setFullYear(dateTextArray[0]);
-                self.date.setMonth(dateTextArray[1]-1);
-                self.date.setDate(dateTextArray[2]);
+                var secondaryDateTextArray = dateTextArray[1].split("月");
 
-                self.startDate = new Date(dateTextArray[0], dateTextArray[1]-1, dateTextArray[2]);
+                self.date.setMonth(secondaryDateTextArray[0]-1);
+                var thirdDateTextArray = secondaryDateTextArray[1].split("日");
+
+                self.date.setDate(thirdDateTextArray[0]);
+
+
+                self.startDate = new Date(self.date.getFullYear(), self.date.getMonth(), self.date.getDate());
                 if (true){   //if start date is greate than end date
                     $('#ask-input-endDatePicker').datepicker( "setDate", self.date);
                     //TODO: also update the end date
@@ -71,13 +76,18 @@
         });
         $('#ask-input-startDatePicker').datepicker( "setDate", this.date);
         $('#ask-input-startDatePicker').datepicker( "option", "minDate", new Date());
+        $('#ask-input-startDatePicker').datepicker( "option", "dateFormat", "yy年m月d日");
 
 
         $('#ask-input-endDatePicker').datepicker({
             onSelect: function(dateText, inst) { 
                 //because IE and Safari does not support "yyyy mm dd"
-                var dateTextArray = dateText.split(" ");
-                self.endDate = new Date(dateTextArray[0], dateTextArray[1]-1, dateTextArray[2]);
+                var dateTextArray = dateText.split("年");
+                //update the system's jquery datepicker date
+                var secondaryDateTextArray = dateTextArray[1].split("月");
+                var thirdDateTextArray = secondaryDateTextArray[1].split("日");
+
+                self.endDate = new Date(dateTextArray[0], secondaryDateTextArray[0]-1, thirdDateTextArray[0]);
             },
 
             onClose: function(dateText, inst) 
@@ -92,6 +102,7 @@
         });
         $('#ask-input-endDatePicker').datepicker( "setDate", this.date);
         $('#ask-input-endDatePicker').datepicker( "option", "minDate", new Date());
+        $('#ask-input-endDatePicker').datepicker( "option", "dateFormat", "yy年m月d日");
     },
 
     showLocation:function(){
