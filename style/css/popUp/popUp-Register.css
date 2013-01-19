@@ -4,7 +4,7 @@
 	width: 500px;
 	margin-right: auto;
 	margin-left: auto;
-	background-color: #CCCCCC;
+	background: url("../../../img/metalfull.png");
 	-moz-box-shadow: 0 0 30px 5px #111;
 	-webkit-box-shadow: 0 0 30px 5px #111;
 	box-shadow: 0 0 30px 5px #111;
@@ -12,7 +12,7 @@
 
 .register-modal-container {
 	width: 80%;
-	height: 9%;
+	height: 35px;
 	margin-left: 5%;
 }
 
@@ -29,13 +29,15 @@
 	width: 70%;
 }
 
+#register-modal-notice {
+	width: 80%;
+	height: 30px;
+	margin-left: 5%;
+}
+
 #register-modal-noticeContainer {
 	float: right;
 	text-align: right;
-	padding-right: 20%;
-	font-size: 10px;
-	width: 100%;
-	height: 5%;
 }
 
 #register-modal-main hr {
@@ -44,8 +46,8 @@
 
 #register-modal-submit {
 	float: right;
-	width: 40%;
-	height: 12%;
+	width: 35%;
+	height: 40px;
 	cursor: pointer;
 	background-color: #00FF00;
 	margin-right: 10px;

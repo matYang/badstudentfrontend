@@ -4,7 +4,8 @@
 	width: 800px;
 	margin-left: auto;
 	margin-right: auto;
-	background-color: #CCCCCC;
+	background: url("../../../img/metalfull.png");
+	background-size: 100% 100%;
 	-moz-box-shadow: 0 0 30px 5px #111;
 	-webkit-box-shadow: 0 0 30px 5px #111;
 	box-shadow: 0 0 30px 5px #111;
@@ -85,10 +86,6 @@
 #location-modal-universityContainer div:hover {
 	background-color: #000;
 	cursor: pointer;
-}
-
-#location-modal-universityContainer div:before {
-    content: '- ';
 }
 
 .location-modal-entry{
