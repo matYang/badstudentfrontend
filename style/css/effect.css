@@ -11,6 +11,7 @@
 }
 
 .full-width {
+    position: relative;
     width: 1000px;
     height: auto;
     margin-left: auto;

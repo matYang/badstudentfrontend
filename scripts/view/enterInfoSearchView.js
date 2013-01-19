@@ -12,7 +12,7 @@
  	render:function(){
  		$('body').append("<div class='popupPanel' id='infoSearchPanel'></div>");
  		$('#infoSearchPanel').append("<div class='roundBox' id='enterInfoSearch-modal-main'></div>");
- 		$('#enterInfoSearch-modal-main').append("<div class='popUpCloseButton'      id='enterInfoSearch-modal-closeButton'>X</div>");
+ 		$('#enterInfoSearch-modal-main').append("<div class='popUpCloseButton'      id='enterInfoSearch-modal-closeButton'></div>");
  		$('#enterInfoSearch-modal-main').append("<div class='infoSearch-modal-container'       id='enterInfoSearch-modal-emailContainer'>      <div class='infoSearch-modal-container-word'>邮箱</div>  <input class='infoSearch-modal-input' id='enterInfoSearch-modal-email'/></div>");
  		$('#enterInfoSearch-modal-main').append("<div class='infoSearch-modal-container'       id='enterInfoSearch-modal-phoneContainer'>      <div class='infoSearch-modal-container-word'>电话</div>  <input class='infoSearch-modal-input' id='enterInfoSearch-modal-phone'/></div>");
  		$('#enterInfoSearch-modal-main').append("<div class='infoSearch-modal-container'       id='enterInfoSearch-modal-qqContainer'>         <div class='infoSearch-modal-container-word'>QQ</div>   <input class='infoSearch-modal-input' id='enterInfoSearch-modal-qq'/></div>");

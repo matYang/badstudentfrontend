@@ -8,8 +8,27 @@ body {
 	position: relative;
 	width: 100%;
 	height: 100%;
-	background-color: rgb(70,130,217);
+	background: rgb(10,70,140);
 	margin: 0;
+	font-family: main,Verdana,serif;
+}
+
+@font-face { 
+	font-family: main; 
+	src: url("../../asset/YuppySC.otf") format("opentype");
+} 
+
+#gradi {
+	z-index: -2;
+	width: 1000px;
+	height: 500px;
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	background-image: url("../../img/gradi.png");
+	background-repeat: no-repeat;
+	background-size: contain;
+	opacity: 0.5;
 }
 
 .headerFooterImage {
@@ -55,10 +74,15 @@ body {
 #main-left-box {
 	float: left;
 	margin-top: 50px;
+	margin-left: 80px;
 	padding-top: 10px;
 	width: 400px;
 	height: 150px;
-	background-color: #DCDCDC;
+	background: url("../../img/metal.png");
+	background-size: 100% 100%;
+	-moz-box-shadow: 0 0 50px 1px #222;
+	-webkit-box-shadow: 0 0 50px 1px #222;
+	box-shadow: 0 0 50px 1px #222;
 }
 
 .main-input-box {
@@ -75,10 +99,10 @@ body {
 
 .location-pin {
     position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    width: 8%;
+    top: 3px;
+    left: 3px;
+    width: 23px;
+    height: 23px;
 }
 
 .main-input-box-filter {
@@ -113,7 +137,7 @@ body {
 	float: left;
 	margin-top: 70px;
 	margin-left: 50px;
-	width: 350px;
+	width: 250px;
 	height: 150px;
 }	
 
@@ -121,9 +145,14 @@ body {
 	width: 200px;
 	height: 40px;
 	margin-bottom: 10px;
-	background-color: #00FF00;
+	background-color: rgb(50,180,40);
 	display: table;
 	cursor: pointer;
+}
+
+.main-help-me-others-find:hover {
+	background-color: rgb(130,230,120);
+	-webkit-transition: all 0.2s ease;
 }
 
 .main-help-me-others-find div {
@@ -135,19 +164,26 @@ body {
   	color: #FFFFFF;
 }
 
+.main-help-me-others-find div:hover {
+	color: rgb(20,85,15);
+	-webkit-transition: all 0.2s ease;
+}
 .main-help-me-others-find img {
 	height: 100%;
 	float: right;
 }
 
 #main-info-search {
-	text-shadow: 10px 10px 10px #000;
+	margin-top: 10px;
+	text-shadow: 3px 3px 10px #000;
 	color: #D3D3D3;
 	cursor: pointer;
+	display: inline-block;
 }
 
 #main-info-search:hover {
-	color: #0000CD;
+	text-decoration: underline;
+	-webkit-transition: all 0.2s ease;
 }
 
 /* end of Right Side Box Selection 			 */
@@ -155,7 +191,7 @@ body {
 #main-selected {
 	height: 400px;
 	width: 1000px;
-	background-color: #B0C4DE;
+	background: url("../../img/backg.png");
 }
 
 
