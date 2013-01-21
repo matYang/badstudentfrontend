@@ -1,0 +1,23 @@
+#chinamap {
+	background-image: url(../../asset/chinamap.png);
+	width: 600px;
+	height: 600px;
+	background-repeat: no-repeat;
+	background-size: contain;
+	position: absolute;
+	
+}
+
+#gradient {
+	
+}
+
+#footer-img {
+	background-image: url(../../asset/footer.jpg);
+	width: 400px;
+	height: 200px;
+	background-repeat: no-repeat;
+	background-size: contain;
+	position: absolute;
+}
+
