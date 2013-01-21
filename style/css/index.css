@@ -52,11 +52,12 @@ body {
 }
 
 #footerImage {
-	background: url('../../asset/footer.jpg');
+	margin-top: 15px;
+	background: url('../../img/footer.png');
 	background-position: center;
 	background-repeat: no-repeat;
-	height: 100%;
-	width: 100%;
+	height: 170px;
+	width: 250px;
 	background-size: contain;
 }
 
@@ -228,17 +229,20 @@ body {
 /* right side selected */
 
 #main-right-selected {
+	background-image: url("../../img/showcase.png");
 	float: right;
 	width: 350px;
 	height: 400px;
 	margin-right: 10px;
+	border: none;
 }
 
 #main-right-selected img {
-	background-color: #000;
+	/*background-color: #000;*/	
 	width: 350px;
-	height: 380px;
+	/*height: 380px;  what the fuck this results in a 1px grey border?*/
 	margin-top: 10px;
+	border: none;
 }
 
 

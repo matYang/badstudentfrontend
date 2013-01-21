@@ -26,9 +26,9 @@
  		$('#help-upper-container').append("<div id='help-submit' class='roundBox shadowBox help-ask-submit'><div>我勒个去</div><img src='asset/铅笔.png' alt='铅笔.png'></div>");	
 
  		$('#help-createContainer').append("<div class='help-ask-row'><p>我在</p><div id='help-input-location' class='help-ask-input-location'></div>附近求</div>");
-        $('#help-createContainer').append("<div class='help-ask-row'><input id='help-input-content'/>这</div>");
+        $('#help-createContainer').append("<div class='help-ask-row'><input id='help-input-content' placeholder='eg 代点名'/>这</div>");
         $('#help-createContainer').append("<div class='help-ask-row'>节课在 <input id='help-input-datePicker' class='help-ask-input-datePicker'/> 我需要一个</div>");
-        $('#help-createContainer').append("<div class='help-ask-row'><select id='help-input-gender' class='help-ask-input-gender'><option value='2'>男生或女生</option><option value='0'>男生</option><option value='1'>女生</option></select> 这节课我愿意付 <input id='help-input-price' class='help-ask-input-price' type='number'/> 元!</div>");
+        $('#help-createContainer').append("<div class='help-ask-row'><select id='help-input-gender' class='help-ask-input-gender'><option value='2'>男生或女生</option><option value='0'>男生</option><option value='1'>女生</option></select> 这节课我愿意付 <input id='help-input-price' class='help-ask-input-price' type='number' placeholder='5'/> 元!</div>");
 
  		$('#help-full-width').append("<div id='help-lower-container' class='help-ask-lower-container'></div>");
         $('#help-lower-container').append("<div id='help-lower-title' class='help-ask-lower-title'></div>");
@@ -121,10 +121,21 @@
         $('#help-input-location').bind('click', this.showLocation);
 
 		$('#help-submit').bind('click',function(){
+            var proceed = true;
 			var content = $('#help-input-content').val();
 			var gender = $('#help-input-gender').val();
-			var price = $('#help-input-price').val();
-            if (modalOpen == false){
+			var price = Number($('#help-input-price').val());
+            if (!(typeof price == "number" && price > 0 && price % 1 === 0)){
+                proceed = false;
+                alert("please enter a valid price");
+                // add more visual effects
+            }
+            if (typeof price == "number" && price > 1000){
+                proceed = false;
+                alert("最多选¥1000");
+                // add more visual effects
+            }
+            if (modalOpen == false && proceed == true){
                 self.registerView = new RegisterView(self.searchResult, self.locationArray, self.date, self.date, content, gender, price, 0);
             }
  		});

@@ -1,6 +1,6 @@
 #enterInfoSearch-modal-main {
 	margin-top: 150px;
-	height: 250px;
+	height: 240px;
 	width: 400px;
 	margin-left: auto;
 	margin-right: auto;
@@ -21,7 +21,7 @@
 
 #enterInfoSearch-modal-emailContainer {
 	padding-top: 20px;
-	padding-left: 10px;
+	padding-left: 20px;
 }
 
 .infoSearch-modal-container-word {

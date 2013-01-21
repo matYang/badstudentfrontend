@@ -6,8 +6,8 @@
         _.bindAll(this,'render','showLocation', 'updateLocation','showFemale', 'showMale', 'showDontCare','bindEvents','close');
 
         this.date = date;
-        this.startDate = new Date(date.getFullYear(), date.getMonth(), date.getDate());
-        this.endDate = new Date(date.getFullYear(), date.getMonth(), date.getDate());
+        this.startDate = new Date(date.getFullYear(), date.getMonth(), date.getDate(), 0, 0, 0, 0);
+        this.endDate = new Date(date.getFullYear(), date.getMonth(), date.getDate(), 0, 0,0,0);
         this.locationArray = locationArray;
 
         this.searchResult = searchResult;
@@ -30,7 +30,7 @@
         $('#ask-createContainer').append("<div class='help-ask-row'><p>我能在</p><div id='ask-input-location' class='help-ask-input-location'></div>附近帮</div>");
         $('#ask-createContainer').append("<div class='help-ask-row'>点名，我从<input id='ask-input-startDatePicker' class='help-ask-input-datePicker'/>到</div>");
         $('#ask-createContainer').append("<div class='help-ask-row'><input id='ask-input-endDatePicker' class='help-ask-input-datePicker'/> 我是一个<select id='ask-input-gender' class='help-ask-input-gender'><option value='0'>男生</option><option value='1'>女生</option></select></div>");
-        $('#ask-createContainer').append("<div class='help-ask-row'>我希望收取<input id='ask-input-price' class='help-ask-input-price' type='number'/>元每小时!</div>");
+        $('#ask-createContainer').append("<div class='help-ask-row'>我希望收取<input id='ask-input-price' class='help-ask-input-price' type='number' placeholder='5'/>元每小时!</div>");
 
         $('#ask-full-width').append("<div id='ask-lower-container' class='help-ask-lower-container'></div>");
         $('#ask-lower-container').append("<div id='ask-lower-title' class='help-ask-lower-title'></div>");
@@ -56,10 +56,12 @@
                 self.date.setDate(thirdDateTextArray[0]);
 
 
-                self.startDate = new Date(self.date.getFullYear(), self.date.getMonth(), self.date.getDate());
-                if (true){   //if start date is greate than end date
+                self.startDate = new Date(dateTextArray[0], secondaryDateTextArray[0]-1, thirdDateTextArray[0], 0 , 0, 0, 0);
+                if (!(self.startDate < self.endDate)){   //if start date is greater than end date
                     $('#ask-input-endDatePicker').datepicker( "setDate", self.date);
-                    //TODO: also update the end date
+                    self.endDate.setFullYear(self.startDate.getFullYear());
+                    self.endDate.setMonth(self.startDate.getMonth());
+                    self.endDate.setDate(self.startDate.getDate());
                 }
                 $('#ask-input-endDatePicker').datepicker( "option", "minDate", self.date);
             },
@@ -87,7 +89,7 @@
                 var secondaryDateTextArray = dateTextArray[1].split("月");
                 var thirdDateTextArray = secondaryDateTextArray[1].split("日");
 
-                self.endDate = new Date(dateTextArray[0], secondaryDateTextArray[0]-1, thirdDateTextArray[0]);
+                self.endDate = new Date(dateTextArray[0], secondaryDateTextArray[0]-1, thirdDateTextArray[0], 0, 0, 0, 0);
             },
 
             onClose: function(dateText, inst) 
@@ -156,10 +158,21 @@
         $('#ask-input-location').bind('click', this.showLocation);
 
         $('#ask-submit').bind('click',function(){
+            var proceed = true;
             var content = "我要帮人点名";
             var gender = $('#ask-input-gender').val();
-            var price = $('#ask-input-price').val();
-            if (modalOpen == false){
+            var price = Number($('#ask-input-price').val());
+            if (!(typeof price == "number" && price > 0 && price % 1 === 0)){
+                proceed = false;
+                alert("please enter a valid price");
+                // add more visual effects
+            }
+            if (typeof price == "number" && price > 1000){
+                proceed = false;
+                alert("最多选¥1000");
+                // add more visual effects
+            }
+            if (modalOpen == false && proceed == true){
                 self.registerView = new RegisterView(self.searchResult, self.locationArray, self.startDate, self.endDate, content, gender, price, 1);
             }
         });

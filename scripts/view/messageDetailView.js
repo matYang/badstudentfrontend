@@ -3,7 +3,7 @@
  	el:$('body'),
 
  	initialize:function(message){
- 		_.bindAll(this,'render','getDateString','bindEvents','authSubmit','close');
+ 		_.bindAll(this,'render','getDateString','bindEvents','validation','authSubmit','close');
  		this.message = message;
 
         this.template = _.template(tpl.get('detailTemplate')),
@@ -32,22 +32,30 @@
             calander(startDate);
         }
         else if (this.type == 1){
-            var endDate = parseDate(this.message.get('endDate'));
-            $('#detail-date').html(this.getDateString(startDate) + " 到 " + this.getDateString(endDate));
+            if (this.message.get('startDate') == this.message.get('endDate')){
+                 $('#detail-date').html(this.getDateString(startDate));
+            }
+            else{
+                var endDate = parseDate(this.message.get('endDate'));
+                $('#detail-date').html(this.getDateString(startDate) + " 到 " + this.getDateString(endDate));
+            }
             calander(startDate,endDate);
+        }
+        else{
+            alert("invalid message type");
         }
 
         if (this.type == 1){
             $('#detail-totalPrice').html("&yen;" + this.message.get('price') + "/时");
         }
         if (this.type == 0){
-            var hour = this.message.get('courseLengthInMinutes')/60;
-            var hourPrice = this.message.get('price')/hour
+            var hour = Number(this.message.get('courseLengthInMinutes')/60);
+            var hourPrice = Number(this.message.get('price')/hour);
             if (!(hour % 1 === 0)){
-                hour = hour.toFixed(2)
+                hour = hour.toFixed(2);
             }
             if (!(hourPrice % 1 === 0)){
-                hour = hour.toFixed(1)
+                hourPrice = hourPrice.toFixed(1);
             }
             $("#detail-dividedPrice").html(hour + "小时 / 单价" + hourPrice);
         }
@@ -70,6 +78,7 @@
         $('#detail-submit-button').bind('click', function(){
             isSubmitClicked = true;
             $('#detail-submit-passwordContainer').css({'visibility':'visible'});
+            $("#detail-submit-password").focus();
         });
 
         $('#detail-submitContainer').bind('click', function(){
@@ -86,20 +95,37 @@
         });
 
         $('#detail-submit-password-button').bind('click',function(){
-            self.authSubmit();
+            self.validation();
         }); 
+
+        //bind the input to enter
+        $('#detail-submit-password').keypress(function(e) {
+            if(e.which == 13) {
+                self.validation();
+            }
+        });
 
     },
 
-    authSubmit:function(){
+    validation:function(){
+        var self = this;
         var password = $('#detail-submit-password').val();
         $('#detail-submit-password').val("");
+        if (!(password)){
+            alert("please enter password");
+            //TODO add more visual effects
+        }
+        else{
+            self.authSubmit(password);
+        }
+    },
+
+    authSubmit:function(password){
         var self = this;
         self.message.overrideUrl(authUrlOverride);
 
         self.message.fetch({
             dataType:'json',
-
             data: $.param({ id: self.message.get('id'), password: password}),
 
             success:function(model, response){

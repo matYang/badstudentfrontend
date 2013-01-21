@@ -116,7 +116,7 @@
 					}
 
 					$('.location-modal-university').bind('click', function(){
-						self.universityName = $(this).html();
+						self.universityName = $(this).children('span').html();
 						self.complete();
 						self.highLight($(this));
 					});
@@ -139,7 +139,7 @@
  	},
 
  	universityDOMGenerator:function(university){
- 		return "<div class = 'location-modal-university location-modal-entry'>&#8226; " + university + "</div>";
+ 		return "<div class = 'location-modal-university location-modal-entry'>&#8226; <span>" + university + "</span></div>";
  	}, 	
 
  	complete:function(){

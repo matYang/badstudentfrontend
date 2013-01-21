@@ -37,7 +37,7 @@
                 $(this.targetId).append("<hr><hr>");
             	$(this.targetId).append(this.template(curModel.toJSON()));
             	this.fill(curModel, ('i' + tpId));
-            	tpId++;
+            	tpId++;    
             }
         }
  		else if (this.gender == 0 || this.gender == 1){
@@ -87,14 +87,14 @@
 			$(curId +  ' .searchResultTotalValue').html("&yen;" + curModel.get('price') + "<span class = '.searchResultTotalValueSpan'>/时</span>");
 		}
 		if (curModel.get('type') == 0){
-			var hour = (curModel.get('courseLengthInMinutes')/60);
+			var hour = Number(curModel.get('courseLengthInMinutes')/60);
 
-			var hourPrice = curModel.get('price')/hour
+			var hourPrice = Number(curModel.get('price')/hour);
             if (!(hour % 1 === 0)){
-                hour = hour.toFixed(2)
+                hour = hour.toFixed(2);
             }
             if (!(hourPrice % 1 === 0)){
-                hour = hour.toFixed(1)
+                hourPrice = hourPrice.toFixed(1);
             }
 			$(curId +  ' .searchResultDividedPrice').html(hour + "小时 / 单价" + hourPrice);
 		}

@@ -35,11 +35,13 @@
                 var secondaryDateTextArray = dateTextArray[1].split("月");
                 var thirdDateTextArray = secondaryDateTextArray[1].split("日");
 
-                self.startDate = new Date(dateTextArray[0], secondaryDateTextArray[0]-1, thirdDateTextArray[0]);
+                self.startDate = new Date(dateTextArray[0], secondaryDateTextArray[0]-1, thirdDateTextArray[0], 0, 0, 0, 0);
 
-                if (true){    //if start date is greate than end date
+                if (!(self.startDate < self.endDate)){    //if start date is greate than end date
                     $('#detail-modal-endDatePicker').datepicker( "setDate", self.startDate);
-                    //TODO: also update the end date
+                    self.endDate.setFullYear(self.startDate.getFullYear());
+                    self.endDate.setMonth(self.startDate.getMonth());
+                    self.endDate.setDate(self.startDate.getDate());
                 }
                 $('#detail-modal-endDatePicker').datepicker( "option", "minDate", self.startDate);
             },
@@ -74,7 +76,7 @@
                 var secondaryDateTextArray = dateTextArray[1].split("月");
                 var thirdDateTextArray = secondaryDateTextArray[1].split("日");
 
-                self.endDate = new Date(dateTextArray[0], secondaryDateTextArray[0]-1, thirdDateTextArray[0]);
+                self.endDate = new Date(dateTextArray[0], secondaryDateTextArray[0]-1, thirdDateTextArray[0], 0, 0, 0, 0);
             },
 
             onClose: function(dateText, inst) 
@@ -137,7 +139,6 @@
             },
             
             error: function(){
-
                 alert("deleteFailed");
             }
         
@@ -154,38 +155,69 @@
         this.twitter = $('#detail-modal-twitter').val();
         this.selfDefined = $('#detail-modal-selfDefined').val();
         this.content = $('#detail-modal-content').val();
-        this.price = $('#detail-modal-price').val();
+        this.price = Number($('#detail-modal-price').val());
 
-        if (!(this.email || this.phone || this.qq || this.twitter || this.selfDefined)){
-            proceed = false;
-            alert("please enter at least one entry of contact info");
+        if (this.email.length > 0){
+            var emailArray = this.email.split("@");
+            if (!(emailArray.length == 2 && emailArray[0].length > 0 && emailArray[1].length > 3)){
+                proceed = false;
+                alert("invalid email format");
+            }
         }
-        /*target*/
-        if ((this.price)){
-
+        
+        if (this.phone.length > 0){
+            if (!(this.phone.length > 6)){
+                proceed = false;
+                alert("invalid phone number format");
+            }
+        }
+        
+        if (this.qq.length > 0){
+            if (!(this.qq.length > 4)){
+                proceed = false;
+                alert("invalid qq format");
+            }
         }
 
-        this.updateMessage();
-    },
-
-    updateMessage:function(){
-        var self = this;
-
-        this.email = $('#detail-modal-email').val();
-        this.phone = $('#detail-modal-phone').val();
-        this.qq = $('#detail-modal-qq').val();
-        this.twitter = $('#detail-modal-twitter').val();
-        this.selfDefined = $('#detail-modal-selfDefined').val();
-        this.content = $('#detail-modal-content').val();
-        this.price = $('#detail-modal-price').val();
 
         if (this.type == 0){
-            this.courseLengthInMinutes = $('#detail-modal-courseLengthInMinutes').val();
-            this.endDate = this.startDate;
+            this.courseLengthInMinutes = Number($('#detail-modal-courseLengthInMinutes').val());
+            this.endDate = this.startDate;  //sync date
+            if (!((typeof this.courseLengthInMinutes == "number") && this.courseLengthInMinutes > 15 && this.courseLengthInMinutes % 1 === 0)){
+                proceed = false;
+                alert("please enter valid cosurse length, minimum 15min");
+                //TODO add more visual effects
+            }
         }
         else if (this.type == 1){
             this.courseLengthInMinutes = this.message.get('courseLengthInMinutes');
         }
+
+        if (!(typeof this.price == "number" && this.price > 0 && this.price % 1 === 0)){
+            proceed = false;
+            alert("please enter a valid price");
+            //TODO add more visual effects
+        }
+
+        if (typeof this.price == "number" && this.price > 1000){
+            proceed = false;
+            alert("最多选¥1000");
+            // add more visual effects
+        }
+
+        if (!(this.email || this.phone || this.qq || this.twitter || this.selfDefined)){
+            proceed = false;
+            alert("please enter at least one entry of contact info");
+            //TODO add more visual effects
+        }
+
+        if (proceed){
+            this.updateMessage();
+        }
+    },
+
+    updateMessage:function(){
+        var self = this;
 
         var locationString = this.locationArray[0] + " " + this.locationArray[1] + " " + this.locationArray[2];
         var startDateString = this.startDate.getFullYear() + " " + (this.startDate.getMonth()+1) + " " + this.startDate.getDate();

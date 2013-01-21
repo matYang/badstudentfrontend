@@ -1,4 +1,4 @@
- var RegisterView= Backbone.View.extend({
+var RegisterView= Backbone.View.extend({
 
 
  	initialize:function(searchResult,locationArray, startDate, endDate, content, gender, price, type){
@@ -24,18 +24,18 @@
  		$('#registerViewPanel').append("<div class='roundBox shadowBox' id='register-modal-main'></div>");
  		$('#register-modal-main').append("<div class='popUpCloseButton' id='register-modal-closeButton'></div>");
  		if (this.type == 0){
- 			$('#register-modal-main').append("<div class = 'register-modal-container' id = 'register-modal-courseLengthInMinutesContainer' style='padding-top:10px'><div class = 'register-modal-container-word' id = 'register-modal-courseLengthInMinutesWord'>课时长</div><input class = 'register-modal-input' id = 'register-modal-courseLengthInMinutes'/></div>");
-			$('#register-modal-main').append("<div id = 'register-modal-notice'><div id='register-modal-noticeContainer'>请至少填写已下一项</div></div>"); 		
+ 			$('#register-modal-main').append("<div class = 'register-modal-container' id = 'register-modal-courseLengthInMinutesContainer' style='padding-top:10px'><div class = 'register-modal-container-word' id = 'register-modal-courseLengthInMinutesWord'>课时长</div><input class = 'register-modal-input' id = 'register-modal-courseLengthInMinutes' placeholder = '分钟 eg 45'/></div>");
+			$('#register-modal-main').append("<div id = 'register-modal-notice'><div id='register-modal-noticeContainer'>请至少填写以下一项</div></div>"); 		
  		}else{
  			$('#register-modal-main').css("height","350px");
-			$('#register-modal-main').append("<div id = 'register-modal-notice'><div id='register-modal-noticeContainer'>请至少填写已下一项</div></div>");
+			$('#register-modal-main').append("<div id = 'register-modal-notice'><div id='register-modal-noticeContainer'>请至少填写以下一项</div></div>");
  			$('#register-modal-notice').css("padding-top","10px");
  		}
- 		$('#register-modal-main').append("<div class = 'register-modal-container' id = 'register-modal-emailContainer'><div class = 'register-modal-container-word' id = 'register-modal-emailWord'>邮箱</div><input class = 'register-modal-input' id = 'register-modal-email'/></div>");
- 		$('#register-modal-main').append("<div class = 'register-modal-container' id = 'register-modal-phoneContainer'><div class = 'register-modal-container-word' id = 'register-modal-phoneWord'>电话</div><input class = 'register-modal-input' id = 'register-modal-phone'/></div>");
- 		$('#register-modal-main').append("<div class = 'register-modal-container' id = 'register-modal-qqContainer'><div class = 'register-modal-container-word' id = 'register-modal-qqWord'>QQ</div><input class = 'register-modal-input' id = 'register-modal-qq'/></div>");
- 		$('#register-modal-main').append("<div class = 'register-modal-container' id = 'register-modal-twitterContainer'><div class = 'register-modal-container-word' id = 'register-modal-twitterWord'>微博</div><input class = 'register-modal-input' id = 'register-modal-twitter'/></div>");
- 		$('#register-modal-main').append("<div class = 'register-modal-container' id = 'register-modal-selfDefinedContainer'><div class = 'register-modal-container-word' id = 'register-modal-selfDefinedWord'>自定义</div><input class = 'register-modal-input' id = 'register-modal-selfDefined'/></div>");
+ 		$('#register-modal-main').append("<div class = 'register-modal-container' id = 'register-modal-emailContainer'><div class = 'register-modal-container-word' id = 'register-modal-emailWord'>邮箱</div><input class = 'register-modal-input' id = 'register-modal-email' placeholder = 'lol@gamil.com'/></div>");
+ 		$('#register-modal-main').append("<div class = 'register-modal-container' id = 'register-modal-phoneContainer'><div class = 'register-modal-container-word' id = 'register-modal-phoneWord'>电话</div><input class = 'register-modal-input' id = 'register-modal-phone' placeholder = '15900000000'/></div>");
+ 		$('#register-modal-main').append("<div class = 'register-modal-container' id = 'register-modal-qqContainer'><div class = 'register-modal-container-word' id = 'register-modal-qqWord'>QQ</div><input class = 'register-modal-input' id = 'register-modal-qq' placeholder = '455877137'/></div>");
+ 		$('#register-modal-main').append("<div class = 'register-modal-container' id = 'register-modal-twitterContainer'><div class = 'register-modal-container-word' id = 'register-modal-twitterWord'>微博</div><input class = 'register-modal-input' id = 'register-modal-twitter' placeholder = '@huaixuesheng'/></div>");
+ 		$('#register-modal-main').append("<div class = 'register-modal-container' id = 'register-modal-selfDefinedContainer'><div class = 'register-modal-container-word' id = 'register-modal-selfDefinedWord'>自定义</div><input class = 'register-modal-input' id = 'register-modal-selfDefined' placeholder = '有缘会猜到我号码的'/></div>");
 
  		$('#register-modal-main').append("<hr>");
 
@@ -48,9 +48,26 @@
  	},
 
  	bindEvents:function(){
+ 		if (this.type == 0){
+ 			//auto corcus on the courseLength element 
+ 			$("#register-modal-courseLengthInMinutes").focus();
+ 		}
+ 		else{
+ 			//auto corcus on the email element 
+ 			$("#register-modal-email").focus();
+ 		}
+
+ 		var self = this;
  		$('#register-modal-closeButton').bind('click',this.close);
 
-		$('#register-modal-submit').bind('click',this.validation); 		
+		$('#register-modal-submit').bind('click',this.validation); 	
+
+		//bind the input to enter
+        $('#register-modal-confirmPassword').keypress(function(e) {
+            if(e.which == 13) {
+                self.validation();
+            }
+        });	
  	},
 
  	validation:function(){
@@ -62,20 +79,60 @@
  		this.twitter = $('#register-modal-twitter').val();
  		this.selfDefined = $('#register-modal-selfDefined').val();
  		this.password = $('#register-modal-password').val();
+
+ 		if (this.email.length > 0){
+            var emailArray = this.email.split("@");
+            if (!(emailArray.length == 2 && emailArray[0].length > 0 && emailArray[1].length > 3)){
+                proceed = false;
+                alert("invalid email format");
+            }
+        }
+        
+        if (this.phone.length > 0){
+            if (!(this.phone.length > 6)){
+                proceed = false;
+                alert("invalid phone number format");
+            }
+        }
+        
+        if (this.qq.length > 0){
+            if (!(this.qq.length > 4)){
+                proceed = false;
+                alert("invalid qq format");
+            }
+        }
+
+
+ 		if (this.type == 0){
+			this.courseLengthInMinutes = Number($('#register-modal-courseLengthInMinutes').val());
+			if (!((typeof this.courseLengthInMinutes == "number") && this.courseLengthInMinutes > 15 && this.courseLengthInMinutes % 1 === 0)){
+				proceed = false;
+				alert("please enter valid cosurse length, minimum 15min");
+				//TODO add more visual effects
+			}
+ 		}
+ 		else if (this.type == 1){
+ 			this.courseLengthInMinutes = 60;
+ 		}
+
+
 		/*targeted, add more friendly alert instead of js alert*/
  		if (!(this.email || this.phone || this.qq || this.twitter || this.selfDefined)){
  			proceed = false;
  			alert("please enter at least one entry of contact info");
+ 			//TODO add more visual effects
  		}
 
  		if (!(this.password)){
  			proceed = false;
  			alert("please enter password");
+ 			//TODO add more visual effects
  		}
 
  		if (!(this.password === $('#register-modal-confirmPassword').val())){
  			proceed = false;
  			alert("password not confirmed");
+ 			//TODO add more visual effects
  		}
 
 
@@ -85,12 +142,6 @@
  	},
 
  	complete:function(){
- 		if (this.type == 0){
-			this.courseLengthInMinutes = $('#register-modal-courseLengthInMinutes').val();
- 		}
- 		else if (this.type == 1){
- 			this.courseLengthInMinutes = 60;
- 		}
 
  		var locationString = this.locationArray[0] + " " + this.locationArray[1] + " " + this.locationArray[2];
  		var startDateString = this.startDate.getFullYear() + " " + (this.startDate.getMonth()+1) + " " + this.startDate.getDate();

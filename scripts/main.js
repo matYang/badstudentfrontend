@@ -6,6 +6,8 @@ var authUrlOverride = origin + "/api/badstudent/v0.9/auth";
 var modalOpen = false;    //global variable used to track if a modal window is open
 var doubleModalOpen = false;
 var tpId = 1000;
+//to enable place holders in IE 8
+$('input, textarea').placeholder();
 
 /*
 var browserInfo = {'opera' : false, 'chrome' : false, 'safari' : false, 'firefox' : false, 'msie' : false};
@@ -43,7 +45,8 @@ var AppRouter = Backbone.Router.extend({
         this.keyArray = new Array();
         this.searchResult = new Messages();
         this.date = new Date();
-        this.locationArray = new Array("江苏省", "南京市", "南京大学仙林校区");
+        this.date.setHours(0,0,0,0);
+        this.locationArray = new Array("江苏", "南京市", "南京大学仙林校区");
     },
 
     main:function(){
