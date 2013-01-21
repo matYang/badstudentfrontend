@@ -38,6 +38,11 @@ body {
 	margin-right: auto;
 }
 
+#main-full-width.full-width {
+	width: 850px;
+	height: 1000px;
+}
+
 #headerCatImage {
 	float: left;
 	padding-top: 20px;
@@ -81,29 +86,36 @@ body {
 	height: 150px;
 	background: url("../../img/metal.png");
 	background-size: 100% 100%;
-	-moz-box-shadow: 0 0 50px 1px #222;
-	-webkit-box-shadow: 0 0 50px 1px #222;
 	box-shadow: 0 0 50px 1px #222;
+	border: 1px solid #474747;
 }
 
 .main-input-box {
 	position: relative;
 	display: table;
 	width: 360px;
-	height: 30px;
-	margin-top: 10px;
+	height: 33px;
+	margin-top: 8px;
+	margin-bottom: 10px;
 	background-color: #FFFFFF;
 	border: 1px solid #808080;
 	margin-left: auto;
 	margin-right: auto;
 }
 
+.main-input-box:hover {
+	zoom: 101%;
+	font-size: 10px;
+	box-shadow: 0 0 10px 1px #111;
+	-webkit-transition: all .2s ease;
+}
+
 .location-pin {
     position: absolute;
     top: 3px;
     left: 3px;
-    width: 23px;
-    height: 23px;
+    width: 27px;
+    height: 27px;
 }
 
 .main-input-box-filter {
@@ -191,7 +203,7 @@ body {
 
 #main-selected {
 	height: 400px;
-	width: 1000px;
+	width: 850px;
 	background: url("../../img/backg.png");
 }
 
@@ -199,8 +211,8 @@ body {
 #main-left-selected {
 	float: left;
 	position: relative;
-	height: 400px;
-	width: 600px;
+	height: 500px;
+	width: 350px;
 	padding-left: 10px;
 }
 
@@ -211,6 +223,8 @@ body {
 
 #main-info {
 	position: absolute;
+	width: 500px;
+	height: 350px;
 	top: 0;
 	bottom: 0;
 	left: 0;
@@ -228,22 +242,28 @@ body {
 
 /* right side selected */
 
+
 #main-right-selected {
 	background-image: url("../../img/showcase.png");
-	float: right;
-	width: 350px;
-	height: 400px;
-	margin-right: 10px;
+	background-repeat: no-repeat;
+	background-size: contain;
+	position: absolute;
+	width: 260px;
+	height: 330px;
+	margin-left: 550px;
+	margin-top: 55px;
 	border: none;
 }
 
-#main-right-selected img {
-	/*background-color: #000;*/	
-	width: 350px;
-	/*height: 380px;  what the fuck this results in a 1px grey border?*/
-	margin-top: 10px;
-	border: none;
+#pencil {
+	position: absolute;
+	margin-left: 22px;
+	margin-top: 3px;
+	width: 34px;
+	height: 34px;
+	background-image: url(../../asset/pencil.png);
+	background-repeat: no-repeat;
+	background-size: contain;
 }
-
 
 
