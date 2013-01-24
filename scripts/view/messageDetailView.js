@@ -5,12 +5,16 @@
  	initialize:function(message){
  		_.bindAll(this,'render','getDateString','bindEvents','validation','authSubmit','close');
  		this.message = message;
+        if (this.message.get('authCode') == -2){
+            alert("This messages is outdated or has been deleted by its publisher");
+            app.navigate("",true);
+        }
+        else{
+            this.template = _.template(tpl.get('detailTemplate')),
 
-        this.template = _.template(tpl.get('detailTemplate')),
-
-        this.render();
-        this.bindEvents();
-
+            this.render();
+            this.bindEvents();
+        }
  	},
 
     render: function(){
