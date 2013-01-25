@@ -69,29 +69,34 @@
         if (this.type == 1){
             $('#detail-modal-upperRightContainer').append("<div id = 'detail-modal-endDatePickerContainer' class='edit-line'><div class='edit-line-label'>到</div><input id = 'detail-modal-endDatePicker'/></div>");
             $('#detail-modal-endDatePicker').datepicker({
-            onSelect: function(dateText, inst) { 
-                //because IE and Safari does not support "yyyy mm dd"
-                var dateTextArray = dateText.split("年");
-                //update the system's jquery datepicker date
-                var secondaryDateTextArray = dateTextArray[1].split("月");
-                var thirdDateTextArray = secondaryDateTextArray[1].split("日");
+                onSelect: function(dateText, inst) { 
+                    //because IE and Safari does not support "yyyy mm dd"
+                    var dateTextArray = dateText.split("年");
+                    //update the system's jquery datepicker date
+                    var secondaryDateTextArray = dateTextArray[1].split("月");
+                    var thirdDateTextArray = secondaryDateTextArray[1].split("日");
 
-                self.endDate = new Date(dateTextArray[0], secondaryDateTextArray[0]-1, thirdDateTextArray[0], 0, 0, 0, 0);
-            },
+                    self.endDate = new Date(dateTextArray[0], secondaryDateTextArray[0]-1, thirdDateTextArray[0], 0, 0, 0, 0);
+                },
 
-            onClose: function(dateText, inst) 
-            { 
-                $(this).attr("disabled", false);
-            },
+                onClose: function(dateText, inst) 
+                { 
+                    $(this).attr("disabled", false);
+                },
 
-            beforeShow: function(input, inst) 
-            {
-                $(this).attr("disabled", true);
+                beforeShow: function(input, inst) 
+                {
+                    $(this).attr("disabled", true);
+                }
+            });
+            $('#detail-modal-endDatePicker').datepicker( "setDate", this.endDate);
+            if (app.minimumDate > this.startDate){
+                $('#detail-modal-endDatePicker').datepicker( "option", "minDate", app.minimumDate);
             }
-        });
-        $('#detail-modal-endDatePicker').datepicker( "setDate", this.endDate);
-        $('#detail-modal-endDatePicker').datepicker( "option", "minDate", app.minimumDate);
-        $('#detail-modal-endDatePicker').datepicker( "option", "dateFormat", "yy年m月d日" );
+            else{
+                $('#detail-modal-endDatePicker').datepicker( "option", "minDate", this.startDate);
+            }
+            $('#detail-modal-endDatePicker').datepicker( "option", "dateFormat", "yy年m月d日" );
         }
 
         togglePopup('editPanel');

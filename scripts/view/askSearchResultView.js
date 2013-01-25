@@ -103,7 +103,12 @@
             }
         });
         $('#ask-input-endDatePicker').datepicker( "setDate", this.date);
-        $('#ask-input-endDatePicker').datepicker( "option", "minDate", app.minimumDate);
+        if (app.minimumDate > app.date){
+            $('#ask-input-endDatePicker').datepicker( "option", "minDate", app.minimumDate);
+        }
+        else{
+            $('#ask-input-endDatePicker').datepicker( "option", "minDate", app.date);
+        }
         $('#ask-input-endDatePicker').datepicker( "option", "dateFormat", "yy年m月d日");
     },
 
