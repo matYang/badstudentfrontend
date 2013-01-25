@@ -66,7 +66,7 @@
             }
         });
         $('#help-input-datePicker').datepicker( "setDate", this.date);
-        $('#help-input-datePicker').datepicker( "option", "minDate", new Date());
+        $('#help-input-datePicker').datepicker( "option", "minDate", app.minimumDate);
         $('#help-input-datePicker').datepicker( "option", "dateFormat", "yy年m月d日" );
  	},
 

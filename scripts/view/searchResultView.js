@@ -31,6 +31,7 @@
  	render:function(){
  		if (this.gender == 2){
  			for (var i = 0; i < this.searchResults.length; i++){
+                //does not display any messages that has authCode == -2
                 if (this.searchResults.at(i).get('authCode') != -2){
                     var curModel = this.searchResults.at(i);
                     curModel.set({'tpId': ('i' + tpId)});
@@ -44,6 +45,7 @@
         }
  		else if (this.gender == 0 || this.gender == 1){
  			for (var i = 0; i < this.searchResults.length; i++){
+                //does not display any messages that has authCode == -2
                 if (this.searchResults.at(i).get('authCode') != -2){
      				if (this.searchResults.at(i).get('gender') == this.gender){
      					var curModel = this.searchResults.at(i);

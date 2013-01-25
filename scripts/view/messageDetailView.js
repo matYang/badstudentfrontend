@@ -140,11 +140,20 @@
             },
 
             error: function(model, response){
-
-                $('#detail-submit-errorContainer').css({'visibility':'visible'});
-                $('#detail-submit-error').html("密码验证失败");
-                /*target*/
-                $('#detail-submit-password').value = "";
+                if (response.status == 401){
+                    $('#detail-submit-errorContainer').css({'visibility':'visible'});
+                    $('#detail-submit-error').html("密码验证失败");
+                    /*target*/
+                    $('#detail-submit-password').value = "";
+                }
+                else if (response.status == 400){
+                    alert("this message no longer exists or valid");
+                    app.navigate("",true);
+                }
+                else{
+                    alert("system error, please report to us");
+                }
+                
             }
         });
 

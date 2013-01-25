@@ -57,7 +57,7 @@
             }
         });
         $('#detail-modal-datePicker').datepicker( "setDate", this.startDate);
-        $('#detail-modal-datePicker').datepicker( "option", "minDate", new Date());
+        $('#detail-modal-datePicker').datepicker( "option", "minDate", app.minimumDate);
         $('#detail-modal-datePicker').datepicker( "option", "dateFormat", "yy年m月d日" );
 
 
@@ -90,7 +90,7 @@
             }
         });
         $('#detail-modal-endDatePicker').datepicker( "setDate", this.endDate);
-        $('#detail-modal-endDatePicker').datepicker( "option", "minDate", new Date());
+        $('#detail-modal-endDatePicker').datepicker( "option", "minDate", app.minimumDate);
         $('#detail-modal-endDatePicker').datepicker( "option", "dateFormat", "yy年m月d日" );
         }
 
@@ -138,8 +138,20 @@
                 app.navigate("info/" + encodedSearchKey, true);
             },
             
-            error: function(){
-                alert("deleteFailed");
+            error: function(model, response){
+                if (response.status == 400){
+                    alert("bad request, please verify all the fields and try again later");
+                }
+                else if (response.status == 401){
+                    alert("authurization failed, please try again later");
+                }
+                else if (response.status == 409){
+                    alert("the message has already been removed from server, redirecting to main page");
+                    app.navigate("", true);
+                }
+                else{
+                    alert("system error, please report to us");
+                }
             }
         
         });
@@ -234,9 +246,20 @@
                 app.navigate("tempSession/" + encodeURI(self.message.get('id')), true);
             },
             
-            error: function(){
-
-                alert("PUT Error: check server configuration");
+            error: function(model, response){
+                if (response.status == 400){
+                    alert("bad request, please verify the fields of the message and try again later");
+                }
+                else if (response.status == 401){
+                    alert("authurization failed, please try again later");
+                }
+                else if (response.status == 409){
+                    alert("the message has already been removed from server, redirecting to main page");
+                    app.navigate("", true);
+                }
+                else{
+                    alert("system error, please report to us");
+                }
             }
         });
 
