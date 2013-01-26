@@ -25,7 +25,7 @@
 	position: absolute;
 	height: 650px;
 	width: 100%;
-	background-color: #FFCC33;
+	background: url("../../img/backg.png");
 	overflow: auto;
 }
 

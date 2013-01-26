@@ -84,7 +84,7 @@
 #detail-lower-container {
 	width: 850px;
 	height: 400px;
-	background-color: #FFFF33;
+	background: url("../../img/backg.png");
 	-moz-box-shadow:    0px -5px 15px 1px #222;
 	-webkit-box-shadow: 0px -5px 15px 1px #222;
 	box-shadow:         0px -5px 15px 1px #222;
