@@ -1,5 +1,5 @@
 .help-ask-upper-container {
-	width: 1000px;
+	width: 850px;
 	height: 300px;
 }
 
@@ -98,9 +98,10 @@
 }
 
 .help-ask-lower-container {
+	background: url("../../img/backg.png");
 	position: relative;
 	height: 450px;
-	width: 1000px;
+	width: 850px;
 	background-color: #CCCC66;
 }
 
@@ -110,7 +111,7 @@
 }
 
 .help-ask-alternative-title {
-	width: 20%;
+	width: 30%;
 	color: #0099CC;
 	font-size: 40px;
 	margin-top: 10px;
@@ -139,7 +140,7 @@
 
 .help-ask-secondaryContainer > hr {
 	float: left;
-	width: 450px;
+	width: 375px;
 	margin-left: 25px;
 	margin-right: 25px;
 	margin-top: 0;
@@ -148,7 +149,7 @@
 
 .help-ask-secondaryContainer > div {
 	float: left;
-	width: 450px;
+	width: 375px;
 	margin-left: 25px;
 	margin-right: 25px;
 	height: 70px;

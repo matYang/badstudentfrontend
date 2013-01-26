@@ -3,7 +3,7 @@
 }
 
 #infoSearchHeader {
-	width: 1000px;
+	width: 850px;
 	height: 100px;
 	display: table;
 }
@@ -31,7 +31,7 @@
 
 #info-info > div {
 	float: left;
-	width: 450px;
+	width: 375px;
 	margin-left: 25px;
 	margin-right: 25px;
 	height: 100px;
@@ -39,7 +39,7 @@
 
 #info-info > hr {
 	float: left;
-	width: 450px;
+	width: 375px;
 	margin-left: 25px;
 	margin-right: 25px;
 	margin-top: 5px;
