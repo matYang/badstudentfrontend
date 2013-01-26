@@ -16,9 +16,8 @@
  	},
 
  	render:function(){
-        $(this.el).append("<div class='backgroundImage'></div>");
  		$(this.el).append("<div id='help-full-width' class='full-width'>");
-        $('#help-full-width').append("<div class='headerImage'></div>");
+        $('#help-full-width').append("<img class='backgroundImage' src='asset/chinamap.png' alt='chinamap.png'>");
  		$('#help-full-width').append("<div id='help-upper-container' class='help-ask-upper-container'></div>");
         $('#help-upper-container').append("<div id='ask-header' class='help-ask-header'></div>");
  		$('#ask-header').append("<div id='help-title' class='help-ask-title'>创建您的点名需求</div>");
@@ -39,7 +38,6 @@
  		$('#help-lower-title').append("<div id='help-gender-dontCare' class='help-ask-gender'>无所谓</div>");
 
  		$('#help-lower-container').append("<div id='help-info' class='help-ask-secondaryContainer'></div>");
-        $('#help-full-width').append("<div class='gradi'></div>");
 
 
         var self = this;
@@ -68,7 +66,7 @@
             }
         });
         $('#help-input-datePicker').datepicker( "setDate", this.date);
-        $('#help-input-datePicker').datepicker( "option", "minDate", app.minimumDate);
+        $('#help-input-datePicker').datepicker( "option", "minDate", new Date());
         $('#help-input-datePicker').datepicker( "option", "dateFormat", "yy年m月d日" );
  	},
 

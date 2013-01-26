@@ -18,15 +18,63 @@ body {
 	src: url("../../asset/YuppySC.otf") format("opentype");
 } 
 
+/**
+#gradi {
+	z-index: -2;
+	width: 1000px;
+	height: 500px;
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	background-image: url("../../img/gradi.png");
+	background-repeat: no-repeat;
+	background-size: contain;
+	opacity: 0.5;
+}
+
+.headerFooterImage {
+	height: 100px;
+	width: 300px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#main-full-width.full-width {
+	width: 850px;
+	height: 1000px;
+}
+
+#header {
+	height: 80px;
+	width: 300px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#headerLogo {
+	background-image: url(../../asset/zghdmlogo.png);
+	background-repeat: no-repeat;
+	background-size: contain;
+	position: absolute;
+	margin-top: 30px;
+	height: 100px;
+	width: 300px;
+}
+
+#headerWordImage {
+	padding-top: 50px;
+	height: 50px;
+	width: 150px;
+}
+**/
 #footerImage {
+	margin-top: 15px;
 	background: url('../../img/footer.png');
 	background-position: center;
 	background-repeat: no-repeat;
 	height: 170px;
 	width: 250px;
 	background-size: contain;
-	margin-left: auto;
-	margin-right: auto;
 }
 
 /* Selection Part */
@@ -42,7 +90,7 @@ body {
 
 #main-left-box {
 	float: left;
-	margin-top: 30px;
+	margin-top: 50px;
 	margin-left: 80px;
 	padding-top: 10px;
 	width: 400px;
@@ -111,7 +159,7 @@ body {
 
 #main-right-box {
 	float: left;
-	margin-top: 50px;
+	margin-top: 70px;
 	margin-left: 50px;
 	width: 250px;
 	height: 150px;

@@ -157,20 +157,14 @@ var RegisterView= Backbone.View.extend({
         var self = this;
 		newMessage.save({},{
 			success:function(model, response){
+
 				self.searchResult.add(newMessage);
 				app.navigate("message/" + encodeURI(newMessage.get('id')), true);
 			},
 			
-			error: function(model, response){
-                if (response.status == 400){
-                    alert("bad request, please check the fields of the message and try again later");
-                }
-                else if (response.status == 409){
-                    alert("message conflict with backend, please try different message fields");
-                }
-				else{
-                    alert("system error, please report to us");
-                }
+			error: function(){
+
+				alert("POST Error: check server configuration");
 			}
 		});
 
