@@ -1,8 +1,10 @@
-<div class="backgroundImage"></div>
+<img class="backgroundImage" src="asset/chinamap.png" alt="chinamap.png">
 <div id="main-full-width" class = "full-width">
 
-	<div class="headerImage"></div>
-
+	<div id="header">
+		<div id="headerLogo"></div>
+	</div>
+	
 	<div id="main-selection">
 		<div id="main-left-box" class="roundBox">
 				
@@ -25,15 +27,32 @@
 				
 		<div id="main-right-box">
 				
-			<div class="shadowBox roundBox main-help-me-others-find" id="main-help-me-find">
+			<!--
+<div class="shadowBox roundBox main-help-me-others-find" id="main-help-me-find">
 				<div id="main-help-me-word">找人帮我</div>
 				<div id="pencil"></div>
 			</div>
+-->
 
-			<div class="shadowBox roundBox main-help-me-others-find" id="main-help-others">
+			<a href="#" class="hxsbutton" id="main-help-me-find">
+						<span class="hxsbutton-text">找人帮我</span>
+						<span class="hxsbutton-slide-text">喵~翘咯~</span>
+						<span class="hxsbutton-icon-right"><span></span></span>
+					</a>
+					
+			<a href="#" class="hxsbutton" id="main-help-others">
+						<span class="hxsbutton-text">找人帮我</span>
+						<span class="hxsbutton-slide-text">喵~我来！</span>
+						<span class="hxsbutton-icon-right"><span></span></span>
+					</a>
+			
+			<!--
+<div class="shadowBox roundBox main-help-me-others-find" id="main-help-others">
 				<div id="main-help-others-word">帮人点名</div>
 				<div id="pencil"></div>
 			</div>
+-->
+<!-- Knowing Issues: Not support IE -->
 					
 			<div id = "main-info-search">找我发布的信息</div>
 				
@@ -44,7 +63,7 @@
 	<div id="main-selected">
 			
 		<div id="main-left-selected">
-		    <div id="main-recent">最近发布的点名</div>
+		    <div id="main-recent"></div>
 			<div id="main-info">
 				<!-- resultsTemplate.html -->
 		    </div>
@@ -55,8 +74,8 @@
 				
 	</div>
 
-	<div id="footerImage"></div>
+	<div class="headerFooterImage"><div id="footerImage"></div></div>
 
-	<div class="gradi"></div>
+	<div id="gradi"></div>
 		
 </div>

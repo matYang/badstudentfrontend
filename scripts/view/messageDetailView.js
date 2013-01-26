@@ -5,16 +5,12 @@
  	initialize:function(message){
  		_.bindAll(this,'render','getDateString','bindEvents','validation','authSubmit','close');
  		this.message = message;
-        if (this.message.get('authCode') == -2){
-            alert("This messages is outdated or has been deleted by its publisher");
-            app.navigate("",true);
-        }
-        else{
-            this.template = _.template(tpl.get('detailTemplate')),
 
-            this.render();
-            this.bindEvents();
-        }
+        this.template = _.template(tpl.get('detailTemplate')),
+
+        this.render();
+        this.bindEvents();
+
  	},
 
     render: function(){
@@ -140,20 +136,11 @@
             },
 
             error: function(model, response){
-                if (response.status == 401){
-                    $('#detail-submit-errorContainer').css({'visibility':'visible'});
-                    $('#detail-submit-error').html("密码验证失败");
-                    /*target*/
-                    $('#detail-submit-password').value = "";
-                }
-                else if (response.status == 400){
-                    alert("this message no longer exists or valid");
-                    app.navigate("",true);
-                }
-                else{
-                    alert("system error, please report to us");
-                }
-                
+
+                $('#detail-submit-errorContainer').css({'visibility':'visible'});
+                $('#detail-submit-error').html("密码验证失败");
+                /*target*/
+                $('#detail-submit-password').value = "";
             }
         });
 
