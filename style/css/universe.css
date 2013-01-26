@@ -1,23 +1,42 @@
-#chinamap {
-	background-image: url(../../asset/chinamap.png);
+.backgroundImage {
+	position: absolute;
+    top: 50px;
+    left: 50px;
+    opacity: 0.2; 
+    z-index: -1;   
+	background-image: url("../../asset/chinamap.png");
 	width: 600px;
 	height: 600px;
 	background-repeat: no-repeat;
 	background-size: contain;
-	position: absolute;
-	
 }
 
 #gradient {
 	
 }
 
-#footer-img {
-	background-image: url(../../asset/footer.jpg);
-	width: 400px;
-	height: 200px;
+
+.headerImage {
+	background: url("../../img/header.png");
+	background-position: center;
 	background-repeat: no-repeat;
+	height: 100px;
+	width: 250px;
 	background-size: contain;
-	position: absolute;
+	margin-left: auto;
+	margin-right: auto;
 }
 
+
+.gradi {
+	z-index: -2;
+	width: 1000px;
+	height: 500px;
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	background-image: url("../../img/gradi.png");
+	background-repeat: no-repeat;
+	background-size: contain;
+	opacity: 0.5;
+}

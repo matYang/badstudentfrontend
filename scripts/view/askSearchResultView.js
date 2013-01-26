@@ -18,8 +18,9 @@
     },
 
     render:function(){
+        $(this.el).append("<div class='backgroundImage'></div>");
         $(this.el).append("<div id='ask-full-width' class='full-width'>");
-        $('#ask-full-width').append("<img class='backgroundImage' src='asset/chinamap.png' alt='chinamap.png'>");
+        $('#ask-full-width').append("<div class='headerImage'></div>");
         $('#ask-full-width').append("<div id='ask-upper-container' class='help-ask-upper-container'></div>");
         $('#ask-upper-container').append("<div id='help-header' class='help-ask-header'></div>");
         $('#help-header').append("<div id='ask-title' class='help-ask-title'>创建您的点名需求</div>");
@@ -39,6 +40,7 @@
         $('#ask-lower-title').append("<div id='ask-gender-male' class='help-ask-gender'>只看男生</div>");
         $('#ask-lower-title').append("<div id='ask-gender-dontCare' class='help-ask-gender'>无所谓</div>");
         $('#ask-lower-container').append("<div id='ask-info' class = 'help-ask-secondaryContainer'></div>");
+        $('#ask-full-width').append("<div class='gradi'></div>");
 
 
         var self = this;

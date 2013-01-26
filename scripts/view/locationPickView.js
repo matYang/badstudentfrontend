@@ -20,9 +20,9 @@
  		$('#locationSearchPanel').append("<div class='roundBox' id='popupBoxLocation'></div>");
  		$('#popupBoxLocation').append("<div class='popUpCloseButton' id='location-modal-closeButton'></div>");
  		$('#popupBoxLocation').append("<div id='location-modal-titleContainer'><p>请选择大学</p></div>");
- 		$('#popupBoxLocation').append("<div class='roundBox' id='location-modal-provinceContainer'></div>");
- 		$('#popupBoxLocation').append("<div class='roundBox' id='location-modal-cityContainer'></div>");
- 		$('#popupBoxLocation').append("<div class='roundBox' id='location-modal-universityContainer'></div>");
+ 		$('#popupBoxLocation').append("<div id='location-modal-provinceContainer'></div>");
+ 		$('#popupBoxLocation').append("<div id='location-modal-cityContainer'></div>");
+ 		$('#popupBoxLocation').append("<div id='location-modal-universityContainer'></div>");
  		
  		$('#location-modal-closeButton').bind('click', this.close);
  		this.getProvinces();
