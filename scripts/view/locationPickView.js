@@ -179,14 +179,18 @@
  	highLight:function(targetDOM, type){
  		if (type == "province"){
  			targetDOM.css({'border-color': 'black'});
+ 			targetDOM.css({'background-color': '#E4EBF5'});
  			if (this.highLightedProvince){
  				this.highLightedProvince.css({'border-color': 'white'});
+ 				this.highLightedProvince.css({'background-color': ''});
  			}
  		}
  		else if (type == "city"){
  			targetDOM.css({'border-color': 'black'});
+ 			targetDOM.css({'background-color': '#E4EBF5'});
 	 		if (this.highLightedCity){
  				this.highLightedCity.css({'border-color': 'white'});
+ 				this.highLightedCity.css({'background-color': ''});
 	 		}
  		}
  		
