@@ -30,11 +30,11 @@
 
         if (this.content.length < 3){
             proceed = false;
-            alert("feedBack too short, minimum 3 characters (1 chinese letter)");
+            alert("feedBack too short, minimum 3 characters ");
         }
         if (this.content.length > 300){
             proeed = false;
-            alert("feedBack too long, max 1000 characters (300 chinese letters)");
+            alert("feedBack too long, max 1000");
         }
 
         if (proceed){
