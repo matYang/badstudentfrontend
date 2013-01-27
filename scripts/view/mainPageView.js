@@ -31,7 +31,7 @@
         	dataType:'json',
 
             success:function (model, response) {
-                self.searchResultView = new SearchResultView("#main-info", self.recentsResults, -1);
+                self.searchResultView = new SearchResultView("#main-info", self.recentsResults, 2);
 
             },
 
