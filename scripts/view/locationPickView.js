@@ -42,11 +42,15 @@
 					provinceContainer.append(self.provinceDOMGenerator(data[eachIndex]));
 				}
 				$('.location-modal-province').bind('click', function(){
-					self.provinceName = $(this).html();
-					self.getCities(self.provinceName);
+					var selectedProvince = $(this).html();
+					if (selectedProvince != self.provinceName){
+						self.provinceName = selectedProvince;
+						self.getCities(self.provinceName);
+						
+						self.highLight($(this),"province");
+						self.highLightedProvince = $(this);
+					}
 					
-					self.highLight($(this),"province");
-					self.highLightedProvince = $(this);
 				});
 
 				self.provinceName = $('.location-modal-province').first().html();
@@ -80,11 +84,15 @@
 					cityContainer.append(self.cityDOMGenerator(data[each]));
 				}
 				$('.location-modal-city').bind('click', function(){
-					self.cityName = $(this).html();
-					self.getUniversities(self.cityName);
+					var selectedCity = $(this).html();
+					if (selectedCity != self.cityName){
+						self.cityName = selectedCity;
+						self.getUniversities(self.cityName);
 
-					self.highLight($(this),"city");
-					self.highLightedCity = $(this);
+						self.highLight($(this),"city");
+						self.highLightedCity = $(this);
+					}
+					
 				});
 
 				self.cityName = $('.location-modal-city').first().html();
