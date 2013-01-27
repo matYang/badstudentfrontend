@@ -17,12 +17,12 @@
 
  	render:function(){
  		$('body').append("<div class='popupPanel' id='locationSearchPanel'></div>");
- 		$('#locationSearchPanel').append("<div class='roundBox' id='popupBoxLocation'></div>");
+ 		$('#locationSearchPanel').append("<div id='popupBoxLocation'></div>");
  		$('#popupBoxLocation').append("<div class='popUpCloseButton' id='location-modal-closeButton'></div>");
- 		$('#popupBoxLocation').append("<div id='location-modal-titleContainer'><p>请选择大学</p></div>");
- 		$('#popupBoxLocation').append("<div class='roundBox' id='location-modal-provinceContainer'></div>");
- 		$('#popupBoxLocation').append("<div class='roundBox' id='location-modal-cityContainer'></div>");
- 		$('#popupBoxLocation').append("<div class='roundBox' id='location-modal-universityContainer'></div>");
+ 		$('#popupBoxLocation').append("<div id='location-modal-titleContainer'><p>请选择大学</p><div></div></div>");
+ 		$('#popupBoxLocation').append("<div id='location-modal-provinceContainer'></div>");
+ 		$('#popupBoxLocation').append("<div id='location-modal-cityContainer'></div>");
+ 		$('#popupBoxLocation').append("<div id='location-modal-universityContainer'></div>");
  		
  		$('#location-modal-closeButton').bind('click', this.close);
  		this.getProvinces();
@@ -42,11 +42,14 @@
 					provinceContainer.append(self.provinceDOMGenerator(data[eachIndex]));
 				}
 				$('.location-modal-province').bind('click', function(){
-					self.provinceName = $(this).html();
-					self.getCities(self.provinceName);
-					
-					self.highLight($(this),"province");
-					self.highLightedProvince = $(this);
+					var selectedProvince = $(this).html();
+					if (selectedProvince != self.provinceName){
+						self.provinceName = selectedProvince;
+						self.getCities(self.provinceName);
+						
+						self.highLight($(this),"province");
+						self.highLightedProvince = $(this);
+					}
 				});
 
 				self.provinceName = $('.location-modal-province').first().html();
@@ -80,11 +83,15 @@
 					cityContainer.append(self.cityDOMGenerator(data[each]));
 				}
 				$('.location-modal-city').bind('click', function(){
-					self.cityName = $(this).html();
-					self.getUniversities(self.cityName);
+					var selectedCity = $(this).html();
+					if (selectedCity != self.cityName){
+						self.cityName = selectedCity;
+						self.getUniversities(self.cityName);
 
-					self.highLight($(this),"city");
-					self.highLightedCity = $(this);
+						self.highLight($(this),"city");
+						self.highLightedCity = $(this);
+					}
+					
 				});
 
 				self.cityName = $('.location-modal-city').first().html();
@@ -139,7 +146,7 @@
  	},
 
  	universityDOMGenerator:function(university){
- 		return "<div class = 'location-modal-university location-modal-entry'>&#8226; <span>" + university + "</span></div>";
+ 		return "<div class = 'location-modal-university location-modal-entry'><span>" + university + "</span></div>";
  	}, 	
 
  	complete:function(){
@@ -171,15 +178,15 @@
 
  	highLight:function(targetDOM, type){
  		if (type == "province"){
- 			targetDOM.css({'background-color': '#476CDA'});
+ 			targetDOM.css({'border-color': 'black'});
  			if (this.highLightedProvince){
- 				this.highLightedProvince.css({'background-color': ''});
+ 				this.highLightedProvince.css({'border-color': 'white'});
  			}
  		}
  		else if (type == "city"){
- 			targetDOM.css({'background-color': '#476CDA'});
+ 			targetDOM.css({'border-color': 'black'});
 	 		if (this.highLightedCity){
-	 			this.highLightedCity.css({'background-color': ''});
+ 				this.highLightedCity.css({'border-color': 'white'});
 	 		}
  		}
  		
