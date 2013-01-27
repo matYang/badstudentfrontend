@@ -97,8 +97,6 @@
                 $('#detail-modal-endDatePicker').datepicker( "option", "minDate", this.startDate);
             }
             $('#detail-modal-endDatePicker').datepicker( "option", "dateFormat", "yy年m月d日" );
-
-        });
         }
 
         togglePopup('editPanel');

@@ -30,11 +30,11 @@
 
         if (this.content.length < 3){
             proceed = false;
-            alert("feedBack too short");
+            alert("feedBack too short, minimum 3 characters (1 chinese letter)");
         }
         if (this.content.length > 300){
             proeed = false;
-            alert("feedBack too long");
+            alert("feedBack too long, max 1000 characters (300 chinese letters)");
         }
 
         if (proceed){
@@ -55,6 +55,9 @@
                 self.close();
             },
             error: function (data, textStatus, jqXHR){
+                if (textStatus && textStatus == 400){
+                    alert("An error occurred,try again later.")
+                }
                 alert("An error occurred,try again later.")
             },
         });
