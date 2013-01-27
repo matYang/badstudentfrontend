@@ -4,7 +4,8 @@
 	width: 500px;
 	margin-right: auto;
 	margin-left: auto;
-	background: url("../../../img/metalfull.png");
+	background: url("../../../img/metal.png");
+	background-size: cover;
 	-moz-box-shadow: 0 0 30px 5px #111;
 	-webkit-box-shadow: 0 0 30px 5px #111;
 	box-shadow: 0 0 30px 5px #111;

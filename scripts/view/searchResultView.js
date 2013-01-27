@@ -36,7 +36,6 @@
                     var curModel = this.searchResults.at(i);
                     curModel.set({'tpId': ('i' + tpId)});
                     this.idArray.push('i' + tpId);
-                    $(this.targetId).append("<hr><hr>");
                     $(this.targetId).append(this.template(curModel.toJSON()));
                     this.fill(curModel, ('i' + tpId));
                     tpId++;
@@ -52,7 +51,6 @@
                         var curModel = this.searchResults.at(i);
                         curModel.set({'tpId': ('i' + tpId)});
                         this.idArray.push('i' + tpId);
-                        $(this.targetId).append("<hr><hr>");
                         $(this.targetId).append(this.template(curModel.toJSON()));
                         this.fill(curModel, ('i' + tpId));
                         tpId++;
@@ -92,9 +90,11 @@
 		$(curId +  ' .searchResultType').html(this.typeArray[curModel.get('type')]);
 
 		if (curModel.get('type') == 1){
-			$(curId +  ' .searchResultTotalValue').html("&yen;" + curModel.get('price') + "<span class = '.searchResultTotalValueSpan'>/时</span>");
+			$(curId +  ' .searchResultTotalValue').html("&yen;" + curModel.get('price') + "<span class = 'searchResultTotalValueSpan'>/时</span>");
+            $(curId +  ' .searchResultType').css("color","#E88989");
 		}
 		if (curModel.get('type') == 0){
+            $(curId +  ' .searchResultType').css("color","#76BD5C");
 			var hour = Number(curModel.get('courseLengthInMinutes')/60);
 
 			var hourPrice = Number(curModel.get('price')/hour);
@@ -104,7 +104,8 @@
             if (!(hourPrice % 1 === 0)){
                 hourPrice = hourPrice.toFixed(1);
             }
-			$(curId +  ' .searchResultDividedPrice').html(hour + "小时 / 单价" + hourPrice);
+			$(curId +  ' .searchResultHour').html("<span style='color:#3A3A7A'>" + hour + "</span>" + " 小时");
+            $(curId +  ' .searchResultDividedPrice').html("每小时 " +  "<span style='color:#A53333'>" + hourPrice + "</span>");
 		}
  	},
 

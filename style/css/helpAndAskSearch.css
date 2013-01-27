@@ -141,8 +141,9 @@
 .help-ask-secondaryContainer > hr {
 	float: left;
 	width: 375px;
-	margin-left: 25px;
-	margin-right: 25px;
+	height: 0.5px;
+	margin-left: 20px;
+	margin-right: 20px;
 	margin-top: 0;
 	margin-bottom: 0;
 }
@@ -150,7 +151,7 @@
 .help-ask-secondaryContainer > div {
 	float: left;
 	width: 375px;
-	margin-left: 25px;
-	margin-right: 25px;
+	margin-left: 20px;
+	margin-right: 20px;
 	height: 70px;
 }
