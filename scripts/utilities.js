@@ -101,3 +101,32 @@ function parseDate(dateString){
         date.setDate(dateArray[2]);
         return date;
 }
+
+
+function isStorageSupported() {
+    if (typeof(localStorage) === "undefined" || typeof(sessionStorage) === "undefined") {
+        alert("Poor guy..your browser does not even support web storage...");
+        return false;
+    }
+    return true;
+}
+
+
+/*
+var browserInfo = {'opera' : false, 'chrome' : false, 'safari' : false, 'firefox' : false, 'msie' : false};
+var browserName = navigator.sayswho[0];
+if (browserName == 'Msie'){
+    browserInfo.msie = true;
+}
+else if (browserName == 'Chrome'){
+    browserInfo.chrome = true;
+}
+else if (browserName == 'Safari'){
+    browserInfo.safari = true;
+}
+else if (browserName == 'Firefox'){
+    browserInfo.firefox = true;
+}
+else if (browserName == 'Opera'){
+    browserInfo.opera = true;
+}*/

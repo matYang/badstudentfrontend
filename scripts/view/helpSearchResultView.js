@@ -130,10 +130,14 @@
                 alert("please enter a valid price");
                 // add more visual effects
             }
-            if (typeof price == "number" && price > 1000){
+            if (typeof price == "number" && price > 999){
                 proceed = false;
-                alert("最多选¥1000");
+                alert("最多选¥999");
                 // add more visual effects
+            }
+            if (content.length > 1000){
+                proceed = false;
+                alert("内容最长1000字符");
             }
             if (modalOpen == false && proceed == true){
                 self.registerView = new RegisterView(self.searchResult, self.locationArray, self.date, self.date, content, gender, price, 0);

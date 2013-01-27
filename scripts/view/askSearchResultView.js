@@ -172,9 +172,9 @@
                 alert("please enter a valid price");
                 // add more visual effects
             }
-            if (typeof price == "number" && price > 1000){
+            if (typeof price == "number" && price > 999){
                 proceed = false;
-                alert("最多选¥1000");
+                alert("最多选¥999");
                 // add more visual effects
             }
             if (modalOpen == false && proceed == true){

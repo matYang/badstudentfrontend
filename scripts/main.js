@@ -6,28 +6,33 @@ var authUrlOverride = origin + "/api/badstudent/v0.9/auth";
 var modalOpen = false;    //global variable used to track if a modal window is open
 var doubleModalOpen = false;
 var tpId = 1000;
-//to enable place holders in IE 8
+/* web storage:: local storage*/
+var supportStorage = isStorageSupported();
+var storage = {'email':"", 'phone':"", 'qq':"", 'twitter':"", 'selfDefined':""};
+if (supportStorage){
+    tempEmail = localStorage.email;
+    tempPhone = localStorage.phone;
+    tempQq = localStorage.qq;
+    tempTwitter = localStorage.twitter;
+    tempSelfDefined = localStorage.selfDefined;
+    if (tempEmail){
+        storage.email = tempEmail;
+    }
+    if (tempPhone){
+        storage.phone = tempPhone;
+    }
+    if (tempQq){
+        storage.qq = tempQq;
+    }
+    if (tempTwitter){
+        storage.twitter = tempTwitter;
+    }
+    if (tempSelfDefined){
+        storage.selfDefined = tempSelfDefined;
+    }
+}
+//to enable place holders in IE 8 using the placeHolder jquery plugin
 $('input, textarea').placeholder();
-
-/*
-var browserInfo = {'opera' : false, 'chrome' : false, 'safari' : false, 'firefox' : false, 'msie' : false};
-var browserName = navigator.sayswho[0];
-if (browserName == 'Msie'){
-    browserInfo.msie = true;
-}
-else if (browserName == 'Chrome'){
-    browserInfo.chrome = true;
-}
-else if (browserName == 'Safari'){
-    browserInfo.safari = true;
-}
-else if (browserName == 'Firefox'){
-    browserInfo.firefox = true;
-}
-else if (browserName == 'Opera'){
-    browserInfo.opera = true;
-}*/
-
 
 
 var AppRouter = Backbone.Router.extend({
@@ -61,6 +66,7 @@ var AppRouter = Backbone.Router.extend({
             this.mainPageView.close();
         }
     	this.mainPageView = new MainPageView(this.date, this.locationArray);
+        this.feedBackView = new FeedBackView();
 
     },
 
@@ -81,6 +87,7 @@ var AppRouter = Backbone.Router.extend({
                     self.messageDetailView.close();
                 }
                 self.messageDetailView = new MessageDetailView(message);
+                self.feedBackView = new FeedBackView();
             },
 
             error: function(model, response){
@@ -113,6 +120,7 @@ var AppRouter = Backbone.Router.extend({
                     self.helpSearchResultView.close();
                 }
                 self.helpSearchResultView = new HelpSearchResultView(self.searchResult,self.date, self.locationArray);
+                self.feedBackView = new FeedBackView();
             },
             
             error: function(model, response){
@@ -147,6 +155,7 @@ var AppRouter = Backbone.Router.extend({
                     self.askSearchResultView.close();
                 }
                 self.askSearchResultView = new AskSearchResultView(self.searchResult, self.date, self.locationArray);
+                self.feedBackView = new FeedBackView();
             },
             
             error: function(model, response){
@@ -176,6 +185,7 @@ var AppRouter = Backbone.Router.extend({
                     self.infoSearchResultView.close();
                 }
                 self.infoSearchResultView = new InfoSearchResultView(self.searchResult);
+                self.feedBackView = new FeedBackView();
             },
             
             error: function(model, response){

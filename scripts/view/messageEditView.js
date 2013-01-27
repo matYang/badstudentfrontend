@@ -174,18 +174,31 @@
         this.content = $('#detail-modal-content').val();
         this.price = Number($('#detail-modal-price').val());
 
+        if (this.content.length > 1000){
+            proceed = false;
+            alert("内容最长1000字符");
+        }
+
         if (this.email.length > 0){
             var emailArray = this.email.split("@");
             if (!(emailArray.length == 2 && emailArray[0].length > 0 && emailArray[1].length > 3)){
                 proceed = false;
                 alert("invalid email format");
             }
+            if (this.email.length > 50){
+                proceed = false;
+                alert("email max length 50 chars");
+            }
         }
         
         if (this.phone.length > 0){
-            if (!(this.phone.length > 6)){
+            if (!(this.phone.length > 4)){
                 proceed = false;
                 alert("invalid phone number format");
+            }
+            if (this.phone.length > 20){
+                proceed = false;
+                alert("phone max length 50 chars");
             }
         }
         
@@ -194,13 +207,27 @@
                 proceed = false;
                 alert("invalid qq format");
             }
+            if (this.qq.length > 50){
+                proceed = false;
+                alert("qq max length 50 chars");
+            }
+        }
+
+        if (this.twitter.length > 50){
+            proceed = false;
+            alert("twitter max length 50 chars");
+        }
+
+        if (this.selfDefined.length > 50){
+            proceed = false;
+            alert("selfDefined max length 50 chars");
         }
 
 
         if (this.type == 0){
             this.courseLengthInMinutes = Number($('#detail-modal-courseLengthInMinutes').val());
             this.endDate = this.startDate;  //sync date
-            if (!((typeof this.courseLengthInMinutes == "number") && this.courseLengthInMinutes > 15 && this.courseLengthInMinutes % 1 === 0)){
+            if (!((typeof this.courseLengthInMinutes == "number") && this.courseLengthInMinutes >= 15 && this.courseLengthInMinutes % 1 === 0)){
                 proceed = false;
                 alert("please enter valid cosurse length, minimum 15min");
                 //TODO add more visual effects
@@ -235,6 +262,19 @@
 
     updateMessage:function(){
         var self = this;
+
+        if (supportStorage){
+            localStorage.email = this.email;
+            localStorage.phone = this.phone;
+            localStorage.qq = this.qq;
+            localStorage.twitter = this.twitter;
+            localStorage.selfDefined = this.selfDefined;
+        }
+        storage.email = this.email;
+        storage.phone = this.phone;
+        storage.qq = this.qq;
+        storage.twitter = this.twitter;
+        storage.selfDefined = this.selfDefined;
 
         var locationString = this.locationArray[0] + " " + this.locationArray[1] + " " + this.locationArray[2];
         var startDateString = this.startDate.getFullYear() + " " + (this.startDate.getMonth()+1) + " " + this.startDate.getDate();

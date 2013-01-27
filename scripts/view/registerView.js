@@ -31,11 +31,11 @@ var RegisterView= Backbone.View.extend({
 			$('#register-modal-main').append("<div id = 'register-modal-notice'><div id='register-modal-noticeContainer'>请至少填写以下一项</div></div>");
  			$('#register-modal-notice').css("padding-top","10px");
  		}
- 		$('#register-modal-main').append("<div class = 'register-modal-container' id = 'register-modal-emailContainer'><div class = 'register-modal-container-word' id = 'register-modal-emailWord'>邮箱</div><input class = 'register-modal-input' id = 'register-modal-email' placeholder = 'lol@gamil.com'/></div>");
- 		$('#register-modal-main').append("<div class = 'register-modal-container' id = 'register-modal-phoneContainer'><div class = 'register-modal-container-word' id = 'register-modal-phoneWord'>电话</div><input class = 'register-modal-input' id = 'register-modal-phone' placeholder = '15900000000'/></div>");
- 		$('#register-modal-main').append("<div class = 'register-modal-container' id = 'register-modal-qqContainer'><div class = 'register-modal-container-word' id = 'register-modal-qqWord'>QQ</div><input class = 'register-modal-input' id = 'register-modal-qq' placeholder = '455877137'/></div>");
- 		$('#register-modal-main').append("<div class = 'register-modal-container' id = 'register-modal-twitterContainer'><div class = 'register-modal-container-word' id = 'register-modal-twitterWord'>微博</div><input class = 'register-modal-input' id = 'register-modal-twitter' placeholder = '@huaixuesheng'/></div>");
- 		$('#register-modal-main').append("<div class = 'register-modal-container' id = 'register-modal-selfDefinedContainer'><div class = 'register-modal-container-word' id = 'register-modal-selfDefinedWord'>自定义</div><input class = 'register-modal-input' id = 'register-modal-selfDefined' placeholder = '有缘会猜到我号码的'/></div>");
+ 		$('#register-modal-main').append("<div class = 'register-modal-container' id = 'register-modal-emailContainer'><div class = 'register-modal-container-word' id = 'register-modal-emailWord'>邮箱</div><input class = 'register-modal-input' id = 'register-modal-email' placeholder = 'lol@gamil.com' value = '" + storage.email + "'/></div>");
+ 		$('#register-modal-main').append("<div class = 'register-modal-container' id = 'register-modal-phoneContainer'><div class = 'register-modal-container-word' id = 'register-modal-phoneWord'>电话</div><input class = 'register-modal-input' id = 'register-modal-phone' placeholder = '15900000000' value = '" + storage.phone + "'/></div>");
+ 		$('#register-modal-main').append("<div class = 'register-modal-container' id = 'register-modal-qqContainer'><div class = 'register-modal-container-word' id = 'register-modal-qqWord'>QQ</div><input class = 'register-modal-input' id = 'register-modal-qq' placeholder = '455877137' value = '" + storage.qq + "'/></div>");
+ 		$('#register-modal-main').append("<div class = 'register-modal-container' id = 'register-modal-twitterContainer'><div class = 'register-modal-container-word' id = 'register-modal-twitterWord'>微博</div><input class = 'register-modal-input' id = 'register-modal-twitter' placeholder = '@huaixuesheng' value = '" + storage.twitter + "'/></div>");
+ 		$('#register-modal-main').append("<div class = 'register-modal-container' id = 'register-modal-selfDefinedContainer'><div class = 'register-modal-container-word' id = 'register-modal-selfDefinedWord'>自定义</div><input class = 'register-modal-input' id = 'register-modal-selfDefined' placeholder = '有缘会猜到我号码的' value = '" + storage.selfDefined + "'/></div>");
 
  		$('#register-modal-main').append("<hr>");
 
@@ -86,12 +86,20 @@ var RegisterView= Backbone.View.extend({
                 proceed = false;
                 alert("invalid email format");
             }
+            if (this.email.length > 50){
+                proceed = false;
+                alert("email max length 50 chars");
+            }
         }
         
         if (this.phone.length > 0){
-            if (!(this.phone.length > 6)){
+            if (!(this.phone.length > 4)){
                 proceed = false;
                 alert("invalid phone number format");
+            }
+            if (this.phone.length > 20){
+                proceed = false;
+                alert("phone max length 50 chars");
             }
         }
         
@@ -100,6 +108,20 @@ var RegisterView= Backbone.View.extend({
                 proceed = false;
                 alert("invalid qq format");
             }
+            if (this.qq.length > 50){
+                proceed = false;
+                alert("qq max length 50 chars");
+            }
+        }
+
+        if (this.twitter.length > 50){
+            proceed = false;
+            alert("twitter max length 50 chars");
+        }
+
+        if (this.selfDefined.length > 50){
+            proceed = false;
+            alert("selfDefined max length 50 chars");
         }
 
 
@@ -142,6 +164,19 @@ var RegisterView= Backbone.View.extend({
  	},
 
  	complete:function(){
+
+        if (supportStorage){
+            localStorage.email = this.email;
+            localStorage.phone = this.phone;
+            localStorage.qq = this.qq;
+            localStorage.twitter = this.twitter;
+            localStorage.selfDefined = this.selfDefined;
+        }
+        storage.email = this.email;
+        storage.phone = this.phone;
+        storage.qq = this.qq;
+        storage.twitter = this.twitter;
+        storage.selfDefined = this.selfDefined;
 
  		var locationString = this.locationArray[0] + " " + this.locationArray[1] + " " + this.locationArray[2];
  		var startDateString = this.startDate.getFullYear() + " " + (this.startDate.getMonth()+1) + " " + this.startDate.getDate();
