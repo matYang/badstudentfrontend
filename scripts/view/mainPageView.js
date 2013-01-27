@@ -74,7 +74,7 @@
         });
 
         $('#datePicker').datepicker( "setDate", this.date);
-        $('#datePicker').datepicker( "option", "minDate", new Date());
+        $('#datePicker').datepicker( "option", "minDate", app.minimumDate);
         $('#datePicker').datepicker( "option", "dateFormat", "yy年m月d日" );
  	},
 

@@ -6,10 +6,18 @@
  		_.bindAll(this,'render','getDateString','bindEvents','validation','authSubmit','close');
  		this.message = message;
 
-        this.template = _.template(tpl.get('detailTemplate')),
+        if (this.message.get('authCode') == -2){
+            alert("This messages is outdated or has been deleted by its publisher");
+            app.navigate("",true);
+        }
+        else{
+            this.template = _.template(tpl.get('detailTemplate')),
 
-        this.render();
-        this.bindEvents();
+            this.render();
+            this.bindEvents();
+        }
+        this.allowPassword = true;
+
 
  	},
 
@@ -88,7 +96,8 @@
         $('body').bind('click',function(){
             if(isSubmitClicked){ 
                 isSubmitClicked = false;
-            }else{
+            }
+            else{
                 $('#detail-submit-passwordContainer').css({'visibility':'hidden'});
                 $('#detail-submit-errorContainer').css({'visibility':'hidden'});
             }
@@ -116,7 +125,13 @@
             //TODO add more visual effects
         }
         else{
-            self.authSubmit(password);
+            if (this.allowPassword){
+                self.authSubmit(password);
+            }
+            else{
+                $('#detail-submit-errorContainer').css({'visibility':'visible'});
+                $('#detail-submit-error').html("重复输入过于频繁");
+            }
         }
     },
 
@@ -136,33 +151,29 @@
             },
 
             error: function(model, response){
+                self.allowPassword = false;
+                //set the timeout function, allow for submitting password 2s later
+                setTimeout(function() {
+                    self.allowPassword = true;
+                }, 2000);
+                if (response.status == 401){
+                    $('#detail-submit-errorContainer').css({'visibility':'visible'});
+                    $('#detail-submit-error').html("密码验证失败");
+                    $('div').effect("shake", { times:3 }, 300);
+                    /*target*/
+                    $('#detail-submit-password').value = "";
+                }
+                else if (response.status == 400){
+                    alert("this message no longer exists or valid");
+                    app.navigate("",true);
+                }
+                else{
+                    alert("system error, please report to us");
+                }
 
-                $('#detail-submit-errorContainer').css({'visibility':'visible'});
-                $('#detail-submit-error').html("密码验证失败");
-                /*target*/
-                $('#detail-submit-password').value = "";
             }
         });
 
-        /*
-        $.ajax({
-            type: "GET",
-            async: false,
-            url: "http://localhost:8015/api/badstudent/v0.9/auth",
-            dataType: 'json',
-            data: {id : self.message.get('id'), password: password},
-
-            success: function(data){
-                data.set({'password': password});
-                self.message = data;
-                self.messageEditView = new MessageEditView(self.message);
-                
-            },
-            error: function (data, textStatus, jqXHR){
-                $('#detail-submit-errorContainer').css({'visibility':'block'});
-                $('#detail-submit-error').html(textStatus);
-            },
-        });*/
     },
 
 

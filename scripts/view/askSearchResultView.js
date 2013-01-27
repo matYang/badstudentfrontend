@@ -79,7 +79,7 @@
             }
         });
         $('#ask-input-startDatePicker').datepicker( "setDate", this.date);
-        $('#ask-input-startDatePicker').datepicker( "option", "minDate", new Date());
+        $('#ask-input-startDatePicker').datepicker( "option", "minDate", app.minimumDate);
         $('#ask-input-startDatePicker').datepicker( "option", "dateFormat", "yy年m月d日");
 
 
@@ -105,7 +105,13 @@
             }
         });
         $('#ask-input-endDatePicker').datepicker( "setDate", this.date);
-        $('#ask-input-endDatePicker').datepicker( "option", "minDate", new Date());
+        if (app.minimumDate > app.date){
+            $('#ask-input-endDatePicker').datepicker( "option", "minDate", app.minimumDate);
+        }
+        else{
+            $('#ask-input-endDatePicker').datepicker( "option", "minDate", app.date);
+        }
+
         $('#ask-input-endDatePicker').datepicker( "option", "dateFormat", "yy年m月d日");
     },
 
@@ -169,9 +175,9 @@
                 alert("please enter a valid price");
                 // add more visual effects
             }
-            if (typeof price == "number" && price > 1000){
+            if (typeof price == "number" && price > 999){
                 proceed = false;
-                alert("最多选¥1000");
+                alert("最多选¥999");
                 // add more visual effects
             }
             if (modalOpen == false && proceed == true){
