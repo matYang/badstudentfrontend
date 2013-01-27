@@ -6,11 +6,10 @@
 
 .searchResultImgSrc {
 	float: left;
-	height: 100%;
-	/*padding-top: 9px;
+	padding-top: 9px;
+	padding-bottom: 9px;
 	padding-left: 9px;
-	width: 70px;
-	height: 70px;*/
+	height: 80%;
 }
 
 .searchResultInfoContainer {
