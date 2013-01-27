@@ -10,7 +10,7 @@ body {
 	height: 100%;
 	background: rgb(10,70,140);
 	margin: 0;
-	font-family: main,Verdana,serif;
+	font-family: Verdana,Verdana,serif;
 }
 
 @font-face { 
@@ -65,6 +65,7 @@ body {
 	border: 1px solid #808080;
 	margin-left: auto;
 	margin-right: auto;
+	box-shadow: inset 0 0 3px .2px #444;
 }
 
 .main-input-box:hover {
@@ -100,10 +101,12 @@ body {
 
 #datePicker {
 	float: right;
-	height: 100%;
-	width: 90%;
+	height: 70%;
+	width: 89%;
 	border: 0px;
 	font-size: 18px;
+	margin-top: 4px;
+	margin-right: 5px;
 }
 
 /* end of Left Box Selection */
@@ -116,6 +119,7 @@ body {
 	margin-left: 50px;
 	width: 250px;
 	height: 150px;
+	font-family: main,Verdana,serif;
 }	
 
 .main-help-me-others-find {

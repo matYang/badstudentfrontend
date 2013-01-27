@@ -146,6 +146,7 @@
 	float: left;
 	height: 300px;
 	width: 600px;
+	word-wrap:break-word;
 }
 
 #detail-submitContainer {
