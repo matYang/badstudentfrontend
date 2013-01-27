@@ -54,7 +54,7 @@
         }
 
         if (this.type == 1){
-            $('#detail-totalPrice').html("&yen;" + this.message.get('price') + "/时");
+            $('#detail-totalPrice').html("&yen;" + this.message.get('price') + "<span>/时</span>");
         }
         if (this.type == 0){
             var hour = Number(this.message.get('courseLengthInMinutes')/60);
@@ -138,11 +138,9 @@
     authSubmit:function(password){
         var self = this;
         self.message.overrideUrl(authUrlOverride);
+        self.message.set({'password':password});
 
-        self.message.fetch({
-            dataType:'json',
-            data: $.param({ id: self.message.get('id'), password: password}),
-
+        self.message.save({},{
             success:function(model, response){
                 self.message.overrideUrl(infoUrlOverride);
                 $('#detail-submit-passwordContainer').css({'visibility':'hidden'});
@@ -159,7 +157,7 @@
                 if (response.status == 401){
                     $('#detail-submit-errorContainer').css({'visibility':'visible'});
                     $('#detail-submit-error').html("密码验证失败");
-                    $('div').effect("shake", { times:3 }, 300);
+                    //$('div').effect("shake", { times:3 }, 300);
                     /*target*/
                     $('#detail-submit-password').value = "";
                 }
