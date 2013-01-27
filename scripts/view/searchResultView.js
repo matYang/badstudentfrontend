@@ -31,7 +31,7 @@
  	render:function(){
  		if (this.gender == 2){
  			for (var i = 0; i < this.searchResults.length; i++){
-                //does not display any messages that has authCode == -2
+ 				//does not display any messages that has authCode == -2
                 if (this.searchResults.at(i).get('authCode') != -2){
                     var curModel = this.searchResults.at(i);
                     curModel.set({'tpId': ('i' + tpId)});
@@ -41,22 +41,24 @@
                     this.fill(curModel, ('i' + tpId));
                     tpId++;
                 }
+    
             }
         }
  		else if (this.gender == 0 || this.gender == 1){
  			for (var i = 0; i < this.searchResults.length; i++){
-                //does not display any messages that has authCode == -2
+ 				//does not display any messages that has authCode == -2
                 if (this.searchResults.at(i).get('authCode') != -2){
-     				if (this.searchResults.at(i).get('gender') == this.gender){
-     					var curModel = this.searchResults.at(i);
-     					curModel.set({'tpId': ('i' + tpId)});
+                    if (this.searchResults.at(i).get('gender') == this.gender){
+                        var curModel = this.searchResults.at(i);
+                        curModel.set({'tpId': ('i' + tpId)});
                         this.idArray.push('i' + tpId);
                         $(this.targetId).append("<hr><hr>");
-     					$(this.targetId).append(this.template(curModel.toJSON()));
-     					this.fill(curModel, ('i' + tpId));
-     					tpId++;
-     				}
+                        $(this.targetId).append(this.template(curModel.toJSON()));
+                        this.fill(curModel, ('i' + tpId));
+                        tpId++;
+                    }
                 }
+
             }
  		}
 		 		

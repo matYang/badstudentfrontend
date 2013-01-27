@@ -5,6 +5,7 @@
  	initialize:function(message){
  		_.bindAll(this,'render','getDateString','bindEvents','validation','authSubmit','close');
  		this.message = message;
+
         if (this.message.get('authCode') == -2){
             alert("This messages is outdated or has been deleted by its publisher");
             app.navigate("",true);
@@ -16,6 +17,8 @@
             this.bindEvents();
         }
         this.allowPassword = true;
+
+
  	},
 
     render: function(){
@@ -167,6 +170,7 @@
                 else{
                     alert("system error, please report to us");
                 }
+
             }
         });
 

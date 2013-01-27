@@ -192,6 +192,7 @@ var RegisterView= Backbone.View.extend({
         var self = this;
 		newMessage.save({},{
 			success:function(model, response){
+
 				self.searchResult.add(newMessage);
 				app.navigate("message/" + encodeURI(newMessage.get('id')), true);
 			},
@@ -203,9 +204,10 @@ var RegisterView= Backbone.View.extend({
                 else if (response.status == 409){
                     alert("message conflict with backend, please try different message fields");
                 }
-				else{
+                else{
                     alert("system error, please report to us");
                 }
+
 			}
 		});
 

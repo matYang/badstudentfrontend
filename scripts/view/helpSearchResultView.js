@@ -16,8 +16,10 @@
  	},
 
  	render:function(){
+        $(this.el).append("<div class='backgroundImage'></div>");
  		$(this.el).append("<div id='help-full-width' class='full-width'>");
-        $('#help-full-width').append("<img class='backgroundImage' src='asset/chinamap.png' alt='chinamap.png'>");
+        $('#help-full-width').append("<div class='headerImage'></div>");
+        $('#help-full-width').append("<div class='gradi'></div>");
  		$('#help-full-width').append("<div id='help-upper-container' class='help-ask-upper-container'></div>");
         $('#help-upper-container').append("<div id='ask-header' class='help-ask-header'></div>");
  		$('#ask-header').append("<div id='help-title' class='help-ask-title'>创建您的点名需求</div>");
@@ -135,7 +137,7 @@
                 alert("最多选¥999");
                 // add more visual effects
             }
-            if (content.length > 1000){
+            if (content.length >= 1000){
                 proceed = false;
                 alert("内容最长1000字符");
             }

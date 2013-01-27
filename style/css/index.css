@@ -18,52 +18,16 @@ body {
 	src: url("../../asset/YuppySC.otf") format("opentype");
 } 
 
-#gradi {
-	z-index: -2;
-	width: 1000px;
-	height: 500px;
-	position: absolute;
-	top: 0px;
-	left: 0px;
-	background-image: url("../../img/gradi.png");
-	background-repeat: no-repeat;
-	background-size: contain;
-	opacity: 0.5;
-}
-
-.headerFooterImage {
-	height: 100px;
-	width: 200px;
-	margin-left: auto;
-	margin-right: auto;
-}
-
-#main-full-width.full-width {
-	width: 850px;
-	height: 1000px;
-}
-
-#headerCatImage {
-	float: left;
-	padding-top: 20px;
-	height: 50px;
-	width: 50px;
-}
-
-#headerWordImage {
-	padding-top: 50px;
-	height: 50px;
-	width: 150px;
-}
-
 #footerImage {
 	margin-top: 15px;
 	background: url('../../img/footer.png');
 	background-position: center;
 	background-repeat: no-repeat;
-	height: 170px;
+	height: 150px;
 	width: 250px;
 	background-size: contain;
+	margin-right: auto;
+	margin-left: auto;
 }
 
 /* Selection Part */

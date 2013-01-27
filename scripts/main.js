@@ -57,6 +57,7 @@ var AppRouter = Backbone.Router.extend({
             this.minimumDate.setDate((this.minimumDate.getDate() + 1));
         }
         this.minimumDate.setHours(0,0,0,0);
+
         this.locationArray = new Array("江苏", "南京市", "南京大学仙林校区");
     },
 
@@ -92,7 +93,7 @@ var AppRouter = Backbone.Router.extend({
 
             error: function(model, response){
 
-                alert("viewById::this is a system failure, please report to us");
+                alert("viewById::failed to fetch data from server");
             }
         });
     },
@@ -125,7 +126,7 @@ var AppRouter = Backbone.Router.extend({
             
             error: function(model, response){
                 
-                alert("helpSearch::this is a system failure, please report to us");
+                alert("helpSearch::failed to fetch data from server");
             }
         });
 
@@ -160,7 +161,7 @@ var AppRouter = Backbone.Router.extend({
             
             error: function(model, response){
 
-                alert("askSearch::this is a system failure, please report to us");
+                alert("askSearch::failed to fetch data from server");
             }
         });
 
@@ -190,7 +191,7 @@ var AppRouter = Backbone.Router.extend({
             
             error: function(model, response){
 
-                alert("infoSearch::this is a system failure, please report to us");
+                alert("infoSearch::failed to fetch data from server");
             }
         });
 
