@@ -15,7 +15,7 @@ if (supportStorage){
     tempQq = localStorage.qq;
     tempTwitter = localStorage.twitter;
     tempSelfDefined = localStorage.selfDefined;
-    tempLocationString = localStorage.locationArray;
+    tempLocationString = localStorage.locationString;
     if (tempEmail){
         storage.email = tempEmail;
     }
@@ -52,7 +52,7 @@ var AppRouter = Backbone.Router.extend({
         "info/*encodedSearchKey":"infoSearch",
         "tempSession/:id" : "tempSession"
     },
- 
+    
     initialize:function () {
         this.keyArray = new Array();
         this.searchResult = new Messages();
@@ -64,8 +64,13 @@ var AppRouter = Backbone.Router.extend({
             this.minimumDate.setDate((this.minimumDate.getDate() + 1));
         }
         this.minimumDate.setHours(0,0,0,0);
-
-        this.locationArray = new Array("江苏", "南京市", "南京大学仙林校区");
+        if (storage.city){
+            this.locationArray = new Array(storage.province, storage.city, storage.school);
+        }
+        else{
+            this.locationArray = new Array("江苏", "南京市", "南京大学仙林校区");
+        }
+        
     },
 
     main:function(){
