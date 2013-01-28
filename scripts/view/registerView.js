@@ -151,6 +151,12 @@ var RegisterView= Backbone.View.extend({
  			//TODO add more visual effects
  		}
 
+        if (this.password.length > 20){
+            proceed = false;
+            alert("password max length 20 characters");
+            //TODO add more visual effects
+        }
+
  		if (!(this.password === $('#register-modal-confirmPassword').val())){
  			proceed = false;
  			alert("password not confirmed");

@@ -99,7 +99,7 @@
 
 			var hourPrice = Number(curModel.get('price')/hour);
             if (!(hour % 1 === 0)){
-                hour = hour.toFixed(2);
+                hour = hour.toFixed(1);
             }
             if (!(hourPrice % 1 === 0)){
                 hourPrice = hourPrice.toFixed(1);

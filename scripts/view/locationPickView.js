@@ -154,6 +154,11 @@
  		this.locationArray[1] = this.cityName;
  		this.locationArray[2] = this.universityName;
 
+ 		if (supportStorage){
+ 			var locationString = this.locationArray[0] + " " + this.locationArray[1] + " " + this.locationArray[2];
+ 			localStorage.locationString = locationString;
+ 		}
+
  		this.initiator.updateLocation();
  		this.close();
  	},

@@ -8,13 +8,14 @@ var doubleModalOpen = false;
 var tpId = 1000;
 /* web storage:: local storage*/
 var supportStorage = isStorageSupported();
-var storage = {'email':"", 'phone':"", 'qq':"", 'twitter':"", 'selfDefined':""};
+var storage = {'email':"", 'phone':"", 'qq':"", 'twitter':"", 'selfDefined':"", 'province':"", 'city':"", 'school':""};
 if (supportStorage){
     tempEmail = localStorage.email;
     tempPhone = localStorage.phone;
     tempQq = localStorage.qq;
     tempTwitter = localStorage.twitter;
     tempSelfDefined = localStorage.selfDefined;
+    tempLocationString = localStorage.locationString;
     if (tempEmail){
         storage.email = tempEmail;
     }
@@ -29,6 +30,12 @@ if (supportStorage){
     }
     if (tempSelfDefined){
         storage.selfDefined = tempSelfDefined;
+    }
+    if (tempLocationString){
+        var tempLocationArray = tempLocationString.split(' ');
+        storage.province = tempLocationArray[0];
+        storage.city = tempLocationArray[1];
+        storage.school = tempLocationArray[2];
     }
 }
 //to enable place holders in IE 8 using the placeHolder jquery plugin
@@ -45,7 +52,7 @@ var AppRouter = Backbone.Router.extend({
         "info/*encodedSearchKey":"infoSearch",
         "tempSession/:id" : "tempSession"
     },
- 
+    
     initialize:function () {
         this.keyArray = new Array();
         this.searchResult = new Messages();
@@ -57,8 +64,13 @@ var AppRouter = Backbone.Router.extend({
             this.minimumDate.setDate((this.minimumDate.getDate() + 1));
         }
         this.minimumDate.setHours(0,0,0,0);
-
-        this.locationArray = new Array("江苏", "南京市", "南京大学仙林校区");
+        if (storage.city){
+            this.locationArray = new Array(storage.province, storage.city, storage.school);
+        }
+        else{
+            this.locationArray = new Array("江苏", "南京市", "南京大学仙林校区");
+        }
+        
     },
 
     main:function(){
