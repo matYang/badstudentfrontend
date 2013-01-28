@@ -4,6 +4,11 @@
 	cursor: pointer;
 }
 
+.singleSearchResult:hover{
+	background-color: #F1F7BC;
+	-webkit-transition: ease .2s; 
+}
+
 .searchResultImgSrc {
 	float: left;
 	margin-top: 9px;
@@ -22,12 +27,13 @@
 }
 
 .searchResultLocation {
-	padding-top: 10%;
+	padding-top: 5%;
 	padding-left: 5%;
 	height: 25%;
 	width: 100%;
 	font-weight:bold;
 	font-size: 115%;
+	opacity: 0.9;
 }
 
 .searchResultWindow {
@@ -47,6 +53,7 @@
 .searchResultPriceContainer {
 	float: right;
 	height: 100%;
+	padding-right: 10px;
 }
 
 .searchResultTotalValue {
@@ -65,16 +72,18 @@
 .searchResultHour {
 	text-align: right;
 	height: 15%;
-	width: 100%;
+	width: 90%;
 	font-size: 80%;	
-	font-weight:bold;
+	opacity: 0.8;
+	margin-right: 1px;
 }
 .searchResultDividedPrice {
 	text-align: right;
 	height: 15%;
-	width: 100%;
+	width: 90%;
 	font-size: 80%;
-	font-weight:bold;
+	opacity: 0.8;
+	margin-right: 1px;
 }
 
 hr {

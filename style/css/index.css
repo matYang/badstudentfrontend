@@ -173,6 +173,8 @@ body {
 	height: 450px;
 	width: 850px;
 	background: url("../../img/backg.png");
+	box-shadow: 0 0 50px 1px #222;
+	opacity: 0.8;
 }
 
 
@@ -191,7 +193,7 @@ body {
 }
 
 #main-info {
-	width: 500px;
+	width: 520px;
 	height: 380px;
 	position: relative;
 	margin-top: 10px;

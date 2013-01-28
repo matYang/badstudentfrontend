@@ -12,7 +12,8 @@
 
  	render:function(){
         $(this.el).append("<div id = 'feedBackShow'>提供意见</div>");
-        $(this.el).append("<div id = 'feedBackContainer'></div>");
+        $('body').append("<div class='popupPanel' id='feedBackPanel'></div>");
+        $('#feedBackPanel').append("<div id = 'feedBackContainer'></div>");
         $('#feedBackContainer').append("<div id = 'feedBackClose'>X</div>");
         $('#feedBackContainer').append("<div id = 'feedBackIntro'>目前我们处于v0.9 beta版本中，欢迎大家汇报问题，踊跃提出建议～</div>");
         $('#feedBackContainer').append("<textarea id = 'feedBackContent'></textarea>");
@@ -64,11 +65,11 @@
     },
 
     show:function(){
-        $('#feedBackContainer').css({'display':'block'});
+        $('#feedBackPanel').css({'visibility':'visible'});
     },
 
     close:function(){
-        $('#feedBackContainer').css({'display':'none'});
+        $('#feedBackPanel').css({'visibility':'hidden'});
     }
 
 

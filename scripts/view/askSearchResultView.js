@@ -24,15 +24,17 @@
         $('#ask-full-width').append("<div class='gradi'></div>");
         $('#ask-full-width').append("<div id='ask-upper-container' class='help-ask-upper-container'></div>");
         $('#ask-upper-container').append("<div id='help-header' class='help-ask-header'></div>");
-        $('#help-header').append("<div id='ask-title' class='help-ask-title'>创建您的点名需求</div>");
-        $('#help-header').append("<div id='ask-catContainer' class='help-ask-catContainer'><img id='ask-cat' src='img/cat.png'/></div>");
+        $('#help-header').append("<div id='ask-cat' class='help-ask-catContainer'></div>");
+        $('#help-header').append("<div id='ask-title' class='help-ask-title'>创建我的帮点名信息</div>");
         $('#ask-upper-container').append("<div id='ask-createContainer' class='roundBox shadowBox help-ask-createContainer'></div>");
         $('#ask-upper-container').append("<div id='ask-submit' class='roundBox shadowBox help-ask-submit'><div>我勒个去</div><img src='asset/pencil.png' alt='铅笔.png'></div>");   
 
-        $('#ask-createContainer').append("<div class='help-ask-row'><p>我能在</p><div id='ask-input-location' class='help-ask-input-location'></div>附近</div>");
-        $('#ask-createContainer').append("<div class='help-ask-row'>帮点名，我从<input id='ask-input-startDatePicker' class='help-ask-input-datePicker'/>到</div>");
-        $('#ask-createContainer').append("<div class='help-ask-row'><input id='ask-input-endDatePicker' class='help-ask-input-datePicker'/> 我是一个<select id='ask-input-gender' class='help-ask-input-gender'><option value='0'>男生</option><option value='1'>女生</option></select></div>");
-        $('#ask-createContainer').append("<div class='help-ask-row'>我希望收取<input id='ask-input-price' class='help-ask-input-price' type='number' placeholder='5'/>元每小时!</div>");
+        $('#ask-createContainer').append("<div class='help-ask-row'><p>我能从</p><input id='ask-input-startDatePicker' class='help-ask-input-datePicker'/></div>");
+        $('#ask-createContainer').append("<div class='help-ask-row'><span> 到</span><input id='ask-input-endDatePicker' class='help-ask-input-datePicker'/></div>");
+        $('#ask-createContainer').append("<div class='help-ask-row'><span>在</span><div id='ask-input-location' class='help-ask-input-location'></div></div>");
+        $('#ask-createContainer').append("<div class='help-ask-row'><span>附近帮点名，我从 </span></div>");
+        $('#ask-createContainer').append("<div class='help-ask-row'><span> 我是一个</span><select id='ask-input-gender' class='help-ask-input-gender'><option value='0'>男生</option><option value='1'>女生</option></select></div>");
+        $('#ask-createContainer').append("<div class='help-ask-row'><span>我希望收取 </span><input id='ask-input-price' class='help-ask-input-price' type='number' placeholder='5'/><span> 元每小时!</span></div>");
 
         $('#ask-full-width').append("<div id='ask-lower-container' class='help-ask-lower-container'></div>");
         $('#ask-lower-container').append("<div id='ask-lower-title' class='help-ask-lower-title'></div>");
