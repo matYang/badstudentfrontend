@@ -82,6 +82,10 @@
             app.navigate("",true);
         });
 
+        $('.headerImage').bind('click',function(){
+            app.navigate("",true);
+        });
+
         var isSubmitClicked = false;
         $('#detail-submit-button').bind('click', function(){
             isSubmitClicked = true;
@@ -119,7 +123,6 @@
     validation:function(){
         var self = this;
         var password = $('#detail-submit-password').val();
-        $('#detail-submit-password').val("");
         if (!(password)){
             alert("please enter password");
             //TODO add more visual effects
@@ -127,6 +130,7 @@
         else{
             if (this.allowPassword){
                 self.authSubmit(password);
+                $('#detail-submit-password').val("");
             }
             else{
                 $('#detail-submit-errorContainer').css({'visibility':'visible'});
@@ -187,6 +191,7 @@
         $('#detail-submitContainer').unbind();
         $('body').unbind();
         $('#detail-submit-password-button').unbind();
+        $('.headerImage').unbind();
 
         this.unbind();
         $(this.el).empty();

@@ -12,15 +12,18 @@
         this.locationArray[1] = this.message.get('location').city;
         this.locationArray[2] = this.message.get('location').school;
         this.type = this.message.get('type');
+        this.max = 300;
 
         modalOpen = true;
 
 
         this.template = _.template(tpl.get('editTemplate')),
+        
 
         this.render();
         this.bindEvents();
         this.updateLocation();
+        
  	},
 
     render: function(){
@@ -64,7 +67,7 @@
 
 
         if (this.type == 0){
-            $('#detail-modal-upperRightContainer').append("<div id = 'detail-modal-courseLengthInMinutesContainer' class = 'edit-line'><div class='edit-line-label'>课时</div><input id = 'detail-modal-courseLengthInMinutes' value = '" + this.message.get('courseLengthInMinutes') + "'/></div>");
+            $('#detail-modal-upperRightContainer').append("<div id = 'detail-modal-courseLengthInMinutesContainer' class = 'edit-line'><div class='edit-line-label'>课时</div><input id = 'detail-modal-courseLengthInMinutes' value = '" + this.message.get('courseLengthInMinutes') + "'/><span>分钟</span></div>");
         }
         if (this.type == 1){
             $('#detail-modal-upperRightContainer').append("<div id = 'detail-modal-endDatePickerContainer' class='edit-line'><div class='edit-line-label'>到</div><input id = 'detail-modal-endDatePicker'/></div>");
@@ -126,6 +129,26 @@
         });
         $('#detail-modal-submitButton').bind('click',this.validation);
 
+        $('#detail-modal-content').keyup(function(){
+            var length = $(this).val().length;
+            if (length > self.max) {
+                $('#detail-modal-wordCount').html('最长' + self.max + '字符...');
+            } 
+            else {
+                var available = self.max - length;
+                $('#detail-modal-wordCount').html(available);
+            }
+        });
+        //default text takes length too
+        var length =  $('#detail-modal-content').val().length;
+        if (length > this.max){
+            $('#detail-modal-wordCount').html('最长' + this.max + '字符...');
+        } 
+        else {
+            var available = this.max - length;
+            $('#detail-modal-wordCount').html(available);
+        }
+
     },
 
     deleteMessage:function(){
@@ -175,9 +198,9 @@
         this.content = $('#detail-modal-content').val();
         this.price = Number($('#detail-modal-price').val());
 
-        if (this.content.length > 1000){
+        if (this.content.length > this.max){
             proceed = false;
-            alert("内容最长1000字符");
+            alert("内容最长" + this.max + "字");
         }
 
         if (this.email.length > 0){

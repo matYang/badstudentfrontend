@@ -165,6 +165,10 @@
             app.navigate("",true);
         });
 
+        $('.headerImage').bind('click',function(){
+            app.navigate("",true);
+        });
+
         $('#ask-input-location').bind('click', this.showLocation);
 
         $('#ask-submit').bind('click',function(){
@@ -208,6 +212,7 @@
         $('#ask-gender-female').unbind();
         $('#ask-gender-male').unbind();
         $('#ask-gender-dontCare').unbind();
+        $('.headerImage').unbind();
 
         this.unbind();
         $(this.el).empty();

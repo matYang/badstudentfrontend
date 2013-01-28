@@ -30,6 +30,15 @@
 	width: 70%;
 }
 
+/*overring input*/
+#register-modal-courseLengthInMinutes{
+	width: 60%;
+}
+
+#register-modal-courseLengthInMinutesContainer span{
+	padding-left: 5px;
+}
+
 #register-modal-notice {
 	width: 80%;
 	height: 30px;

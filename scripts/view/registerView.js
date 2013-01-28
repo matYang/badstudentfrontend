@@ -24,7 +24,7 @@ var RegisterView= Backbone.View.extend({
  		$('#registerViewPanel').append("<div class='roundBox shadowBox' id='register-modal-main'></div>");
  		$('#register-modal-main').append("<div class='popUpCloseButton' id='register-modal-closeButton'></div>");
  		if (this.type == 0){
- 			$('#register-modal-main').append("<div class = 'register-modal-container' id = 'register-modal-courseLengthInMinutesContainer' style='padding-top:10px'><div class = 'register-modal-container-word' id = 'register-modal-courseLengthInMinutesWord'>课时长</div><input class = 'register-modal-input' id = 'register-modal-courseLengthInMinutes' placeholder = '分钟 eg 45'/></div>");
+ 			$('#register-modal-main').append("<div class = 'register-modal-container' id = 'register-modal-courseLengthInMinutesContainer' style='padding-top:10px'><div class = 'register-modal-container-word' id = 'register-modal-courseLengthInMinutesWord'>课时长</div><input class = 'register-modal-input' id = 'register-modal-courseLengthInMinutes' placeholder = '分钟 eg 45'/><span>分钟</span></div>");
 			$('#register-modal-main').append("<div id = 'register-modal-notice'><div id='register-modal-noticeContainer'>请至少填写以下一项</div></div>"); 		
  		}else{
  			$('#register-modal-main').css("height","350px");

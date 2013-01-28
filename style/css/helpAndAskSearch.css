@@ -27,8 +27,15 @@
 }
 
 .help-ask-catContainer:hover {
-	opacity: 1;
+	margin-right: 10px;
+	float: left;
+	background: url("../../img/cathover.png");
 	-webkit-transition: ease .2s;
+	height: 50px;
+	width: 50px;
+	background-size: contain;
+	cursor: pointer;
+	opacity: 1;
 }
 
 .help-ask-catContainer img {

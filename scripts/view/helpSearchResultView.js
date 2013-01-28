@@ -120,6 +120,10 @@
  			app.navigate("",true);
  		});
 
+        $('.headerImage').bind('click',function(){
+            app.navigate("",true);
+        });
+
         $('#help-input-location').bind('click', this.showLocation);
 
 		$('#help-submit').bind('click',function(){
@@ -137,9 +141,9 @@
                 alert("最多选¥999");
                 // add more visual effects
             }
-            if (content.length >= 1000){
+            if (content.length > 300){
                 proceed = false;
-                alert("内容最长1000字符");
+                alert("内容最长300字");
             }
             if (modalOpen == false && proceed == true){
                 self.registerView = new RegisterView(self.searchResult, self.locationArray, self.date, self.date, content, gender, price, 0);
@@ -167,6 +171,7 @@
         $('#help-gender-female').unbind();
         $('#help-gender-male').unbind();
         $('#help-gender-dontCare').unbind();
+        $('.headerImage').unbind();
 
         this.unbind();
         $(this.el).empty();
