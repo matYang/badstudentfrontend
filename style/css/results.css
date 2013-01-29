@@ -27,7 +27,7 @@
 }
 
 .searchResultLocation {
-	padding-top: 5%;
+	padding-top: 8%;
 	padding-left: 5%;
 	height: 25%;
 	width: 100%;
@@ -72,15 +72,14 @@
 .searchResultHour {
 	text-align: right;
 	height: 15%;
-	width: 90%;
+	width: 100%;
 	font-size: 80%;	
 	opacity: 0.8;
-	margin-right: 1px;
 }
 .searchResultDividedPrice {
 	text-align: right;
 	height: 15%;
-	width: 90%;
+	width: 100%;
 	font-size: 80%;
 	opacity: 0.8;
 	margin-right: 1px;

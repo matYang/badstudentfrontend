@@ -25,11 +25,11 @@
  		$('#ask-header').append("<div id='help-cat' class='help-ask-catContainer'></div>");
  		$('#ask-header').append("<div id='help-title' class='help-ask-title'>创建您的点名需求</div>");
         $('#help-upper-container').append("<div id='help-createContainer' class='roundBox shadowBox help-ask-createContainer'></div>");
- 		$('#help-upper-container').append("<div id='help-submit' class='roundBox shadowBox help-ask-submit'><div>我勒个去</div><img src='asset/pencil.png' alt='铅笔.png'></div>");	
+ 		$('#help-upper-container').append("<div class='help-ask-submit' ><a class='hxsbutton' id='help-submit'><span class='hxsbutton-text'>找人帮我</span><span class='hxsbutton-slide-text'>喵~翘咯~</span><span class='hxsbutton-icon-right'><span></span></span></a></div>");
 
- 		$('#help-createContainer').append("<div class='help-ask-row'><p>我在</p><div id='help-input-location' class='help-ask-input-location'></div>附近求</div>");
-        $('#help-createContainer').append("<div class='help-ask-row'><input id='help-input-content' placeholder='eg 代点名'/>这</div>");
-        $('#help-createContainer').append("<div class='help-ask-row'>节课在 <input id='help-input-datePicker' class='help-ask-input-datePicker'/> 我需要一个</div>");
+ 		$('#help-createContainer').append("<div class='help-ask-row'><p>我在</p><div id='help-input-location' class='help-ask-input-location'></div></div>");
+        $('#help-createContainer').append("<div class='help-ask-row'>附近求 <input id='help-input-content' placeholder='eg 代点名'/></div>");
+        $('#help-createContainer').append("<div class='help-ask-row'>这节课在 <input id='help-input-datePicker' class='help-ask-input-datePicker'/> 我需要一个</div>");
         $('#help-createContainer').append("<div class='help-ask-row'><select id='help-input-gender' class='help-ask-input-gender'><option value='2'>男生或女生</option><option value='0'>男生</option><option value='1'>女生</option></select> 这节课我愿意付 <input id='help-input-price' class='help-ask-input-price' type='number' placeholder='5'/> 元!</div>");
 
  		$('#help-full-width').append("<div id='help-lower-container' class='help-ask-lower-container'></div>");
@@ -91,7 +91,7 @@
         this.searchResultView = new SearchResultView("#help-info", this.searchResult, 1);
 
         $('.help-ask-gender').css({'color' : ''});
-        $('#help-gender-female').css({'color' : '#A0A0A0'});
+        $('#help-gender-female').css({'color' : '#0099CC'});
     },
 
     showMale:function(){
@@ -101,7 +101,7 @@
         this.searchResultView = new SearchResultView("#help-info", this.searchResult, 0);
 
         $('.help-ask-gender').css({'color' : ''});
-        $('#help-gender-male').css({'color' : '#A0A0A0'});
+        $('#help-gender-male').css({'color' : '#0099CC'});
     },
 
 
@@ -112,7 +112,7 @@
  		this.searchResultView = new SearchResultView("#help-info", this.searchResult, 2);
 
         $('.help-ask-gender').css({'color' : ''});
-        $('#help-gender-dontCare').css({'color' : '#A0A0A0'});
+        $('#help-gender-dontCare').css({'color' : '#0099CC'});
  	},
 
  	bindEvents:function(){
