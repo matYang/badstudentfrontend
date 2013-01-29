@@ -210,9 +210,9 @@
                 proceed = false;
                 alert("invalid email format");
             }
-            if (this.email.length > 50){
+            if (this.email.length > 20){
                 proceed = false;
-                alert("email max length 50 chars");
+                alert("email max length 20 chars");
             }
         }
         
@@ -223,7 +223,7 @@
             }
             if (this.phone.length > 20){
                 proceed = false;
-                alert("phone max length 50 chars");
+                alert("phone max length 20 chars");
             }
         }
         
@@ -232,20 +232,20 @@
                 proceed = false;
                 alert("invalid qq format");
             }
-            if (this.qq.length > 50){
+            if (this.qq.length > 20){
                 proceed = false;
-                alert("qq max length 50 chars");
+                alert("qq max length 20 chars");
             }
         }
 
-        if (this.twitter.length > 50){
+        if (this.twitter.length > 20){
             proceed = false;
-            alert("twitter max length 50 chars");
+            alert("twitter max length 20 chars");
         }
 
-        if (this.selfDefined.length > 50){
+        if (this.selfDefined.length > 20){
             proceed = false;
-            alert("selfDefined max length 50 chars");
+            alert("selfDefined max length 20 chars");
         }
 
 
