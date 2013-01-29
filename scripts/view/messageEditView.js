@@ -62,7 +62,7 @@
         $('#detail-modal-datePicker').datepicker( "setDate", this.startDate);
         $('#detail-modal-datePicker').datepicker( "option", "minDate", app.minimumDate);
         $('#detail-modal-datePicker').datepicker( "option", "dateFormat", "yy年m月d日" );
-
+        $('#detail-modal-datePicker').datepicker( "option", "numberOfMonths", 2);
 
 
 
@@ -100,6 +100,7 @@
                 $('#detail-modal-endDatePicker').datepicker( "option", "minDate", this.startDate);
             }
             $('#detail-modal-endDatePicker').datepicker( "option", "dateFormat", "yy年m月d日" );
+            $('#detail-modal-endDatePicker').datepicker( "option", "numberOfMonths", 2);
         }
 
         togglePopup('editPanel');

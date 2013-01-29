@@ -30,6 +30,10 @@
  			app.navigate("",true);
  		});
 
+ 		$('.headerImage').bind('click',function(){
+ 			app.navigate("",true);
+ 		});
+
  	},
 
  	close:function(){

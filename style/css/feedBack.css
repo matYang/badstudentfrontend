@@ -43,6 +43,10 @@
 	opacity: 0.6;
 }
 
+#feedBackClose:hover{
+	opacity: 1;
+}
+
 #feedBackIntro{
 	padding-top: 30px;
 	margin-left: 50px;
