@@ -27,12 +27,12 @@
         $('#help-header').append("<div id='ask-cat' class='help-ask-catContainer'></div>");
         $('#help-header').append("<div id='ask-title' class='help-ask-title'>创建我的帮点名信息</div>");
         $('#ask-upper-container').append("<div id='ask-createContainer' class='roundBox shadowBox help-ask-createContainer'></div>");
-        $('#ask-upper-container').append("<div id='ask-submit' class='roundBox shadowBox help-ask-submit'><div>我勒个去</div><img src='asset/pencil.png' alt='铅笔.png'></div>");   
+        $('#ask-upper-container').append("<div class='help-ask-submit' ><a class='hxsbutton' id='ask-submit'><span class='hxsbutton-text'>找人帮我</span><span class='hxsbutton-slide-text'>喵~翘咯~</span><span class='hxsbutton-icon-right'><span></span></span></a></div>");   
 
         $('#ask-createContainer').append("<div class='help-ask-row'><span>我能从 </span><input id='ask-input-startDatePicker' class='help-ask-input-datePicker'/><span> 到 </span><input id='ask-input-endDatePicker' class='help-ask-input-datePicker'/></div>");
-        $('#ask-createContainer').append("<div class='help-ask-row'><span style='float:left'>在</span><div id='ask-input-location' class='help-ask-input-location'></div></div>");
-        $('#ask-createContainer').append("<div class='help-ask-row'><span>附近帮点名， 我是一个</span><select id='ask-input-gender' class='help-ask-input-gender'><option value='0'>男生</option><option value='1'>女生</option></select></div>");
-        $('#ask-createContainer').append("<div class='help-ask-row'><span>我希望收取 </span><input id='ask-input-price' class='help-ask-input-price' type='number' placeholder='5'/><span> 元每小时!</span></div>");
+        $('#ask-createContainer').append("<div class='help-ask-row'><span style='float:left'>在</span><div id='ask-input-location' class='help-ask-input-location'></div><span>附近</span></div>");
+        $('#ask-createContainer').append("<div class='help-ask-row'><span>帮点名，我是一个</span><select id='ask-input-gender' class='help-ask-input-gender'><option value='0'>男生</option><option value='1'>女生</option></select><span>，这次帮点名</span></div>");
+        $('#ask-createContainer').append("<div class='help-ask-row'><span>我希望收取 </span><input id='ask-input-price' class='help-ask-input-price' type='number' placeholder='5'/><span> 元每小时</span></div>");
 
         $('#ask-full-width').append("<div id='ask-lower-container' class='help-ask-lower-container'></div>");
         $('#ask-lower-container').append("<div id='ask-lower-title' class='help-ask-lower-title'></div>");
@@ -132,7 +132,7 @@
         this.searchResultView = new SearchResultView("#ask-info", this.searchResult, 1);
 
         $('.help-ask-gender').css({'color' : ''});
-        $('#ask-gender-female').css({'color' : '#A0A0A0'});
+        $('#ask-gender-female').css({'color' : '#0099CC'});
     },
 
     showMale:function(){
@@ -142,7 +142,7 @@
         this.searchResultView = new SearchResultView("#ask-info", this.searchResult, 0);
 
         $('.help-ask-gender').css({'color' : ''});
-        $('#ask-gender-male').css({'color' : '#A0A0A0'});
+        $('#ask-gender-male').css({'color' : '#0099CC'});
     },
 
 
@@ -153,7 +153,7 @@
         this.searchResultView = new SearchResultView("#ask-info", this.searchResult, 2);
 
         $('.help-ask-gender').css({'color' : ''});
-        $('#ask-gender-dontCare').css({'color' : '#A0A0A0'});
+        $('#ask-gender-dontCare').css({'color' : '#0099CC'});
     },
 
     bindEvents:function(){
