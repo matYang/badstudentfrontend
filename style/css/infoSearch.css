@@ -27,11 +27,14 @@
 	width: 100%;
 	background: url("../../img/backg.png");
 	overflow: auto;
+	-moz-opacity: 0.80;
+	opacity: 0.80;
+	-ms-filter:"progid:DXImageTransform.Microsoft.Alpha"(Opacity=80);
 }
 
 #info-info > div {
 	float: left;
-	width: 375px;
+	width: 400px;
 	margin-left: 25px;
 	margin-right: 25px;
 	height: 100px;

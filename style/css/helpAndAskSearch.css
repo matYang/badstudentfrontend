@@ -64,11 +64,15 @@
 .help-ask-row p {
 	float: left;
 	margin: 0;
-	opacity: 0.5;
+	-moz-opacity: 0.50;
+	opacity: 0.50;
+	-ms-filter:"progid:DXImageTransform.Microsoft.Alpha"(Opacity=50);
 }
 
 .help-ask-row span {
-	opacity: 0.5;
+	-moz-opacity: 0.50;
+	opacity: 0.50;
+	-ms-filter:"progid:DXImageTransform.Microsoft.Alpha"(Opacity=50);
 }
 
 .help-ask-input-location {
@@ -132,7 +136,9 @@
 	height: 650px;
 	width: 850px;
 	box-shadow: 0 0 30px 2px #222;
-	opacity: 0.8;
+	-moz-opacity: 0.80;
+	opacity: 0.80;
+	-ms-filter:"progid:DXImageTransform.Microsoft.Alpha"(Opacity=80);
 }
 
 .help-ask-lower-title {

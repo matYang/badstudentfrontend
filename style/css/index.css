@@ -174,7 +174,9 @@ body {
 	width: 850px;
 	background: url("../../img/backg.png");
 	box-shadow: 0 0 50px 1px #222;
-	opacity: 0.8;
+	-moz-opacity: 0.80;
+	opacity: 0.80;
+	-ms-filter:"progid:DXImageTransform.Microsoft.Alpha"(Opacity=80);
 }
 
 
