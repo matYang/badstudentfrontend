@@ -104,8 +104,8 @@
             if (!(hourPrice % 1 === 0)){
                 hourPrice = hourPrice.toFixed(1);
             }
-			$(curId +  ' .searchResultHour').html("<span style='color:#3A3A7A'>" + hour + "</span>" + " 小时");
-            $(curId +  ' .searchResultDividedPrice').html("每小时 " +  "<span style='color:#A53333'>" + hourPrice + "</span>");
+			$(curId +  ' .searchResultHour').html("共 <span style='color:#3A3A7A'>" + hour + "</span>" + " 小时");
+            $(curId +  ' .searchResultDividedPrice').html("每小时 " +  "<span style='color:#A53333'>" + hourPrice + "</span> 元");
 		}
  	},
 
