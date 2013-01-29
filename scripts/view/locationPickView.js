@@ -11,7 +11,7 @@
  		this.initiator = initiator;
  		modalOpen = true;   //tell window that there is a modal view in place
  		doubleModalOpen = true;
-
+ 		this.firstLoad = true;
  		this.render();
  	},
 
@@ -26,6 +26,8 @@
  		
  		$('#location-modal-closeButton').bind('click', this.close);
  		this.getProvinces();
+ 		this.getCities();
+ 		this.getUniversities();
  		togglePopup("locationSearchPanel");
  	},
 
@@ -34,7 +36,7 @@
  		var self = this;
  		$.ajax({
 			type: "GET",
-			async: false,
+			async: true,
 			url: origin + "/api/badstudent/v0.9/location",
 			dataType: 'json',
 			success: function(data){
@@ -42,6 +44,7 @@
 					provinceContainer.append(self.provinceDOMGenerator(data[eachIndex]));
 				}
 				$('.location-modal-province').bind('click', function(){
+					self.firstLoad = false;
 					var selectedProvince = $(this).html();
 					if (selectedProvince != self.provinceName){
 						self.provinceName = selectedProvince;
@@ -52,10 +55,10 @@
 					}
 				});
 
-				self.provinceName = $('.location-modal-province').first().html();
-				self.getCities();
-				self.highLight($('.location-modal-province').first(),"province");
-				self.highLightedProvince = $('.location-modal-province').first();
+				//self.provinceName = $('.location-modal-province').first().html();
+				//self.getCities();
+				self.highLight($(".location-modal-province:contains(" + self.provinceName +  ")").first(),"province");
+				self.highLightedProvince = $(".location-modal-province:contains(" + self.provinceName +  ")").first();
 			},
 			error: function (data, textStatus, jqXHR){
 				alert("An error occurred,try again later.")
@@ -73,7 +76,7 @@
 
  		$.ajax({
 			type: "GET",
-			async: false,
+			async: true,
 			data: {province : self.provinceName},
 			url: origin + "/api/badstudent/v0.9/location",
 			dataType: 'json',
@@ -83,6 +86,7 @@
 					cityContainer.append(self.cityDOMGenerator(data[each]));
 				}
 				$('.location-modal-city').bind('click', function(){
+					self.firstLoad = false;
 					var selectedCity = $(this).html();
 					if (selectedCity != self.cityName){
 						self.cityName = selectedCity;
@@ -95,7 +99,9 @@
 				});
 
 				self.cityName = $('.location-modal-city').first().html();
-				self.getUniversities();
+				if (!self.firstLoad){
+					self.getUniversities();
+				}
 				self.highLight($('.location-modal-city').first(),"city");
 				self.highLightedCity = $('.location-modal-city').first();
 			},
@@ -113,7 +119,7 @@
 
  		$.ajax({
 				type: "GET",
-				async: false,
+				async: true,
 				data: { province: self.provinceName, city: self.cityName },
 				url: origin + "/api/badstudent/v0.9/location",
 				dataType: 'json',
@@ -123,6 +129,7 @@
 					}
 
 					$('.location-modal-university').bind('click', function(){
+						self.firstLoad = false;
 						self.universityName = $(this).children('span').html();
 						self.complete();
 						self.highLight($(this));
