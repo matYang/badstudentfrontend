@@ -76,6 +76,7 @@
         $('#datePicker').datepicker( "setDate", this.date);
         $('#datePicker').datepicker( "option", "minDate", app.minimumDate);
         $('#datePicker').datepicker( "option", "dateFormat", "yy年m月d日" );
+        $('#datePicker').datepicker("option", "numberOfMonths", 2);
  	},
 
     showLocation:function(){
