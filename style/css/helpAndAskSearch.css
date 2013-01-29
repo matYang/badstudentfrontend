@@ -129,7 +129,7 @@
 .help-ask-lower-container {
 	background: url("../../img/backg.png");
 	position: relative;
-	height: 450px;
+	height: 650px;
 	width: 850px;
 	box-shadow: 0 0 30px 2px #222;
 	opacity: 0.8;
@@ -137,7 +137,7 @@
 
 .help-ask-lower-title {
 	width: 100%;
-	height: 20%;
+	height: 70px;
 }
 
 .help-ask-alternative-title {
@@ -161,9 +161,9 @@
 
 .help-ask-secondaryContainer {
 	position: absolute;
-	top: 20%;
+	top: 80px;
 	bottom: 0;
-	height: 80%;
+	height: 560px;
 	width: 100%;
 	overflow: auto;
 }
