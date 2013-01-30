@@ -26,14 +26,9 @@
 }
 
 .help-ask-catContainer:hover {
-	margin-right: 10px;
-	float: left;
 	background: url("../../img/cathover.png");
 	-webkit-transition: ease .2s;
-	height: 50px;
-	width: 50px;
 	background-size: contain;
-	cursor: pointer;
 }
 
 .help-ask-catContainer img {
@@ -177,7 +172,6 @@
 .help-ask-secondaryContainer > div {
 	float: left;
 	width: 400px;
-	margin-left: 13px;
-	margin-right: 12px;
+	margin-right: 15px;
 	height: 100px;
 }

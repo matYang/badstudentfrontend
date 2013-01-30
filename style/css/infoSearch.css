@@ -1,30 +1,36 @@
-#info-full-width {
-	position: relative;
-}
-
 #infoSearchHeader {
-	width: 850px;
+	width: 100%;
 	height: 100px;
-	display: table;
 }
 
-#infoSearchHeader > div {
-	display: table-cell;
-	vertical-align: middle;
+#info-title {
+	float: left;
+	color: #FFFFFF;
+	height: 100%;
 	font-size: 40px;
 }
 
-#infoSearchHeader img {
-	height: 100%;
-	float: right;
+#info-cat {
+	margin-right: 10px;
+	float: left;
+	background: url("../../img/cat.png");
+	height: 50px;
+	width: 50px;
+	background-size: contain;
 	cursor: pointer;
+}
+
+#info-cat:hover {
+	background: url("../../img/cathover.png");
+	-webkit-transition: ease .2s;
+	background-size: contain;
 }
 
 
 #info-info {
 	position: absolute;
 	height: 650px;
-	width: 100%;
+	width: 850px;
 	background: url("../../img/backg.png");
 	overflow: auto;
 	-moz-opacity: 0.80;
@@ -34,17 +40,6 @@
 
 #info-info > div {
 	float: left;
-	width: 400px;
-	margin-left: 25px;
-	margin-right: 25px;
+	width: 420px;
 	height: 100px;
-}
-
-#info-info > hr {
-	float: left;
-	width: 375px;
-	margin-left: 25px;
-	margin-right: 25px;
-	margin-top: 5px;
-	margin-bottom: 0;
 }
