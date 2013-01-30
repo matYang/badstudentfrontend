@@ -127,6 +127,9 @@
             alert("please enter password");
             //TODO add more visual effects
         }
+        else if (password.length > 20){
+            alert("password max length 20 characters");
+        }
         else{
             if (this.allowPassword){
                 self.authSubmit(password);

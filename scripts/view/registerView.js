@@ -31,7 +31,7 @@ var RegisterView= Backbone.View.extend({
 			$('#register-modal-main').append("<div id = 'register-modal-notice'><div id='register-modal-noticeContainer'>请至少填写以下一项</div></div>");
  			$('#register-modal-notice').css("padding-top","10px");
  		}
- 		$('#register-modal-main').append("<div class = 'register-modal-container' id = 'register-modal-emailContainer'><div class = 'register-modal-container-word' id = 'register-modal-emailWord'>邮箱</div><input class = 'register-modal-input' id = 'register-modal-email' placeholder = 'lol@gamil.com' value = '" + storage.email + "'/></div>");
+ 		$('#register-modal-main').append("<div class = 'register-modal-container' id = 'register-modal-emailContainer'><div class = 'register-modal-container-word' id = 'register-modal-emailWord'>邮箱</div><input class = 'register-modal-input' id = 'register-modal-email' placeholder = 'dianming@gamil.com' value = '" + storage.email + "'/></div>");
  		$('#register-modal-main').append("<div class = 'register-modal-container' id = 'register-modal-phoneContainer'><div class = 'register-modal-container-word' id = 'register-modal-phoneWord'>电话</div><input class = 'register-modal-input' id = 'register-modal-phone' placeholder = '15900000000' value = '" + storage.phone + "'/></div>");
  		$('#register-modal-main').append("<div class = 'register-modal-container' id = 'register-modal-qqContainer'><div class = 'register-modal-container-word' id = 'register-modal-qqWord'>QQ</div><input class = 'register-modal-input' id = 'register-modal-qq' placeholder = '455877137' value = '" + storage.qq + "'/></div>");
  		$('#register-modal-main').append("<div class = 'register-modal-container' id = 'register-modal-twitterContainer'><div class = 'register-modal-container-word' id = 'register-modal-twitterWord'>微博</div><input class = 'register-modal-input' id = 'register-modal-twitter' placeholder = '@huaixuesheng' value = '" + storage.twitter + "'/></div>");
@@ -86,9 +86,9 @@ var RegisterView= Backbone.View.extend({
                 proceed = false;
                 alert("invalid email format");
             }
-            if (this.email.length > 20){
+            if (this.email.length > 40){
                 proceed = false;
-                alert("email max length 20 chars");
+                alert("email max length 40 chars");
             }
         }
         
@@ -108,9 +108,9 @@ var RegisterView= Backbone.View.extend({
                 proceed = false;
                 alert("invalid qq format");
             }
-            if (this.qq.length > 20){
+            if (this.qq.length > 40){
                 proceed = false;
-                alert("qq max length 20 chars");
+                alert("qq max length 40 chars");
             }
         }
 

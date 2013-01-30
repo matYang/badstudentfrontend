@@ -18,6 +18,10 @@
     margin-right: auto;
 }
 
+#main-full-width{
+    height: 850px;
+}
+
 .backgroundImage {
     position: absolute;
     top: 50px;

@@ -210,9 +210,9 @@
                 proceed = false;
                 alert("invalid email format");
             }
-            if (this.email.length > 20){
+            if (this.email.length > 40){
                 proceed = false;
-                alert("email max length 20 chars");
+                alert("email max length 40 chars");
             }
         }
         
@@ -232,9 +232,9 @@
                 proceed = false;
                 alert("invalid qq format");
             }
-            if (this.qq.length > 20){
+            if (this.qq.length > 40){
                 proceed = false;
-                alert("qq max length 20 chars");
+                alert("qq max length 40 chars");
             }
         }
 

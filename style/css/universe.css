@@ -123,10 +123,10 @@
     top:50%;
     margin:-20px 0px 0px -20px;
     background:transparent url(../../asset/arrow.png) no-repeat 50% 55%;
-    -webkit-transition:all 0.3s linear;
-    -moz-transition:all 0.3s linear;
-    -o-transition:all 0.3s linear;
-    transition:all 0.3s linear;
+    -webkit-transition:all 0.2s linear;
+    -moz-transition:all 0.2s linear;
+    -o-transition:all 0.2s linear;
+    transition:all 0.2s linear;
 }
 .hxsbutton:hover{
     padding-right:180px;
