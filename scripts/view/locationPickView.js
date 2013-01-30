@@ -98,12 +98,13 @@
 					
 				});
 
-				self.cityName = $('.location-modal-city').first().html();
+				
 				if (!self.firstLoad){
+					self.cityName = $('.location-modal-city').first().html();
 					self.getUniversities();
 				}
-				self.highLight($('.location-modal-city').first(),"city");
-				self.highLightedCity = $('.location-modal-city').first();
+				self.highLight($(".location-modal-city:contains(" + self.cityName +  ")").first(),"city");
+				self.highLightedCity = $(".location-modal-city:contains(" + self.cityName +  ")").first();
 			},
 			error: function (data, textStatus, jqXHR){
 				alert("An error occurred,try again later.")
@@ -124,9 +125,11 @@
 				url: origin + "/api/badstudent/v0.9/location",
 				dataType: 'json',
 				success: function(data){
+					var totalDomString = "";
 					for(each in data){
-						universityContainer.append(self.universityDOMGenerator(data[each])); 
+						totalDomString += self.universityDOMGenerator(data[each]); 
 					}
+					universityContainer.append(totalDomString);
 
 					$('.location-modal-university').bind('click', function(){
 						self.firstLoad = false;
