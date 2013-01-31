@@ -16,7 +16,7 @@
  		$(this.el).append("<div id='info-full-width' class = 'full-width'>");
  		$('#info-full-width').append("<div class='headerImage'></div>");
         $('#info-full-width').append("<div class='gradi'></div>");
- 		$('#info-full-width').append("<div id='infoSearchHeader'><div id='info-cat'></div><div id='info-title'>根据联系信息找到的结果：</div></div>");
+ 		$('#info-full-width').append("<div id='infoSearchHeader'><div id='info-cat'></div><div id='info-title'>根据联系信息找到的结果</div></div>");
  		$('#info-full-width').append("<div id = 'info-info'></div>");
  		
  	},

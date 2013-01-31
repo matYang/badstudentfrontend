@@ -91,7 +91,9 @@
         this.searchResultView = new SearchResultView("#help-info", this.searchResult, 1);
 
         $('.help-ask-gender').css({'color' : ''});
+        $('.help-ask-gender').css({'border-color' : 'transparent'});
         $('#help-gender-female').css({'color' : '#0099CC'});
+        $('#help-gender-female').css({'border-color' : 'grey'});
     },
 
     showMale:function(){
@@ -101,7 +103,9 @@
         this.searchResultView = new SearchResultView("#help-info", this.searchResult, 0);
 
         $('.help-ask-gender').css({'color' : ''});
+        $('.help-ask-gender').css({'border-color' : 'transparent'});
         $('#help-gender-male').css({'color' : '#0099CC'});
+        $('#help-gender-male').css({'border-color' : 'grey'});
     },
 
 
@@ -112,7 +116,9 @@
  		this.searchResultView = new SearchResultView("#help-info", this.searchResult, 2);
 
         $('.help-ask-gender').css({'color' : ''});
+        $('.help-ask-gender').css({'border-color' : 'transparent'});
         $('#help-gender-dontCare').css({'color' : '#0099CC'});
+        $('#help-gender-dontCare').css({'border-color' : 'grey'});
  	},
 
  	bindEvents:function(){
