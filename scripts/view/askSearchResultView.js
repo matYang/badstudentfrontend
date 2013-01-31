@@ -18,29 +18,7 @@
     },
 
     render:function(){
-        $(this.el).append("<div class='backgroundImage'></div>");
-        $(this.el).append("<div id='ask-full-width' class='full-width'></div>");
-        $('#ask-full-width').append("<div class='headerImage'></div>");
-        $('#ask-full-width').append("<div class='gradi'></div>");
-        $('#ask-full-width').append("<div id='ask-upper-container' class='help-ask-upper-container'></div>");
-        $('#ask-upper-container').append("<div id='help-header' class='help-ask-header'></div>");
-        $('#help-header').append("<div id='ask-cat' class='help-ask-catContainer'></div>");
-        $('#help-header').append("<div id='ask-title' class='help-ask-title'>创建我的帮点名信息</div>");
-        $('#ask-upper-container').append("<div id='ask-createContainer' class='roundBox shadowBox help-ask-createContainer'></div>");
-        $('#ask-upper-container').append("<div class='help-ask-submit' ><a class='hxsbutton' id='ask-submit'><span class='hxsbutton-text'>找人帮我</span><span class='hxsbutton-slide-text'>喵~翘咯~</span><span class='hxsbutton-icon-right'><span></span></span></a></div>");   
-
-        $('#ask-createContainer').append("<div class='help-ask-row'><span>我能从 </span><input id='ask-input-startDatePicker' class='help-ask-input-datePicker'/><span> 到 </span><input id='ask-input-endDatePicker' class='help-ask-input-datePicker'/></div>");
-        $('#ask-createContainer').append("<div class='help-ask-row'><span style='float:left'>在</span><div id='ask-input-location' class='help-ask-input-location'></div><span>附近</span></div>");
-        $('#ask-createContainer').append("<div class='help-ask-row'><span>帮点名，我是一个</span><select id='ask-input-gender' class='help-ask-input-gender'><option value='0'>男生</option><option value='1'>女生</option></select><span>，这次帮点名</span></div>");
-        $('#ask-createContainer').append("<div class='help-ask-row'><span>我希望收取 </span><input id='ask-input-price' class='help-ask-input-price' type='number' placeholder='5'/><span> 元每小时</span></div>");
-
-        $('#ask-full-width').append("<div id='ask-lower-container' class='help-ask-lower-container'></div>");
-        $('#ask-lower-container').append("<div id='ask-lower-title' class='help-ask-lower-title'></div>");
-        $('#ask-lower-title').append("<div id='ask-alternative-title' class='help-ask-alternative-title'>或者看这里</div>");
-        $('#ask-lower-title').append("<div id='ask-gender-female' class='help-ask-gender'>只看女生</div>");
-        $('#ask-lower-title').append("<div id='ask-gender-male' class='help-ask-gender'>只看男生</div>");
-        $('#ask-lower-title').append("<div id='ask-gender-dontCare' class='help-ask-gender'>无所谓</div>");
-        $('#ask-lower-container').append("<div id='ask-info' class = 'help-ask-secondaryContainer'></div>");
+        $(this.el).append("<div class='backgroundImage'></div><div id='ask-full-width' class='full-width'><div class='headerImage'></div><div class='gradi'></div><div id='ask-upper-container' class='help-ask-upper-container'><div id='help-header' class='help-ask-header'><div id='ask-cat' class='help-ask-catContainer'></div><div id='ask-title' class='help-ask-title'>创建我的帮点名信息</div></div><div id='ask-createContainer' class='roundBox shadowBox help-ask-createContainer'><div class='help-ask-row'><span>我能从 </span><input id='ask-input-startDatePicker' class='help-ask-input-datePicker'/><span> 到 </span><input id='ask-input-endDatePicker' class='help-ask-input-datePicker'/></div><div class='help-ask-row'><span style='float:left'>在</span><div id='ask-input-location' class='help-ask-input-location'></div><span>附近</span></div><div class='help-ask-row'><span>帮点名，我是一个</span><select id='ask-input-gender' class='help-ask-input-gender'><option value='0'>男生</option><option value='1'>女生</option></select><span>，这次帮点名</span></div><div class='help-ask-row'><span>我希望收取 </span><input id='ask-input-price' class='help-ask-input-price' type='number' placeholder='5'/><span> 元每小时</span></div></div><div class='help-ask-submit' ><a class='hxsbutton' id='ask-submit'><span class='hxsbutton-text'>找人帮我</span><span class='hxsbutton-slide-text'>喵~翘咯~</span><span class='hxsbutton-icon-right'><span></span></span></a></div></div><div id='ask-lower-container' class='help-ask-lower-container'><div id='ask-lower-title' class='help-ask-lower-title'><div id='ask-alternative-title' class='help-ask-alternative-title'>或者看这里</div><div id='ask-gender-female' class='help-ask-gender'>只看女生</div><div id='ask-gender-male' class='help-ask-gender'>只看男生</div><div id='ask-gender-dontCare' class='help-ask-gender'>无所谓</div></div><div id='ask-info' class = 'help-ask-secondaryContainer'></div></div></div>");
 
 
         var self = this;

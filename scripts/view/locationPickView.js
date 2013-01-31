@@ -16,13 +16,7 @@
  	},
 
  	render:function(){
- 		$('body').append("<div class='popupPanel' id='locationSearchPanel'></div>");
- 		$('#locationSearchPanel').append("<div id='popupBoxLocation'></div>");
- 		$('#popupBoxLocation').append("<div class='popUpCloseButton' id='location-modal-closeButton'></div>");
- 		$('#popupBoxLocation').append("<div id='location-modal-titleContainer'><p>请选择大学</p><div></div></div>");
- 		$('#popupBoxLocation').append("<div id='location-modal-provinceContainer'></div>");
- 		$('#popupBoxLocation').append("<div id='location-modal-cityContainer'></div>");
- 		$('#popupBoxLocation').append("<div id='location-modal-universityContainer'></div>");
+ 		$('body').append("<div class='popupPanel' id='locationSearchPanel'><div id='popupBoxLocation'><div class='popUpCloseButton' id='location-modal-closeButton'></div><div id='location-modal-titleContainer'><p>请选择大学</p><div></div></div><div id='location-modal-provinceContainer'></div><div id='location-modal-cityContainer'></div><div id='location-modal-universityContainer'></div></div></div>");
  		
  		$('#location-modal-closeButton').bind('click', this.close);
  		this.getProvinces();
@@ -40,9 +34,11 @@
 			url: origin + "/api/badstudent/v0.9/location",
 			dataType: 'json',
 			success: function(data){
+				var totalDomString = "";
 				for(eachIndex in data){
-					provinceContainer.append(self.provinceDOMGenerator(data[eachIndex]));
+					totalDomString += self.provinceDOMGenerator(data[eachIndex]);
 				}
+				provinceContainer.append(totalDomString);
 				$('.location-modal-province').bind('click', function(){
 					self.firstLoad = false;
 					var selectedProvince = $(this).html();
@@ -81,10 +77,11 @@
 			url: origin + "/api/badstudent/v0.9/location",
 			dataType: 'json',
 			success: function(data){
+				var totalDomString = "";
 				for(each in data){
-
-					cityContainer.append(self.cityDOMGenerator(data[each]));
+					totalDomString += self.cityDOMGenerator(data[each]);
 				}
+				cityContainer.append(totalDomString);
 				$('.location-modal-city').bind('click', function(){
 					self.firstLoad = false;
 					var selectedCity = $(this).html();

@@ -12,6 +12,7 @@
  	},
 
  	render:function(){
+
  		$(this.el).append("<div class='backgroundImage'></div>");
  		$(this.el).append("<div id='info-full-width' class = 'full-width'>");
  		$('#info-full-width').append("<div class='headerImage'></div>");
