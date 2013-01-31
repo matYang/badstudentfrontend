@@ -41,7 +41,7 @@ var RegisterView= Backbone.View.extend({
 
  		$('#register-modal-main').append("<div class = 'register-modal-container' id = 'register-modal-passwordContainer'><div class = 'register-modal-container-word' id = 'register-modal-passwordWord'>密码</div><input class = 'register-modal-input' type = 'password' id = 'register-modal-password'/></div>");
  		$('#register-modal-main').append("<div class = 'register-modal-container' id = 'register-modal-confirmPasswordContainer'><div class = 'register-modal-container-word' id = 'register-modal-confirmPasswordWord'>确认密码</div><input class = 'register-modal-input' type = 'password' id = 'register-modal-confirmPassword'/></div>");
- 		$('#register-modal-main').append("<div class='roundBox shadowBox' id = 'register-modal-submit'><p>就这样吧</p><img class = 'submit-icon' src='asset/pencil.png' alt='铅笔.png'/></div>");
+        $('#register-modal-main').append("<button id = 'register-modal-submit'>就这样吧</button>");
 
  		togglePopup("registerViewPanel");
 
