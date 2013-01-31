@@ -10,18 +10,9 @@
  	},
 
  	render:function(){
- 		$('body').append("<div class='popupPanel' id='infoSearchPanel'></div>");
- 		$('#infoSearchPanel').append("<div class='roundBox' id='enterInfoSearch-modal-main'></div>");
- 		$('#enterInfoSearch-modal-main').append("<div class='popUpCloseButton'      id='enterInfoSearch-modal-closeButton'></div>");
- 		$('#enterInfoSearch-modal-main').append("<div class='infoSearch-modal-container'       id='enterInfoSearch-modal-emailContainer'>      <div class='infoSearch-modal-container-word'>邮箱</div>  <input class='infoSearch-modal-input' id='enterInfoSearch-modal-email' placeholder = 'lol@gamil.com' value = '" + storage.email + "'/></div>");
- 		$('#enterInfoSearch-modal-main').append("<div class='infoSearch-modal-container'       id='enterInfoSearch-modal-phoneContainer'>      <div class='infoSearch-modal-container-word'>电话</div>  <input class='infoSearch-modal-input' id='enterInfoSearch-modal-phone' placeholder = '159000000000' value = '" + storage.phone + "'/></div>");
- 		$('#enterInfoSearch-modal-main').append("<div class='infoSearch-modal-container'       id='enterInfoSearch-modal-qqContainer'>         <div class='infoSearch-modal-container-word'>QQ</div>   <input class='infoSearch-modal-input' id='enterInfoSearch-modal-qq' placeholder = '100000086' value = '" + storage.qq + "'/></div>");
- 		$('#enterInfoSearch-modal-main').append("<div class='infoSearch-modal-container'       id='enterInfoSearch-modal-twitterContainer'>    <div class='infoSearch-modal-container-word'>微博</div>  <input class='infoSearch-modal-input' id='enterInfoSearch-modal-twitter' placeholder = '@huaixuesheng' value = '" + storage.twitter + "'/></div>");
- 		$('#enterInfoSearch-modal-main').append("<div class='infoSearch-modal-container'       id='enterInfoSearch-modal-selfDefinedContainer'><div class='infoSearch-modal-container-word'>自定义</div><input class='infoSearch-modal-input' id='enterInfoSearch-modal-selfDefined' placeholder = '有缘会猜到我号码的' value = '" + storage.selfDefined + "'/></div>");
- 		$('#enterInfoSearch-modal-main').append("<div id='modal-noticeContainer'>请至少填写一项</div>");
- 		$('#enterInfoSearch-modal-main').append("<button id = 'enterInfoSearch-modal-submit'>找一找</button>");
- 		$('#enterInfoSearch-modal-closeButton').bind('click', this.close);
+ 		$('body').append("<div class='popupPanel' id='infoSearchPanel'><div class='roundBox' id='enterInfoSearch-modal-main'><div class='popUpCloseButton'      id='enterInfoSearch-modal-closeButton'></div><div class='infoSearch-modal-container'       id='enterInfoSearch-modal-emailContainer'>      <div class='infoSearch-modal-container-word'>邮箱</div>  <input class='infoSearch-modal-input' id='enterInfoSearch-modal-email' placeholder = 'lol@gamil.com' value = '" + storage.email + "'/></div><div class='infoSearch-modal-container'       id='enterInfoSearch-modal-phoneContainer'>      <div class='infoSearch-modal-container-word'>电话</div>  <input class='infoSearch-modal-input' id='enterInfoSearch-modal-phone' placeholder = '159000000000' value = '" + storage.phone + "'/></div><div class='infoSearch-modal-container'       id='enterInfoSearch-modal-qqContainer'>         <div class='infoSearch-modal-container-word'>QQ</div>   <input class='infoSearch-modal-input' id='enterInfoSearch-modal-qq' placeholder = '100000086' value = '" + storage.qq + "'/></div><div class='infoSearch-modal-container'       id='enterInfoSearch-modal-twitterContainer'>    <div class='infoSearch-modal-container-word'>微博</div>  <input class='infoSearch-modal-input' id='enterInfoSearch-modal-twitter' placeholder = '@huaixuesheng' value = '" + storage.twitter + "'/></div><div class='infoSearch-modal-container'       id='enterInfoSearch-modal-selfDefinedContainer'><div class='infoSearch-modal-container-word'>自定义</div><input class='infoSearch-modal-input' id='enterInfoSearch-modal-selfDefined' placeholder = '有缘会猜到我号码的' value = '" + storage.selfDefined + "'/></div><div id='modal-noticeContainer'>请至少填写一项</div><button id = 'enterInfoSearch-modal-submit'>找一找</button></div></div>");
 
+ 		$('#enterInfoSearch-modal-closeButton').bind('click', this.close);
  		togglePopup("infoSearchPanel");
  	},
 
