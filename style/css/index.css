@@ -213,23 +213,13 @@ body {
 	background-image: url("../../img/showcase.png");
 	background-repeat: no-repeat;
 	background-size: contain;
+	background-position: 0px 50px;
 	position: absolute;
 	width: 260px;
 	height: 330px;
 	margin-left: 550px;
 	margin-top: 55px;
 	border: none;
-}
-
-#pencil {
-	position: absolute;
-	margin-left: 22px;
-	margin-top: 3px;
-	width: 34px;
-	height: 34px;
-	background-image: url(../../asset/pencil.png);
-	background-repeat: no-repeat;
-	background-size: contain;
 }
 
 
