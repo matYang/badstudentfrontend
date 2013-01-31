@@ -85,6 +85,10 @@
         $('#feedBackContent').val("");
         $('#feedBackNotice').html(200);
         $('#feedBackSubmit').css({'-webkit-transition-duration': '0.2s'});
+        var height = $('body').css('height');
+        var width = $('body').css('width');
+        $('#feedBackPanel').css({'height':height});
+        $('#feedBackPanel').css({'width':width});
         $('#feedBackPanel').css({'visibility':'visible'});
         $("#feedBackContent").focus();
     },
