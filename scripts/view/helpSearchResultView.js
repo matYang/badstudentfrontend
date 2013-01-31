@@ -17,7 +17,7 @@
 
  	render:function(){
         $(this.el).append("<div class='backgroundImage'></div>");
- 		$(this.el).append("<div id='help-full-width' class='full-width'>");
+ 		$(this.el).append("<div id='help-full-width' class='full-width'></div>");
         $('#help-full-width').append("<div class='headerImage'></div>");
         $('#help-full-width').append("<div class='gradi'></div>");
  		$('#help-full-width').append("<div id='help-upper-container' class='help-ask-upper-container'></div>");
