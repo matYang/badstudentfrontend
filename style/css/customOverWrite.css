@@ -5,3 +5,7 @@
 .hasDatepicker{
 	cursor: pointer;
 }
+
+#main-left-selected .searchResultLocation {
+	max-width: 280px;
+}
