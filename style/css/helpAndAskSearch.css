@@ -56,14 +56,6 @@
 	margin-bottom: 2.5%;
 }
 
-.help-ask-row p {
-	float: left;
-	margin: 0;
-	-moz-opacity: 0.50;
-	opacity: 0.50;
-	-ms-filter:"progid:DXImageTransform.Microsoft.Alpha"(Opacity=50);
-}
-
 .help-ask-row span {
 	-moz-opacity: 0.50;
 	opacity: 0.50;
