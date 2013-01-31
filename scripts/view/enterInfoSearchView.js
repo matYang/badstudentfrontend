@@ -35,50 +35,50 @@
             var emailArray = this.email.split("@");
             if (!(emailArray.length == 2 && emailArray[0].length > 0 && emailArray[1].length > 3)){
                 proceed = false;
-                alert("invalid email format");
+                alert("邮箱格式不正确");
             }
-            if (this.email.length > 50){
+            if (this.email.length > 40){
                 proceed = false;
-                alert("email max length 50 chars");
+                alert("邮箱长度不能超过40个字符");
             }
         }
         
         if (this.phone.length > 0){
             if (!(this.phone.length > 4)){
                 proceed = false;
-                alert("invalid phone number format");
+                alert("电话格式不正确");
             }
             if (this.phone.length > 20){
                 proceed = false;
-                alert("phone max length 50 chars");
+                alert("电话长度不能超过20位");
             }
         }
         
         if (this.qq.length > 0){
             if (!(this.qq.length > 4)){
                 proceed = false;
-                alert("invalid qq format");
+                alert("QQ格式不正确");
             }
-            if (this.qq.length > 50){
+            if (this.qq.length > 40){
                 proceed = false;
-                alert("qq max length 50 chars");
+                alert("QQ长度不能超过40位");
             }
         }
 
-        if (this.twitter.length > 50){
+        if (this.twitter.length > 20){
             proceed = false;
-            alert("twitter max length 50 chars");
+            alert("微博长度不能超过20位");
         }
 
-        if (this.selfDefined.length > 50){
+        if (this.selfDefined.length > 20){
             proceed = false;
-            alert("selfDefined max length 50 chars");
+            alert("自定义长度不能超过20位");
         }
 
 		/*targeted, add more friendly alert instead of js alert*/
  		if (!(this.email || this.phone || this.qq || this.twitter || this.selfDefined)){
  			proceed = false;
- 			alert("please enter at least one entry of contact info");
+ 			alert("请至少输入一项联系方式");
  			//TODO add more visual effects
  		}
 

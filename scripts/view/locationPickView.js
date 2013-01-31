@@ -57,7 +57,7 @@
 				self.highLightedProvince = $(".location-modal-province:contains(" + self.provinceName +  ")").first();
 			},
 			error: function (data, textStatus, jqXHR){
-				alert("An error occurred,try again later.")
+				alert("请稍后再试")
 			},
 		});
  	},
@@ -104,7 +104,7 @@
 				self.highLightedCity = $(".location-modal-city:contains(" + self.cityName +  ")").first();
 			},
 			error: function (data, textStatus, jqXHR){
-				alert("An error occurred,try again later.")
+				alert("请稍后再试")
 			},
 		});
  	},
@@ -139,7 +139,7 @@
 
 				},
 				error: function (data, textStatus, jqXHR){
-					alert("An error occurred,try again later.");
+					alert("请稍后再试");
 				},
 		 	});
  	},

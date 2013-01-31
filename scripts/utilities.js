@@ -21,7 +21,7 @@ function main(user){
         
 		error: function(model, response){
 
-			alert("failed to fetch data from server");
+			alert("无法连接服务器");
 		}
     });
 }
@@ -107,7 +107,7 @@ function parseDate(dateString){
 
 function isStorageSupported() {
     if (typeof(localStorage) === "undefined" || typeof(sessionStorage) === "undefined") {
-        alert("Poor guy..your browser does not even support web storage...");
+        alert("换个浏览器吧...");
         return false;
     }
     return true;
