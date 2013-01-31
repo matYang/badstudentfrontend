@@ -17,6 +17,10 @@ body {
 	src: url("../../asset/YuppySC.otf") format("opentype");
 } 
 
+#main-full-width{
+    height: 975px;
+}
+
 #footerImage {
 	margin-top: 15px;
 	background: url('../../img/footer.png');
