@@ -36,8 +36,8 @@
             },
 
             error:function (response){
-            	alert("model fetch failure, current URL:" + self.recentsResults.url);
-
+            	//alert("model fetch failure, current URL:" + self.recentsResults.url);
+                alert("获取最近的点名失败");
             },
 
         });

@@ -105,7 +105,7 @@ var AppRouter = Backbone.Router.extend({
 
             error: function(model, response){
 
-                alert("viewById::failed to fetch data from server");
+                alert("无法连接服务器");
             }
         });
     },
@@ -138,7 +138,7 @@ var AppRouter = Backbone.Router.extend({
             
             error: function(model, response){
                 
-                alert("helpSearch::failed to fetch data from server");
+                alert("无法连接服务器");
             }
         });
 
@@ -173,7 +173,7 @@ var AppRouter = Backbone.Router.extend({
             
             error: function(model, response){
 
-                alert("askSearch::failed to fetch data from server");
+                alert("无法连接服务器");
             }
         });
 
@@ -203,7 +203,7 @@ var AppRouter = Backbone.Router.extend({
             
             error: function(model, response){
 
-                alert("infoSearch::failed to fetch data from server");
+                alert("无法连接服务器");
             }
         });
 

@@ -84,44 +84,44 @@ var RegisterView= Backbone.View.extend({
             var emailArray = this.email.split("@");
             if (!(emailArray.length == 2 && emailArray[0].length > 0 && emailArray[1].length > 3)){
                 proceed = false;
-                alert("invalid email format");
+                alert("邮箱格式不正确");
             }
             if (this.email.length > 40){
                 proceed = false;
-                alert("email max length 40 chars");
+                alert("邮箱长度不能超过40个字符");
             }
         }
         
         if (this.phone.length > 0){
             if (!(this.phone.length > 4)){
                 proceed = false;
-                alert("invalid phone number format");
+                alert("电话格式不正确");
             }
             if (this.phone.length > 20){
                 proceed = false;
-                alert("phone max length 20 chars");
+                alert("电话长度不能超过20位");
             }
         }
         
         if (this.qq.length > 0){
             if (!(this.qq.length > 4)){
                 proceed = false;
-                alert("invalid qq format");
+                alert("QQ格式不正确");
             }
             if (this.qq.length > 40){
                 proceed = false;
-                alert("qq max length 40 chars");
+                alert("QQ长度不能超过40位");
             }
         }
 
         if (this.twitter.length > 20){
             proceed = false;
-            alert("twitter max length 20 chars");
+            alert("微博长度不能超过20位");
         }
 
         if (this.selfDefined.length > 20){
             proceed = false;
-            alert("selfDefined max length 20 chars");
+            alert("自定义长度不能超过20位");
         }
 
 
@@ -129,7 +129,7 @@ var RegisterView= Backbone.View.extend({
 			this.courseLengthInMinutes = Number($('#register-modal-courseLengthInMinutes').val());
 			if (!((typeof this.courseLengthInMinutes == "number") && this.courseLengthInMinutes >= 15 && this.courseLengthInMinutes % 1 === 0)){
 				proceed = false;
-				alert("please enter valid cosurse length, minimum 15min");
+				alert("课程长度最短15分钟，必须是整数");
 				//TODO add more visual effects
 			}
  		}
@@ -141,25 +141,25 @@ var RegisterView= Backbone.View.extend({
 		/*targeted, add more friendly alert instead of js alert*/
  		if (!(this.email || this.phone || this.qq || this.twitter || this.selfDefined)){
  			proceed = false;
- 			alert("please enter at least one entry of contact info");
+ 			alert("请至少输入一项联系方式");
  			//TODO add more visual effects
  		}
 
  		if (!(this.password)){
  			proceed = false;
- 			alert("please enter password");
+ 			alert("请输入密码");
  			//TODO add more visual effects
  		}
 
         if (this.password.length > 20){
             proceed = false;
-            alert("password max length 20 characters");
+            alert("密码不能超过20位");
             //TODO add more visual effects
         }
 
  		if (!(this.password === $('#register-modal-confirmPassword').val())){
  			proceed = false;
- 			alert("password not confirmed");
+ 			alert("两次输入的密码不一样");
  			//TODO add more visual effects
  		}
 
@@ -205,13 +205,13 @@ var RegisterView= Backbone.View.extend({
 			
 			error: function(model, response){
                 if (response.status == 400){
-                    alert("bad request, please check the fields of the message and try again later");
+                    alert("信息格式不正确，请重新确认");
                 }
                 else if (response.status == 409){
-                    alert("message conflict with backend, please try different message fields");
+                    alert("信息已经存在");
                 }
                 else{
-                    alert("system error, please report to us");
+                    alert("系统错误，请联系我们");
                 }
 
 			}

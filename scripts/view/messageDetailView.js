@@ -7,7 +7,7 @@
  		this.message = message;
 
         if (this.message.get('authCode') == -2){
-            alert("This messages is outdated or has been deleted by its publisher");
+            alert("这个消息已经过期或被创建者删除");
             app.navigate("",true);
         }
         else{
@@ -124,11 +124,11 @@
         var self = this;
         var password = $('#detail-submit-password').val();
         if (!(password)){
-            alert("please enter password");
+            alert("请输入密码");
             //TODO add more visual effects
         }
         else if (password.length > 20){
-            alert("password max length 20 characters");
+            alert("密码不能超过20位");
         }
         else{
             if (this.allowPassword){
@@ -169,11 +169,11 @@
                     $('#detail-submit-password').value = "";
                 }
                 else if (response.status == 400){
-                    alert("this message no longer exists or valid");
+                    alert("消息失效");
                     app.navigate("",true);
                 }
                 else{
-                    alert("system error, please report to us");
+                    alert("系统错误，请联系我们");
                 }
 
             }

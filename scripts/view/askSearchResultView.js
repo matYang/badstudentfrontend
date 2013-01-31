@@ -178,7 +178,7 @@
             var price = Number($('#ask-input-price').val());
             if (!(typeof price == "number" && price > 0 && price % 1 === 0)){
                 proceed = false;
-                alert("please enter a valid price");
+                alert("请输入一个大于0的整数");
                 // add more visual effects
             }
             if (typeof price == "number" && price > 999){

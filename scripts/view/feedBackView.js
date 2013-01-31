@@ -11,7 +11,7 @@
  	},
 
  	render:function(){
-        $(this.el).append("<div id = 'feedBackShow'>提供意见</div><div class='popupPanel' id='feedBackPanel'><div id = 'feedBackContainer' class = 'roundBox'><div id = 'feedBackClose'></div><div id = 'feedBackIntro'>目前我们处于v0.9 beta版本中，欢迎大家汇报问题，踊跃提出建议～</div><textarea id = 'feedBackContent'></textarea><div id = 'feedBackNotice'>200</div><button id = 'feedBackSubmit'>提交</button></div></div>");
+        $(this.el).append("<div id = 'feedBackShow'>提供意见</div><div class='popupPanel' id='feedBackPanel'><div id = 'feedBackContainer' class = 'roundBox'><div id = 'feedBackClose'></div><div id = 'feedBackIntro'>目前我们处于v0.9 beta版本中，欢迎大家汇报问题，踊跃提出建议～</div><div id='mailto'><a href='mailto:uwse@me.com?Subject=网站不好用'>也可以发邮件给我们</a></div><textarea id = 'feedBackContent'></textarea><div id = 'feedBackNotice'>200</div><button id = 'feedBackSubmit'>提交</button></div></div>");
         
         $('#feedBackSubmit').on('click',this.validation);
         $('#feedBackShow').on('click', this.show);
@@ -37,11 +37,11 @@
 
         if (this.content.length < 1){
             proceed = false;
-            alert("feedBack too short, minimum 1 character");
+            alert("请至少输入一个字符");
         }
         if (this.content.length > 200){
             proeed = false;
-            alert("feedBack too long, max 200");
+            alert("反馈太长了。。。。你还是发邮件吧");
         }
 
         if (proceed){
@@ -67,9 +67,9 @@
             },
             error: function (data, textStatus, jqXHR){
                 if (textStatus && textStatus == 400){
-                    alert("Invalid Message")
+                    alert("出错了，请稍后再试");
                 }
-                alert("An error occurred,try again later.")
+                alert("出错了，请稍后再试");
             },
         });
     },

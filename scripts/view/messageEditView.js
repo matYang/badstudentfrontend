@@ -169,17 +169,17 @@
             
             error: function(model, response){
                 if (response.status == 400){
-                    alert("bad request, please verify all the fields and try again later");
+                    alert("信息格式不正确，请重新确认");
                 }
                 else if (response.status == 401){
-                    alert("authurization failed, please try again later");
+                    alert("验证失败，请稍后重试");
                 }
                 else if (response.status == 409){
-                    alert("the message has already been removed from server, redirecting to main page");
+                    alert("信息已被删除，现在回到主页");
                     app.navigate("", true);
                 }
                 else{
-                    alert("system error, please report to us");
+                    alert("系统错误，请联系我们");
                 }
 
             }
@@ -208,44 +208,44 @@
             var emailArray = this.email.split("@");
             if (!(emailArray.length == 2 && emailArray[0].length > 0 && emailArray[1].length > 3)){
                 proceed = false;
-                alert("invalid email format");
+                alert("邮箱格式不正确");
             }
             if (this.email.length > 40){
                 proceed = false;
-                alert("email max length 40 chars");
+                alert("邮箱长度不能超过40个字符");
             }
         }
         
         if (this.phone.length > 0){
             if (!(this.phone.length > 4)){
                 proceed = false;
-                alert("invalid phone number format");
+                alert("电话格式不正确");
             }
             if (this.phone.length > 20){
                 proceed = false;
-                alert("phone max length 20 chars");
+                alert("电话长度不能超过20位");
             }
         }
         
         if (this.qq.length > 0){
             if (!(this.qq.length > 4)){
                 proceed = false;
-                alert("invalid qq format");
+                alert("QQ格式不正确");
             }
             if (this.qq.length > 40){
                 proceed = false;
-                alert("qq max length 40 chars");
+                alert("QQ长度不能超过40位");
             }
         }
 
         if (this.twitter.length > 20){
             proceed = false;
-            alert("twitter max length 20 chars");
+            alert("微博长度不能超过20位");
         }
 
         if (this.selfDefined.length > 20){
             proceed = false;
-            alert("selfDefined max length 20 chars");
+            alert("自定义长度不能超过20位");
         }
 
 
@@ -254,7 +254,7 @@
             this.endDate = this.startDate;  //sync date
             if (!((typeof this.courseLengthInMinutes == "number") && this.courseLengthInMinutes >= 15 && this.courseLengthInMinutes % 1 === 0)){
                 proceed = false;
-                alert("please enter valid cosurse length, minimum 15min");
+                alert("课程长度最短15分钟，必须是整数");
                 //TODO add more visual effects
             }
         }
@@ -264,19 +264,19 @@
 
         if (!(typeof this.price == "number" && this.price > 0 && this.price % 1 === 0)){
             proceed = false;
-            alert("please enter a valid price");
+            alert("请输入一个大于0的整数");
             //TODO add more visual effects
         }
 
-        if (typeof this.price == "number" && this.price > 1000){
+        if (typeof this.price == "number" && this.price > 999){
             proceed = false;
-            alert("最多选¥1000");
+            alert("最多选¥999");
             // add more visual effects
         }
 
         if (!(this.email || this.phone || this.qq || this.twitter || this.selfDefined)){
             proceed = false;
-            alert("please enter at least one entry of contact info");
+            alert("请至少输入一项联系方式");
             //TODO add more visual effects
         }
 
@@ -318,17 +318,17 @@
             
             error: function(model, response){
                 if (response.status == 400){
-                    alert("bad request, please verify the fields of the message and try again later");
+                    alert("信息格式不正确，请重新确认");
                 }
                 else if (response.status == 401){
-                    alert("authurization failed, please try again later");
+                    alert("验证失败，请稍后重试");
                 }
                 else if (response.status == 409){
-                    alert("the message has already been removed from server, redirecting to main page");
+                    alert("信息已被删除，现在回到主页");
                     app.navigate("", true);
                 }
                 else{
-                    alert("system error, please report to us");
+                    alert("系统错误，请联系我们");
                 }
 
             }
