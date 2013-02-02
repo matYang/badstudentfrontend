@@ -28,7 +28,7 @@
         $('#help-upper-container').append("<div class='help-ask-submit' ><a class='hxsbutton' id='help-submit'><span class='hxsbutton-text'>找人帮我</span><span class='hxsbutton-slide-text'>喵~翘咯~</span><span class='hxsbutton-icon-right'><span></span></span></a></div>");
 
         $('#help-createContainer').append("<div class='help-ask-row'><span style='float:left'>我在</span><div id='help-input-location' class='help-ask-input-location'></div></div>");
-        $('#help-createContainer').append("<div class='help-ask-row'><span>附近求 </span><input id='help-input-content' placeholder='eg 代点名'/></div>");
+        $('#help-createContainer').append("<div class='help-ask-row'><span>附近求 </span><input id='help-input-content' placeholder='代点名'/></div>");
         $('#help-createContainer').append("<div class='help-ask-row'><span>这节课在 </span><input id='help-input-datePicker' class='help-ask-input-datePicker'/><span> 我需要一个</span></div>");
         $('#help-createContainer').append("<div class='help-ask-row'><select id='help-input-gender' class='help-ask-input-gender'><option value='2'>男生或女生</option><option value='0'>男生</option><option value='1'>女生</option></select><span> 这节课我愿意付 </span><input id='help-input-price' class='help-ask-input-price' type='number' placeholder='5'/><span> 元!</span></div>");
 
